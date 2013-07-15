@@ -8,7 +8,6 @@ layout: page
 			<dt>Langages</dt>
 			<dd>
 				<span class="label label-info">Java</span>
-				<span class="label label-info">C/C++</span>
 				<span class="label label-info">Python</span>
 				<span class="label label-info">Perl</span>
 				<span class="label label-info">JavaScript</span>
@@ -50,6 +49,7 @@ layout: page
 			<dd>
 				<span class="label label-info">Tomcat</span><br/>
 				<span class="label label-info">Apache HTTP</span>
+				<span class="label label-info">Nginx</span>
 			</dd>
 		</dl>
 		<dl class="dl-horizontal">
@@ -78,7 +78,7 @@ layout: page
 			<dt>Tests</dt>
 			<dd>
 				<span class="label label-info">JUnit</span>
-				<span class="label label-info">Fest-Assert</span>
+				<span class="label label-info">AssertJ</span>
 				<span class="label label-info">Mockito</span>
 			</dd>
 		</dl>
@@ -110,7 +110,10 @@ layout: page
 					</ul>
 				</p>
 				<p>
-					<span class="label label-info">Jenkins Enterprise</span>				</p>
+					<span class="label label-info">Jenkins Enterprise</span>
+					<span class="label label-info">Git</span>
+					<span class="label label-info">IntelliJ</span>
+				</p>
 			</div>
 		</div>
 		<div class="row">
@@ -158,6 +161,7 @@ layout: page
 					<span class="label label-info">Spring-batch</span>
 					<span class="label label-info">Twitter bootstrap</span>
 					<span class="label label-info">AngularJS</span>
+					<span class="label label-info">MongoDB</span>
 				</p>
 			</div>
 		</div>
