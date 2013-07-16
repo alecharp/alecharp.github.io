@@ -14,4 +14,4 @@ rdiscount:
 pygments: true
 
 include: [.htaccess]
-exclude: [README.md, LICENSE]
+exclude: [README.md, LICENSE, *.scss]
