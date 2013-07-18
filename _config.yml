@@ -13,4 +13,4 @@ rdiscount:
   extensions: [smart]
 pygments: true
 
-exclude: [README.md, LICENSE, *.scss]
+exclude: [README.md, LICENSE, resources/css/alecharp.scss]
