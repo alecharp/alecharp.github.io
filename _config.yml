@@ -13,5 +13,4 @@ rdiscount:
   extensions: [smart]
 pygments: true
 
-include: [.htaccess]
 exclude: [README.md, LICENSE, *.scss]
