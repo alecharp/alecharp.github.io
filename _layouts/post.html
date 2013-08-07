@@ -9,8 +9,12 @@ layout: default
   <div class="span8" id="post" style="max-width:{{site.maxWidth}}">
     <h1>{{ page.title }}</h1>
     {% if page.excerpt %}
-      <p class="muted">{{page.excerpt}}<p><hr/>
+      <p class="muted">{{page.excerpt}}<p>
     {% endif %}
+    {% if page.tags %}
+      {% for tag in page.tags %}<span class="label label-info">{{ tag }}</span> {% endfor %}
+    {% endif %}
+    <hr/>
 
     <div>
       {{ content }}
@@ -41,7 +45,6 @@ layout: default
     </script>
     
     <script type="text/javascript">
-      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
       var disqus_shortname = 'alecharpsblog'; // required: replace example with your forum shortname
       var disqus_url = 'http://blog.lecharpentier.org{{ page.url }}';
 
