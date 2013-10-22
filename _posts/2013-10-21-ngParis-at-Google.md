@@ -188,8 +188,8 @@ Un petit ré-édition pour faire le tour des gens qui se sont investis dans cet 
  - [Sébastien Letélié : @sebmade][sebastienletelie_twitter]
  - [Alexis Moussine-Pouchkine : @alexismp][alexismp_twitter]
  - [Jérôme d'@ebg](https://twitter.com/ebg), [frère de Julien de  @revolunet](https://twitter.com/revolunet), avoir filmer la soirée et rendre disponible prochainement les vidéos
- - [@pkozlowski_os][pkozlowski_os_twitter]
- - [@ThierryChatel][ThierryChatel_twitter]
+ - [Pawel Kozlowski : @pkozlowski_os][pkozlowski_os_twitter]
+ - [Thierry Chatel : @ThierryChatel][ThierryChatel_twitter]
 
 Un grand bravo aux organisateurs et à bientôt!
 
