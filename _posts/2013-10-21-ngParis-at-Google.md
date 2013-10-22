@@ -187,9 +187,14 @@ Un petit ré-édition pour faire le tour des gens qui se sont investis dans cet 
  - [Thierry Lau : @laut3rry][thierrylau_twitter]
  - [Sébastien Letélié : @sebmade][sebastienletelie_twitter]
  - [Alexis Moussine-Pouchkine : @alexismp][alexismp_twitter]
- - [Jérôme d'@ebg](https://twitter.com/ebg), [frère de Julien de  @revolunet](https://twitter.com/revolunet), avoir filmer la soirée et rendre disponible prochainement les vidéos
+ - [Jérôme d'@ebg](https://twitter.com/ebg), [frère de Julien de @revolunet](https://twitter.com/revolunet), avoir filmer la soirée et rendre disponible prochainement les vidéos
  - [Pawel Kozlowski : @pkozlowski_os][pkozlowski_os_twitter]
  - [Thierry Chatel : @ThierryChatel][ThierryChatel_twitter]
+
+### Vidéo et slides
+
+Chose promise chose dû: [la vidéo et les slides](http://88.190.11.98/Mediasite6/Play/449acaf8520d4bb39f53e7aa5a5bde0a1d) des présentations.
+
 
 Un grand bravo aux organisateurs et à bientôt!
 
