@@ -180,6 +180,17 @@ Toutefois, la bonne nouvelle c'est que la conférence a été filmé et sera pro
 
 Pour ma part, j'ai pris un grand plaisir à assister à cette conférence. Une très belle organisation, des locaux magnifiques, non pas un mais 3 buffets à disposition pour se restaurer. Les speakers très intéressants, du code, des retours d'expériences et des bonnes pratiques. Pour moi, une combinaison parfaite.
 
+### Remerciement
+
+Un petit ré-édition pour faire le tour des gens qui se sont investis dans cet évènement. Un grand bravo à eux et merci:
+
+ - [Thierry Lau : @laut3rry][thierrylau_twitter]
+ - [Sébastien Letélié : @sebmade][sebastienletelie_twitter]
+ - [Alexis Moussine-Pouchkine : @alexismp][alexismp_twitter]
+ - [Jérôme d'@ebg](https://twitter.com/ebg), [frère de Julien de  @revolunet](https://twitter.com/revolunet), avoir filmer la soirée et rendre disponible prochainement les vidéos
+ - [@pkozlowski_os][pkozlowski_os_twitter]
+ - [@ThierryChatel][ThierryChatel_twitter]
+
 Un grand bravo aux organisateurs et à bientôt!
 
 ## Annonce de fin
