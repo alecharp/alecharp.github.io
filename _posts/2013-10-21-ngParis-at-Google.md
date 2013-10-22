@@ -111,7 +111,10 @@ Le premier talk est terminé, il est bien accueilli. Quelques questions sont pos
 
 Bref, un bon point sur de bonnes pratiques, un point de vue assez tranché avec tout de même une vision réaliste sur le développement actuel. Bravo et Merci à Pawel pour sa prestation. 
 
-Une petite photo pour immortaliser l'assemblée (avec les tshirts offerts) et au suivant: Thierry Chatel.
+Une petite photo pour immortaliser l'assemblée (avec les tshirts offerts)
+
+<center><blockquote class="twitter-tweet"><p>Angularjs meetup full room <a href="http://t.co/bxk7pyfLEN">pic.twitter.com/bxk7pyfLEN</a></p>&mdash; Sébastien Letélié (@sebmade) <a href="https://twitter.com/sebmade/statuses/392360777686204416">October 21, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></center>
 
 ## Les services dans AngularJS
 
@@ -182,3 +185,4 @@ Un grand bravo aux organisateurs et à bientôt!
 ## Annonce de fin
 
 Sébastien Letélié nous rappelle qu'il organise un hackaton dédié à la santé les 28-29-30 mars prochain à Strasbourg. Les défis provenant des médecins arriveront bientôt. Il peut s'agir d'une bonne occasion de mettre en oeuvre AngularJS dans le cadre d'un projet. Plus d'informations sur le site [http://digitalhealthcamp.eu/](http://digitalhealthcamp.eu/).
+
