@@ -1,7 +1,7 @@
 title: Alecharp's blog
-author: Adrien Lecharpentier
-email: "adrien.lecharpentier@gmail.com"
-maxWidth: 960px
+author:
+  name: Adrien Lecharpentier
+  email: "adrien.lecharpentier@gmail.com"
 
 permalink: pretty
 
@@ -13,4 +13,4 @@ rdiscount:
   extensions: [smart]
 pygments: true
 
-exclude: [README.md, LICENSE, resources/css/alecharp.scss]
+exclude: [README.md, LICENSE.md, _sass, bower_components]
