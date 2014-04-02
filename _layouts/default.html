@@ -4,38 +4,30 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>{{ page.title }}</title>
   <meta name="author" content="Adrien Lecharpentier" />
-  <link href="/atom.xml" rel="alternate" title="Adrien Lecharpentier's blog ATOM" type="application/atom+xml" />
+  <link href="{{site.baseurl}}/atom.xml" rel="alternate" title="Adrien Lecharpentier's blog ATOM" type="application/atom+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="{{site.baseurl}}/resources/css/main.css" type="text/css" />
 </head>
 <body>
-
-  <div class="container-fluid header">
-    <div class="row-fluid">
-      <div class="span8 offset2" style="max-width:{{site.maxWidth}}">
-        <section class="name"><a href="/">Adrien <b>Lecharpentier</b></a></section>
-        <ul class="menu">
-          <li><a href="/apropos">À propos</a></li>
-          <li><a href="/cv">CV</a></li>
-          <li><a href="/archives">Archives</a></li>
-        </ul>
-        <ul class="social">
-          <li><a href="https://twitter.com/alecharp" class="icon-twitter"></a></li>
-          <li><a href="https://github.com/alecharp" class="icon-github"></a></li>
-          <li><a href="http://fr.linkedin.com/in/alecharp/" class="icon-linkedin"></a></li>
-          <li><a href="/atom.xml" class="icon-rss"></a></li>
-        </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+        <div class="container-fluid">
+          <div class="row header">
+            <section>
+              <a href="{{site.baseurl}}/">Adrien <b>Lecharpentier</b></a>
+            </section>
+            <ul>
+              <li><a href="{{site.baseurl}}/apropos">À propos</a></li>
+              <li><a href="{{site.baseurl}}/cv">CV</a></li>
+            </ul>
+          </div>
+          <div class="row">{{content}}</div>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="container-fluid" id="content">
-    <div class="row-fluid">{{content}}</div>
-  </div>
-
-  <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-  <script src="/resources/js/holder.js"></script>
 
   <!-- Google analytics -->
   <script type="text/javascript">
