@@ -4,6 +4,7 @@ author:
   email: "adrien.lecharpentier@gmail.com"
 
 permalink: pretty
+baseurl: ''
 
 rss_feed: "/atom.xml"
 future: false
