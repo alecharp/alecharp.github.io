@@ -32,13 +32,13 @@ $menuSize: 20px;
 	font-family: 'Quicksand', Arial, sans-serif;
 }
 
-body { 
+body {
 	padding-top:20px;
 	margin-bottom: 40px;
 }
 
 @for $i from 1 through 4 {
-  h#{$i} { 
+  h#{$i} {
 	font-family: 'Oswald', Arial, sans-serif;
 	font-weight: 300;
   	text-transform: uppercase;
@@ -83,15 +83,19 @@ ul.posts {
 		list-style-type: none;
 	}
     span {
-    	font-size: $itemSize - 5px; 
+    	font-size: $itemSize - 5px;
     }
 	a, a:hover { text-decoration:none; }
 }
 
 #post {
-	pre code, pre code * {
-		font-size: $codeSize;
-		font-family: 'Inconsolata', Arial, sans-serif; 
+	pre {
+		padding: 10px;
+		background-color: #333;
+		code, code * {
+			font-size: $codeSize;
+			font-family: 'Inconsolata', Arial, sans-serif;
+		}
 	}
 	* img {
 		width: 100%;
