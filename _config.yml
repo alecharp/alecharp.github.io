@@ -14,4 +14,4 @@ rdiscount:
   extensions: [smart]
 pygments: true
 
-exclude: [README.md, LICENSE.md, _sass, bower_components]
+exclude: [README.md, LICENSE.md, _sass, bower_components, bower.json]
