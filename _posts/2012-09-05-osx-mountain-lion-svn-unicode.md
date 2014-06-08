@@ -32,14 +32,18 @@ commit -m "Initial import, empty file"`.
 
 On s'attends alors à avoir un status clean:
 
-	$ svn status
-	$
+{% highlight PowerShell %}
+$ svn status
+$
+{% endhighlight %}
 
 Mais là, Ô malheur, nous avons:
 
-	$ svn status
-	? démonstration.otp
-	! démonstration.otp
+{% highlight PowerShell %}
+$ svn status
+? démonstration.otp
+! démonstration.otp
+{% endhighlight %}
 
 Oui mais encore?
 
@@ -47,46 +51,52 @@ Oui mais encore?
 Donc on ne cherche pas encore midi à 14 heure et on mise tout sur l'accent
 dans le nom du fichier. Donc un petit `locale` s'impose:
 
-	$ locale
-	LANG="fr_FR.UTF-8"
-	LC_COLLATE="fr_FR.UTF-8"
-	LC_CTYPE="fr_FR.UTF-8"
-	LC_MESSAGES="fr_FR.UTF-8"
-	LC_MONETARY="fr_FR.UTF-8"
-	LC_NUMERIC="fr_FR.UTF-8"
-	LC_TIME="fr_FR.UTF-8"
-	LC_ALL=
+{% highlight PowerShell %}
+$ locale
+LANG="fr_FR.UTF-8"
+LC_COLLATE="fr_FR.UTF-8"
+LC_CTYPE="fr_FR.UTF-8"
+LC_MESSAGES="fr_FR.UTF-8"
+LC_MONETARY="fr_FR.UTF-8"
+LC_NUMERIC="fr_FR.UTF-8"
+LC_TIME="fr_FR.UTF-8"
+LC_ALL=
+{% endhighlight %}
 
 D'accord très bien, UTF8 c'est propre, pas de soucis. Mais les accents ne sont
 pas codés pareil.
 
 Allons faire un tour du coté de l'installation de subversion avec `brew`:
 
-	$ brew info subversion
-	…
-	==> Options
-	--python
-		Build Python bindings
-	--universal
-		Build a universal binary
-	--ruby
-		Build Ruby bindings
-	--perl
-		Build Perl bindings
-	--unicode-path
-		Include support for OS X UTF-8-MAC filename
-	--java
-		Build Java bindings
+{% highlight PowerShell %}
+$ brew info subversion
+…
+==> Options
+--python
+	Build Python bindings
+--universal
+	Build a universal binary
+--ruby
+	Build Ruby bindings
+--perl
+	Build Perl bindings
+--unicode-path
+	Include support for OS X UTF-8-MAC filename
+--java
+	Build Java bindings
+{% endhighlight %}
 
 C'est parfait, on peut faire l'installation avec le support de l'unicode sur les
 noms de fichier donc problème résolu.
 
-	$ brew uninstall subversion
-	…
-	$ brew install subversion --unicode-path
-	…
+{% highlight PowerShell %}
+$ brew uninstall subversion
+…
+$ brew install subversion --unicode-path
+…
+{% endhighlight %}
 
-## Ça ne fonctionne toujours pas? 
+## Ça ne fonctionne toujours pas?
 Là c'est entièrement de ma faute: pas la bonne commande de svn.. `brew`
 installe les commandes dans `/usr/local/bin` mais la commande que j'utilisais
 été dans `/usr/bin` donc pas la bonne. Modification du `PATH` pour que

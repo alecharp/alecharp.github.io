@@ -20,7 +20,9 @@ simplement sur la page "précédente", de la logique de mes pages.
 Donc ce que je veux c'est pouvoir dans le formulaire d'ajout d'évènement
 revenir simplement sur la liste de mes évènements.
 
+{% highlight text %}
 	Home > Liste des évènements > Ajouter un évènement
+{% endhighlight %}
 
 Simple et plutôt jolie.
 
@@ -39,26 +41,28 @@ page, son template AINSI que le texte à afficher. Ça serai pas mal ça.
 
 Donc la configuration ça donne:
 
-    'use strict';
-    var tlbApp = angular.module('tlbApp', ['tlbService']);
-    tlbApp.config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.
-            when('/', {
-                templateUrl:'views/welcome-page.html',
-                breadcrumb:'<i class="icon-home"></i>'
-            }).
-            when('/event', {
-                templateUrl:'views/event-list.html',
-                controller:EventListController,
-                breadcrumb:'Liste des évènements'
-            }).
-            when('/event/new', {
-                templateUrl:'views/event-form.html',
-                controller:EventNewController,
-                breadcrumb:'Ajouter un évènement'
-            }).
-            otherwise({redirectTo:'/'});
-    }]);
+{% highlight javascript %}
+'use strict';
+var tlbApp = angular.module('tlbApp', ['tlbService']);
+tlbApp.config(['$routeProvider', function ($routeProvider) {
+  $routeProvider.
+    when('/', {
+        templateUrl:'views/welcome-page.html',
+        breadcrumb:'<i class="icon-home"></i>'
+    }).
+    when('/event', {
+        templateUrl:'views/event-list.html',
+        controller:EventListController,
+        breadcrumb:'Liste des évènements'
+    }).
+    when('/event/new', {
+        templateUrl:'views/event-form.html',
+        controller:EventNewController,
+        breadcrumb:'Ajouter un évènement'
+    }).
+    otherwise({redirectTo:'/'});
+}]);
+{% endhighlight %}
 
 Donc j'ai dans ma `$route` correspondant à `/`, la notion de template, ie
 le dom à utiliser, mais également le texte à afficher dans la page. On voit ici
@@ -71,10 +75,12 @@ Pas très compliqué, une simple liste pour afficher notre liste successive de
 page. Ici, grand fan de Twitter Bootstrap oblige, j'utilise la classe
 `breadcrumb` du framework.
 
-    <div>
-      <ul class='breadcrumb'>
-      </ul>
-    </div>
+{% highlight html %}
+<div>
+  <ul class='breadcrumb'>
+  </ul>
+</div>
+{% endhighlight %}
 
 ## Création d'une directive
 Avec AngularJS, on peut créer des directives. Dixit la documentation, une
@@ -86,50 +92,52 @@ appeler `<breadcrumb/>`. Mais qu'il ne peut s'agir que d'une balise, pas d'une
 classe ni d'un attribut dans une autre balise. Cependant, dans le rendu de ma
 page, je ne veux plus voir la balise `<breadcrumb/>`.
 
-    tlbApp.directive('breadcrumb', function ($location, $route) {
-        var breadcrumbDescriptionObject = {
-            restrict:'E',
-            priority:99,
-            replace:true,
-            transclude:true,
-            templateUrl:'views/breadcrumb.html',
-            link:function (_, iElement) {
-                var ul = angular.element(iElement.children()[0]);
-                var paths = $location.path().split('/');
-                var href = "#";
-                var path = "";
-                angular.forEach(paths, function (item) {
-                    item=item.trim();
-                    var last = paths.indexOf(item) == (paths.length - 1);
-                    if (item=="" || (path[path.length-1]!='/')) {
-                        path += '/';
-                    }
-                    path += item;
-                    if($route.routes.hasOwnProperty(path)) {
-                        var text = $route.routes[path].breadcrumb || item;
-                        href += item + "/";
-                        var lnk;
-                        if (!last) {
-                            lnk = "<li><a href='" + href + "'>" + text + "</a> <span class='divider'>&gt;</span></li>";
-                        } else {
-                            lnk = "<li class='active'>" + text + "</li>";
-                        }
-                        this.append(lnk);
-                    }
-                }, ul);
-            }
-        };
-        return breadcrumbDescriptionObject;
-    });
+{% highlight javascript %}
+tlbApp.directive('breadcrumb', function ($location, $route) {
+  var breadcrumbDescriptionObject = {
+    restrict:'E',
+    priority:99,
+    replace:true,
+    transclude:true,
+    templateUrl:'views/breadcrumb.html',
+    link:function (_, iElement) {
+      var ul = angular.element(iElement.children()[0]);
+      var paths = $location.path().split('/');
+      var href = "#";
+      var path = "";
+      angular.forEach(paths, function (item) {
+        item=item.trim();
+        var last = paths.indexOf(item) == (paths.length - 1);
+        if (item=="" || (path[path.length-1]!='/')) {
+          path += '/';
+        }
+        path += item;
+        if($route.routes.hasOwnProperty(path)) {
+          var text = $route.routes[path].breadcrumb || item;
+          href += item + "/";
+          var lnk;
+          if (!last) {
+            lnk = "<li><a href='" + href + "'>" + text + "</a> <span class='divider'>&gt;</span></li>";
+          } else {
+            lnk = "<li class='active'>" + text + "</li>";
+          }
+          this.append(lnk);
+        }
+      }, ul);
+    }
+  };
+  return breadcrumbDescriptionObject;
+});
+{% endhighlight %}
 
 Donc avant le `function`, nous avons la configuration pour notre directive avec:
 
  - transclude: permet d'avoir un widget isolé du reste de l'application
  - replace: supprime la / les balises appelant la directive
- - restrict: le type de déclaration de la directive. 
-    - E=nom d'élément, 
-    - A=attribut, 
-    - C=classe, 
+ - restrict: le type de déclaration de la directive.
+    - E=nom d'élément,
+    - A=attribut,
+    - C=classe,
     - M=commentaire
  - priority: lors de l'utilisation de plusieurs directive, permet de les faire
    dans un certain ordre.
@@ -140,7 +148,9 @@ glouton: je prend la `route` de la page actuellement à l'écran et je sépare p
 les '/'. Pour chacun de ces éléments, je concatène avec l'élément précédent et
 regarde si ça match une de mes routes avec la fonction
 
-    $route.routes.hasOwnProperty(path)
+{% highlight javascript %}
+$route.routes.hasOwnProperty(path)
+{% endhighlight %}
 
 Simple, gourmant mais fonctionnel.
 

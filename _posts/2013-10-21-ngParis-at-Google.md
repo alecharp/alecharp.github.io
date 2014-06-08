@@ -4,11 +4,12 @@ date: 2013-10-22 18:00:00
 author: adrien.lecharpentier@gmail.com
 title: ngParis chez Google
 excerpt: Retour sur cette soirée AngularJS
+tags: AngularJS conference debrief
 ---
 
 > Disclamer: J'essaye de retranscrire ce que j'ai compris, entendu de la soirée ainsi que mon ressenti. Les avis, points de vue me sont propre et pourrait ne pas refléter l'intégralité du message que les personnes présentes ont souhaité faire passer.
 
-Hier soir, chez Google France, était donné le rendez-vous pour le dernier [meet-up AngularJS][meetup] en date. Le programme annoncé était lourd, avec de bons speakers: 
+Hier soir, chez Google France, était donné le rendez-vous pour le dernier [meet-up AngularJS][meetup] en date. Le programme annoncé était lourd, avec de bons speakers:
 
  - JQuery et AngularJS par Pawel Kozlowski ([@pkozlowski_os][pkozlowski_os_twitter])
  - Les services par Thierry Chatel ([@ThierryChatel][ThierryChatel_twitter])
@@ -45,7 +46,7 @@ Pawel commence par un:
 
 > "It is not how JQuery is bad, on the contrary, but how to do without it"
 
-On comprend donc que l'on ne va pas voir de "magie" JQuery. Tant mieux. 
+On comprend donc que l'on ne va pas voir de "magie" JQuery. Tant mieux.
 
 Le conseil suivant s'adresse particulièrement au débutant AngularJS:
 
@@ -57,7 +58,7 @@ Car le problème se pose bien là. Le développement avec JQuery et AngularJS es
 
 #### Impératif vs Déclaratif
 
-Le développement avec JQuery est impératif, contrairement à AngularJS qui est déclaratif. 
+Le développement avec JQuery est impératif, contrairement à AngularJS qui est déclaratif.
 
 Avec JQuery, vous développez en pas à pas, vous avez le contrôle sur ce qui se passe sur le DOM.
 
@@ -75,11 +76,11 @@ Le premier exemple de Pawel, c'est un composant "twitter-like":
  - un indicateur du nombre de caractères restants,
  - la liste des "tweets".
 
-Tous les éléments sont pilotés par l'état de la textbox. 
+Tous les éléments sont pilotés par l'état de la textbox.
 
 Nous avons donc deux façons de réaliser cet exemple: JQuery ou AngularJS.
 
-Avec JQuery, une méthode centrale, en mode listener, va modifier la classe et l'état des boutons. Le code est long et touche au DOM à base de `$("#id").text()` etc. 
+Avec JQuery, une méthode centrale, en mode listener, va modifier la classe et l'état des boutons. Le code est long et touche au DOM à base de `$("#id").text()` etc.
 
 Avec AngularJS, les boutons se modifient eux-même (directives) avec les valeurs du modèle. On ne touche pas au DOM dans le modèle, on ne touche pas au modèle directement dans le HTML. On divise pour régner. Ce à quoi il nous dit:
 
@@ -87,7 +88,7 @@ Avec AngularJS, les boutons se modifient eux-même (directives) avec les valeurs
 
 C'est surtout qu'agir de la sorte, c'est passer à côté d'AngularJS.
 
-Autre exemple, bootstrap-paginator. Le plugin utilise JQuery et manipule le DOM dans le code: +600 lignes de code. Même comportement en AngularJS pure (par Pawel): <50 lignes. En plus, on externalise en DOM (template) ce qui simplifie la modification future si souhaitée. 
+Autre exemple, bootstrap-paginator. Le plugin utilise JQuery et manipule le DOM dans le code: +600 lignes de code. Même comportement en AngularJS pure (par Pawel): <50 lignes. En plus, on externalise en DOM (template) ce qui simplifie la modification future si souhaitée.
 
 #### Enrober du code JQuery dans une directive
 
@@ -109,7 +110,7 @@ AngularJS est une nouvelle approche du développement front et pour bien compren
 
 Le premier talk est terminé, il est bien accueilli. Quelques questions sont posées sur la séparation du DOM / model, pourquoi ne pas avoir utilisé JQuery comme fondation (de la part d'un commiter EmberJS).
 
-Bref, un bon point sur de bonnes pratiques, un point de vue assez tranché avec tout de même une vision réaliste sur le développement actuel. Bravo et Merci à Pawel pour sa prestation. 
+Bref, un bon point sur de bonnes pratiques, un point de vue assez tranché avec tout de même une vision réaliste sur le développement actuel. Bravo et Merci à Pawel pour sa prestation.
 
 Une petite photo pour immortaliser l'assemblée (avec les tshirts offerts)
 
@@ -124,7 +125,7 @@ Thierry est un consultant indépendant et formateur. Depuis quelques mois, il ne
 
 ### Talk
 
-On annonce directement la couleur: 
+On annonce directement la couleur:
 
 > "90% du code de l'application [front] doit se trouver dans des services".
 
@@ -144,27 +145,29 @@ Je n'ai malheureusement pas pris beaucoup de notes car la fatigue et la faim arr
 
 ## Les scopes isolés
 
-Du même speaker, nous voyons maintenant l'utilisation de scope isolé, ce que ça apporte, quand et comment l'utiliser. 
+Du même speaker, nous voyons maintenant l'utilisation de scope isolé, ce que ça apporte, quand et comment l'utiliser.
 
 > Disclamer: toujours très peu de notes, toutes mes excuses.
 
 On commence par un rappel sur le scope: les scopes (classique) héritent du scope attaché au DOM parent dans le HTML
 
-    <div ng-app="App">
-        <div ng-controller="FirstCtrl">
-            <div ng-init="test=true"></div>
-        </div>
-        <div ng-view></div>
-        <div ng-controller="FooterCtrl"></div>
+{% highlight html %}
+<div ng-app="App">
+    <div ng-controller="FirstCtrl">
+        <div ng-init="test=true"></div>
     </div>
+    <div ng-view></div>
+    <div ng-controller="FooterCtrl"></div>
+</div>
+{% endhighlight %}
 
 donne
 
-    - scope application
-        + scope FirstCtrl
-            + scope 
-        + scope view
-        + scope FooterCtrl
+- scope application
+    + scope FirstCtrl
+        + scope
+    + scope view
+    + scope FooterCtrl
 
 Si une propriété n'est pas disponible dans le scope courant, on va la chercher dans le scope parent et ainsi de suite.
 
@@ -174,9 +177,9 @@ Cependant, toute les directives ne doivent pas avoir de scope isolé: si le temp
 
 ## Conclusion
 
-Je sais que j'ai été plus que rapide sur les 2 dernières présentations. Cela ne reflette en rien la qualité de celle-ci. J'ai dû faire un choix: suivre, comprendre et apprendre ou prendre des notes. 
+Je sais que j'ai été plus que rapide sur les 2 dernières présentations. Cela ne reflette en rien la qualité de celle-ci. J'ai dû faire un choix: suivre, comprendre et apprendre ou prendre des notes.
 
-Toutefois, la bonne nouvelle c'est que la conférence a été filmé et sera prochainement mise en ligne (merci les services techniques de Google!). Les slides seront sûrement publiés dans peu de temps. 
+Toutefois, la bonne nouvelle c'est que la conférence a été filmé et sera prochainement mise en ligne (merci les services techniques de Google!). Les slides seront sûrement publiés dans peu de temps.
 
 Pour ma part, j'ai pris un grand plaisir à assister à cette conférence. Une très belle organisation, des locaux magnifiques, non pas un mais 3 buffets à disposition pour se restaurer. Les speakers très intéressants, du code, des retours d'expériences et des bonnes pratiques. Pour moi, une combinaison parfaite.
 
@@ -201,4 +204,3 @@ Un grand bravo aux organisateurs et à bientôt!
 ## Annonce de fin
 
 Sébastien Letélié nous rappelle qu'il organise un hackaton dédié à la santé les 28-29-30 mars prochain à Strasbourg. Les défis provenant des médecins arriveront bientôt. Il peut s'agir d'une bonne occasion de mettre en oeuvre AngularJS dans le cadre d'un projet. Plus d'informations sur le site [http://digitalhealthcamp.eu/](http://digitalhealthcamp.eu/).
-

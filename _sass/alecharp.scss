@@ -18,18 +18,20 @@ $menuSize: 20px;
 // Components
 @import "bower_components/sass-bootstrap/lib/labels";
 @import "bower_components/sass-bootstrap/lib/media";
+@import "bower_components/sass-bootstrap/lib/jumbotron";
 
 // Utility classes
 @import "bower_components/sass-bootstrap/lib/utilities";
 @import "bower_components/sass-bootstrap/lib/responsive-utilities";
 
-@import url(http://fonts.googleapis.com/css?family=Quicksand:300,700);
+@import url(http://fonts.googleapis.com/css?family=Quicksand:400,700);
 @import url(http://fonts.googleapis.com/css?family=Oswald:300,700);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
 * {
 	font-size: $textSize;
 	font-family: 'Quicksand', Arial, sans-serif;
+	font-weight: 400;
 }
 
 body {
@@ -89,16 +91,17 @@ ul.posts {
 }
 
 #post {
-	pre {
+	div.highlight pre {
 		padding: 10px;
 		background-color: #333;
-		code, code * {
-			font-size: $codeSize;
-			font-family: 'Inconsolata', Arial, sans-serif;
-		}
+		border-radius: 10px;
+	}
+	code, code * {
+		font-size: $codeSize;
+		font-family: 'Inconsolata', Arial, sans-serif;
 	}
 	* img {
-		width: 100%;
+		max-width: 100%;
 	}
 }
 

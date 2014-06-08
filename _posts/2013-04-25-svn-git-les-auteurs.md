@@ -11,33 +11,45 @@ Juste pour mon souvenir : Git c'est mieux que Subversion. Rapide, discret, effic
 
 Malheureusement, la vie c'est dur est du Subversion il y en a partout. Si si je vous jure! La solution? __git-svn__.
 
-	git svn clone https://svn-repo-url
+{% highlight PowerShell %}
+git svn clone https://svn-repo-url
+{% endhighlight %}
 
 Pas aussi simple: il vous faut les auteurs (au moins).
 
-	svn log --quiet https://svn-repo-url | awk '/^r/ {print $3}' | sort -u
+{% highlight PowerShell %}
+svn log --quiet https://svn-repo-url | awk '/^r/ {print $3}' | sort -u
+{% endhighlight %}
 
 \* merci à [stackoverflow et Mike DeSimone](http://stackoverflow.com/a/2495010)
 
 Vous prenez la sortie, vous la mettez dans un fichier, disons `svn-authors.list`. Vous devez ensuite l'éditer pour le mettre sous la forme suivante:
 
-	svn-login = Firstname Name <email>
+{% highlight PowerShell %}
+svn-login = Firstname Name <email>
+{% endhighlight %}
 
 puis vous faites votre `git-svn`
 
-	git svn clone https://svn-repo-url --authors-file=svn-authors.list
+{% highlight PowerShell %}
+git svn clone https://svn-repo-url --authors-file=svn-authors.list
+{% endhighlight %}
 
 Si vous souhaitez prendre les tags et autres branches?
 
-	git svn clone https://svn-repo-url --authors-file=svn-authors.list --stdlayout
-	
+{% highlight PowerShell %}
+git svn clone https://svn-repo-url --authors-file=svn-authors.list --stdlayout
+{% endhighlight %}
+
 ou
 
-	git svn clone https://svn-repo-url --authors-file=svn-authors.list -T trunk -b branches -t tags
+{% highlight PowerShell %}
+git svn clone https://svn-repo-url --authors-file=svn-authors.list -T trunk -b branches -t tags
+{% endhighlight %}
 
 bon par contre, les tags Subversion sont vu comme des branches sur Git. Pour infos, c'est pas super grave mais ça se corrige __très__ facilement.
 
-{% highlight bash %}
+{% highlight PowerShell %}
 for i in `git branch -r | grep "svn/tags"`; do
 	tagname=`echo $i | perl -p -e 's/svn\\/tags\\///sig;'`;
 	git tag -a -m "`git log --pretty=format:%s $i^\!`" $tagname $i^ 1> /dev/null;
@@ -49,12 +61,16 @@ done
 
 Le fichier des auteurs Subversion sera connu dans la configuration de Git via sont chemin absolu. Celui-ci se trouve pour le moment à l'extérieur du repository Git. Histoire de le garder avec, déplacez-le dans le dossier `.git` du repository et modifiez la configuration du repository:
 
-	cp svn-authors.list <repo>/.git/
-	vim <repo>/.git/config
+{% highlight PowerShell %}
+cp svn-authors.list <repo>/.git/
+vim <repo>/.git/config
+{% endhighlight %}
 
 configuration:
-	[svn]
-		authors file = .git/svn-authors.list
+{% highlight text %}
+[svn]
+  authors file = .git/svn-authors.list
+{% endhighlight %}
 
 ## Nota bene
 

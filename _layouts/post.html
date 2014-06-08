@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<a href="{{site.baseurl}}/">&larr; Back to home</a>
+
   <div id="post">
     <h1>{{ page.title }}</h1>
     <h6>Publié le {{page.date | date:"%d/%m/%Y"}}</h6>
@@ -16,21 +18,21 @@ layout: default
     <div>
       {{ content }}
     </div>
-    
+
     <hr/>
 
     <div class="row">
       <a href="https://twitter.com/share" class="twitter-share-button" data-via="alecharp" data-lang="fr">Tweeter</a>
       <g:plusone size="medium"></g:plusone>
     </div>
-    
+
     <div class="row">
       <div id="disqus_thread" style="margin-top: 15px"></div>
       <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
     <!-- les scripts -->
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    
+
     <script type="text/javascript">
       window.___gcfg = {lang: 'fr'};
 
@@ -40,7 +42,7 @@ layout: default
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
       })();
     </script>
-    
+
     <script type="text/javascript">
       var disqus_shortname = 'alecharpsblog'; // required: replace example with your forum shortname
       var disqus_url = 'http://blog.lecharpentier.fr{{ page.url }}';
@@ -54,5 +56,5 @@ layout: default
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
+
   </div>

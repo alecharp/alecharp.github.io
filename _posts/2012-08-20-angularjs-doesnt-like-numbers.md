@@ -88,7 +88,9 @@ dans le second. Non ça ne peut pas être ça.. Mon service REST prend un Long
 en paramètre, et quand je remplace `codingEvent.id` par `'totolabelette'`
 j'ai la belle exception
 
-    Class java.lang.Long can not be instantiated using a constructor with a single String argument
+{% highlight Java %}
+Class java.lang.Long can not be instantiated using a constructor with a single String argument
+{% endhighlight %}
 
 avec une 404 sur l'UI..
 

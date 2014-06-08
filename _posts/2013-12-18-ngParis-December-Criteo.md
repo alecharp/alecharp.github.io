@@ -4,11 +4,12 @@ date: 2013-12-19 19:00:00
 author: adrien.lecharpentier@gmail.com
 title: ngParis chez Criteo
 excerpt: Retour sur ce 6ième évènement ngParis
+tags: AngularJS conference debrief
 ---
 
 > Disclamer: J'essaye de retranscrire ce que j'ai compris, entendu de la soirée ainsi que mon ressenti. Les avis, points de vue me sont propre et pourrait ne pas refléter l'intégralité du message que les personnes présentes ont souhaité faire passer.
 
-Nous revoilà sur une soirée ngParis. Une fois de plus, la soirée est rempli (170 Angularians et 103 sur liste d'attente) bien avant la soirée. Cependant, nous n'étions pas une 50aine dans la salle. Dommange, Criteo avait prévu pas mal de pizza / boisson pour la pause. Personnenllement, n'ayant pas pu me rendre à la [soirée #5 chez Deezer][meetup#5], je me suis inscrit pour cette #6 le soir même de la #5. 
+Nous revoilà sur une soirée ngParis. Une fois de plus, la soirée est rempli (170 Angularians et 103 sur liste d'attente) bien avant la soirée. Cependant, nous n'étions pas une 50aine dans la salle. Dommange, Criteo avait prévu pas mal de pizza / boisson pour la pause. Personnenllement, n'ayant pas pu me rendre à la [soirée #5 chez Deezer][meetup#5], je me suis inscrit pour cette #6 le soir même de la #5.
 
 [meetup#5]: http://www.meetup.com/AngularJS-Paris/events/147070122
 
@@ -38,45 +39,49 @@ Vous pouvez les trouver sur Twitter ([@adrienlauer][adrien_twitter]) et Github (
 
 ### Le framework
 
-Derrière cette formule chimique se cache en réalité un framework front construit autour d'AngularJS et RequireJS pour PSA. Ce framework a été conçu pour permettre la création rapide de nouveau projet ainsi que de garder une structuration bien définie des projets. 
+Derrière cette formule chimique se cache en réalité un framework front construit autour d'AngularJS et RequireJS pour PSA. Ce framework a été conçu pour permettre la création rapide de nouveau projet ainsi que de garder une structuration bien définie des projets.
 
 Une bonne chose à savoir: il y avait un framework, vieux de 7ans chez PSA, fait pour cacher le JS et le front en général aux développeurs interne. Ce framework est devenu trop vieillissant et peu propise aux nouvelles fonctionnalités. Donc, bien partir, petit tour des framework front il y a un peu plus d'un an. Angular a retenu l'attention pour la simplicité sûrement.
 
 ### Vocabulaire
 
-Le framework apporte une nouvelle appélation: les fragments pour des morceaux de codes réutilisable. Un peu à la mode des modules / artefacts Maven. La comparaison m'est douloureuse mais étant donné qu'ils utilisent Maven / Archiva pour partager ces fragments entres applications, je ne peux pas faire autrement. 
+Le framework apporte une nouvelle appélation: les fragments pour des morceaux de codes réutilisable. Un peu à la mode des modules / artefacts Maven. La comparaison m'est douloureuse mais étant donné qu'ils utilisent Maven / Archiva pour partager ces fragments entres applications, je ne peux pas faire autrement.
 
 ### Utilisation
 
 Pour l'utilisation, cela semble assez simple: un fichier json pour appeler les fragments à utiliser avec une configuration particulière:
 
-    {
-        "../../../w20/w20-core/w20-core.w20.json" : {
-            "modules" : {
-                "application":{
-                    "id":"w20-hello-sample",
-                    "home":"/hello"
-                }
+{% highlight json %}
+{
+    "../../../w20/w20-core/w20-core.w20.json" : {
+        "modules" : {
+            "application":{
+                "id":"w20-hello-sample",
+                "home":"/hello"
             }
-        },
-        "": {
-            "routes": {
-                "/hello":{
-                    "template":"<h1>Hello World !</h1>"
-                }
+        }
+    },
+    "": {
+        "routes": {
+            "/hello":{
+                "template":"<h1>Hello World !</h1>"
             }
         }
     }
+}
+{% endhighlight %}
 
 On définit ici une application "w20-hello-sample", avec pour page d'accueil "/hello". Ceci donnera l'équivalent de la configuration de `$routeProvider` avec un `when` et `otherwise`. On voit donc que la configuration est beaucoup plus abbrégé.
 
 Pour que cela fonctionne on appelle dans notre html le framwork W20:
 
-    <script
-            type="text/javascript"
-            data-main="../../../w20/w20-core/w20"
-            src="../../../w20/w20-core/libext/requirejs/require.js">
-    </script>
+{% highlight html %}
+<script
+        type="text/javascript"
+        data-main="../../../w20/w20-core/w20"
+        src="../../../w20/w20-core/libext/requirejs/require.js">
+</script>
+{% endhighlight %}
 
 On voit passer les logs du framework qui reconstitus la configuration global pour l'application en appliquant la spécialisation de notre application. La séquence complète est documenté sur le [slide 14](http://adrienlauer.github.io/w20-ngparis/slides/#/14)
 
@@ -109,7 +114,7 @@ Chakib est freelance front. Vous pouvez le trouver sur Twitter ([@sp4ke][chakib_
 
 Chakib revient sur différent paradigmes de programmation synchrone / asynchrone, pour comprendre l'intérêt des `promise`. Pour moi il est très important pour toutes les opérations longues: récupérations de longs listing, génération de statistiques, etc. Les `promises` sont d'ailleurs utilisés pour les `service`, `$http` et autres.
 
-On peut donc continuer ne mettre notre appel bloquant dans une fonction, on rattachera cette fonction à une `promise` avec `$q.defer()`. Le tour est presque joué. 
+On peut donc continuer ne mettre notre appel bloquant dans une fonction, on rattachera cette fonction à une `promise` avec `$q.defer()`. Le tour est presque joué.
 
 Pour bien comprendre, Chakib nous propose le use-case suivant: une application mobile avec gestion de la bande passante / déconnexion. On peut faire ça avec un `timeout` mais on se trouve à mettre valeur fixe et donc un soucis lorsque le délai dépend du réseau. Deuxième solution, mettre une timeout exponentiel. Dans ce cas, on attends que rarement les 10 'retry' max.
 
