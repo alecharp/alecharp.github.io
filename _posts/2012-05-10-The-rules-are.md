@@ -1,11 +1,12 @@
 ---
 layout: post
 date: 2012-05-10 20:00:00
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 title: The rules are
 tags: rules begining how-to
 ---
-
 J'ai envie d'essayer Jekyll pour gérer mon blog pour quelques raisons, 
 certaines sûrement pas très réfléchies:
 

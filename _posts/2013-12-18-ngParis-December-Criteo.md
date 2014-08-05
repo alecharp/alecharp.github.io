@@ -1,11 +1,13 @@
 ---
 layout: post
 date: 2013-12-19 19:00:00
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 title: ngParis chez Criteo
-excerpt: Retour sur ce 6ième évènement ngParis
 tags: AngularJS conference debrief
 ---
+Retour sur ce 6ième évènement ngParis
 
 > Disclamer: J'essaye de retranscrire ce que j'ai compris, entendu de la soirée ainsi que mon ressenti. Les avis, points de vue me sont propre et pourrait ne pas refléter l'intégralité du message que les personnes présentes ont souhaité faire passer.
 

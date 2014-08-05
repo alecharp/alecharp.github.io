@@ -2,10 +2,12 @@
 layout: post
 title: Son environnement de développement...
 date: 2013-06-13 18:36:14
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 tags: misc
-excerpt: ...ce n'est pas que les outils pour coder et le matos informatiques!
 ---
+...ce n'est pas que les outils pour coder et le matos informatiques!
 
 ## Rappel
 

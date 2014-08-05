@@ -2,12 +2,12 @@
 layout: post
 title: Sonatype Nexus
 date: 2010-06-24 14:44:58
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 tags: nexus sonatype maven-repository-manager installation
-excerpt: Nexus de Sonatype. Partage de connaissance sur un maven 
-  repositories manager, Nexus. Explication, installation, configuration
-  et fonctionnement.
 ---
+Nexus de Sonatype. Partage de connaissance sur un maven repositories manager, Nexus. Explication, installation, configuration et fonctionnement.
 
 Depuis quelques temps, j'utilise *Nexus* de Sonatype pour certain
  développement perso ou pro. Comme je trouve ce produit très simple, 

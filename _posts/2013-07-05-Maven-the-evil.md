@@ -1,10 +1,12 @@
 ---
 layout: post
 date: 2013-07-05 18:00:00
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 title: Maven, The evil
-excerpt: Maven ou le cauchemar des nomades à faible mémoire
 ---
+Maven ou le cauchemar des nomades à faible mémoire
 
 Maven, c'est bien:
 

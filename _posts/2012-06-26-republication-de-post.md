@@ -2,13 +2,12 @@
 layout: post
 title: (Re)Publication de post
 date: 2012-06-26 23:56:43
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 tags: misc blog wordpress
-excerpt:
 ---
-Je viens de (re)publier le [post le plus rechercher](/2010/06/24/sonatype-nexus/)
-sur le net. Il n'a pas complètement disparu, c'est juste qu'il me faut
-le sortir de ma base wordpress et le mettre en forme pour Jekyll.
+Je viens de (re)publier le [post le plus rechercher](/2010/06/24/sonatype-nexus/) sur le net. Il n'a pas complètement disparu, c'est juste qu'il me faut le sortir de ma base wordpress et le mettre en forme pour Jekyll.
 
 Chose importante à noter, j'essaye de contribuer du mieux que je peux à 
 un autre outil de type Maven-Repository-Manager : Archiva. Premier outil

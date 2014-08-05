@@ -2,33 +2,34 @@
 layout: default
 ---
 
-<a href="{{site.baseurl}}/">&larr; Back to home</a>
+<article>
+    <header>
+        <h1 class="post-title">{{ page.title }}</h1>
+        <time datetime="{{post.date}}" class="post-date">Publié le {{page.date | date:"%d/%m/%Y"}}</time>
 
-  <div id="post">
-    <h1>{{ page.title }}</h1>
-    <h6>Publié le {{page.date | date:"%d/%m/%Y"}}</h6>
-    {% if page.excerpt %}
-      <p class="muted">{{page.excerpt}}<p>
-    {% endif %}
-    {% if page.tags %}
-      {% for tag in page.tags %}<span class="label label-primary">{{ tag }}</span> {% endfor %}
-    {% endif %}
-    <hr/>
-
+        {% if page.tags %}
+        <div class="tag-list">
+            {% for tag in page.tags %}<span class="tag">{{ tag }}</span> {% endfor %}
+        {% endif %}
+        </div>
+    </header>
+    <div class="separator"></div>
     <div>
-      {{ content }}
+        {{ content }}
     </div>
 
-    <hr/>
+    <div class="separator"></div>
+</article>
 
+<section>
     <div class="row">
-      <a href="https://twitter.com/share" class="twitter-share-button" data-via="alecharp" data-lang="fr">Tweeter</a>
-      <g:plusone size="medium"></g:plusone>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="alecharp" data-lang="fr">Tweeter</a>
+        <g:plusone size="medium"></g:plusone>
     </div>
 
     <div class="row">
-      <div id="disqus_thread" style="margin-top: 15px"></div>
-      <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        <div id="disqus_thread" style="margin-top: 15px"></div>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
     <!-- les scripts -->
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -56,5 +57,4 @@ layout: default
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-  </div>
+</section>

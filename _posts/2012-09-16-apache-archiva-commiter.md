@@ -2,14 +2,12 @@
 layout: post
 title: Apache Archiva Commiter
 date: 2012-09-16 18:56:14
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 tags: dev apache archiva personnel
-excerpt:
-img: http://archiva.apache.org/images/archiva.png
 ---
-
-Après quelques patches sur la nouvelle interface web de [Archiva][1] ainsi que sur
-le [site web de l'outil][2], les commiters du projet m'ont accepté parmis eux.
+Après quelques patches sur la nouvelle interface web de [Archiva][1] ainsi que sur le [site web de l'outil][2], les commiters du projet m'ont accepté parmis eux.
 
 ## Un grand merci à eux!
 

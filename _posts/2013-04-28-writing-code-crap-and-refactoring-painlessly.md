@@ -2,11 +2,11 @@
 layout: post
 title: Writing code crap and refactoring painlessly
 date: 2013-04-28 20:00:00
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 tags: dev
-excerpt:
 ---
-
 Quand on écrit du code, il y a deux choses de mon point de vue qui peuvent nous conduire à l'auto-censure:
 
  - ne pas savoir écrire du code

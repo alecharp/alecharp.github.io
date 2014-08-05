@@ -2,7 +2,9 @@
 layout: post
 date : 2012-05-14 19:57:29
 title: It's QWERTY time
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 tags: qwerty keyboard unrelated
 ---
 For few time, people don't stop telling me that for coding, nothing is

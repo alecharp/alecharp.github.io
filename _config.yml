@@ -12,6 +12,6 @@ future: false
 markdown: rdiscount
 rdiscount:
   extensions: [smart]
-pygments: true
+highlighter: true
 
 exclude: [README.md, LICENSE.md, _sass, bower_components, bower.json]

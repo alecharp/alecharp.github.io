@@ -2,11 +2,11 @@
 layout: post
 title: Les outils du dev
 date: 2012-05-11 10:55:48
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 tags: conseils maven git
-published: true
 ---
-
 Au cour d'un développement, on se retrouve toujours avec un même problème: comment
 je fais pour être plus productif ? A cette question, il y a beaucoup de réponse
 possible.

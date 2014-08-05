@@ -2,9 +2,10 @@
 layout: post
 title: SVN-Git -- les auteurs
 date: 2013-04-25 9:17:47
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 tags: git svn configuration reminder
-excerpt:
 ---
 
 Juste pour mon souvenir : Git c'est mieux que Subversion. Rapide, discret, efficace.. bref je ne veux plus faire de Subversion.

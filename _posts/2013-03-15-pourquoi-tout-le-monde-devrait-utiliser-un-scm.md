@@ -2,11 +2,12 @@
 layout: post
 title: Pourquoi tout le monde devrait utiliser un SCM
 date: 2013-03-15 16:00:00
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 tags: misc scm git svn bazaar mercurial
-img: http://git-scm.com/images/logo@2x.png
-excerpt: Un petit pamphlet pour l'utilisation de SCM en toute circonstance
 ---
+Un petit pamphlet pour l'utilisation de SCM en toute circonstance
 
 Il s'agit là d'un point de vue que je défends depuis quelques temps mais il est temps que je m'exprime ouvertement sur le sujet (ça va m'éviter des heures et des heures de Psy).
 

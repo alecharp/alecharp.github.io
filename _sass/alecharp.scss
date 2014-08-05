@@ -3,113 +3,266 @@ $itemSize: 15px;
 $textSize: 17px;
 $menuSize: 20px;
 
-@import "bower_components/sass-bootstrap/lib/variables";
-@import "bower_components/sass-bootstrap/lib/mixins";
+$smallSize: 738px;
 
-// Reset
-@import "bower_components/sass-bootstrap/lib/normalize";
-@import "bower_components/sass-bootstrap/lib/print";
+$primary-light: #4E9DC8;
+$primary-lighter: #79B9DB;
+$primary: #2E87B8;
+$primary-dark: #0C74AC;
+$primary-darker: #065681;
 
-// Core CSS
-@import "bower_components/sass-bootstrap/lib/scaffolding";
-@import "bower_components/sass-bootstrap/lib/type";
-@import "bower_components/sass-bootstrap/lib/grid";
+$secondary-lighter: #FFDE87;
+$secondary-light: #FFD25B;
+$secondary: #FFC835;
+$secondary-dark: #FFBB04;
+$secondary-darker: #CB9400;
 
-// Components
-@import "bower_components/sass-bootstrap/lib/labels";
-@import "bower_components/sass-bootstrap/lib/media";
-@import "bower_components/sass-bootstrap/lib/jumbotron";
+$third-lighter: #FFA287;
+$third-light: #FF805B;
+$third: #FF6235;
+$third-dark: #FF3C04;
+$third-darker: #CB2E00;
 
-// Utility classes
-@import "bower_components/sass-bootstrap/lib/utilities";
-@import "bower_components/sass-bootstrap/lib/responsive-utilities";
-
-@import url(http://fonts.googleapis.com/css?family=Quicksand:400,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
 @import url(http://fonts.googleapis.com/css?family=Oswald:300,700);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
+body { padding:0; margin:0; }
+
 * {
 	font-size: $textSize;
-	font-family: 'Quicksand', Arial, sans-serif;
-	font-weight: 400;
+	font-family: 'Roboto', Arial, sans-serif;
+	font-weight: 300;
 }
 
-body {
-	padding-top:20px;
-	margin-bottom: 40px;
+a {
+	color: $primary-light;
+	text-decoration: none;
+	&:hover {
+		color: $secondary-darker;
+	}
 }
 
 @for $i from 1 through 4 {
-  h#{$i} {
-	font-family: 'Oswald', Arial, sans-serif;
-	font-weight: 300;
-  	text-transform: uppercase;
-  	@if $i > 1 { margin-top: 12pt * (5 - $i); }
-  	margin-bottom: 12pt;
-  }
-}
-
-.header {
-	margin-top: 40px;
-	margin-bottom: 20px;
-
-	* {
+	h#{$i} {
 		font-family: 'Oswald', Arial, sans-serif;
 		font-weight: 300;
-		color: #5a5a5a;
-		font-size: $menuSize;
-		text-transform: uppercase;
-	}
-
-	section a b {
-		font-weight: 700;
-	}
-	a, a:hover {
-		color: inherit;
-		text-decoration: none;
-	}
-	ul {
-		list-style: none;
-		li {
-			display: inline;
-			margin-left: 15px;
-		}
+		@if $i > 1 { margin-top: 12px * (5 - $i); }
+        font-size: 34px - (($i - 1) * 5px);
+		margin-bottom: 12pt;
 	}
 }
 
-ul.posts {
-	font-size: $itemSize;
-	padding: 0;
-	line-height: 2em;
-	li {
-		list-style-type: none;
-	}
-    span {
-    	font-size: $itemSize - 5px;
+.sidebar {
+    min-height: 100%;
+    background: $primary-darker;
+    color: #fff;
+    h1 { 
+        text-align: center; 
+        font-size: 1.8em; 
+        font-weight: bold;
     }
-	a, a:hover { text-decoration:none; }
+
+    nav {
+        padding: 0;
+        list-style: none;
+        li {
+            display: block;
+            *display: block;
+            a {
+                background: transparent;
+                color: $secondary;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                font-size: 85%;
+                &:hover, &:focus {
+                    color: $secondary-darker;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    footer {
+        text-align:center;
+        span.social {
+            display: inline-block;
+            &:not(:first-child):before {
+                content : " • ";
+                color: $primary-lighter;
+            }
+        }
+    }
 }
 
-#post {
-	div.highlight pre {
-		padding: 10px;
-		background-color: #333;
-		border-radius: 10px;
-	}
-	code, code * {
-		font-size: $codeSize;
-		font-family: 'Inconsolata', Arial, sans-serif;
-	}
-	* img {
-		max-width: 100%;
-	}
+.posts .post-title { text-transform: uppercase; }
+article {
+    margin-bottom: 20px;
+    .post-title { color: $primary-darker; }
+    .post-date {
+        font-size: 0.8em;
+        color: $third-darker;
+        margin-bottom: 1em;
+    }
+    .separator {
+        height: 1px;
+        background-color: $third-darker;
+        margin: 1em 0;
+    }
+    .tag-list {
+        .tag {
+            display:inline-block;
+            background-color: $primary-light;
+            padding: .2em .6em .3em;
+            border-radius: .25em;
+            color: #fff;
+            font-size: 0.7em;
+            font-weight: bold;
+        }
+    }
+    p { text-align: justify; }
+    .highlight {
+        margin-top:5px;
+        color: #000;
+        background-color: #f0f0f0;
+        border: 1px solid $primary-darker;
+        border-left: 3px solid $primary-darker;
+        padding: 5px 10px;
+    }
+    pre, code {
+        font-family: 'Inconsolata';
+        font-size: $codeSize;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    hr {
+        height: 1px;
+        background-color: $third-darker;
+        border:none;
+    }
+    blockquote {
+        font-style: italic;
+        background-color: #f0f0f0;
+        padding: 5px 10px;
+        border-left: 5px solid darken(#f0f0f0, 40%);
+    }
+    img { width: 100%; }
 }
 
-.resume {
-	span.lead {
-		font-weight: 700;
-	}
-	* img {
-		width: 100%;
-	}
+section#content { 
+    margin-bottom: 2em; 
+    &>img { width: 100%; }
+}
+
+#blog-archives {
+    line-height: 1em;
+    h2 {
+        margin: 0;
+        color: $secondary-darker;
+    }
+    article {
+        padding: 0;
+        padding-bottom: 0.2em;
+        position: relative;
+        time {
+            span:not(:first-child) {
+                &:before { content: '/' }
+            }
+        }
+    }
+}
+
+#about {
+    p { text-align: justify; }
+    img {
+        border-radius: 50%; 
+        vertical-align: middle; 
+        padding: 5px; 
+        border: 1px solid #ccc;
+        text-align: center;
+        display: block;
+        margin: 10px auto;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        li {
+            display: inline-block;
+            &:not(:first-child):before {
+                content: " • ";
+                top: -10px;
+                position: relative;
+                color: $primary-light;
+            }
+        }
+    }
+}
+
+//small screens
+@media (max-width: $smallSize) {
+    #menuButton { margin: 5px 10px; float: left;}
+    .sidebar nav, .sidebar footer { display: none; }
+    .sidebar nav {
+        font-size: 1.5em;
+        text-align: center;
+        ul { padding: 0; padding-bottom: 10px; }
+        li { 
+            display: inline-block; 
+            &:not(:first-child):before {
+                content: " • ";
+                color: $primary-lighter;
+            }
+        }
+    }
+    h1 { margin: 0; }
+    #content { 
+        margin: 10px; 
+        .post-extract { display:none; }
+    }
+}
+
+@media (max-width: 550px) {
+    #blog-archives {
+        article { padding-top: 0em; }
+        time { top: $textSize; }
+        h2 { display: none; }
+    }
+}
+
+//large screens
+@media (min-width: $smallSize+1) {
+    #menuButton { display: none; }
+    .sidebar {
+        width: 250px;
+        position: fixed;
+        top:0; bottom: 0;
+        nav { text-align: right; margin-right:25px; display: block !important }
+    }
+    #content { margin: 20px 30px 0 280px; section {margin-bottom: 2em; }}
+}
+
+@media (min-width: 551px) {
+    #blog-archives {
+        h1 { margin: 0; }
+        h2 {
+            padding-top: 17px;
+            margin-bottom: .3em;
+            font-weight: normal;
+            display: inline-block;
+            position: relative;
+            top: -1px;
+            float: left;
+        }
+        time {
+            top: 10px;
+            position: absolute;
+            text-align: right;
+            left: 0em;
+        }
+        article {
+            margin-left: 4em;
+            padding-left: 3.5em;
+        }
+        .year { display: none; }
+    }
 }

@@ -2,12 +2,12 @@
 layout: post
 title: OSX Mountain Lion, SVN et unicode
 date: 2012-09-05  0:30:59
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 tags: misc mac brew install svn unicode
-excerpt: Utiliser Subversion sur une Mac avec support des chemins
-  unicode
-img: http://images.apple.com/euro/osx/images/overview_hero1_title_2x.png
 ---
+Utiliser Subversion sur une Mac avec support des chemins unicode
 
 Dans l'univers impitoyable de Mac OS, je demande le support de l'unicode sur
 Subversion.

@@ -2,11 +2,12 @@
 layout: post
 title: AngularJS doesn't like numbers
 date: 2012-08-20 23:10:43
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 tags: dev js angularjs
-excerpt: petite expérience sur angularJS
-img: http://angularjs.org/img/AngularJS-large.png
 ---
+Petite expérience sur angularJS
 
 Il y a peu, un collègue ([Olivier Croisier])
 m'a montré le framework JS de google [AngularJS].

@@ -1,0 +1,19 @@
+---
+layout: default
+title: Adrien Lecharpentier
+---
+
+<h1 class="page-header">Posts</h1>
+<section class="posts">
+{% for post in site.posts %}
+	<article>
+		<header>
+			<div class="post-title"><a href="{{post.url}}">{{post.title}}</a></div>
+			<div class="post-date">{{post.date|date:"%d/%m/%Y"}}</div>
+		</header>
+		<div class="post-extract">
+			{{post.excerpt}}
+		</div>
+	</article>
+{% endfor %}
+</section>

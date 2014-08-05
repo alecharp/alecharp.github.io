@@ -2,10 +2,12 @@
 layout: post
 title: Never ever use finalize in Java
 date: 2013-05-30 15:15:12
-author: adrien.lecharpentier@gmail.com
+author:
+  name: Adrien Lecharpentier
+  email: adrien.lecharpentier@gmail.com
 tags: dev java
-excerpt: à moins de s'avoir parfaitement ce que vous faite et comment ce que vous faites sera utilisé dans le futur…
 ---
+à moins de s'avoir parfaitement ce que vous faite et comment ce que vous faites sera utilisé dans le futur…
 
 Parce que lorsque l'on fait du support, en général on ne touche pas trop à du code bien fait / écrit ni fonctionnel (un produit qui fonctionne n'a pas besoin de support), je vois par moment des choses qui peuvent piquer les yeux.
 
