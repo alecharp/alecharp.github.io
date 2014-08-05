@@ -5,7 +5,6 @@ date: 2014-06-09 08:00:00
 author:
   name: Adrien Lecharpentier
   email: adrien.lecharpentier@gmail.com
-  avatar: http://gravatar.com/avatar/8254814a3136a30724cd428841f8e155.png?s=200
 tags: dev integration-test
 ---
 
