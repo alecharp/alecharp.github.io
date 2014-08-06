@@ -7,9 +7,9 @@ tags: conseils maven git
 published: true
 ---
 
-Au cours d'un développement, on se retrouve toujours avec un même problème: comment
-je fais pour être plus productif ? A cette question, il y a beaucoup de réponse
-possible.
+Au cours d'un développement, on se retrouve toujours avec un même problème : comment
+je fais pour être plus productif ? A cette question, il y a beaucoup de réponses
+possibles.
 
 ***
 
@@ -22,7 +22,7 @@ refaire la même commande 2 fois de suite (ou "!! + `enter` pour les plus 'fous'
 Cependant, les nouvelles commandes peuvent venir rapidement.
 
 Mettre un `-Dmaven.test.skip=true` est si vite arrivé ou même un `-pl
-*module-name* -am`. Mais comment être sur du nom du module, ou que l'on n'a pas
+*module-name* -am`. Mais comment être sûr du nom du module, ou que l'on n'a pas
 mis le "skip" avant le "test" ? Et quand bien même on l'écrit correctement, c'est long...
 
 LA solution: [ici](https://github.com/juven/maven-bash-completion)
