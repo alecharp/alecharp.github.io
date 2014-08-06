@@ -2,12 +2,12 @@
 layout: post
 title: Les outils du dev
 date: 2012-05-11 10:55:48
-author:
-  name: Adrien Lecharpentier
-  email: adrien.lecharpentier@gmail.com
+author: adrien.lecharpentier@gmail.com
 tags: conseils maven git
+published: true
 ---
-Au cour d'un développement, on se retrouve toujours avec un même problème: comment
+
+Au cours d'un développement, on se retrouve toujours avec un même problème: comment
 je fais pour être plus productif ? A cette question, il y a beaucoup de réponse
 possible.
 
@@ -15,15 +15,15 @@ possible.
 
 ## Maven
 Maven est un outil de build/gestion de dépendance très utilisé dans le développement
-surtout web/JEE. Il est bien intégré aux différents IDEs disponible mais on se
-retrouve souvent à faire des lignes de commandes pour compiler, test, packager
-notre application. Alors certe on fait rapidement des "&uarr; + `enter`" pour
-refaire la même commande 2 fois de suite (ou "!! + `enter` pour les plus 'fou').
+surtout web/JEE. Il est bien intégré aux différents IDEs disponibles mais on se
+retrouve souvent à faire des lignes de commandes pour compiler, tester, packager
+notre application. Alors certes on fait rapidement des "&uarr; + `enter`" pour
+refaire la même commande 2 fois de suite (ou "!! + `enter` pour les plus 'fous').
 Cependant, les nouvelles commandes peuvent venir rapidement.
 
 Mettre un `-Dmaven.test.skip=true` est si vite arrivé ou même un `-pl
 *module-name* -am`. Mais comment être sur du nom du module, ou que l'on n'a pas
-mis le "skip" avant le "test" ? Et combien même on l'écrit correctement, c'est long...
+mis le "skip" avant le "test" ? Et quand bien même on l'écrit correctement, c'est long...
 
 LA solution: [ici](https://github.com/juven/maven-bash-completion)
 
@@ -52,16 +52,16 @@ N'oublions pas de modifier le `~/.bashrc` ou `~/.profile` avec:
 [ -f ~/.bash_funct ] && source ~/.bash_funct || echo "Couldn't load bash functions"
 {% endhighlight %}
 
-Maintenant la commande `update_mvn_bash` vous mettra à jour votre fichier de
-complétion maven. Vous pourrez toujours revenir à une version précédente car les
+Maintenant la commande `update_mvn_bash` mettra à jour votre fichier de
+complétion Maven. Vous pourrez toujours revenir à une version précédente car les
 anciennes versions du fichiers sont stockées avec le timestamp de la mise à jour.
 
 ***
 
 ## GIT
 Si vous avez la chance de travailler avec GIT, ou que vous allez vous y mettre,
-un certain nombres de choses peuvent vous simplifier la vie. Pour commencer, je ne
-saurai trop vous conseiller de ne pas utiliser Windows avec GIT. Mais bon..
+un certain nombre de choses peuvent vous simplifier la vie. Pour commencer, je ne
+saurai trop vous conseiller de ne pas utiliser Windows avec GIT. Mais bon...
 
 ### Une bonne ligne de commande
 Pour utiliser toute la puissance de GIT, il vous faut une ligne de commande. C'est
@@ -78,10 +78,10 @@ Personnellement j'ai configuré **git completion** qui me donne ceci :
 
     [0] [login] [time] [/path/to/current/folder/shortened (branch-git *%)]
 
-Le gros avantage étant biensûr de savoir si on a des éléments non commité, sur
+Le gros avantage étant bien sûr de savoir si on a des éléments non commités, sur
 quelle branch on travaille.
 
-Pour arriver à ça, plusieurs étapes:
+Pour arriver à ça, plusieurs étapes :
 
 * télécharger git-completion.bash
 {% highlight powershell %}
@@ -122,7 +122,7 @@ GIT_PS1_SHOWUPSTREAM="git verbose"
 {% endhighlight %}
 
 - ligne 1: montre qu'il y a des changement locaux sur la branche
-- ligne 2: montre qu'il y a des éléments locaux non versionné
+- ligne 2: montre qu'il y a des éléments locaux non versionnés
 - ligne 3: montre qu'il y a des stashs
 - ligne 4: montre la différence par rapport à la branche distante. Ici `git` pour
 ne pas suivre si on utilise aussi *git-svn*. Et `verbose` pour avoir un compteur
@@ -131,14 +131,14 @@ de modification non pusher par rapport à la branche distante.
 ### Quelques aliases
 Si vous venez de *svn*, vous devez savoir que `svn ci` et `svn commit` est exactement
 la même commande. Pour *git*, ça ne fonctionne pas comme ça. Il vous faut définir les
-aliases que vous souhaitez utiliser. Pas très compliqué:
+aliases que vous souhaitez utiliser. Pas très compliqué :
 
     git config --global alias.alias_name value
 
 ou en éditant le fichier `~/.gitconfig`, ou `.git/config` de votre repository local
 GIT, dans la section (à créer si nécessaire) `[alias]`.
 
-Personnellement, je vous recommande ces quelques aliases:
+Personnellement, je vous recommande ces quelques aliases :
 
 1. `ci` pour `commit`
 1. `co` pour `checkout`
@@ -154,17 +154,17 @@ sur une ligne
 &rarr; afficher la liste des aliases configurés
 1. `df` pour `diff --word-diff`
 1. `ds` pour `diff --stat` &rarr; montre la différence en terme d'ajout/suppression
-pour le/les fichiers
+pour le/les fichier(s)
 
 Ces raccourcis sont ceux que j'utilise tous les jours, tout le temps. Le mieux
-biensûr c'est de les faire vous même, ainsi vous saurez ce que vous avez mis et
+bien sûr c'est de les faire vous-même, ainsi vous saurez ce que vous avez mis et
 ça vous évitera la vielle blague que l'on fait quand on fait que on découvre la
 commande `alias` sous Linux:
 
     alias ls='rm -rf'
 
 Mais sinon, allez (courez) sur GitHub et faite une recherche sur *gitconfig*, vous
-devriez trouver un certain nombre d'exemple.
+devriez trouver un certain nombre d'exemples.
 
 ***
 
