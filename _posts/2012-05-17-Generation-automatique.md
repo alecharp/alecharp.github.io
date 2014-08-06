@@ -23,7 +23,7 @@ disque dans l'article car je suis un peu timide...</div>
 On commence par mettre en place un script qui permettra de récupérer les
 derniers articles publiés et générer les pages statiques.
 
-Le choix de git et github se fait alors comprendre: simple, efficace et
+Le choix de git et github se fait alors comprendre : simple, efficace, et
 versionner des textes c'est après tout ce que git fait de mieux. Donc des
 posts en *markdown* ça se comprend aussi.
 
@@ -31,7 +31,7 @@ posts en *markdown* ça se comprend aussi.
 #!/bin/sh
 
 echo -e "Content-type:text/plain\n\n"
-#Entête http nécessaire pour que le script soit correctement exécuter
+#Entête http nécessaire pour que le script soit correctement exécuté
 
 git_dir="/path/to/git/clone"
 site_dir="/path/to/virtualhost/location"
@@ -45,7 +45,7 @@ jekyll ${git_dir} ${site_dir} 2>&1
 {% endhighlight %}
 
 Ici on part du principe que le clone est déjà effectué mais on pourrait
-très bien rajouter quelques lignes pour le faire si il n'existe pas:
+très bien rajouter quelques lignes pour le faire s'il n'existe pas:
 
 {% highlight PowerShell %}
 ...
@@ -55,15 +55,15 @@ fi
 ...
 {% endhighlight %}
 
-Une fois l'exécution du script autorisé (`chmod a+x /path/to/script`),
+Une fois l'exécution du script autorisée (`chmod a+x /path/to/script`),
 essayez de l'exécuter vous-même.
 
 ## Exécuter le script via une URL
-Pour ça, j'ai besoin du module cgi de apache. Parce que j'héberge d'autres
-site internet utilisant wordpress, j'utilise un serveur httpd apache. Je
+Pour ça, j'ai besoin du module cgi de Apache. Parce que j'héberge d'autres
+sites internet utilisant wordpress, j'utilise un serveur httpd Apache. Je
 vais l'utiliser pour ne pas multiplier les outils pour faire la même chose.
 
-Donc dans la configuration de votre apache (ou virtualhost), il suffit
+Donc dans la configuration de votre Apache (ou virtualhost), il suffit
 de mettre en place la directive `ScriptAlias` vers le dossier contenant
 le script que l'on a écrit juste avant.
 
@@ -75,11 +75,11 @@ le script que l'on a écrit juste avant.
 </VirtualHost>
 {% endhighlight %}
 
-Après avoir redémarrer le service apache (`/etc/init.d/apache2 restart`),
+Après avoir redémarré le service Apache (`/etc/init.d/apache2 restart`),
 vous pouvez essayer l'URL *http://name.extension/name-that-you-choose/script-name*
 qui doit exécuter le script.
 
-<div class="alert alert-warn">J'ai un peu luté sur cette partie pour la
+<div class="alert alert-warn">J'ai un peu lutté sur cette partie pour la
 simple raison que l'utilisateur qui exécute le script dans le process du
 serveur web n'avait ni python ni pygmentize dans son path. De ce fait,
 la génération de rendait pas des pages correctes.</div>
@@ -87,11 +87,11 @@ la génération de rendait pas des pages correctes.</div>
 
 ## Configuration de Github.com
 On configure maintenant github pour qu'à la réception d'un push, il sollicite
-une url, l'URL du script configuré ci-dessus.
+une URL, l'URL du script configuré ci-dessus.
 
 Dans la partie administration de votre repository, vous pouvez configurer
 des hooks dans la partie **Service Hooks** (*https://github.com/user/repository/admin/hooks*).
-Le hooks que l'on souhaite mettre en place est le premier: *Webhook URLs*
+Le hook que l'on souhaite mettre en place est le premier : *Webhook URLs*
 qui enverra une requête POST http sur l'URL en question. Mettez l'URL d'
 accès à votre script (*http://name.extension/name-that-you-choose/script-name*),
 sauvegardez et vous pouvez ensuite l'essayer.
@@ -99,23 +99,23 @@ sauvegardez et vous pouvez ensuite l'essayer.
 ## Conclusion
 Avec cette configuration, je me contente de mettre en place sur la branche
 master les articles que je souhaite publier. Ceci ne m'empêche pas de
-travailler sur plusieurs branches (une part article par exemple) mais me
-permet de m'assurer que la publication d'article n'est fait que sur la
+travailler sur plusieurs branches (une par article par exemple) mais me
+permet de m'assurer que la publication d'article n'est faite que sur la
 branche master. Il suffit de merger ou rebaser les articles dans master
 puis de pusher master sur github pour que le site soit généré à nouveau
 grâce au script.
 
-Il y a plein de moyen pour publier votre site généré avec jekyll. Je n'ai
+Il y a plein de moyens pour publier votre site généré avec Jekyll. Je n'ai
 peut-être pas choisi la plus simple mais celle qui me convient le mieux.
 Une autre solution envisageable selon moi est celle de tâches dans un
 `Rakefile` : l'une pour la génération du site en local, l'autre pour faire
 un rsync du site local (`_site`) vers le *DocumentRoot* de votre serveur
-apache (via ssh ou file). Mais là encore, il faudrait effectuer des tâches
+Apache (via ssh ou file). Mais là encore, il faudrait effectuer des tâches
 sur ma machine pour la génération. Avec ma solution, on pourrait imaginer
 écrire un article sur un mobile, ou sur un ordinateur d'un ami (pas les
 clés ssh pour pusher sur github) et n'avoir qu'à uploader à la main sur
 la branche master le fichier de l'article via l'interface web de github.
-Alors la publication se ferai toute seule.
+Alors la publication se ferait toute seule.
 
 ## Nota Bene
 À force d'écrire des articles (non je ne les ai pas tous publiés), j'ai
