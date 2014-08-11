@@ -13,7 +13,7 @@ Aujourd'hui, on utilise beaucoup maven dans le développement, surtout
 web, mais commencer la phase de dev d'un projet peut être un peu long.
 
 Il faut toujours passer par la phase de création des dossiers
-conventionnés par maven et ce n'est pas toujours simple. Alors astuce:
+conventionnés par maven et ce n'est pas toujours simple. Alors astuce :
 
 {% highlight powershell %}
 function create-maven-struct(){
@@ -29,6 +29,6 @@ grâce à la fonction `create-maven-struct`.
 
 A noter que sans argument, la structure sera créée dans le dossier
 courant, et avec argument la structure sera créée à partir de
-l'argument (également créé si il n'existe pas).
+l'argument (également créé s'il n'existe pas).
 
 Enjoy :)
