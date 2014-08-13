@@ -11,7 +11,7 @@ Après quelques patches sur la nouvelle interface web de [Archiva][1] ainsi que 
 
 ## Un grand merci à eux!
 
-Liste non exhaustive des commiters du projet (non triée):
+Liste non exhaustive des commiters du projet (non triée) :
 
  - Olivier Lamy
  - Jean-Baptiste Onofré
@@ -36,7 +36,7 @@ Je vous invite très largement à regarder Archiva, sa nouvelle interface
 graphique mais aussi les blogs qui y sont liés. Ils sont tous ou la plus grande
 majorité fait par [Olivier Lamy][3].
 
-À bientôt pour de nouvelles histoire.
+À bientôt pour de nouvelles histoires.
 
 [1]: https://t.co/Mjf7bsqX
 [2]: http://archiva.apache.org
