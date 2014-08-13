@@ -7,7 +7,7 @@ author:
   email: adrien.lecharpentier@gmail.com
 tags: dev apache archiva personnel
 ---
-Après quelques patches sur la nouvelle interface web de [Archiva][1] ainsi que sur le [site web de l'outil][2], les commiters du projet m'ont accepté parmis eux.
+Après quelques patches sur la nouvelle interface web de [Archiva][1] ainsi que sur le [site web de l'outil][2], les commiters du projet m'ont accepté parmi eux.
 
 ## Un grand merci à eux!
 
