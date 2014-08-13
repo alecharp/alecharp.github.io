@@ -10,30 +10,30 @@ tags: dev js angularjs
 Petite expérience sur angularJS
 
 Il y a peu, un collègue ([Olivier Croisier])
-m'a montré le framework JS de google [AngularJS].
+m'a montré le framework JS de Google [AngularJS].
 
 Pour un projet personnel en RESTFull / JS j'utilisais jusque là [KnockoutJS](http://knockoutjs.com/)
-pour faire le date-binding mais je me suis dit: "pourquoi pas après tout!".
+pour faire le date-binding mais je me suis dit : "Pourquoi pas après tout !".
 
 J'ai donc commencé à refaire toute mon UI (pas beaucoup d'écran donc ça va
-quand même) avec [AngularJS]. Les premiers écrans sont simples, ça va vite.
-Puis arrive le moment tant attendu de l'épine dans le pied: un coup de
+quand-même) avec [AngularJS]. Les premiers écrans sont simples, ça va vite.
+Puis arrive le moment tant attendu de l'épine dans le pied : un coup de
 DELETE http sur une url pour supprimer une entrée. Pas très compliqué... sauf
 que c'est pas si simple que ça.
 
 ## Mise en place
-[AngularJS] se met rapide et simplement en place: quelques inclusions de
-fichier JS et le tour est joué
+[AngularJS] se met rapide et simplement en place : quelques inclusions de
+fichiers JS et le tour est joué.
 
  - angularjs : la base du framework
  - angularjs-resource : pour faire du rest
- - application : le dispatcher d'url pour utiliser tel ou tel controlleur
- - controlers : les controlleurs de l'application
+ - application : le dispatcher d'url pour utiliser tel ou tel controller
+ - controlers : les controllers de l'application
  - service : les objets serveur-side portés client-side
 
 Évidemment, c'est simpliste, mais le but de l'article n'est pas de faire une
 présentation de [AngularJS] mais de parler du problème que j'ai eu et résolu
-ce soir. Pour une meilleur description: [Développer une application REST avec
+ce soir. Pour une meilleure description : [Développer une application REST avec
 Spring MVC et AngularJS](http://thecodersbreakfast.net/index.php?post/2012/07/30/D%C3%A9velopper-une-application-REST-avec-Spring-MVC-Angular.js)
 par [Olivier Croisier].
 
@@ -68,46 +68,46 @@ une magnifique
 
     DELETE http://localhost:8081/rest/event 405 (Method Not Allowed)
 
-oui car la méthode DELETE est bindé sur l'url `/rest/event/{id}` donc on ne
+oui car la méthode DELETE est bindée sur l'url `/rest/event/{id}` donc on ne
 touche pas la bonne url. Le problème est étrange, puisque vous avez bien
 passé un `id` (entre accolade dans les codes précédent).
 
 ## Indices
 Histoire de vous prendre la tête, le problème persiste 2 longues semaines,
 vous avez eu le temps de refaire la configuration 3 fois, dont une fois avec
-votre gentil collègue qui maintenant parle presque courament l'AngularJS.. mais
+votre gentil collègue qui maintenant parle presque couramment l'AngularJS... mais
 rien de rien.
 
 Comme ça pour rire, vous remplacez, un soir de grande fatigue, le `codingEvent.id`
-par un `'0'` et là, Ô miracle du Javascript, ça fonctionne! On touche au but..
+par un `'0'` et là, Ô miracle du Javascript, ça fonctionne ! On touche au but..
 
 ## Résolution
 Si ça vous saute aux yeux alors bravo, pour les autres (comme moi), un petit
 `console.log(typeof codingEvent.id);` ainsi qu'un `console.log(typeof '0');`
 est indispensable. Pas le même type. `string` dans le premier cas et `number`
-dans le second. Non ça ne peut pas être ça.. Mon service REST prend un Long
+dans le second. Non ça ne peut pas être ça... Mon service REST prend un Long
 en paramètre, et quand je remplace `codingEvent.id` par `'totolabelette'`
-j'ai la belle exception
+j'ai la belle exception :
 
 {% highlight Java %}
 Class java.lang.Long can not be instantiated using a constructor with a single String argument
 {% endhighlight %}
 
-avec une 404 sur l'UI..
+avec une 404 sur l'UI...
 
-et pourtant si.. remplacez codingEvent.id par codingEvent.id.toString() et
-votre appel REST fonctionne parfaitement!!
+et pourtant si... remplacez codingEvent.id par codingEvent.id.toString() et
+votre appel REST fonctionne parfaitement !!
 
 Mais alors, comment mes GET sur l'url `/rest/event/{id}` pouvaient fonctionner
-avant alors que de la même façon le service ne prend qu'un Long. Tout
+avant alors que de la même façon le service ne prend qu'un Long ? Tout
 simplement car je récupère l'id de l'évènement dans l'url de la page via un
 `$routeParams` et que cela renvoi une string, pas un number.
 
 ## Conclusion
 Moralité de mon aventure :
 
- - débugguer du Javascript c'est très palpitant (oui mauvais pour le coeur)
- - AngularJS n'aime par les numbers!!
+ - débugguer du Javascript c'est très palpitant (oui mauvais pour le coeur),
+ - AngularJS n'aime pas les numbers !!
 
 J'espère que cela vous a plu.
 
