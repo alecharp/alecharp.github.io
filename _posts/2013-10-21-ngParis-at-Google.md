@@ -11,7 +11,7 @@ Retour sur cette soirée AngularJS
 
 > Disclamer: J'essaye de retranscrire ce que j'ai compris, entendu de la soirée ainsi que mon ressenti. Les avis, points de vue me sont propre et pourrait ne pas refléter l'intégralité du message que les personnes présentes ont souhaité faire passer.
 
-Hier soir, chez Google France, était donné le rendez-vous pour le dernier [meet-up AngularJS][meetup] en date. Le programme annoncé était lourd, avec de bons speakers:
+Hier soir, chez Google France, était donné le rendez-vous pour le dernier [meet-up AngularJS][meetup] en date. Le programme annoncé était lourd, avec de bons speakers :
 
  - JQuery et AngularJS par Pawel Kozlowski ([@pkozlowski_os][pkozlowski_os_twitter])
  - Les services par Thierry Chatel ([@ThierryChatel][ThierryChatel_twitter])
@@ -25,13 +25,13 @@ Pour un programme pareil, il ne fallait pas moins que Google pour accueillir tou
 
 ## Organisation
 
-Début de l'évènement à 19h (annoncé), les participants commencent à se regrouper à partir de 18h30 devant la grille, ouverture à 18h45. Alexis Moussine-Pouchkine ([@alexismp][alexismp_twitter]) fait l'entrée, Thierry Lau ([@laut3rry][thierrylau_twitter]) et Sébastien Letélié ([@sebmade][sebastienletelie_twitter]) font la distribution des t-shirts et badges. Tout le monde est assis avec t-shirt, badge et sticker à 19h15. Un mot: efficace!
+Début de l'évènement à 19h (annoncé), les participants commencent à se regrouper à partir de 18h30 devant la grille, ouverture à 18h45. Alexis Moussine-Pouchkine ([@alexismp][alexismp_twitter]) fait l'entrée, Thierry Lau ([@laut3rry][thierrylau_twitter]) et Sébastien Letélié ([@sebmade][sebastienletelie_twitter]) font la distribution des t-shirts et badges. Tout le monde est assis avec t-shirt, badge et sticker à 19h15. Un mot : efficace!
 
 [alexismp_twitter]: https://twitter.com/alexismp
 [thierrylau_twitter]: https://twitter.com/laut3rry
 [sebastienletelie_twitter]: https://twitter.com/sebmade/
 
-Les locaux sont magnifiques, 2 vidéo-projections sont prévues pour la salle, les micros sont ouverts: il est temps de faire les premières annonces, la présentation (si besoin est) du premier speaker de la soirée.
+Les locaux sont magnifiques, 2 vidéo-projections sont prévues pour la salle, les micros sont ouverts : il est temps de faire les premières annonces, la présentation (si besoin est) du premier speaker de la soirée.
 
 ## JQuery et AngularJS philosophie
 
@@ -44,17 +44,17 @@ Pawel se définit comme un "open-source enthousiast". On le retrouve sur [twitte
 
 ### Talk
 
-Pawel commence par un:
+Pawel commence par un :
 
-> "It is not how JQuery is bad, on the contrary, but how to do without it"
+> "It is not how JQuery is bad, on the contrary, but how to do without it."
 
 On comprend donc que l'on ne va pas voir de "magie" JQuery. Tant mieux.
 
-Le conseil suivant s'adresse particulièrement au débutant AngularJS:
+Le conseil suivant s'adresse particulièrement au débutant AngularJS :
 
 > "Do not use AngularJS with JQuery in your application."
 
-Si on regarde la documentation, on voit que AngularJS utilisera JQuery si celui-ci est disponible sinon il utilisera une implémentation interne, une sorte de JQLite. Le conseil de Pawel n'est pas contraire à la doc, mais il précognise seulement de ne pas avoir la possibilité de ce service de JQuery dans le code et donc d'adopter la philosophie AngularJS dès le début.
+Si on regarde la documentation, on voit que AngularJS utilisera JQuery si celui-ci est disponible, sinon il utilisera une implémentation interne, une sorte de JQLite. Le conseil de Pawel n'est pas contraire à la doc, mais il préconise seulement de ne pas avoir la possibilité de ce service de JQuery dans le code et donc d'adopter la philosophie AngularJS dès le début.
 
 Car le problème se pose bien là. Le développement avec JQuery et AngularJS est vraiment différent et les mélanger n'est pas forcément une bonne option.
 
@@ -70,7 +70,7 @@ Avec AngularJS, vous décrivez ce que vous voulez et laissez le soin à AngularJ
 
 Bon sous un titre accrocheur, je vais simplement revenir sur les exemples que Pawel nous a donné pour nous prouver que mélanger JQuery et AngularJS n'est pas une bonne option.
 
-Le premier exemple de Pawel, c'est un composant "twitter-like":
+Le premier exemple de Pawel, c'est un composant "twitter-like" :
 
  - une textbox,
  - un bouton "tweet",
@@ -80,17 +80,17 @@ Le premier exemple de Pawel, c'est un composant "twitter-like":
 
 Tous les éléments sont pilotés par l'état de la textbox.
 
-Nous avons donc deux façons de réaliser cet exemple: JQuery ou AngularJS.
+Nous avons donc deux façons de réaliser cet exemple : JQuery ou AngularJS.
 
-Avec JQuery, une méthode centrale, en mode listener, va modifier la classe et l'état des boutons. Le code est long et touche au DOM à base de `$("#id").text()` etc.
+Avec JQuery, une méthode centrale, en mode listener, va modifier la classe et l'état des boutons. Le code est long et touche au DOM à base de `$("#id").text()`, etc.
 
-Avec AngularJS, les boutons se modifient eux-même (directives) avec les valeurs du modèle. On ne touche pas au DOM dans le modèle, on ne touche pas au modèle directement dans le HTML. On divise pour régner. Ce à quoi il nous dit:
+Avec AngularJS, les boutons se modifient eux-même (directives) avec les valeurs du modèle. On ne touche pas au DOM dans le modèle, on ne touche pas au modèle directement dans le HTML. On divise pour régner. Ce à quoi il nous dit :
 
 > "If you do DOM manipulation in controllers, unicorns are dying!"
 
 C'est surtout qu'agir de la sorte, c'est passer à côté d'AngularJS.
 
-Autre exemple, bootstrap-paginator. Le plugin utilise JQuery et manipule le DOM dans le code: +600 lignes de code. Même comportement en AngularJS pure (par Pawel): <50 lignes. En plus, on externalise en DOM (template) ce qui simplifie la modification future si souhaitée.
+Autre exemple, bootstrap-paginator. Le plugin utilise JQuery et manipule le DOM dans le code : +600 lignes de code. Même comportement en AngularJS pure (par Pawel) : <50 lignes. En plus, on externalise en DOM (template) ce qui simplifie la modification future si souhaitée.
 
 #### Enrober du code JQuery dans une directive
 
@@ -114,7 +114,7 @@ Le premier talk est terminé, il est bien accueilli. Quelques questions sont pos
 
 Bref, un bon point sur de bonnes pratiques, un point de vue assez tranché avec tout de même une vision réaliste sur le développement actuel. Bravo et Merci à Pawel pour sa prestation.
 
-Une petite photo pour immortaliser l'assemblée (avec les tshirts offerts)
+Une petite photo pour immortaliser l'assemblée (avec les tshirts offerts) :
 
 <center><blockquote class="twitter-tweet"><p>Angularjs meetup full room <a href="http://t.co/bxk7pyfLEN">pic.twitter.com/bxk7pyfLEN</a></p>&mdash; Sébastien Letélié (@sebmade) <a href="https://twitter.com/sebmade/statuses/392360777686204416">October 21, 2013</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></center>
@@ -127,23 +127,23 @@ Thierry est un consultant indépendant et formateur. Depuis quelques mois, il ne
 
 ### Talk
 
-On annonce directement la couleur:
+On annonce directement la couleur :
 
 > "90% du code de l'application [front] doit se trouver dans des services".
 
-Basiquement, le service est une étiquette vers un singleton. Nous aurons donc toujours la même instance d'un objet ou une copie de la valeur primitive contenu dans le service (différence dûe au fonctionnement de JavaScript).
+En gros, le service est une étiquette vers un singleton. Nous aurons donc toujours la même instance d'un objet ou une copie de la valeur primitive contenu dans le service (différence dûe au fonctionnement de JavaScript).
 
-Thierry nous parle de 5 règles à appliquer avec AngularJS:
+Thierry nous parle de 5 règles à appliquer avec AngularJS :
 
- 1. de code métier, point tu mettras dans ton controller &rarr; service
+ 1. de code métier, point tu ne mettras dans ton controller &rarr; service
  1. dans le doute, un service tu feras
  1. si un service tu ne peux pas utiliser, un service il te faudra écrire
  1. si tu crois qu'un service tu ne peux pas utilser, un service tu utiliseras
  1. dans les autres cas, un service tu feras
 
-Il nous a montré que c'est un principe déjà très utilisé dans AngularJS même: $http / $httpBackend, $route / $location. Bref sans s'en rendre compte, nous le voyons déjà et malgré tout je m'apperçois que je ne l'applique pas. En 10min de discours, il me faut repenser à beaucoup de lignes de code que j'ai écrite, dans mon DOM ou mon controller: conditions d'affichage, conditions d'activations, etc.
+Il nous a montré que c'est un principe déjà très utilisé dans AngularJS même : $http / $httpBackend, $route / $location. Bref sans s'en rendre compte, nous le voyons déjà et malgré tout je m'apperçois que je ne l'applique pas. En 10min de discours, il me faut repenser à beaucoup de lignes de code que j'ai écrites, dans mon DOM ou mon controller : conditions d'affichage, conditions d'activations, etc.
 
-Je n'ai malheureusement pas pris beaucoup de notes car la fatigue et la faim arrivaient. Cependant, c'était vraiment très intéressant, j'ai donc écouté. En reprenant des notes, j'aurai perdu le fil et donc pas pu saisir le sens de la présentation: faire du Service votre allié.
+Je n'ai malheureusement pas pris beaucoup de notes car la fatigue et la faim arrivaient. Cependant, c'était vraiment très intéressant, j'ai donc écouté. En prenant des notes, j'aurai perdu le fil et donc pas pu saisir le sens de la présentation : faire du Service votre allié.
 
 ## Les scopes isolés
 
@@ -151,7 +151,7 @@ Du même speaker, nous voyons maintenant l'utilisation de scope isolé, ce que �
 
 > Disclamer: toujours très peu de notes, toutes mes excuses.
 
-On commence par un rappel sur le scope: les scopes (classique) héritent du scope attaché au DOM parent dans le HTML
+On commence par un rappel sur le scope : les scopes (classiques) héritent du scope attaché au DOM parent dans le HTML :
 
 {% highlight html %}
 <div ng-app="App">
@@ -175,34 +175,34 @@ Si une propriété n'est pas disponible dans le scope courant, on va la chercher
 
 L'isolation de scope est un principe pour l'écriture de Directive. Cela va permettre de bien séparer les données entre votre application et votre directive.
 
-Cependant, toute les directives ne doivent pas avoir de scope isolé: si le template contient un autre template, alors le scope de la première directive ne doit surtout pas être isolé.
+Cependant, toute les directives ne doivent pas avoir de scope isolé : si le template contient un autre template, alors le scope de la première directive ne doit surtout pas être isolé.
 
 ## Conclusion
 
-Je sais que j'ai été plus que rapide sur les 2 dernières présentations. Cela ne reflette en rien la qualité de celle-ci. J'ai dû faire un choix: suivre, comprendre et apprendre ou prendre des notes.
+Je sais que j'ai été plus que rapide sur les 2 dernières présentations. Cela ne reflète en rien la qualité de celles-ci. J'ai dû faire un choix : suivre, comprendre et apprendre, ou prendre des notes.
 
-Toutefois, la bonne nouvelle c'est que la conférence a été filmé et sera prochainement mise en ligne (merci les services techniques de Google!). Les slides seront sûrement publiés dans peu de temps.
+Toutefois, la bonne nouvelle c'est que la conférence a été filmée et sera prochainement mise en ligne (merci les services techniques de Google !). Les slides seront sûrement publiées dans peu de temps.
 
 Pour ma part, j'ai pris un grand plaisir à assister à cette conférence. Une très belle organisation, des locaux magnifiques, non pas un mais 3 buffets à disposition pour se restaurer. Les speakers très intéressants, du code, des retours d'expériences et des bonnes pratiques. Pour moi, une combinaison parfaite.
 
 ### Remerciement
 
-Un petit ré-édition pour faire le tour des gens qui se sont investis dans cet évènement. Un grand bravo à eux et merci:
+Un petit ré-édition pour faire le tour des gens qui se sont investis dans cet évènement. Un grand bravo à eux et merci :
 
  - [Thierry Lau : @laut3rry][thierrylau_twitter]
  - [Sébastien Letélié : @sebmade][sebastienletelie_twitter]
  - [Alexis Moussine-Pouchkine : @alexismp][alexismp_twitter]
- - [Jérôme d'@ebg](https://twitter.com/ebg), [frère de Julien de @revolunet](https://twitter.com/revolunet), avoir filmer la soirée et rendre disponible prochainement les vidéos
+ - [Jérôme d'@ebg](https://twitter.com/ebg), [frère de Julien de @revolunet](https://twitter.com/revolunet), pour avoir filmé la soirée et rendre disponible prochainement les vidéos
  - [Pawel Kozlowski : @pkozlowski_os][pkozlowski_os_twitter]
  - [Thierry Chatel : @ThierryChatel][ThierryChatel_twitter]
 
 ### Vidéo et slides
 
-Chose promise chose dû: [la vidéo et les slides](http://88.190.11.98/Mediasite6/Play/449acaf8520d4bb39f53e7aa5a5bde0a1d) des présentations.
+Chose promise, chose due : [la vidéo et les slides](http://88.190.11.98/Mediasite6/Play/449acaf8520d4bb39f53e7aa5a5bde0a1d) des présentations.
 
 
-Un grand bravo aux organisateurs et à bientôt!
+Un grand bravo aux organisateurs et à bientôt !
 
 ## Annonce de fin
 
-Sébastien Letélié nous rappelle qu'il organise un hackaton dédié à la santé les 28-29-30 mars prochain à Strasbourg. Les défis provenant des médecins arriveront bientôt. Il peut s'agir d'une bonne occasion de mettre en oeuvre AngularJS dans le cadre d'un projet. Plus d'informations sur le site [http://digitalhealthcamp.eu/](http://digitalhealthcamp.eu/).
+Sébastien Letélié nous rappelle qu'il organise un hackathon dédié à la santé les 28-29-30 mars prochain à Strasbourg. Les défis provenant des médecins arriveront bientôt. Il peut s'agir d'une bonne occasion de mettre en oeuvre AngularJS dans le cadre d'un projet. Plus d'informations sur le site [http://digitalhealthcamp.eu/](http://digitalhealthcamp.eu/).
