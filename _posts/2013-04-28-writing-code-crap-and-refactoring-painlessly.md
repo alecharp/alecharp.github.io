@@ -7,12 +7,12 @@ author:
   email: adrien.lecharpentier@gmail.com
 tags: dev
 ---
-Quand on écrit du code, il y a deux choses de mon point de vue qui peuvent nous conduire à l'auto-censure:
+Quand on écrit du code, il y a deux choses de mon point de vue qui peuvent nous conduire à l'auto-censure :
 
- - ne pas savoir écrire du code
- - penser qu'on ne sait pas écrire du code propre
+ - ne pas savoir écrire du code,
+ - penser qu'on ne sait pas écrire du code propre.
 
-Dans un cas comme dans l'autre, le résultat, si c'est le cas, il vaut mieux s'abstenir, sinon ça donne ça [codecrap.com](http://codecrap.com/). Sauf que si on écrit jamais on ne saura jamais écrire, dixit le veille adage "c'est en forgeant qu'on devient forgerons."
+Dans un cas comme dans l'autre, le résultat, si c'est le cas, est qu'il vaut mieux s'abstenir, sinon ça donne ça [codecrap.com](http://codecrap.com/). Sauf que si on écrit jamais on ne saura jamais écrire, dixit le veille adage "c'est en forgeant qu'on devient forgeron."
 
 Donc je pense qu'il y a au moins une solution pour chaque cause.
 
@@ -20,23 +20,23 @@ Donc je pense qu'il y a au moins une solution pour chaque cause.
 
 ### Je ne sais pas écrire du code
 
-Lisez, allez aux conférences, (re)tournez à l'école ou en formation. Il n'y a pas de mal à ça. Bien au contraire. On voit d'ailleurs plein de très bon développeurs Java suivre une formation (e-learning ou autre) pour mettre les mains dans le cambouis de Scala.
+Lisez, allez aux conférences, retournez à l'école ou en formation. Il n'y a pas de mal à ça. Bien au contraire. On voit d'ailleurs plein de très bon développeurs Java suivre une formation (e-learning ou autre) pour mettre les mains dans le cambouis de Scala.
 
 ### Je pense que je ne sais pas écrire du code propre
 
-De même, pas de miracle, lisez, allez aux conférences, etc. Autres choses que vous pouvez faire, c'est vous faire relire: en travaillant à plusieurs, vous aurez plusieurs façon de voir les choses et donc vous serez amené à les essayer et voir qu'elle est la meilleure. 
+De même, pas de miracle, lisez, allez aux conférences, etc. Autres choses que vous pouvez faire, c'est vous faire relire : en travaillant à plusieurs, vous aurez plusieurs façon de voir les choses et donc vous serez amené à les essayer et voir quelle est la meilleure. 
 
 Si, par contre, vous être comme moi et que vous avez des collègues avec le "code" sur la main, alors écoutez-les, proposez-leur de participer à un projet perso pour avoir un retour, etc. 
 
 ### Extra
 
-Dans tous les cas, certains outils et bonnes pratiques pourront vous aidez sur le long chemin de l'apprentissage: Git, un IDE maitrisé, des tests, un système de build automatisé, un code-reviewer. Je pense que tout ça mérite un autre post, donc j'y reviendrai.
+Dans tous les cas, certains outils et bonnes pratiques pourront vous aidez sur le long chemin de l'apprentissage : Git, un IDE maitrisé, des tests, un système de build automatisé, un code-reviewer. Je pense que tout ça mérite un autre post, donc j'y reviendrai.
 
 ## Mise en pratique
 
-Imaginons que vous souhaitez mettre en place un système qui va vous permettre de discuter (grosse simplification de mon cas pratique), mais comme vous êtes gentil, vous pensez aux étrangers. 
+Imaginons que vous souhaitez mettre en place un système qui va vous permettre de discuter (grosse simplification de mon cas pratique), mais comme vous êtes gentils, vous pensez aux étrangers. 
 
-Le code final sera surement un peu over-designed par rapport au cas d'utilisation que j'ai décris mais l'important dans un voyage ce n'est pas la destination mais le chemin pour y parvenir.
+Le code final sera surement un peu over-designed par rapport au cas d'utilisation que j'ai décrit mais l'important dans un voyage ce n'est pas la destination mais le chemin pour y parvenir.
 
 ### Étape 1 : simple, efficace
 
@@ -88,7 +88,7 @@ public class Main {
 
 ### Étape 3 : "parle-moi comme je parle"
 
-Bon, on veut plusieurs langues possible à partir d'un argument de la ligne de commande :
+Bon, on veut plusieurs langues possibles à partir d'un argument de la ligne de commande :
 
 {% highlight java %}
 public class Main {
@@ -116,7 +116,7 @@ public class NiceGuy {
 }
 {% endhighlight %}
 	
-Là, notre test nous dit que tout va bien. Cool, nous avons donc améliorer le code sans régression. Mais testons un peu plus :
+Là, notre test nous dit que tout va bien. Cool, nous avons donc amélioré le code sans régression. Mais testons un peu plus :
 
 {% highlight java %}
 public class NiceGuyTest {
@@ -142,7 +142,7 @@ public class NiceGuyTest {
 }
 {% endhighlight %}
 
-Maintenant, nous sommes sûr que lorsque nous précisons un langage ou non, nous avons bien un retour en français. En plus, si un langage n'est pas connu, nous avons bien l'erreur que nous attentions. Tout cela semble parfait.
+Maintenant, nous sommes sûrs que lorsque nous précisons un langage ou non, nous avons bien un retour en français. En plus, si un langage n'est pas connu, nous avons bien l'erreur que nous attendions. Tout cela semble parfait.
 
 Donc comme "we areu completely bilinguale" (complètement bilingue en français dans l'accent), on peut faire le code pour parler en Anglais :
 
@@ -183,9 +183,9 @@ Bon ok maintenant ça fonctionne, mais on se rend bien compte que la méthode `s
 
 ### Étape 4 : et dans 6 mois, je ferai comment ?
 
-Donc pensons 3 secondes. Il nous faudrait un système pour avoir différentes façon de répondre à `sayHi` et de découvrir ces propositions tout seul (ou presque).
+Donc pensons 3 secondes. Il nous faudrait un système pour avoir différentes façons de répondre à `sayHi` et de découvrir ces propositions tout seul (ou presque).
 
-Je reviendrai sur le presque. Intéressons-nous à la transformation de notre implémentation. On peut utiliser le mécanisme d'héritage ou d'implémentation. Compte tenu qu'aucun langage n'aura de code en commun, je choisi de créer une interface à partir de NiceGuy. Pour des raisons de nommage, transformons l'actuelle `NiceGuy` en `FrenchNiceGuy` :
+Je reviendrai sur le presque. Intéressons-nous à la transformation de notre implémentation. On peut utiliser le mécanisme d'héritage ou d'implémentation. Compte tenu du fait qu'aucun langage n'aura de code en commun, je choisis de créer une interface à partir de NiceGuy. Pour des raisons de nommage, transformons l'actuelle `NiceGuy` en `FrenchNiceGuy` :
 
 {% highlight java %}
 public class FrenchNiceGuy {
@@ -299,9 +299,9 @@ public class NiceGuyManagerTest {
 
 ### Étape 5 : relecture par un très très bon
 
-> "Et sinon SPI tu connais?"
+> "Et sinon SPI tu connais ?"
 
-On cherche, on trouve, [on lit](http://thecodersbreakfast.net/index.php?post/2008/12/26/Java-%3A-pr%C3%A9sentation-du-Service-Provider-API), on s'incline: Oui j'ai réinventé la roue dans l'étape 4. Donc on va faire du refactor. Pas de peur, grâce aux tests, on sait que l'on retrouvera au moins aussi bien.
+On cherche, on trouve, [on lit](http://thecodersbreakfast.net/index.php?post/2008/12/26/Java-%3A-pr%C3%A9sentation-du-Service-Provider-API), on s'incline : Oui j'ai réinventé la roue dans l'étape 4. Donc on va faire du refactor. Pas de peur, grâce aux tests, on sait que l'on retrouvera au moins aussi bien.
 
 On rajoute le langage dans `NiceGuy`: 
 {% highlight java %}
@@ -353,7 +353,7 @@ et nous transformons le fichier _properties_  en un fichier _NiceGuy_ dans un do
 
 ## Conclusion
 
-En partant d'un code moche et inutilisable sur le moyen terme, nous avons pu obtenir un code simple et efficace. Un brin de lecture, d'aide et c'est tout. Par principe, personne ne sait tout: travailler à plusieurs permet de combler certain manque.
+En partant d'un code moche et inutilisable sur le moyen terme, nous avons pu obtenir un code simple et efficace. Un brin de lecture, d'aide et c'est tout. Par principe, personne ne sait tout: travailler à plusieurs permet de combler certains manques.
 
 D'autre part, nous avons : 
 
@@ -361,9 +361,9 @@ D'autre part, nous avons :
  - utilisé un éditeur de code que l'on connait bien,
  - un SCM efficace, Git évidemment.
 
-En un sens, il faut toujours se remettre en cause en informatique, en appliquant certaines pratiques de développement informatique, on peut rapidement s'améliorer. Vous pouvez également mettre en place des outils de relecture de code comme Gerrit ou des phases de Pair Programming. Ces éléments peuvent avoir un retour sur investissement (puisque certains ne comprennent que ça) très important, au même titre que [plus de RAM, plus d'écran](http://thecodersbreakfast.net/index.php?post/2012/08/26/equipez-vos-d%C3%A9veloppeurs) ou une formation..
+En un sens, il faut toujours se remettre en cause en informatique. En appliquant certaines pratiques de développement informatique, on peut rapidement s'améliorer. Vous pouvez également mettre en place des outils de relecture de code comme Gerrit ou des phases de Pair Programming. Ces éléments peuvent avoir un retour sur investissement (puisque certains ne comprennent que ça) très important, au même titre que [plus de RAM, plus d'écran](http://thecodersbreakfast.net/index.php?post/2012/08/26/equipez-vos-d%C3%A9veloppeurs) ou une formation...
 
-Merci de m'avoir lu!
+Merci de m'avoir lu !
 
 ## Références
 
