@@ -11,7 +11,7 @@ parce qu'un prompt qui convient vaux mieux que 1000 mots
 
 ## Rappel
 
-Ne réinventons pas la roue, même pour les descriptions: 
+Ne réinventons pas la roue, même pour les descriptions : 
 
 ### ZSH
 
@@ -30,7 +30,7 @@ Donc graphiquement, voilà à quoi ressemble mon `prompt`:
 
 ### Les bases
 
-Je ne vois pas beaucoup l'intérêt d'afficher le `hostname` de la machine courante, étant donné que le `prompt` en lui même ne sera jamais que sur ma machine. Sinon, j'apprécie le fait de voir l'utilisateur ainsi que le dossier courant. Par contre, les commandes que le tape, je préfère qu'elles soient écrites sur la ligne en dessous, question de lisibilité.
+Je ne vois pas beaucoup l'intérêt d'afficher le `hostname` de la machine courante, étant donné que le `prompt` en lui-même ne sera jamais que sur ma machine. Sinon, j'apprécie le fait de voir l'utilisateur ainsi que le dossier courant. Par contre, les commandes que je tape, je préfère qu'elles soient écrites sur la ligne du dessous, question de lisibilité.
 
 Donc ça nous donne un `prompt` 
 
@@ -40,7 +40,7 @@ PROMPT='%{$fg_bold[cyan]%}%n: %{$fg[yellow]%}%04~%{$reset_color%}
 {% endhighlight %}
 
 ### Le caractère de `prompt`
-Pour se mettre dans le bain: le caractère "»" change de couleur en fonction de la réussite ou non de la dernière commande. Pour faire ça:
+Pour se mettre dans le bain : le caractère "»" change de couleur en fonction de la réussite ou non de la dernière commande. Pour faire ça :
 
 {% highlight sh %}
 function prompt_char {
@@ -57,7 +57,7 @@ $(prompt_char) '
 
 ### Git 
 
-car c'est selon moi le meilleurs (D)VCS sur le marché, je l'utilise partout (ce blog, les documentations que j'écris, les projets, etc.), je l'utilise même pour gérer les dépôts SVN.. Du coup je peux me servir que de Git.
+Car c'est selon moi le meilleurs (D)VCS sur le marché, je l'utilise partout (ce blog, les documentations que j'écris, les projets, etc.), je l'utilise même pour gérer les dépôts SVN... Du coup je ne peux me servir que de Git.
 
 Donc pour utiliser correctement Git, il faut voir ce que l'on fait:
 
@@ -65,7 +65,7 @@ Donc pour utiliser correctement Git, il faut voir ce que l'on fait:
  - la branche distante (si elle existe) et la différence avec la branche courante,
  - l'état du workspace, de l'index ainsi que du repository local.
 
-Ceci n'est pas trop compliqué car avec oh-my-zsh, il y a la fonction `git_prompt_status` qui permet de montrer ces informations. Il est uniquement nécessaire de mettre en place des variables:
+Ceci n'est pas trop compliqué car avec oh-my-zsh, il y a la fonction `git_prompt_status` qui permet de montrer ces informations. Il est uniquement nécessaire de mettre en place des variables :
 
 <table class="table">
 	<thead>
@@ -96,7 +96,7 @@ Ceci n'est pas trop compliqué car avec oh-my-zsh, il y a la fonction `git_promp
 	</tbody>
 </table>
 
-Je veux maintenant pouvoir voir la branche sur laquelle je travaille:
+Je veux maintenant pouvoir voir la branche sur laquelle je travaille :
 
 {% highlight sh %}
 ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
@@ -106,7 +106,7 @@ STATUS=${ZSH_THEME_GIT_PROMPT_PREFIX}
 STATUS=$STATUS${ZSH_THEME_GIT_PROMPT_BRANCH_PREFIX}${ref#refs/heads/}${ZSH_THEME_GIT_PROMPT_BRANCH_SUFFIX}
 {% endhighlight %}
 
-Je veux ensuite avoir la branche distante:
+Je veux ensuite avoir la branche distante :
 
 {% highlight sh %}
 remote=${$(command git rev-parse --verify ${hook_com[branch]}@{upstream} --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
@@ -132,12 +132,12 @@ if [ $ahead -eq 0 ] && [ $behind -eq 0 ]; then
 fi
 {% endhighlight %}
 
-Donc on met tout ce code dans une fonction, ainsi on peut l'appeler sur notre `prompt`. Petite nuance, je le met sur le `rprompt` pour que le `prompt` avec ou sans information Git ne bouge.
+Donc on met tout ce code dans une fonction, ainsi on peut l'appeler sur notre `prompt`. Petite nuance, je le mets sur le `rprompt` pour que le `prompt` avec ou sans information Git ne bouge.
 
-Vous pouvez remarquer que j'ai usé et abusé des variables pour mettre les messages: c'est pour toi public! Non sans blague, ça permet de pouvoir changer les caractères / icônes utilisés sans toucher au code qui permet des les afficher.. oui oui c'est très MVC tout ça.. bref
+Vous pouvez remarquer que j'ai usé et abusé des variables pour mettre les messages : c'est pour toi public ! Non sans blague, ça permet de pouvoir changer les caractères / icônes utilisés sans toucher au code qui permet des les afficher... oui oui c'est très MVC tout ça... bref
 
 ## Conclusion
 
 Vous pouvez trouver sur mon [github](https://github.com/alecharp/oh-my-zsh/blob/alecharp-theme/themes/alecharp.zsh-theme) le fichier complet de ce code.
 
-Les retours, commentaires, avis sont évidemment les bienvenus!
+Les retours, commentaires, avis sont évidemment les bienvenus !
