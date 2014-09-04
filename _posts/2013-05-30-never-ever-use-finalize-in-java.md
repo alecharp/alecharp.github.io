@@ -66,7 +66,7 @@ En effet, l'instance de la classe B est toujours utilisé par d'autres instance 
 
 ## Conclusion
 
-Il y a quelques années, un enseignant nous avez dit :
+Il y a quelques années, un enseignant nous avait dit :
 
 > "Le premier que je vois redéfinir `finalize` sans une excellente raison passera un sale quart d'heure", __Rémi FORAX__.
 
