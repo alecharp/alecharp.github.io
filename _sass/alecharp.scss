@@ -284,7 +284,20 @@ $largeScreenSidebarWidth: 18em;
                 @include border-radius(50%); 
             }
         }
-        background: url('/images/sidebar-wallpaper.JPG') repeat scroll center center / cover transparent;
+        &:before {
+            content: "";
+            position: fixed;
+            left:0; up:0;
+            width: inherit; height:100%;
+            display: block;
+            z-index:-1;
+            background: url('/images/sidebar-wallpaper.JPG') repeat scroll center center / cover transparent;
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -o-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
     }
     #content {
         margin: 2em 2em 0 $largeScreenSidebarWidth+2; 

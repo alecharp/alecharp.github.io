@@ -9,6 +9,13 @@
 
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{site.baseurl}}/resources/css/main.css" type="text/css" />
+  <style type="text/css">
+    {% if page.banner %}
+      .sidebar:before {
+        background-image: url('{{page.banner}}');
+      }
+    {% endif %}
+  </style>
 </head>
 <body>
   <aside class="sidebar">
