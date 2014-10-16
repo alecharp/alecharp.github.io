@@ -1,3 +1,10 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
 $codeSize: 14px;
 $itemSize: 15px;
 $textSize: 17px;
@@ -56,7 +63,7 @@ body {
     min-height: 100%;
     background: $primary-darker;
     color: #fff;
-    h1 { 
+    header { 
         text-align: center; 
         font-size: 1.8em; 
         font-weight: bold;
@@ -119,12 +126,10 @@ article {
     }
     p { text-align: justify; }
     .highlight {
-        margin-top:5px;
+        margin: 1em -2em;
         color: #000;
         background-color: #f0f0f0;
-        border: 1px solid $primary-darker;
-        border-left: 3px solid $primary-darker;
-        padding: 5px 10px;
+        padding: 1em 2em;
     }
     pre, code {
         font-family: 'Inconsolata';
@@ -189,13 +194,13 @@ section#content {
 #about {
     p { text-align: justify; }
     img {
-        border-radius: 50%; 
+        @include border-radius(50%); 
         vertical-align: middle; 
-        padding: 5px; 
-        border: 1px solid #ccc;
+        padding: 0.2em; 
+        border: 1px solid $primary-darker;
         text-align: center;
         display: block;
-        margin: 10px auto;
+        margin: 2em auto;
     }
     ul {
         list-style: none;
@@ -216,7 +221,7 @@ section#content {
 //small screens
 @media (max-width: $smallSize) {
     #menuButton { margin: 5px 10px; float: left;}
-    .sidebar nav, .sidebar footer { display: none; }
+    .sidebar nav, .sidebar footer, .sidebar header img { display: none; }
     .sidebar nav {
         text-align: center;
         ul { padding: 0; padding-bottom: 10px; }
@@ -230,7 +235,7 @@ section#content {
     }
     h1 { margin: 0; }
     #content { 
-        margin: 10px; 
+        margin: 2em;
     }
 }
 
@@ -249,12 +254,34 @@ section#content {
 @media (min-width: $smallSize+1) {
     #menuButton { display: none; }
     .sidebar {
-        width: 250px;
+        width: 16em;
         position: fixed;
         top:0; bottom: 0;
-        nav { text-align: right; margin-right:25px; display: block !important }
+        nav {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 16em;
+            padding: 1em 0;
+            ul { margin-right: 2em; }
+            text-align: right;
+            display: block !important;
+            background-color: rgba(25, 25, 25, 0.65);
+        }
+        header {
+            h1 { display: none; }
+            img {
+                margin: 1em auto;
+                width: 150px;
+                @include border-radius(50%); 
+            }
+        }
+        background: url('/images/sidebar-wallpaper.JPG') repeat scroll center center / cover transparent;
     }
-    #content { margin: 20px 30px 0 280px; section {margin-bottom: 2em; }}
+    #content { 
+        margin: 2em 2em 0 18em; 
+        section {margin-bottom: 2em; }
+    }
 }
 
 @media (min-width: 551px) {
