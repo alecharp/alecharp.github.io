@@ -63,9 +63,10 @@ body {
     min-height: 100%;
     background: $primary-darker;
     color: #fff;
-    header { 
-        text-align: center; 
+    header {
+        text-align: center;
         font-size: 1.8em; 
+        line-height: 1.8em;
         font-weight: bold;
     }
 
@@ -100,7 +101,13 @@ body {
     }
 }
 
-.posts .post-title { text-transform: uppercase; }
+.posts {
+    .post-title { text-transform: uppercase; font-weight: 700; }
+    article:not(:first-child) {
+        padding-top: 1em;
+        border-top: 1px dotted $third-darker;
+    }
+}
 article {
     margin-bottom: 20px;
     .post-title { color: $primary-darker; }
@@ -220,7 +227,7 @@ section#content {
 
 //small screens
 @media (max-width: $smallSize) {
-    #menuButton { margin: 5px 10px; float: left;}
+    #menuButton { margin: 0.6em 1em; float: left;}
     .sidebar nav, .sidebar footer, .sidebar header img { display: none; }
     .sidebar nav {
         text-align: center;
@@ -235,7 +242,7 @@ section#content {
     }
     h1 { margin: 0; }
     #content { 
-        margin: 2em;
+        margin: 1em 2em;
     }
 }
 
@@ -250,18 +257,19 @@ section#content {
     }
 }
 
+$largeScreenSidebarWidth: 18em;
 //large screens
 @media (min-width: $smallSize+1) {
     #menuButton { display: none; }
     .sidebar {
-        width: 16em;
+        width: $largeScreenSidebarWidth;
         position: fixed;
         top:0; bottom: 0;
         nav {
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 16em;
+            width: $largeScreenSidebarWidth;
             padding: 1em 0;
             ul { margin-right: 2em; }
             text-align: right;
@@ -278,8 +286,8 @@ section#content {
         }
         background: url('/images/sidebar-wallpaper.JPG') repeat scroll center center / cover transparent;
     }
-    #content { 
-        margin: 2em 2em 0 18em; 
+    #content {
+        margin: 2em 2em 0 $largeScreenSidebarWidth+2; 
         section {margin-bottom: 2em; }
     }
 }
