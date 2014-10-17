@@ -9,7 +9,7 @@ layout: default
 
         {% if page.tags %}
         <div class="tag-list">
-            {% for tag in page.tags %}<span class="tag">{{ tag }}</span> {% endfor %}
+            {% for tag in page.tags %}<span class="tag"><a href="{{site.baseurl}}/tags/#{{ tag }}-ref">{{tag}}</a></span> {% endfor %}
         </div>
         {% endif %}
     </header>
