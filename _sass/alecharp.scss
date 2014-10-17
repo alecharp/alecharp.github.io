@@ -129,6 +129,7 @@ article {
             border-radius: .25em;
             color: #fff;
             font-size: 0.7em;
+            a, a:hover { color: inherit }
         }
     }
     p { text-align: justify; }
