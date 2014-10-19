@@ -5,7 +5,7 @@ author:
   name: Adrien Lecharpentier
   email: adrien.lecharpentier@gmail.com
 title: Les tests d'intégrations de jenkins-client
-tags: opensource github jenkins test integration
+tags: opensource jenkins integration-tests java
 ---
 
 Pour une idée de projet de supervision de Jenkins, j'ai cherché s'il existait une librairie permettant de communiquer simplement avec une instance de Jenkins (via son API Rest). J'ai trouvé [`jenkins-client`][jenkins-client] sur le Github de RisingOak.

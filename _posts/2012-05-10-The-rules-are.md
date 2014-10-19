@@ -3,7 +3,7 @@ layout: post
 date: 2012-05-10 20:00:00
 author: adrien.lecharpentier@gmail.com
 title: The rules are
-tags: rules begining how-to
+tags: common
 ---
 
 J'ai envie d'essayer Jekyll pour gérer mon blog pour quelques raisons, 

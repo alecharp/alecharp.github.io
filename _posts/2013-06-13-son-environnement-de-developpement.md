@@ -5,7 +5,7 @@ date: 2013-06-13 18:36:14
 author:
   name: Adrien Lecharpentier
   email: adrien.lecharpentier@gmail.com
-tags: misc
+tags: common
 ---
 ...ce n'est pas que les outils pour coder et le matos informatique !
 

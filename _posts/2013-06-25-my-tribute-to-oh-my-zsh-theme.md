@@ -5,7 +5,7 @@ date: 2013-06-25 20:00:00
 author:
   name: Adrien Lecharpentier
   email: adrien.lecharpentier@gmail.com
-tags: zsh theme customization
+tags: zsh
 ---
 parce qu'un prompt qui convient vaux mieux que 1000 mots
 

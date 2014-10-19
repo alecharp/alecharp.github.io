@@ -3,7 +3,7 @@ layout: post
 title: Les outils du dev
 date: 2012-05-11 10:55:48
 author: adrien.lecharpentier@gmail.com
-tags: conseils maven git
+tags: maven git
 published: true
 ---
 

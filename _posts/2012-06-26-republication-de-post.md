@@ -5,7 +5,7 @@ date: 2012-06-26 23:56:43
 author:
   name: Adrien Lecharpentier
   email: adrien.lecharpentier@gmail.com
-tags: misc blog wordpress
+tags: jekyll
 ---
 Je viens de (re)publier le [post le plus recherché](/2010/06/24/sonatype-nexus/) sur le net. Il n'a pas complètement disparu, c'est juste qu'il me faut le sortir de ma base wordpress et le mettre en forme pour Jekyll.
 

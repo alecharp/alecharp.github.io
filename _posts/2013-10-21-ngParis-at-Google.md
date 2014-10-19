@@ -5,7 +5,7 @@ author:
   name: Adrien Lecharpentier
   email: adrien.lecharpentier@gmail.com
 title: ngParis chez Google
-tags: AngularJS conference debrief
+tags: angularjs conference
 ---
 Retour sur cette soirée AngularJS
 

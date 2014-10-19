@@ -5,7 +5,7 @@ date: 2012-09-05  0:30:59
 author:
   name: Adrien Lecharpentier
   email: adrien.lecharpentier@gmail.com
-tags: misc mac brew install svn unicode
+tags: mac brew install svn
 ---
 Utiliser Subversion sur un Mac avec support des chemins unicodes
 

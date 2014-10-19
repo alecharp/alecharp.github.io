@@ -5,7 +5,7 @@ date: 2012-09-16 18:56:14
 author:
   name: Adrien Lecharpentier
   email: adrien.lecharpentier@gmail.com
-tags: dev apache archiva personnel
+tags: dev apache-fondation archiva
 ---
 Après quelques patches sur la nouvelle interface web de [Archiva][1] ainsi que sur le [site web de l'outil][2], les commiters du projet m'ont accepté parmi eux.
 

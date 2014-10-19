@@ -5,7 +5,7 @@ title: It's QWERTY time
 author:
   name: Adrien Lecharpentier
   email: adrien.lecharpentier@gmail.com
-tags: qwerty keyboard unrelated
+tags: common
 ---
 For a while, people haven't stopped telling me that for coding, nothing is
 better than a Qwerty keyboard. 

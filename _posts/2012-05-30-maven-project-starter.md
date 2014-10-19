@@ -5,7 +5,7 @@ date: 2012-05-30 16:44:47
 author:
   name: Adrien Lecharpentier
   email: adrien.lecharpentier@gmail.com
-tags: maven linux bash function enhancer dev
+tags: maven bash
 ---
 Parfois commencer un project c'est long et embêtant car il faut commencer par créer la structure du project selon maven. Comment peut-on le faire rapidement?
 

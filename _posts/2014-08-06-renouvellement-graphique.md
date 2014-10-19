@@ -5,7 +5,7 @@ author:
   name: Adrien Lecharpentier
   email: adrien.lecharpentier@gmail.com
 title: Renouvellement graphique
-tags: ui renewal
+tags: jekyll
 ---
 
 Car beaucoup m'ont dit que la police (ancienne) de mon blog était illisible, j'ai procédé à quelques changements...

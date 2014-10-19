@@ -5,7 +5,7 @@ date: 2013-03-15 16:00:00
 author:
   name: Adrien Lecharpentier
   email: adrien.lecharpentier@gmail.com
-tags: misc scm git svn bazaar mercurial
+tags: git
 ---
 Un petit pamphlet pour l'utilisation de SCM en toute circonstance
 
