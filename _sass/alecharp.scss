@@ -199,6 +199,15 @@ section#content {
     }
 }
 
+#tags {
+    ul.article-list {
+        list-style: none;
+        li {
+            margin-left: -1em;
+        }
+    }
+}
+
 #about {
     p { text-align: justify; }
     img {

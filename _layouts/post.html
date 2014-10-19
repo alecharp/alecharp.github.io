@@ -8,8 +8,9 @@ layout: default
         <time datetime="{{post.date}}" class="post-date">Publié le {{page.date | date:"%d/%m/%Y"}}</time>
 
         {% if page.tags %}
+        {% assign sorted_tags = page.tags | sort %}
         <div class="tag-list">
-            {% for tag in page.tags %}<span class="tag"><a href="{{site.baseurl}}/tags/#{{ tag }}-ref">{{tag}}</a></span> {% endfor %}
+            {% for tag in sorted_tags %}<span class="tag"><a href="{{site.baseurl}}/tags/#{{ tag }}-ref">{{tag}}</a></span> {% endfor %}
         </div>
         {% endif %}
     </header>
