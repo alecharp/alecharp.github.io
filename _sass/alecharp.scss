@@ -135,9 +135,10 @@ article {
     p { text-align: justify; }
     .highlight {
         margin: 1em -2em;
-        color: #000;
-        background-color: #f0f0f0;
+        color: #fff;
+        background-color: $primary-darker;
         padding: 1em 2em;
+        pre code .lineno { margin-right: 1em; color: $secondary-darker;}
     }
     pre, code {
         font-family: 'Inconsolata';
