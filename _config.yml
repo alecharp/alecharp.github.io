@@ -4,14 +4,17 @@ author:
   email: "adrien.lecharpentier@gmail.com"
 
 permalink: pretty
+timezone: Europe/Paris
 baseurl: ''
 
 rss_feed: "/atom.xml"
-future: false
 
-markdown: rdiscount
-rdiscount:
-  extensions: [smart]
+show_drafts: null
+limit_posts: 0
+future: false
+unpublished: false
+
+markdown: kramdown
 highlighter: pygments
 
 exclude: [README.md, LICENSE.md, _sass, bower_components, bower.json]
