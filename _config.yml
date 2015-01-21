@@ -19,9 +19,7 @@ sass:
   sass_dir: _sass
 
 gems:
-- jekyll-mentions
 - jemoji
-- jekyll-redirect-from
 - jekyll-sitemap
 
 exclude: [README.md, LICENSE.md, Makefile, .DS_Store]
