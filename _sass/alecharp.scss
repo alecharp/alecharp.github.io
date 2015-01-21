@@ -132,7 +132,15 @@ article {
             a, a:hover { color: inherit }
         }
     }
-    p { text-align: justify; }
+    p {
+      text-align: justify;
+      code {
+        background-color: $primary-darker;
+        padding: 0 .5em;
+        border-radius: .25em;
+        color: #fff;
+      }
+    }
     .highlight {
         margin: 1em -2em;
         color: #fff;
