@@ -24,4 +24,4 @@ gems:
 - jekyll-redirect-from
 - jekyll-sitemap
 
-exclude: [README.md, LICENSE.md, _sass, bower_components, bower.json]
+exclude: [README.md, LICENSE.md, Makefile, .DS_Store]
