@@ -34,9 +34,9 @@ $third-darker: #CB2E00;
 @import url(http://fonts.googleapis.com/css?family=Oswald:300,700);
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
-body { 
+body {
     padding:0;
-    margin:0; 
+    margin:0;
     font-size: $textSize;
     font-family: 'Roboto', Arial, sans-serif;
     font-weight: 300;
@@ -64,7 +64,7 @@ body {
     color: #fff;
     header {
         text-align: center;
-        font-size: 1.8em; 
+        font-size: 1.8em;
         line-height: 1.8em;
         font-weight: bold;
     }
@@ -93,7 +93,7 @@ body {
         span.social {
             display: inline-block;
             &:not(:first-child):before {
-                content : " • ";
+                content : " - ";
                 color: $primary-lighter;
             }
         }
@@ -170,8 +170,8 @@ article {
     }
 }
 
-section#content { 
-    margin-bottom: 2em; 
+section#content {
+    margin-bottom: 2em;
     &>img { width: 100%; }
 }
 
@@ -212,9 +212,9 @@ section#content {
 #about {
     p { text-align: justify; }
     img {
-        @include border-radius(50%); 
-        vertical-align: middle; 
-        padding: 0.2em; 
+        @include border-radius(50%);
+        vertical-align: middle;
+        padding: 0.2em;
         border: 1px solid $primary-darker;
         text-align: center;
         display: block;
@@ -227,7 +227,7 @@ section#content {
         li {
             display: inline-block;
             &:not(:first-child):before {
-                content: " • ";
+                content: " - ";
                 top: -10px;
                 position: relative;
                 color: $primary-light;
@@ -243,19 +243,19 @@ section#content {
     .sidebar nav {
         text-align: center;
         ul { padding: 0; padding-bottom: 10px; }
-        li { 
-            display: inline-block; 
+        li {
+            display: inline-block;
             &:not(:first-child):before {
-                content: " • ";
+                content: " - ";
                 color: $primary-lighter;
             }
         }
     }
-    .sidebar { 
+    .sidebar {
         background: $primary-darker;
     }
     h1 { margin: 0; }
-    #content { 
+    #content {
         margin: 1em 2em;
     }
 }
@@ -295,7 +295,7 @@ $largeScreenSidebarWidth: 18em;
             img {
                 margin: 1em auto;
                 width: 150px;
-                @include border-radius(50%); 
+                @include border-radius(50%);
             }
         }
         &:before {
@@ -314,7 +314,7 @@ $largeScreenSidebarWidth: 18em;
         }
     }
     #content {
-        margin: 2em 2em 0 $largeScreenSidebarWidth+2; 
+        margin: 2em 2em 0 $largeScreenSidebarWidth+2;
         section {margin-bottom: 2em; }
     }
 }
