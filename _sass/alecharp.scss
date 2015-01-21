@@ -210,7 +210,7 @@ section#content {
 }
 
 #about {
-    p { text-align: justify; }
+    p { text-align: center; }
     img {
         @include border-radius(50%);
         vertical-align: middle;
