@@ -7,8 +7,6 @@ permalink: pretty
 timezone: Europe/Paris
 baseurl: ''
 
-rss_feed: "/atom.xml"
-
 show_drafts: null
 limit_posts: 0
 future: false
