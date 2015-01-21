@@ -12,7 +12,9 @@ limit_posts: 0
 future: false
 unpublished: false
 
-markdown: kramdown
+markdown: redcarpet
+redcarpet:
+  extensions: ['fenced_code_blocks', 'tables', 'no_intra_emphasis', 'autolink']
 highlighter: pygments
 
 sass:
