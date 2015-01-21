@@ -18,6 +18,7 @@ redcarpet:
 highlighter: pygments
 
 sass:
+  style: :compressed
   sass_dir: _sass
 
 gems:
