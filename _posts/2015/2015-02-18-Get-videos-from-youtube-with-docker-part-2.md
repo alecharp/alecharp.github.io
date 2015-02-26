@@ -8,7 +8,7 @@ title: Get videos from Youtube with Docker - part 2
 tags: docker youtube-dl en shell
 ---
 
-In my previous post [here]({% post_url 2015-02-06-Get-videos-from-youtube-with-docker %}), I've shown how I get fetch videos from Youtube from my command line without installing anything else than Docker. But the command to type is way too complicated
+In my previous post [here]({% post_url 2015/2015-02-06-Get-videos-from-youtube-with-docker %}), I've shown how I get fetch videos from Youtube from my command line without installing anything else than Docker. But the command to type is way too complicated
 
 So I made a `shell` script to easily use my docker container.
 
