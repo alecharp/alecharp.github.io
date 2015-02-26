@@ -10,7 +10,7 @@ build:
 	docker run --rm -v $(src_dir):/src grahamc/jekyll build
 
 deploy:
-	cp -R $(site_dir)/_site/* $(dest_dir)
+	cp -R $(src_dir)/_site/* $(dest_dir)
 
 version:
 	docker run --rm grahamc/jekyll --version
