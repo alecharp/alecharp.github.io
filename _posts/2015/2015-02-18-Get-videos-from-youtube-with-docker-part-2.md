@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: post
 date: 2015-02-18
 author:
   name: Adrien Lecharpentier
