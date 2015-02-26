@@ -12,7 +12,7 @@ In my previous post [here]({% post_url 2015/2015-02-06-Get-videos-from-youtube-w
 
 So I made a `shell` script to easily use my docker container.
 
-```shell
+```bash
 #!/bin/sh
 ## Author: Adrien Lecharpentier <adrien.lecharpentier@gmail.com>
 
@@ -25,7 +25,7 @@ docker run -ti -v "$(pwd)":/downloads alecharp/get-videos:latest $@
 
 This way, I can easily download any youtube (or other) videos without having to remember every argument to give to the docker command. I only have to say:
 
-```shell
+```bash
 sh get-videos.sh $URL
 ```
 
