@@ -27,3 +27,6 @@ release: build codestyle
 	@docker run --rm -ti \
 		-v $(CURDIR):/usr/src/blog \
 		${DOCKER_IMAGE} hugo
+	@git --git-dir=public/.git --work-tree=public add --all
+	@git --git-dir=public/.git --work-tree=public commit -S -m "Publishing to gh-pages"
+	@git --git-dir=public/.git --work-tree=public push origin gh-pages
