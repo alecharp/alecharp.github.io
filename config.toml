@@ -1,0 +1,15 @@
+baseURL = "https://blog.alecharp.fr"
+disablePathToLower = true
+languageCode = "fr_FR"
+author = "Adrien Lecharpentier"
+title = "alecharp's blog"
+
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsOptions = "linenos=table"
+
+[params]
+twitter = "alecharp"
+github = "alecharp"
+speakerdeck = "alecharp"

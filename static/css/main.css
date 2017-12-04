@@ -1,0 +1,93 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: 'Fira Sans Extra Condensed';
+}
+
+navbar {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 1.5em;
+  padding: 0.4em;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+navbar ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+navbar ul li {
+  display: flex;
+  justify-content: space-around;
+  width: 2em;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 0.4em;
+  color: #999;
+}
+
+div#content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  height: calc(100vh - 5.2em);
+  overflow: scroll;
+}
+
+div#content article {
+  width: 70%;
+  margin-top: 1em;
+}
+
+div#content article section {
+  margin-bottom: 2em;
+}
+
+div#content article section, div#content article p.summary {
+  margin-top: 1em;
+}
+
+div#content article section h2,
+div#content article section h3,
+div#content article section h4,
+div#content article section h5 {
+  margin-top: 1em;
+}
+
+div#content article section img {
+  max-width: 100%;
+}
+
+div#content article section div.highlight {
+  margin: 1em 0;
+}
+
+div#content article section div.highlight div.chroma {
+  padding: 1em;
+}
+
+@media all and (max-width: 800px) {
+  div#content article {
+    width: 90%;
+  }
+}
+
+a {
+  color: inherit;
+}

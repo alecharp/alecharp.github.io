@@ -1,16 +1,29 @@
-# Author: Adrien Lecharpentier <adrien.lecharpentier@gmail.com>
+# Author: Adrien Lecharpentier <me@alecharp.fr>
+.PHONY: build new run release
 
-src_dir := $(shell pwd)
-dest_dir ?= /tmp/site
-
-serve:
-	docker run --rm -v $(src_dir):/src -p 4000:4000 -ti grahamc/jekyll server -H 0.0.0.0 --future --draft
+DOCKER_IMAGE := alecharp/blog
+PORT := 1337
 
 build:
-	docker run --rm -v $(src_dir):/src grahamc/jekyll build
+	@docker build --rm --force-rm -t ${DOCKER_IMAGE} .
 
-deploy:
-	cp -R $(src_dir)/_site/* $(dest_dir)
+new: build
+	@docker run --rm -ti \
+		-v $(CURDIR):/usr/src/blog \
+		${DOCKER_IMAGE} hugo new $(NAME)
 
-version:
-	docker run --rm grahamc/jekyll --version
+run: build codestyle
+	@docker run --rm -ti \
+	  -v $(CURDIR):/usr/src/blog \
+		-p $(PORT):$(PORT) \
+		${DOCKER_IMAGE} hugo server -D --disableFastRender --port=$(PORT) --bind=0.0.0.0
+
+codestyle: build
+	@docker run --rm -ti \
+		-v $(CURDIR):/usr/src/blog \
+		${DOCKER_IMAGE} hugo gen chromastyles --style=colorful > static/css/syntax.css
+
+release: build codestyle
+	@docker run --rm -ti \
+		-v $(CURDIR):/usr/src/blog \
+		${DOCKER_IMAGE} hugo
