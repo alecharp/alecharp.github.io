@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2015/09/04/Ultra-laptop-and-cds-dvds/</loc>
+    <lastmod>2015-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2015/09/03/Docker-and-Maven-for-your-integration-tests/</loc>
+    <lastmod>2015-09-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2015/02/18/Get-videos-from-youtube-with-docker-part-2/</loc>
+    <lastmod>2015-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2015/02/06/Get-videos-from-youtube-with-docker/</loc>
+    <lastmod>2015-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2015/01/22/Docker-mr-proper-speaking/</loc>
+    <lastmod>2015-01-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2014/12/30/Git-the-good-the-bad-and-the-ugly/</loc>
+    <lastmod>2014-12-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2014/10/17/How-Yosemite-Killed-me/</loc>
+    <lastmod>2014-10-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2014/09/04/git-fixup/</loc>
+    <lastmod>2014-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2014/08/13/jenkins-client-integration-tests/</loc>
+    <lastmod>2014-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2014/08/06/renouvellement-graphique/</loc>
+    <lastmod>2014-08-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2014/06/09/quand-les-test-unitaires-te-sauvent/</loc>
+    <lastmod>2014-06-09T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2013/12/18/ngParis-December-Criteo/</loc>
+    <lastmod>2013-12-18T19:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2013/10/21/ngParis-at-Google/</loc>
+    <lastmod>2013-10-21T18:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2013/07/05/Maven-the-evil/</loc>
+    <lastmod>2013-07-05T18:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2013/06/25/my-tribute-to-oh-my-zsh-theme/</loc>
+    <lastmod>2013-06-25T20:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2013/06/13/son-environnement-de-developpement/</loc>
+    <lastmod>2013-06-13T18:36:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2013/05/30/never-ever-use-finalize-in-java/</loc>
+    <lastmod>2013-05-30T15:15:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2013/04/28/writing-code-crap-and-refactoring-painlessly/</loc>
+    <lastmod>2013-04-28T20:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2013/04/25/svn-git-les-auteurs/</loc>
+    <lastmod>2013-04-25T09:17:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2013/03/15/pourquoi-tout-le-monde-devrait-utiliser-un-scm/</loc>
+    <lastmod>2013-03-15T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2012/09/17/angularjs-directive-miettes-de-pain/</loc>
+    <lastmod>2012-09-17T14:38:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2012/09/16/apache-archiva-commiter/</loc>
+    <lastmod>2012-09-16T18:56:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2012/09/05/osx-mountain-lion-svn-unicode/</loc>
+    <lastmod>2012-09-05T00:30:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2012/08/20/angularjs-doesnt-like-numbers/</loc>
+    <lastmod>2012-08-20T23:10:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2012/06/27/java.lang.string-limits/</loc>
+    <lastmod>2012-06-27T12:05:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2012/06/26/republication-de-post/</loc>
+    <lastmod>2012-06-26T23:56:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2012/05/30/maven-project-starter/</loc>
+    <lastmod>2012-05-30T16:44:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2012/05/17/Generation-automatique/</loc>
+    <lastmod>2012-05-17T18:05:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2012/05/14/It-s-qwerty-time/</loc>
+    <lastmod>2012-05-14T19:57:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2012/05/11/Les-outils-du-dev/</loc>
+    <lastmod>2012-05-11T10:55:48+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2012/05/10/The-rules-are/</loc>
+    <lastmod>2012-05-10T20:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/2010/06/24/sonatype-nexus/</loc>
+    <lastmod>2010-06-24T14:44:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/angularjs-conference/</loc>
+    <lastmod>2013-12-18T19:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/common/</loc>
+    <lastmod>2013-06-13T18:36:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/dev/</loc>
+    <lastmod>2013-04-28T20:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/dev-angularjs-directive/</loc>
+    <lastmod>2012-09-17T14:38:39+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/dev-apache-fondation-archiva/</loc>
+    <lastmod>2012-09-16T18:56:14+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/dev-integration-test/</loc>
+    <lastmod>2014-06-09T08:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/dev-java/</loc>
+    <lastmod>2013-05-30T15:15:12+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/dev-js-angularjs/</loc>
+    <lastmod>2012-08-20T23:10:43+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/docker-en/</loc>
+    <lastmod>2015-01-22T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/docker-maven-integration-tests/</loc>
+    <lastmod>2015-09-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/docker-youtube-dl-en-shell/</loc>
+    <lastmod>2015-02-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/docker-en-youtube-dl/</loc>
+    <lastmod>2015-02-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/git/</loc>
+    <lastmod>2014-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/git-open-source-en/</loc>
+    <lastmod>2014-12-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/git-svn/</loc>
+    <lastmod>2013-04-25T09:17:47+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/java/</loc>
+    <lastmod>2012-06-27T12:05:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/jekyll/</loc>
+    <lastmod>2014-08-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/jekyll-git/</loc>
+    <lastmod>2012-05-17T18:05:12+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/mac-brew-install-svn/</loc>
+    <lastmod>2012-09-05T00:30:59+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/maven-bash/</loc>
+    <lastmod>2012-05-30T16:44:47+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/maven-git/</loc>
+    <lastmod>2012-05-11T10:55:48+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/misc/</loc>
+    <lastmod>2015-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/nexus-installation/</loc>
+    <lastmod>2010-06-24T14:44:58+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/opensource-jenkins-integration-tests-java/</loc>
+    <lastmod>2014-08-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/osx-java/</loc>
+    <lastmod>2014-10-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/post/</loc>
+    <lastmod>2015-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/</loc>
+    <lastmod>2013-12-18T19:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/tags/zsh/</loc>
+    <lastmod>2013-06-25T20:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.alecharp.fr/</loc>
+    <lastmod>2015-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

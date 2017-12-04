@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git Open Source En on alecharp&#39;s blog</title>
+    <link>https://blog.alecharp.fr/tags/git-open-source-en/</link>
+    <description>Recent content in Git Open Source En on alecharp&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr_FR</language>
+    <lastBuildDate>Tue, 30 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.alecharp.fr/tags/git-open-source-en/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git - the good, the bad and the ugly</title>
+      <link>https://blog.alecharp.fr/2014/12/30/Git-the-good-the-bad-and-the-ugly/</link>
+      <pubDate>Tue, 30 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2014/12/30/Git-the-good-the-bad-and-the-ugly/</guid>
+      <description>I&amp;rsquo;m using Git for everthing. Two years ago, I even moved my blog from Wordpress to Jekyll, only to be able to use Git. I&amp;rsquo;m a huge fan of Git. It&amp;rsquo;s lightweight, powerful, customizable. It&amp;rsquo;s awesome. But some rules must be setup.
+The good Git is very popular for open-source projects. Even many projects from the Apache Foundation moved to Git and Github a few months back. My opinion is that the lightweight of the branch / commit over Subversion makes Git a very interesting tool for projects that have many developpers that cannot get a meeting room for 2 hours to see what the f**k is going on with the merge conflict.</description>
+    </item>
+    
+  </channel>
+</rss>

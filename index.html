@@ -1,0 +1,364 @@
+<html>
+<head>
+	<meta name="generator" content="Hugo 0.31.1" />
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Home</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2015/09/04/Ultra-laptop-and-cds-dvds/" title="Ultra laptop and CDs/DVDs">Ultra laptop and CDs/DVDs</a></h2>
+    <time pubdate="2015-09-04">
+      <i class="fa fa-calendar"></i> 2015-09-04
+    </time>
+    <p class="summary">Recently, my sister-in-law bought a new ultra laptop. First thing to notice, just like on Apple recent laptops, there is no CD/DVD player. Fair enough, I mean, we download legally everything nowadays.
+But when you need to re-install your laptop, how do you do it? Back in my youth (not that far away!), laptops were shipped with a CD or a DVD to be able to (re)install Windows. You could have lots of reasons to do so: if you wanted to have both Windows and Linux, you changed the hard-drive (in favor of a SSD), etc.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2015/09/03/Docker-and-Maven-for-your-integration-tests/" title="Docker and Maven for your integration tests">Docker and Maven for your integration tests</a></h2>
+    <time pubdate="2015-09-03">
+      <i class="fa fa-calendar"></i> 2015-09-03
+    </time>
+    <p class="summary">In the last weeks, I&rsquo;ve been working on a side project to share pictures easily, outside of Face de bouc, as my mom used to say. But this is not the point. As a bad developer, I started quickly and so dirty: no tests of any kind. Then a friend came and offered some changes. Tests were needed.
+Do your tests, damn it! So first, I did some tests. The PR was about database insert in batch rather than in a Stream.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2015/02/18/Get-videos-from-youtube-with-docker-part-2/" title="Get videos from Youtube with Docker - part 2">Get videos from Youtube with Docker - part 2</a></h2>
+    <time pubdate="2015-02-18">
+      <i class="fa fa-calendar"></i> 2015-02-18
+    </time>
+    <p class="summary">In my previous post here, I&rsquo;ve shown how I get fetch videos from Youtube from my command line without installing anything else than Docker. But the command to type is way too complicated
+So I made a shell script to easily use my docker container.
+12345678 #!/bin/sh ## Author: Adrien Lecharpentier &lt;adrien.lecharpentier@gmail.com&gt;  status=$(boot2docker status) if [ &#34;${status}&#34; != &#34;running&#34; ]; then boot2docker start fi docker run -ti -v &#34;$(pwd)&#34;:/downloads alecharp/get-videos:latest $@   This way, I can easily download any youtube (or other) videos without having to remember every argument to give to the docker command.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2015/02/06/Get-videos-from-youtube-with-docker/" title="Get videos from Youtube with Docker">Get videos from Youtube with Docker</a></h2>
+    <time pubdate="2015-02-06">
+      <i class="fa fa-calendar"></i> 2015-02-06
+    </time>
+    <p class="summary">Last week I created my first docker image to be able to get videos from youtube without having to install anything on my computer.
+Youtube-dl For a year or two, I used youtube-dl to download any videos from the video platform in order to have a offline version of any videos I&rsquo;d like to watch. This is very useful to watch them in public transport or when you have a bad internet connection.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2015/01/22/Docker-mr-proper-speaking/" title="Docker - Mr Proper speaking">Docker - Mr Proper speaking</a></h2>
+    <time pubdate="2015-01-22">
+      <i class="fa fa-calendar"></i> 2015-01-22
+    </time>
+    <p class="summary">Since a couple of weeks, I&rsquo;m using docker for development purpose but also to fix some code issues. I&rsquo;m also using it for this blog..
+But even if I have a quite large hard drive (512GB), from time to time I like to remove all the containers and from time to time, also the images. So:
+1 docker rm $(docker ps -aq) &amp;&amp; docker rmi $(docker images -q)   It&rsquo;s remind me the make mrproper I had in my old Makefile to remove all generated files from my C projects.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2014/12/30/Git-the-good-the-bad-and-the-ugly/" title="Git - the good, the bad and the ugly">Git - the good, the bad and the ugly</a></h2>
+    <time pubdate="2014-12-30">
+      <i class="fa fa-calendar"></i> 2014-12-30
+    </time>
+    <p class="summary">I&rsquo;m using Git for everthing. Two years ago, I even moved my blog from Wordpress to Jekyll, only to be able to use Git. I&rsquo;m a huge fan of Git. It&rsquo;s lightweight, powerful, customizable. It&rsquo;s awesome. But some rules must be setup.
+The good Git is very popular for open-source projects. Even many projects from the Apache Foundation moved to Git and Github a few months back. My opinion is that the lightweight of the branch / commit over Subversion makes Git a very interesting tool for projects that have many developpers that cannot get a meeting room for 2 hours to see what the f**k is going on with the merge conflict.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2014/10/17/How-Yosemite-Killed-me/" title="Comment Yosemite m&#39;a tué">Comment Yosemite m&#39;a tué</a></h2>
+    <time pubdate="2014-10-17">
+      <i class="fa fa-calendar"></i> 2014-10-17
+    </time>
+    <p class="summary">Sur un élan de motivations, j&rsquo;ai mis à jour ma version d&rsquo;OSX aujourd&rsquo;hui.. L&rsquo;erreur bête!
+Mise à jour Évidemment, j&rsquo;ai commencé par voir une nouvelle version de OSX: Yosemite. Je regarde 2-3 liens pour voir les améliorations. Je n&rsquo;en trouve pas tellement. J&rsquo;aurai dû m&rsquo;arrêter là, mais non.
+Je décide quand même de faire la montée de version. Pas très compliqué: AppStore &gt;&gt; Yosemite &gt;&gt; Télécharger. Chanceux je suis, je le fais sur une fibre optique, du coup, 20min et c&rsquo;est réglé.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2014/09/04/git-fixup/" title="Git fixup quand on connait pas">Git fixup quand on connait pas</a></h2>
+    <time pubdate="2014-09-04">
+      <i class="fa fa-calendar"></i> 2014-09-04
+    </time>
+    <p class="summary">Ça va être court : je vais parler de fixup automatique dans Git.
+Pourquoi faire du fixup J&rsquo;ai pour habitude de beaucoup faire de fixup sur les rebase interactifs, quand je me rends compte que j&rsquo;ai un état non complet sur l&rsquo;un de mes commits, ce qui arrive souvent. Si c&rsquo;est le dernier commit, un git commit --amend suffit. Si un ou plusieurs commit(s) se sont intercalés entre deux, alors il faudra faire un rebase interactif pour transformer l&rsquo;historique.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2014/08/13/jenkins-client-integration-tests/" title="Les tests d&#39;intégrations de jenkins-client">Les tests d&#39;intégrations de jenkins-client</a></h2>
+    <time pubdate="2014-08-13">
+      <i class="fa fa-calendar"></i> 2014-08-13
+    </time>
+    <p class="summary">Pour une idée de projet de supervision de Jenkins, j&rsquo;ai cherché s&rsquo;il existait une librairie permettant de communiquer simplement avec une instance de Jenkins (via son API Rest). J&rsquo;ai trouvé jenkins-client sur le Github de RisingOak.
+J&rsquo;ai pris l&rsquo;habitude, lorsque je trouve une librairie comme celle-ci, de regarder le code et le packager. Ceci me permet de voir si je peux ajouter du comportement à la librarie simplement. Pour jenkins-client, rien de bien compliqué :</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2014/08/06/renouvellement-graphique/" title="Renouvellement graphique">Renouvellement graphique</a></h2>
+    <time pubdate="2014-08-06">
+      <i class="fa fa-calendar"></i> 2014-08-06
+    </time>
+    <p class="summary">Car beaucoup m&rsquo;ont dit que la police (ancienne) de mon blog était illisible, j&rsquo;ai procédé à quelques changements&hellip;
+Le nouveau blog est basé sur quelques couleurs issues de Paletton. Normalement, ces couleurs devraient avoir un contraste assez grand pour que tout le monde puisse les voir facilement.
+J&rsquo;en ai profité pour enlever la page CV pour ne laisser que mon CV en PDF. Je suis part ailleurs en cours de traduction de celui-ci.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2014/06/09/quand-les-test-unitaires-te-sauvent/" title="Quand les tests te sauvent les fesses">Quand les tests te sauvent les fesses</a></h2>
+    <time pubdate="2014-06-09">
+      <i class="fa fa-calendar"></i> 2014-06-09
+    </time>
+    <p class="summary">Depuis quelques temps, je me force à faire toute une panoplie de tests pour tous les développements que je fais. Qu&rsquo;ils soient unitaires ou d&rsquo;intégrations.
+C&rsquo;est une bonne pratique que je recommande depuis quelques temps déjà, il était donc grand temps que je le fasse&hellip;
+ Faites ce que je dis, pas ce que je fais.
+ Contexte Depuis quelques semaines, quand j&rsquo;ai du temps, je me consacre au développement encore secret mais bientôt relâché dans la nature de l&rsquo;open-source.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2013/12/18/ngParis-December-Criteo/" title="ngParis chez Criteo">ngParis chez Criteo</a></h2>
+    <time pubdate="2013-12-18">
+      <i class="fa fa-calendar"></i> 2013-12-18
+    </time>
+    <p class="summary">Retour sur ce 6ème évènement ngParis
+ Disclaimer: J&rsquo;essaye de retranscrire ce que j&rsquo;ai compris, entendu de la soirée ainsi que mon ressenti. Les avis, points de vue me sont propre et pourraient ne pas refléter l&rsquo;intégralité du message que les personnes présentes ont souhaité faire passer.
+ Nous revoilà sur une soirée ngParis. Une fois de plus, la soirée est remplie (170 Angularians et 103 sur liste d&rsquo;attente) bien avant la soirée.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2013/10/21/ngParis-at-Google/" title="ngParis chez Google">ngParis chez Google</a></h2>
+    <time pubdate="2013-10-21">
+      <i class="fa fa-calendar"></i> 2013-10-21
+    </time>
+    <p class="summary">Retour sur cette soirée AngularJS
+ Disclamer: J&rsquo;essaye de retranscrire ce que j&rsquo;ai compris, entendu de la soirée ainsi que mon ressenti. Les avis, points de vue me sont propre et pourrait ne pas refléter l&rsquo;intégralité du message que les personnes présentes ont souhaité faire passer.
+ Hier soir, chez Google France, était donné le rendez-vous pour le dernier meet-up AngularJS en date. Le programme annoncé était lourd, avec de bons speakers :</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2013/07/05/Maven-the-evil/" title="Maven, The evil">Maven, The evil</a></h2>
+    <time pubdate="2013-07-05">
+      <i class="fa fa-calendar"></i> 2013-07-05
+    </time>
+    <p class="summary">Maven ou le cauchemar des nomades à faible mémoire
+Maven, c&rsquo;est bien :
+ ça va chercher les dépendances, on ne sait pas où mais on veut surtout par savoir, ça les mets dans le classpath qui va bien lors du run (compile, test, runtime),  Mais maven, c&rsquo;est le mal !
+Les dépendances Lorsque l&rsquo;on souhaite utiliser une librairie, on l&rsquo;ajoute dans le pom.xml de notre projet et Maven s&rsquo;occupe d&rsquo;aller la trouver, de la télécharger et de nous la mettre à disposition.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2013/06/25/my-tribute-to-oh-my-zsh-theme/" title="My tribute to oh-my-zsh Theme">My tribute to oh-my-zsh Theme</a></h2>
+    <time pubdate="2013-06-25">
+      <i class="fa fa-calendar"></i> 2013-06-25
+    </time>
+    <p class="summary">parce qu&rsquo;un prompt qui convient vaux mieux que 1000 mots
+Rappel Ne réinventons pas la roue, même pour les descriptions :
+ZSH  Zsh is a shell designed for interactive use, although it is also a powerful scripting language.
+ oh-my-zsh  oh-my-zsh is an open source, community-driven framework for managing your ZSH configuration. It comes bundled with a ton of helpful functions, helpers, plugins, themes, and few things that make you shout…</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2013/06/13/son-environnement-de-developpement/" title="Son environnement de développement...">Son environnement de développement...</a></h2>
+    <time pubdate="2013-06-13">
+      <i class="fa fa-calendar"></i> 2013-06-13
+    </time>
+    <p class="summary">&hellip;ce n&rsquo;est pas que les outils pour coder et le matos informatique !
+Rappel Nous ne reviendrons pas sur l&rsquo;article de Mr Olivier Croisier concernant l&rsquo;importance d&rsquo;avoir une bonne station de travail.
+Pour ceux qui ne l&rsquo;auraient pas lu (non on ne vous jette pas la pierre), allez d&rsquo;abord le lire. Ça se passe ici : Équipez vos développeurs
+Les détails Dans cet article, on parle de RAM, écran, puissance et tout et tout mais pas que.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2013/05/30/never-ever-use-finalize-in-java/" title="Never ever use finalize in Java">Never ever use finalize in Java</a></h2>
+    <time pubdate="2013-05-30">
+      <i class="fa fa-calendar"></i> 2013-05-30
+    </time>
+    <p class="summary">À moins de s&rsquo;avoir parfaitement ce que vous faite et comment ce que vous faites sera utilisé dans le futur&hellip;
+Parce que lorsque l&rsquo;on fait du support, en général on ne touche pas trop à du code bien fait / écrit ni fonctionnel (un produit qui fonctionne n&rsquo;a pas besoin de support), je vois par moment des choses qui peuvent piquer les yeux.
+Dernier en date : utilisation de la méthode finalize de Java.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2013/04/28/writing-code-crap-and-refactoring-painlessly/" title="Writing code crap and refactoring painlessly">Writing code crap and refactoring painlessly</a></h2>
+    <time pubdate="2013-04-28">
+      <i class="fa fa-calendar"></i> 2013-04-28
+    </time>
+    <p class="summary">Quand on écrit du code, il y a deux choses de mon point de vue qui peuvent nous conduire à l&rsquo;auto-censure :
+ ne pas savoir écrire du code, penser qu&rsquo;on ne sait pas écrire du code propre.  Dans un cas comme dans l&rsquo;autre, le résultat, si c&rsquo;est le cas, est qu&rsquo;il vaut mieux s&rsquo;abstenir, sinon ça donne ça codecrap.com. Sauf que si on écrit jamais on ne saura jamais écrire, dixit le veille adage &ldquo;c&rsquo;est en forgeant qu&rsquo;on devient forgeron.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2013/04/25/svn-git-les-auteurs/" title="SVN-Git -- les auteurs">SVN-Git -- les auteurs</a></h2>
+    <time pubdate="2013-04-25">
+      <i class="fa fa-calendar"></i> 2013-04-25
+    </time>
+    <p class="summary">Juste pour mon souvenir : Git c&rsquo;est mieux que Subversion. Rapide, discret, efficace. Bref je ne veux plus faire de Subversion.
+Malheureusement, la vie c&rsquo;est dur et du Subversion il y en a partout. Si si je vous jure ! La solution ? git-svn.
+1 git svn clone https://svn-repo-url   Pas aussi simple : il vous faut les auteurs (au moins).
+1 svn log --quiet https://svn-repo-url | awk &#39;/^r/ {print $3}&#39; | sort -u   * merci à stackoverflow et Mike DeSimone</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2013/03/15/pourquoi-tout-le-monde-devrait-utiliser-un-scm/" title="Pourquoi tout le monde devrait utiliser un SCM">Pourquoi tout le monde devrait utiliser un SCM</a></h2>
+    <time pubdate="2013-03-15">
+      <i class="fa fa-calendar"></i> 2013-03-15
+    </time>
+    <p class="summary">Un petit pamphlet pour l&rsquo;utilisation de SCM en toute circonstance
+Il s&rsquo;agit là d&rsquo;un point de vue que je défends depuis quelques temps mais il est temps que je m&rsquo;exprime ouvertement sur le sujet (ça va m&rsquo;éviter des heures et des heures de Psy).
+Donc Pourquoi tout le monde veut devenir un cat devrait utiliser un SCM? car […] [il] retombe toujours sur ses pattes !
+Définition: un SCM c&rsquo;est quoi ?</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2012/09/17/angularjs-directive-miettes-de-pain/" title="AngularJS, directive et les miettes de pains">AngularJS, directive et les miettes de pains</a></h2>
+    <time pubdate="2012-09-17">
+      <i class="fa fa-calendar"></i> 2012-09-17
+    </time>
+    <p class="summary">Ma première directive avec angularJS
+Dans un blog précédent, j&rsquo;ai fait une petite critique à AngularJS. Ici je vais montrer comment j&rsquo;ai créé un breadcrumb avec AngularJS en étendant un petit peu son comportement et sa configuration. Sans trop me prendre la tête.
+But Mon application (pour le moment) est en mode &ldquo;one-page application&rdquo; : un html index.html, hormis les templates. Cependant, je veux pouvoir revenir simplement sur la page &ldquo;précédente&rdquo;, de la logique de mes pages.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2012/09/16/apache-archiva-commiter/" title="Apache Archiva Commiter">Apache Archiva Commiter</a></h2>
+    <time pubdate="2012-09-16">
+      <i class="fa fa-calendar"></i> 2012-09-16
+    </time>
+    <p class="summary">Après quelques patches sur la nouvelle interface web de Archiva ainsi que sur le site web de l&rsquo;outil, les commiters du projet m&rsquo;ont accepté parmi eux.
+Un grand merci à eux! Liste non exhaustive des commiters du projet (non triée) :
+ Olivier Lamy Jean-Baptiste Onofré Éric Barboni Maria Odea B. Ching Brett Porter Carlos Sanchez Edwin Punzalan Nicolas De Loof Dennis Lundberg Martin Cooper Marecor M. Baclay Jevica Arianne B.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2012/09/05/osx-mountain-lion-svn-unicode/" title="OSX Mountain Lion, SVN et unicode">OSX Mountain Lion, SVN et unicode</a></h2>
+    <time pubdate="2012-09-05">
+      <i class="fa fa-calendar"></i> 2012-09-05
+    </time>
+    <p class="summary">Utiliser Subversion sur un Mac avec support des chemins unicodes
+Dans l&rsquo;univers impitoyable de Mac OS, je demande le support de l&rsquo;unicode sur Subversion.
+Bien que le langage majoritairement utilisé dans le monde de l&rsquo;informatique soit l&rsquo;Anglais, il y a quelques irréductibles (gaullois?) qui ne souhaitent pas utiliser la langue de Shakespeare dans certains cas. Ce n&rsquo;est pas trop un soucis quand il s&rsquo;agit de textes anciens ou de codes sources, mais le problème est plus grand quand cela s&rsquo;applique également aux noms des fichiers.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2012/08/20/angularjs-doesnt-like-numbers/" title="AngularJS doesn&#39;t like numbers">AngularJS doesn&#39;t like numbers</a></h2>
+    <time pubdate="2012-08-20">
+      <i class="fa fa-calendar"></i> 2012-08-20
+    </time>
+    <p class="summary">Petite expérience sur angularJS
+Il y a peu, un collègue (Olivier Croisier) m&rsquo;a montré le framework JS de Google AngularJS.
+Pour un projet personnel en RESTFull / JS j&rsquo;utilisais jusque là KnockoutJS pour faire le date-binding mais je me suis dit : &ldquo;Pourquoi pas après tout !&rdquo;.
+J&rsquo;ai donc commencé à refaire toute mon UI (pas beaucoup d&rsquo;écran donc ça va quand-même) avec AngularJS. Les premiers écrans sont simples, ça va vite.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2012/06/27/java.lang.string-limits/" title="java.lang.String limits">java.lang.String limits</a></h2>
+    <time pubdate="2012-06-27">
+      <i class="fa fa-calendar"></i> 2012-06-27
+    </time>
+    <p class="summary">Facepalm with String limits S&rsquo;il y a bien une chose que l&rsquo;on peut très vite oublier avec Java, c&rsquo;est la gestion de la mémoire. Et quand on fait des traitements lourds et longs, ça nous revient très rapidement en plein visage !
+La limite que je pensais bien ne jamais rencontrer était bien celle-ci : la taille maximale d&rsquo;une String
+Reproduire le problème Comment on fait pour l&rsquo;atteindre ? Dans mon cas, on met dans une String l&rsquo;intégralité des informations de chaque artefact d&rsquo;un repository Maven.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2012/06/26/republication-de-post/" title="(Re)Publication de post">(Re)Publication de post</a></h2>
+    <time pubdate="2012-06-26">
+      <i class="fa fa-calendar"></i> 2012-06-26
+    </time>
+    <p class="summary">Je viens de (re)publier le post le plus recherché sur le net. Il n&rsquo;a pas complètement disparu, c&rsquo;est juste qu&rsquo;il me faut le sortir de ma base wordpress et le mettre en forme pour Jekyll.
+Chose importante à noter, j&rsquo;essaye de contribuer du mieux que je peux à un autre outil de type Maven-Repository-Manager : Archiva. Premier outil créé pour remplir ce rôle, la prochaine version (1.4) se voit affectée une nouvelle UI, un peu plus dans l&rsquo;air du temps, développée par le très bon Olivier Lamy (!</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2012/05/30/maven-project-starter/" title="Maven project starter">Maven project starter</a></h2>
+    <time pubdate="2012-05-30">
+      <i class="fa fa-calendar"></i> 2012-05-30
+    </time>
+    <p class="summary">Parfois commencer un project c&rsquo;est long et embêtant car il faut commencer par créer la structure du project selon maven. Comment peut-on le faire rapidement?
+Aujourd&rsquo;hui, on utilise beaucoup maven dans le développement, surtout web, mais commencer la phase de dev d&rsquo;un projet peut être un peu long.
+Il faut toujours passer par la phase de création des dossiers conventionnés par maven et ce n&rsquo;est pas toujours simple. Alors astuce :</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2012/05/17/Generation-automatique/" title="Génération automatique avec jekill, git / github et apache">Génération automatique avec jekill, git / github et apache</a></h2>
+    <time pubdate="2012-05-17">
+      <i class="fa fa-calendar"></i> 2012-05-17
+    </time>
+    <p class="summary">Passer de wordpress à Jekyll, ça peut faire peur pour la mise en ligne de nouveaux posts. Heureusement, certains outils et une légère configuration permettent de passer outre ce soucis.
+Alors ce n&rsquo;est pas parce que j&rsquo;ai choisi de passer sur Jekyll que j&rsquo;ai envie de tout refaire à la main. Par exemple, je n&rsquo;ai pas envie de devoir regénérer le site web à chaque fois que j&rsquo;écris un nouvel article.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2012/05/14/It-s-qwerty-time/" title="It&#39;s QWERTY time">It&#39;s QWERTY time</a></h2>
+    <time pubdate="2012-05-14">
+      <i class="fa fa-calendar"></i> 2012-05-14
+    </time>
+    <p class="summary">For a while, people haven&rsquo;t stopped telling me that for coding, nothing is better than a Qwerty keyboard.
+As I am not the stupid guy who never tries out and still tells everyone: &ldquo;nothing is better than azerty!!&rdquo;, I&rsquo;m trying it. To be specific, as an French guy, I&rsquo;m trying a US internationalized keyboard.
+For the moment I&rsquo;m a bit slower, can&rsquo;t stop looking at my fingers. But it seems pretty cool for coding.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2012/05/11/Les-outils-du-dev/" title="Les outils du dev">Les outils du dev</a></h2>
+    <time pubdate="2012-05-11">
+      <i class="fa fa-calendar"></i> 2012-05-11
+    </time>
+    <p class="summary">Au cours d&rsquo;un développement, on se retrouve toujours avec un même problème : comment je fais pour être plus productif ? A cette question, il y a beaucoup de réponses possibles.
+Maven Maven est un outil de build/gestion de dépendance très utilisé dans le développement surtout web/JEE. Il est bien intégré aux différents IDEs disponibles mais on se retrouve souvent à faire des lignes de commandes pour compiler, tester, packager notre application.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2012/05/10/The-rules-are/" title="The rules are">The rules are</a></h2>
+    <time pubdate="2012-05-10">
+      <i class="fa fa-calendar"></i> 2012-05-10
+    </time>
+    <p class="summary">J&rsquo;ai envie d&rsquo;essayer Jekyll pour gérer mon blog pour quelques raisons, certaines sûrement pas très réfléchies :
+ git pour versionner mes articles Markdown!!! des pages statiques pour faire du cache et pas de base de données (cf &uarr;&uarr;)  Bon après, utilisant Git (et GitHub) pour versionner ce blog, je vous propose ceci : lisez-moi, si vous aimez alors faites un &ldquo;watch&rdquo; de mon compte github @alecharp. Si je dis une bếtise, forkez l&rsquo;article en question, corrigez-le, et faites une pull-request.</p>
+  </article>
+  
+  <article>
+    <h2><a href="https://blog.alecharp.fr/2010/06/24/sonatype-nexus/" title="Sonatype Nexus">Sonatype Nexus</a></h2>
+    <time pubdate="2010-06-24">
+      <i class="fa fa-calendar"></i> 2010-06-24
+    </time>
+    <p class="summary">Depuis quelques temps, j&rsquo;utilise Nexus de Sonatype pour certains développements perso ou pro. Comme je trouve ce produit très simple, convivial et solide dans le cadre de l&rsquo;intégration continue et plus largement, dans son utilisation avec Maven, j&rsquo;ai décidé d&rsquo;écrire un article pour partager l&rsquo;expérience que j&rsquo;en ai.
+Pour cela, je tenterai de vous expliquer simplement (c&rsquo;est pas toujours facile à faire) l&rsquo;utilité de Nexus. J&rsquo;espère que ce fait sera prouvé par la suite de mon exposé.</p>
+  </article>
+  
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

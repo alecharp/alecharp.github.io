@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Opensource Jenkins Integration Tests Java on alecharp&#39;s blog</title>
+    <link>https://blog.alecharp.fr/tags/opensource-jenkins-integration-tests-java/</link>
+    <description>Recent content in Opensource Jenkins Integration Tests Java on alecharp&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr_FR</language>
+    <lastBuildDate>Wed, 13 Aug 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.alecharp.fr/tags/opensource-jenkins-integration-tests-java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Les tests d&#39;intégrations de jenkins-client</title>
+      <link>https://blog.alecharp.fr/2014/08/13/jenkins-client-integration-tests/</link>
+      <pubDate>Wed, 13 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2014/08/13/jenkins-client-integration-tests/</guid>
+      <description>Pour une idée de projet de supervision de Jenkins, j&amp;rsquo;ai cherché s&amp;rsquo;il existait une librairie permettant de communiquer simplement avec une instance de Jenkins (via son API Rest). J&amp;rsquo;ai trouvé jenkins-client sur le Github de RisingOak.
+J&amp;rsquo;ai pris l&amp;rsquo;habitude, lorsque je trouve une librairie comme celle-ci, de regarder le code et le packager. Ceci me permet de voir si je peux ajouter du comportement à la librarie simplement. Pour jenkins-client, rien de bien compliqué :</description>
+    </item>
+    
+  </channel>
+</rss>

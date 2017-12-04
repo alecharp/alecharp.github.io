@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zsh on alecharp&#39;s blog</title>
+    <link>https://blog.alecharp.fr/tags/zsh/</link>
+    <description>Recent content in Zsh on alecharp&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr_FR</language>
+    <lastBuildDate>Tue, 25 Jun 2013 20:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.alecharp.fr/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My tribute to oh-my-zsh Theme</title>
+      <link>https://blog.alecharp.fr/2013/06/25/my-tribute-to-oh-my-zsh-theme/</link>
+      <pubDate>Tue, 25 Jun 2013 20:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/06/25/my-tribute-to-oh-my-zsh-theme/</guid>
+      <description>parce qu&amp;rsquo;un prompt qui convient vaux mieux que 1000 mots
+Rappel Ne réinventons pas la roue, même pour les descriptions :
+ZSH  Zsh is a shell designed for interactive use, although it is also a powerful scripting language.
+ oh-my-zsh  oh-my-zsh is an open source, community-driven framework for managing your ZSH configuration. It comes bundled with a ton of helpful functions, helpers, plugins, themes, and few things that make you shout…</description>
+    </item>
+    
+  </channel>
+</rss>

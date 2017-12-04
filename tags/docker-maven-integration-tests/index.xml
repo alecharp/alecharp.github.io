@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker Maven Integration Tests on alecharp&#39;s blog</title>
+    <link>https://blog.alecharp.fr/tags/docker-maven-integration-tests/</link>
+    <description>Recent content in Docker Maven Integration Tests on alecharp&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr_FR</language>
+    <lastBuildDate>Thu, 03 Sep 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.alecharp.fr/tags/docker-maven-integration-tests/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker and Maven for your integration tests</title>
+      <link>https://blog.alecharp.fr/2015/09/03/Docker-and-Maven-for-your-integration-tests/</link>
+      <pubDate>Thu, 03 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2015/09/03/Docker-and-Maven-for-your-integration-tests/</guid>
+      <description>In the last weeks, I&amp;rsquo;ve been working on a side project to share pictures easily, outside of Face de bouc, as my mom used to say. But this is not the point. As a bad developer, I started quickly and so dirty: no tests of any kind. Then a friend came and offered some changes. Tests were needed.
+Do your tests, damn it! So first, I did some tests. The PR was about database insert in batch rather than in a Stream.</description>
+    </item>
+    
+  </channel>
+</rss>

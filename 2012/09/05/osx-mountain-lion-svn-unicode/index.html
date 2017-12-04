@@ -1,0 +1,194 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: OSX Mountain Lion, SVN et unicode</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>OSX Mountain Lion, SVN et unicode</h2>
+  </header>
+  <time pubdate="2012-09-05">
+    <i class="fa fa-calendar"></i> 2012-09-05
+  </time>
+  <section>
+    
+
+<p>Utiliser Subversion sur un Mac avec support des chemins unicodes</p>
+
+<p>Dans l&rsquo;univers impitoyable de Mac OS, je demande le support de l&rsquo;unicode sur
+Subversion.</p>
+
+<p>Bien que le langage majoritairement utilisé dans le monde de l&rsquo;informatique
+soit l&rsquo;Anglais, il y a quelques irréductibles (<em>gaullois</em>?) qui ne souhaitent
+pas utiliser la langue de Shakespeare dans certains cas. Ce n&rsquo;est pas trop un
+soucis quand il s&rsquo;agit de textes anciens ou de codes sources, mais le problème
+est plus grand quand cela s&rsquo;applique également aux noms des fichiers.</p>
+
+<h2 id="mise-en-condition">Mise en condition</h2>
+
+<p>Dans le cadre de l&rsquo;exemple, nous allons dire que vous préparez un petit talk
+pour faire la démonstration de votre toute dernière acquisition informatique :
+un ventilateur USB !</p>
+
+<p>Vous avez un compte chez un hébergeur de service SVN et donc vous utilisez
+celui-ci pour hoster votre présentation au format otp[*].</p>
+
+<p>Vous faites donc votre checkout, vous créez votre fichier (vide pour le
+moment) puis vous faites un <code>svn add démonstration.otp</code> ainsi qu&rsquo;un <code>svn
+commit -m &quot;Initial import, empty file&quot;</code>.</p>
+
+<p>On s&rsquo;attend alors à avoir un status clean :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1</span><span class="lnt">2</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="p">$</span> <span class="n">svn</span> <span class="n">status</span>
+<span class="p">$</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Mais là, Ô malheur, nous avons :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="p">$</span> <span class="n">svn</span> <span class="n">status</span>
+<span class="p">?</span> <span class="n">démonstration</span><span class="p">.</span><span class="n">otp</span>
+<span class="p">!</span> <span class="n">démonstration</span><span class="p">.</span><span class="n">otp</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Oui mais encore ?</p>
+
+<h2 id="unicode">Unicode</h2>
+
+<p>Donc on ne cherche pas encore midi à 14 heures et on mise tout sur l&rsquo;accent
+dans le nom du fichier. Donc un petit <code>locale</code> s&rsquo;impose :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span><span class="lnt">9</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="p">$</span> <span class="n">locale</span>
+<span class="n">LANG</span><span class="p">=</span><span class="s2">&#34;fr_FR.UTF-8&#34;</span>
+<span class="n">LC_COLLATE</span><span class="p">=</span><span class="s2">&#34;fr_FR.UTF-8&#34;</span>
+<span class="n">LC_CTYPE</span><span class="p">=</span><span class="s2">&#34;fr_FR.UTF-8&#34;</span>
+<span class="n">LC_MESSAGES</span><span class="p">=</span><span class="s2">&#34;fr_FR.UTF-8&#34;</span>
+<span class="n">LC_MONETARY</span><span class="p">=</span><span class="s2">&#34;fr_FR.UTF-8&#34;</span>
+<span class="n">LC_NUMERIC</span><span class="p">=</span><span class="s2">&#34;fr_FR.UTF-8&#34;</span>
+<span class="n">LC_TIME</span><span class="p">=</span><span class="s2">&#34;fr_FR.UTF-8&#34;</span>
+<span class="n">LC_ALL</span><span class="p">=</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>D&rsquo;accord très bien, UTF-8 c&rsquo;est propre, pas de soucis. Mais les accents ne sont
+pas codés pareil.</p>
+
+<p>Allons faire un tour du côté de l&rsquo;installation de subversion avec <code>brew</code>:</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="p">$</span> <span class="n">brew</span> <span class="n">info</span> <span class="n">subversion</span>
+<span class="err">…</span>
+<span class="p">==&gt;</span> <span class="n">Options</span>
+<span class="p">-</span><span class="n">-python</span>
+	<span class="n">Build</span> <span class="n">Python</span> <span class="n">bindings</span>
+<span class="p">-</span><span class="n">-universal</span>
+	<span class="n">Build</span> <span class="n">a</span> <span class="n">universal</span> <span class="n">binary</span>
+<span class="p">-</span><span class="n">-ruby</span>
+	<span class="n">Build</span> <span class="n">Ruby</span> <span class="n">bindings</span>
+<span class="p">-</span><span class="n">-perl</span>
+	<span class="n">Build</span> <span class="n">Perl</span> <span class="n">bindings</span>
+<span class="p">-</span><span class="n">-unicode-path</span>
+	<span class="n">Include</span> <span class="n">support</span> <span class="k">for</span> <span class="n">OS</span> <span class="n">X</span> <span class="n">UTF</span><span class="p">-</span><span class="n">8-MAC</span> <span class="n">filename</span>
+<span class="p">-</span><span class="n">-java</span>
+	<span class="n">Build</span> <span class="n">Java</span> <span class="n">bindings</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>C&rsquo;est parfait, on peut faire l&rsquo;installation avec le support de l&rsquo;unicode sur les
+noms de fichiers donc problème résolu.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="p">$</span> <span class="n">brew</span> <span class="n">uninstall</span> <span class="n">subversion</span>
+<span class="err">…</span>
+<span class="p">$</span> <span class="n">brew</span> <span class="n">install</span> <span class="n">subversion</span> <span class="p">-</span><span class="n">-unicode-path</span>
+<span class="err">…</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h2 id="ça-ne-fonctionne-toujours-pas">Ça ne fonctionne toujours pas ?</h2>
+
+<p>Là c&rsquo;est entièrement de ma faute : pas la bonne commande de svn&hellip; <code>brew</code>
+installe les commandes dans <code>/usr/local/bin</code> mais la commande que j&rsquo;utilisais
+était dans <code>/usr/bin</code> donc pas la bonne. Modification du <code>PATH</code> pour que
+<code>/usr/local/bin</code> soit avant <code>/usr/bin</code> et le tour est joué.</p>
+
+<p>*: 2 problèmes déjà, SVN et fichier binaire donc on oublie les diffs et les
+merges !</p>
+
+<h2 id="edit">Edit</h2>
+
+<p>On me fait signe de la main que le problème vient tout simplement du choix
+d&rsquo;implémetation de l&rsquo;UTF-8 par MacOS qui est différent de Linux et Windows (qui
+eux ont la même).</p>
+
+<p>Et petite chose encore, j&rsquo;ai voulu, pour satisfaire ma fainéantise, installer
+un client graphique (svnX0 pour gérer ma copie du repository. Mauvaise idée :
+certains (oui certains, pas tous) fichiers sont retournés dans l&rsquo;état &ldquo;non
+synchronisé - manquant&rdquo; du début de l&rsquo;article. Je sens que la guerre de l&rsquo;UTF-8
+est loin d&rsquo;être finie.</p>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dev Java on alecharp&#39;s blog</title>
+    <link>https://blog.alecharp.fr/tags/dev-java/</link>
+    <description>Recent content in Dev Java on alecharp&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr_FR</language>
+    <lastBuildDate>Thu, 30 May 2013 15:15:12 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.alecharp.fr/tags/dev-java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Never ever use finalize in Java</title>
+      <link>https://blog.alecharp.fr/2013/05/30/never-ever-use-finalize-in-java/</link>
+      <pubDate>Thu, 30 May 2013 15:15:12 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/05/30/never-ever-use-finalize-in-java/</guid>
+      <description>À moins de s&amp;rsquo;avoir parfaitement ce que vous faite et comment ce que vous faites sera utilisé dans le futur&amp;hellip;
+Parce que lorsque l&amp;rsquo;on fait du support, en général on ne touche pas trop à du code bien fait / écrit ni fonctionnel (un produit qui fonctionne n&amp;rsquo;a pas besoin de support), je vois par moment des choses qui peuvent piquer les yeux.
+Dernier en date : utilisation de la méthode finalize de Java.</description>
+    </item>
+    
+  </channel>
+</rss>

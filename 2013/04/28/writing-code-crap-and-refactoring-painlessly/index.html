@@ -1,0 +1,504 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Writing code crap and refactoring painlessly</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>Writing code crap and refactoring painlessly</h2>
+  </header>
+  <time pubdate="2013-04-28">
+    <i class="fa fa-calendar"></i> 2013-04-28
+  </time>
+  <section>
+    
+
+<p>Quand on écrit du code, il y a deux choses de mon point de vue qui peuvent nous conduire à l&rsquo;auto-censure :</p>
+
+<ul>
+<li>ne pas savoir écrire du code,</li>
+<li>penser qu&rsquo;on ne sait pas écrire du code propre.</li>
+</ul>
+
+<p>Dans un cas comme dans l&rsquo;autre, le résultat, si c&rsquo;est le cas, est qu&rsquo;il vaut mieux s&rsquo;abstenir, sinon ça donne ça <a href="http://codecrap.com/">codecrap.com</a>. Sauf que si on écrit jamais on ne saura jamais écrire, dixit le veille adage &ldquo;c&rsquo;est en forgeant qu&rsquo;on devient forgeron.&rdquo;</p>
+
+<p>Donc je pense qu&rsquo;il y a au moins une solution pour chaque cause.</p>
+
+<h2 id="solutions">Solutions</h2>
+
+<h3 id="je-ne-sais-pas-écrire-du-code">Je ne sais pas écrire du code</h3>
+
+<p>Lisez, allez aux conférences, retournez à l&rsquo;école ou en formation. Il n&rsquo;y a pas de mal à ça. Bien au contraire. On voit d&rsquo;ailleurs plein de très bon développeurs Java suivre une formation (e-learning ou autre) pour mettre les mains dans le cambouis de Scala.</p>
+
+<h3 id="je-pense-que-je-ne-sais-pas-écrire-du-code-propre">Je pense que je ne sais pas écrire du code propre</h3>
+
+<p>De même, pas de miracle, lisez, allez aux conférences, etc. Autres choses que vous pouvez faire, c&rsquo;est vous faire relire : en travaillant à plusieurs, vous aurez plusieurs façon de voir les choses et donc vous serez amené à les essayer et voir quelle est la meilleure.</p>
+
+<p>Si, par contre, vous être comme moi et que vous avez des collègues avec le &ldquo;code&rdquo; sur la main, alors écoutez-les, proposez-leur de participer à un projet perso pour avoir un retour, etc.</p>
+
+<h3 id="extra">Extra</h3>
+
+<p>Dans tous les cas, certains outils et bonnes pratiques pourront vous aidez sur le long chemin de l&rsquo;apprentissage : Git, un IDE maitrisé, des tests, un système de build automatisé, un code-reviewer. Je pense que tout ça mérite un autre post, donc j&rsquo;y reviendrai.</p>
+
+<h2 id="mise-en-pratique">Mise en pratique</h2>
+
+<p>Imaginons que vous souhaitez mettre en place un système qui va vous permettre de discuter (grosse simplification de mon cas pratique), mais comme vous êtes gentils, vous pensez aux étrangers.</p>
+
+<p>Le code final sera surement un peu over-designed par rapport au cas d&rsquo;utilisation que j&rsquo;ai décrit mais l&rsquo;important dans un voyage ce n&rsquo;est pas la destination mais le chemin pour y parvenir.</p>
+
+<h3 id="étape-1-simple-efficace">Étape 1 : simple, efficace</h3>
+
+<p>On commence le code :
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">argv</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;Bonjour!&#34;</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div></p>
+
+<h3 id="étape-2-tests">Étape 2 : tests</h3>
+
+<p>On va dire que l&rsquo;on veut pouvoir tester notre message affiché simplement, donc on revoit notre copie pour avoir une classe <code>NiceGuy</code> pour nous aider :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NiceGuy</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">sayHi</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="s">&#34;Bonjour!&#34;</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>On écrit donc notre test, ainsi nous aurons un état que nous pourrons valider et ainsi éviter de contrarier le bon fonctionnement lorsque nous ferons évoluer notre application :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NiceGuyTest</span> <span class="o">{</span>
+	<span class="nd">@Test</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHi</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="s">&#34;Bonjour!&#34;</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">NiceGuy</span><span class="o">().</span><span class="na">sayHi</span><span class="o">());</span>
+	<span class="o">}</span>
+	<span class="nd">@Test</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">notSayingHi</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="s">&#34;Au revoir!&#34;</span><span class="o">).</span><span class="na">isNotEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">NiceGuy</span><span class="o">().</span><span class="na">sayHi</span><span class="o">());</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>* utilization de assertj-core et junit pour les tests unitaires.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">argv</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">NiceGuy</span><span class="o">().</span><span class="na">sayHi</span><span class="o">());</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h3 id="étape-3-parle-moi-comme-je-parle">Étape 3 : &ldquo;parle-moi comme je parle&rdquo;</h3>
+
+<p>Bon, on veut plusieurs langues possibles à partir d&rsquo;un argument de la ligne de commande :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">argv</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">NiceGuy</span><span class="o">(</span><span class="n">argv</span><span class="o">[</span><span class="n">0</span><span class="o">]).</span><span class="na">sayHi</span><span class="o">());</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>On va donc permettre d&rsquo;instancier un <code>NiceGuy</code> en précisant un langage à utiliser.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NiceGuy</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">locale</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">NiceGuy</span><span class="o">()</span> <span class="o">{</span> <span class="k">this</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span> <span class="o">}</span>
+	<span class="kd">public</span> <span class="nf">NiceGuy</span><span class="o">(</span><span class="n">String</span> <span class="n">locale</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">locale</span> <span class="o">=</span> <span class="n">locale</span><span class="o">;</span> <span class="o">}</span>
+
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">sayHi</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">locale</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="s">&#34;fr_FR&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">locale</span><span class="o">)</span> <span class="o">||</span> <span class="s">&#34;fr&#34;</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">locale</span><span class="o">))</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="s">&#34;Bonjour!&#34;</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalStateException</span><span class="o">(</span><span class="s">&#34;The locale is not recognized&#34;</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Là, notre test nous dit que tout va bien. Cool, nous avons donc amélioré le code sans régression. Mais testons un peu plus :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span><span class="lnt">21</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NiceGuyTest</span> <span class="o">{</span>
+	<span class="nd">@Test</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHi</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="s">&#34;Bonjour!&#34;</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">NiceGuy</span><span class="o">().</span><span class="na">sayHi</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Test</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHiFR</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="s">&#34;Bonjour!&#34;</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">NiceGuy</span><span class="o">(</span><span class="s">&#34;fr&#34;</span><span class="o">).</span><span class="na">sayHi</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Test</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">notSayingHi</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="s">&#34;Au revoir!&#34;</span><span class="o">).</span><span class="na">isNotEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">NiceGuy</span><span class="o">().</span><span class="na">sayHi</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Test</span><span class="o">(</span><span class="n">expected</span> <span class="o">=</span> <span class="n">IllegalStateException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">unknownLocale</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="s">&#34;Au revoir!&#34;</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">NiceGuy</span><span class="o">(</span><span class="s">&#34;etps&#34;</span><span class="o">).</span><span class="na">sayHi</span><span class="o">());</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Maintenant, nous sommes sûrs que lorsque nous précisons un langage ou non, nous avons bien un retour en français. En plus, si un langage n&rsquo;est pas connu, nous avons bien l&rsquo;erreur que nous attendions. Tout cela semble parfait.</p>
+
+<p>Donc comme &ldquo;we areu completely bilinguale&rdquo; (complètement bilingue en français dans l&rsquo;accent), on peut faire le code pour parler en Anglais :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NiceGuy</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">locale</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="nf">NiceGuy</span><span class="o">()</span> <span class="o">{</span> <span class="k">this</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span> <span class="o">}</span>
+	<span class="kd">public</span> <span class="nf">NiceGuy</span><span class="o">(</span><span class="n">String</span> <span class="n">locale</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">locale</span> <span class="o">=</span> <span class="n">locale</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">sayHi</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">locale</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="s">&#34;fr_FR&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">locale</span><span class="o">)</span> <span class="o">||</span> <span class="s">&#34;fr&#34;</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">locale</span><span class="o">))</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="s">&#34;Bonjour!&#34;</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">if</span> <span class="o">(</span><span class="s">&#34;en_US&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">locale</span><span class="o">)</span> <span class="o">||</span> <span class="s">&#34;us&#34;</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">locale</span><span class="o">))</span> <span class="o">{</span>
+			<span class="k">return</span> <span class="s">&#34;Hi motherfucker!&#34;</span><span class="o">;</span>
+		<span class="o">}</span>
+		<span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalStateException</span><span class="o">(</span><span class="s">&#34;The locale is not recognized&#34;</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>On complète notre test pour être sûr que nous avons un code validé :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NiceGuyTest</span> <span class="o">{</span>
+	<span class="err">…</span>
+	<span class="nd">@Test</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHiUS</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="s">&#34;Au revoir!&#34;</span><span class="o">).</span><span class="na">isNotEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">NiceGuy</span><span class="o">(</span><span class="s">&#34;us&#34;</span><span class="o">).</span><span class="na">sayHi</span><span class="o">());</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="s">&#34;Hi motherfucker!&#34;</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">NiceGuy</span><span class="o">(</span><span class="s">&#34;us&#34;</span><span class="o">).</span><span class="na">sayHi</span><span class="o">());</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Bon ok maintenant ça fonctionne, mais on se rend bien compte que la méthode <code>sayHi</code> va vite devenir très longue et potentiellement compliquée à suivre dans le temps.</p>
+
+<h3 id="étape-4-et-dans-6-mois-je-ferai-comment">Étape 4 : et dans 6 mois, je ferai comment ?</h3>
+
+<p>Donc pensons 3 secondes. Il nous faudrait un système pour avoir différentes façons de répondre à <code>sayHi</code> et de découvrir ces propositions tout seul (ou presque).</p>
+
+<p>Je reviendrai sur le presque. Intéressons-nous à la transformation de notre implémentation. On peut utiliser le mécanisme d&rsquo;héritage ou d&rsquo;implémentation. Compte tenu du fait qu&rsquo;aucun langage n&rsquo;aura de code en commun, je choisis de créer une interface à partir de NiceGuy. Pour des raisons de nommage, transformons l&rsquo;actuelle <code>NiceGuy</code> en <code>FrenchNiceGuy</code> :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FrenchNiceGuy</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">sayHi</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="s">&#34;Bonjour!&#34;</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Puis on peut faire une &ldquo;extraction&rdquo; vers une interface pour créer l&rsquo;interface <code>NiceGuy</code> :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">NiceGuy</span> <span class="o">{</span>
+	<span class="n">String</span> <span class="nf">sayHi</span><span class="o">();</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Si on revient vers <code>FrenchNiceGuy</code> on peut voir que la classe implémente notre nouvelle interface. Créons notre implémentation <code>AmericanNotSoNiceGuy</code> :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AmericanNotSoNiceGuy</span> <span class="kd">implements</span> <span class="n">NiceGuy</span> <span class="o">{</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">sayHi</span><span class="o">()</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="s">&#34;Hi motherfucker!&#34;</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>On doit transformer nos tests pour qu&rsquo;ils valident nos implémentations :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NiceGuyTest</span> <span class="o">{</span>
+	<span class="nd">@Test</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHi</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="s">&#34;Bonjour!&#34;</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">FrenchNiceGuy</span><span class="o">().</span><span class="na">sayHi</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Test</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">notSayingHi</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="s">&#34;Au revoir!&#34;</span><span class="o">).</span><span class="na">isNotEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">FrenchNiceGuy</span><span class="o">().</span><span class="na">sayHi</span><span class="o">());</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Test</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHiUS</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="s">&#34;Au revoir!&#34;</span><span class="o">).</span><span class="na">isNotEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">AmericanNotSoNiceGuy</span><span class="o">().</span><span class="na">sayHi</span><span class="o">());</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="s">&#34;Hi motherfucker!&#34;</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="k">new</span> <span class="n">AmericanNotSoNiceGuy</span><span class="o">().</span><span class="na">sayHi</span><span class="o">());</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>On peut donc faire une liste d&rsquo;implémentations. Il faut que cette liste fasse partie du langage de l&rsquo;implémentation. Ceci est le &ldquo;presque&rdquo; un peu plus haut.</p>
+
+<p>Il faut toutefois permettre à d&rsquo;autres d&rsquo;amener leurs langages.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-properties" data-lang="properties"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-properties" data-lang="properties">// languages.properties
+fr = FrenchNiceGuy
+us = AmericanNotSoNiceGuy</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>J&rsquo;ai donc un fichier <code>properties</code> pour lister les implémentations de mes langages. Maintenant, je dois mettre en place un mécanisme pour permettre d&rsquo;utiliser nos différentes implémentations.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NiceGuyManager</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="n">Properties</span> <span class="n">gentlemen</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
+	<span class="kd">public</span> <span class="nf">NiceGuyManager</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">gentlemen</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">NiceGuyManager</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="s">&#34;/languages.properties&#34;</span><span class="o">));</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isLanguageSpoken</span><span class="o">(</span><span class="n">String</span> <span class="n">language</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">gentlemen</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">language</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="n">NiceGuy</span> <span class="nf">forLocale</span><span class="o">(</span><span class="n">String</span> <span class="n">language</span><span class="o">)</span>
+			<span class="kd">throws</span> <span class="n">ClassNotFoundException</span><span class="o">,</span> <span class="n">IllegalAccessException</span><span class="o">,</span> <span class="n">InstantiationException</span> <span class="o">{</span> 
+		<span class="k">if</span> <span class="o">(!</span><span class="n">isLanguageSpOken</span><span class="o">(</span><span class="n">language</span><span class="o">))</span> <span class="o">{</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="n">ClassNotFoundException</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&#34;The language %s is not recognized&#34;</span><span class="o">,</span> <span class="n">language</span><span class="o">));</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="o">(</span><span class="n">NiceGuy</span><span class="o">)</span> <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="n">gentlemen</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">language</span><span class="o">).</span><span class="na">toString</span><span class="o">()).</span><span class="na">newInstance</span><span class="o">();</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Et on remplace dans Main <code>new NiceGuy(&quot;XX&quot;).sayHi()</code> par <code>manager.forLocale(&quot;XX&quot;)</code>. Normalement, tous les tests sont bons. On a donc maintenant un état validé de notre comportement. Rajoutons quelques tests pour notre <code>NiceGuyManager</code> :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NiceGuyManagerTest</span> <span class="o">{</span>
+
+	<span class="kd">private</span> <span class="n">NiceGuyManager</span> <span class="n">manager</span><span class="o">;</span>
+
+	<span class="nd">@Before</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="k">this</span><span class="o">.</span><span class="na">manager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NiceGuyManager</span><span class="o">();</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Test</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getFR</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="n">assertThat</span><span class="o">(</span><span class="n">manager</span><span class="o">.</span><span class="na">forLocale</span><span class="o">(</span><span class="s">&#34;fr&#34;</span><span class="o">)).</span><span class="na">isNotNull</span><span class="o">().</span><span class="na">isInstanceOf</span><span class="o">(</span><span class="n">FrenchNiceGuy</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Test</span><span class="o">(</span><span class="n">expected</span> <span class="o">=</span> <span class="n">ClassNotFoundException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">getUnknown</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="n">manager</span><span class="o">.</span><span class="na">forLocale</span><span class="o">(</span><span class="s">&#34;notdefined&#34;</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h3 id="étape-5-relecture-par-un-très-très-bon">Étape 5 : relecture par un très très bon</h3>
+
+<blockquote>
+<p>&ldquo;Et sinon SPI tu connais ?&rdquo;</p>
+</blockquote>
+
+<p>On cherche, on trouve, <a href="http://thecodersbreakfast.net/index.php?post/2008/12/26/Java-%3A-pr%C3%A9sentation-du-Service-Provider-API">on lit</a>, on s&rsquo;incline : Oui j&rsquo;ai réinventé la roue dans l&rsquo;étape 4. Donc on va faire du refactor. Pas de peur, grâce aux tests, on sait que l&rsquo;on retrouvera au moins aussi bien.</p>
+
+<p>On rajoute le langage dans <code>NiceGuy</code>:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">NiceGuy</span> <span class="o">{</span>
+	<span class="n">String</span> <span class="nf">sayHi</span><span class="o">();</span>
+	<span class="n">String</span> <span class="nf">getLocale</span><span class="o">();</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div></p>
+
+<p>On implémente la nouvelle méthode dans <code>FrenchNiceGuy</code> et <code>AmericanNotSoNiceGuy</code>. Les tests n&rsquo;ont pas à bouger et sont encore valides. On voit là l&rsquo;importance de ces tests, puisque nous avons &ldquo;amélioré&rdquo; nos implémentations sans contrarier le bon fonctionnement du code existant.</p>
+
+<p>On réécrit <code>NiceGuyManager</code> pour utiliser le fonctionnement de <em>SPI</em> :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span><span class="lnt">21</span><span class="lnt">22</span><span class="lnt">23</span><span class="lnt">24</span><span class="lnt">25</span><span class="lnt">26</span><span class="lnt">27</span><span class="lnt">28</span><span class="lnt">29</span><span class="lnt">30</span><span class="lnt">31</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NiceGuyManager</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">NiceGuy</span><span class="o">&gt;</span> <span class="n">gentlemen</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">NiceGuy</span><span class="o">&gt;();</span>
+
+	<span class="kd">public</span> <span class="nf">NiceGuyManager</span><span class="o">()</span> <span class="o">{</span>
+		<span class="n">ServiceLoader</span><span class="o">&lt;</span><span class="n">NiceGuy</span><span class="o">&gt;</span> <span class="n">gentlemenServiceLoader</span> <span class="o">=</span> <span class="n">ServiceLoader</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">NiceGuy</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">NiceGuy</span><span class="o">&gt;</span> <span class="n">iterator</span> <span class="o">=</span> <span class="n">gentlemenServiceLoader</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">NiceGuy</span> <span class="n">gentleman</span><span class="o">;</span> <span class="n">iterator</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();</span> <span class="o">)</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">gentleman</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+                <span class="n">gentlemen</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">gentleman</span><span class="o">.</span><span class="na">getLocale</span><span class="o">(),</span> <span class="n">gentleman</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ServiceConfigurationError</span> <span class="n">error</span><span class="o">)</span> <span class="o">{</span>
+            	<span class="c1">// can be logged
+</span><span class="c1"></span>            <span class="o">}</span>
+        <span class="o">}</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isLanguageSpeaken</span><span class="o">(</span><span class="n">String</span> <span class="n">language</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">gentlemen</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">language</span><span class="o">);</span>
+	<span class="o">}</span>
+	
+	<span class="kd">public</span> <span class="n">NiceGuy</span> <span class="nf">forLocale</span><span class="o">(</span><span class="n">String</span> <span class="n">language</span><span class="o">)</span>
+			<span class="kd">throws</span> <span class="n">ClassNotFoundException</span> <span class="o">{</span>
+		<span class="n">NiceGuy</span> <span class="n">gentleman</span> <span class="o">=</span> <span class="n">gentlemen</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">language</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">gentleman</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">ClassNotFoundException</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&#34;There is no class that can manage the language %s&#34;</span><span class="o">,</span>
+                    <span class="n">language</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">gentleman</span><span class="o">;</span>
+	<span class="o">}</span>
+
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>et nous transformons le fichier <em>properties</em>  en un fichier <em>NiceGuy</em> dans un dossier &ldquo;META-INF/services&rdquo;. On peut rejouer les tests et on s&rsquo;aperçoit que nous n&rsquo;avons là encore pas dégradé le fonctionnement de notre implémentation. Certes, nous aurions pu nous arrêter en étape 4, mais nous avons bénéficié d&rsquo;un bon conseil et qui a potentiellement grandement amélioré le futur de notre application.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>En partant d&rsquo;un code moche et inutilisable sur le moyen terme, nous avons pu obtenir un code simple et efficace. Un brin de lecture, d&rsquo;aide et c&rsquo;est tout. Par principe, personne ne sait tout: travailler à plusieurs permet de combler certains manques.</p>
+
+<p>D&rsquo;autre part, nous avons :</p>
+
+<ul>
+<li>écrit des tests, afin de garder un état valide de notre code,</li>
+<li>utilisé un éditeur de code que l&rsquo;on connait bien,</li>
+<li>un SCM efficace, Git évidemment.</li>
+</ul>
+
+<p>En un sens, il faut toujours se remettre en cause en informatique. En appliquant certaines pratiques de développement informatique, on peut rapidement s&rsquo;améliorer. Vous pouvez également mettre en place des outils de relecture de code comme Gerrit ou des phases de Pair Programming. Ces éléments peuvent avoir un retour sur investissement (puisque certains ne comprennent que ça) très important, au même titre que <a href="http://thecodersbreakfast.net/index.php?post/2012/08/26/equipez-vos-d%C3%A9veloppeurs">plus de RAM, plus d&rsquo;écran</a> ou une formation&hellip;</p>
+
+<p>Merci de m&rsquo;avoir lu !</p>
+
+<h2 id="références">Références</h2>
+
+<ul>
+<li><a href="http://thecodersbreakfast.net/index.php?post/2008/12/26/Java-%3A-pr%C3%A9sentation-du-Service-Provider-API">Java : présentation du Service Provider API</a> par Olivier Croisier</li>
+<li><a href="https://github.com/alecharp/crap-code-refactoring">Code source pour cet article</a></li>
+<li><a href="http://thecodersbreakfast.net/index.php?post/2012/08/26/equipez-vos-d%C3%A9veloppeurs">Équipez vos développeurs</a> par Olivier Croisier</li>
+</ul>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

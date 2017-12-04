@@ -1,0 +1,146 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Les tests d&#39;intégrations de jenkins-client</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>Les tests d&#39;intégrations de jenkins-client</h2>
+  </header>
+  <time pubdate="2014-08-13">
+    <i class="fa fa-calendar"></i> 2014-08-13
+  </time>
+  <section>
+    
+
+<p>Pour une idée de projet de supervision de Jenkins, j&rsquo;ai cherché s&rsquo;il existait une librairie permettant de communiquer simplement avec une instance de Jenkins (via son API Rest). J&rsquo;ai trouvé <a href="https://github.com/RisingOak/jenkins-client"><code>jenkins-client</code></a> sur le Github de RisingOak.</p>
+
+<p>J&rsquo;ai pris l&rsquo;habitude, lorsque je trouve une librairie comme celle-ci, de regarder le code et le packager. Ceci me permet de voir si je peux ajouter du comportement à la librarie simplement. Pour <code>jenkins-client</code>, rien de bien compliqué :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span><span class="lnt">2</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nv">@github</span><span class="p">.</span><span class="n">com</span><span class="err">:</span><span class="n">RisingOak</span><span class="p">/</span><span class="n">jenkins-client</span><span class="p">.</span><span class="n">git</span>
+<span class="n">mvn</span> <span class="n">clean</span> <span class="n">verify</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Pourquoi un <code>mvn verify</code> plutôt qu&rsquo;un simple <code>mvn package</code>? Car le build <em>maven</em> pourrait être configuré pour exécuter des tâches particulières sur le <em>.jar</em> généré qui serait important.</p>
+
+<p>La surprise a été d&rsquo;avoir des tests en échec sur une repository vierge. Pour moi, c&rsquo;est impossible d&rsquo;avoir sur la branche principale du projet du code qui n&rsquo;est pas valide. Je pense que j&rsquo;en reparlerai à propos de <strong>git-flow</strong>.</p>
+
+<blockquote>
+<p>Tip : sur <em>Github</em>, il vous est possible de définir quelle est la branche principale du projet et donc celle automatiquement checkoutée lors du clone.</p>
+</blockquote>
+
+<h2 id="environnement">Environnement</h2>
+
+<p>Je suis donc allé voir de plus près le <em>Readme</em> du projet pour comprendre si j&rsquo;ai raté une étape, un profile ou quelque chose d&rsquo;autre. Il se trouve que des tests d&rsquo;intégrations sont écrits sur ce projet: parfait ! C&rsquo;est une excellente nouvelle puisqu&rsquo;ainsi je serai sûr de ne rien casser lors de mes développements. Cependant, le projet n&rsquo;est pas validé en l&rsquo;état.</p>
+
+<p>Les tests d&rsquo;intégrations étant plus complexes, il est souvent nécessaire de mettre en place un environnement pour les exécuter. Ici, il est nécessaire :</p>
+
+<ul>
+<li>d&rsquo;avoir un Jenkins local sur le port 8080 ;</li>
+<li>d&rsquo;avoir quelques jobs créés, avec des noms précis ;</li>
+<li>d&rsquo;avoir un plugin installé ;</li>
+<li>etc.</li>
+</ul>
+
+<p>Ce n&rsquo;est pas bon : en aucun cas, ces tests ne sont portables, ni exécutables dans un processus d&rsquo;intégration continue. Je ne pourrais vous dire combien de fois j&rsquo;ai vu des Jenkins utiliser le port 8080. Il faudrait donc que le Jenkins qui sert à builder cette librairie ait également des faux jobs pour valider la librairie. Impossible.</p>
+
+<p>De plus, cette classe de test est exécutée en même temps que les tests unitaires. Mauvaise idée.</p>
+
+<h2 id="ma-pull-request">Ma Pull-Request</h2>
+
+<p>J&rsquo;ai donc pris l&rsquo;initiative de changer cela et de voir si ça pourrait intéresser les développeurs principaux de la librairie.</p>
+
+<h3 id="maven-failsafe-plugin"><em>maven-failsafe-plugin</em></h3>
+
+<p>La première étape a été de transformer le test d&rsquo;intégration déguisé en test unitaire, en test d&rsquo;intégration à part entière. Très simple, on configure <em>maven</em> pour utiliser le plugin <a href="http://maven.apache.org/surefire/maven-failsafe-plugin/"><em>maven-failsafe-plugin</em></a> et on renomme la classe de tests <code>JenkinsServerTest</code> vers <code>JenkinsServerIT</code> : <a href="https://github.com/RisingOak/jenkins-client/commit/841711a02c76934276db789e8db3c661f13cfdd2">détail du commit</a>.</p>
+
+<h3 id="ré-écriture-des-tests-d-intégration">Ré-écriture des tests d&rsquo;intégration</h3>
+
+<p>Il faut ensuite retirer l&rsquo;utilisation du Jenkins local dans tous les tests d&rsquo;intégration. C&rsquo;est un peu plus long. Par chance, les core développeurs de Jenkins ont, depuis la version <em>1.477.2</em>, mis en place un module permettant d&rsquo;avoir un Jenkins virtuel (<code>JenkinsRule</code>) avec la librairie <code>jenkins-test-harness</code>.</p>
+
+<p>Pour cela, j&rsquo;ai utilisé la classe <code>JenkinsRule</code> avec l&rsquo;annotation <code>@org.junit.Rule</code> pour avoir une instance de Jenkins démarrée lors de chacun de mes tests. La structure interne de mes tests est ensuite toujours semblable en suivant le pattern suivant :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//given
+</span><span class="c1"></span><span class="n">jenkinsRule</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">createProject</span><span class="o">(</span><span class="n">hudson</span><span class="o">.</span><span class="na">model</span><span class="o">.</span><span class="na">FreeStyleProject</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="s">&#34;job-name&#34;</span><span class="o">);</span>
+
+<span class="c1">//when
+</span><span class="c1"></span><span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">com</span><span class="o">.</span><span class="na">offbytwo</span><span class="o">.</span><span class="na">jenkins</span><span class="o">.</span><span class="na">model</span><span class="o">.</span><span class="na">Job</span><span class="o">&gt;</span> <span class="n">jobNames</span> <span class="o">=</span> <span class="n">jenkinsServer</span><span class="o">.</span><span class="na">getJobs</span><span class="o">();</span>
+
+<span class="c1">//then
+</span><span class="c1"></span><span class="n">assertTrue</span><span class="o">(</span><span class="n">jobNames</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="s">&#34;job-name&#34;</span><span class="o">));</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Avec le <code>jenkinsRule</code>, je crée les jobs et environnements nécessaires pour ce que je veux tester. J&rsquo;utilise ensuite les classes de la librairie pour récupérer ou injecter des informations depuis / sur le <code>jenkinsRule</code>. Pour finir, je valide les informations récupérées. <a href="https://github.com/RisingOak/jenkins-client/commit/981207797133f14ed1280fdb224739dcc8221256">Plus de détails ici</a>.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>En transformant les tests d&rsquo;intégration de la sorte, je me suis assuré que tout le monde pourrait les faire fonctionner rapidement et surtout les reproduire. En introduisant une propriété dans le build <em>maven</em> pour la version du Jenkins à utiliser, je peux en plus changer dynamiquement la version de Jenkins et donc confronter la librairie à une multitude de Jenkins en batch :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">mvn</span> <span class="n">clean</span> <span class="n">verify</span> <span class="n">-Djenkins-version</span><span class="p">=</span><span class="n">1</span><span class="p">.</span><span class="n">554</span><span class="p">.</span><span class="n">3</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>On peut ainsi dire rapidement si une fonctionnalité de la librairie est compatible avec les dernières versions de Jenkins ou à partir de quelle version une fonctionnalité est opérationnelle.</p>
+
+<p>Ma pull-request a été acceptée et vous pouvez donc retrouver mon développement dans le code de la librairie.</p>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

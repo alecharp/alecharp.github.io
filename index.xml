@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>alecharp&#39;s blog</title>
+    <link>https://blog.alecharp.fr/</link>
+    <description>Recent content on alecharp&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr_FR</language>
+    <lastBuildDate>Fri, 04 Sep 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.alecharp.fr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ultra laptop and CDs/DVDs</title>
+      <link>https://blog.alecharp.fr/2015/09/04/Ultra-laptop-and-cds-dvds/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2015/09/04/Ultra-laptop-and-cds-dvds/</guid>
+      <description>Recently, my sister-in-law bought a new ultra laptop. First thing to notice, just like on Apple recent laptops, there is no CD/DVD player. Fair enough, I mean, we download legally everything nowadays.
+But when you need to re-install your laptop, how do you do it? Back in my youth (not that far away!), laptops were shipped with a CD or a DVD to be able to (re)install Windows. You could have lots of reasons to do so: if you wanted to have both Windows and Linux, you changed the hard-drive (in favor of a SSD), etc.</description>
+    </item>
+    
+    <item>
+      <title>Docker and Maven for your integration tests</title>
+      <link>https://blog.alecharp.fr/2015/09/03/Docker-and-Maven-for-your-integration-tests/</link>
+      <pubDate>Thu, 03 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2015/09/03/Docker-and-Maven-for-your-integration-tests/</guid>
+      <description>In the last weeks, I&amp;rsquo;ve been working on a side project to share pictures easily, outside of Face de bouc, as my mom used to say. But this is not the point. As a bad developer, I started quickly and so dirty: no tests of any kind. Then a friend came and offered some changes. Tests were needed.
+Do your tests, damn it! So first, I did some tests. The PR was about database insert in batch rather than in a Stream.</description>
+    </item>
+    
+    <item>
+      <title>Get videos from Youtube with Docker - part 2</title>
+      <link>https://blog.alecharp.fr/2015/02/18/Get-videos-from-youtube-with-docker-part-2/</link>
+      <pubDate>Wed, 18 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2015/02/18/Get-videos-from-youtube-with-docker-part-2/</guid>
+      <description>In my previous post here, I&amp;rsquo;ve shown how I get fetch videos from Youtube from my command line without installing anything else than Docker. But the command to type is way too complicated
+So I made a shell script to easily use my docker container.
+12345678 #!/bin/sh ## Author: Adrien Lecharpentier &amp;lt;adrien.lecharpentier@gmail.com&amp;gt;  status=$(boot2docker status) if [ &amp;#34;${status}&amp;#34; != &amp;#34;running&amp;#34; ]; then boot2docker start fi docker run -ti -v &amp;#34;$(pwd)&amp;#34;:/downloads alecharp/get-videos:latest $@   This way, I can easily download any youtube (or other) videos without having to remember every argument to give to the docker command.</description>
+    </item>
+    
+    <item>
+      <title>Get videos from Youtube with Docker</title>
+      <link>https://blog.alecharp.fr/2015/02/06/Get-videos-from-youtube-with-docker/</link>
+      <pubDate>Fri, 06 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2015/02/06/Get-videos-from-youtube-with-docker/</guid>
+      <description>Last week I created my first docker image to be able to get videos from youtube without having to install anything on my computer.
+Youtube-dl For a year or two, I used youtube-dl to download any videos from the video platform in order to have a offline version of any videos I&amp;rsquo;d like to watch. This is very useful to watch them in public transport or when you have a bad internet connection.</description>
+    </item>
+    
+    <item>
+      <title>Docker - Mr Proper speaking</title>
+      <link>https://blog.alecharp.fr/2015/01/22/Docker-mr-proper-speaking/</link>
+      <pubDate>Thu, 22 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2015/01/22/Docker-mr-proper-speaking/</guid>
+      <description>Since a couple of weeks, I&amp;rsquo;m using docker for development purpose but also to fix some code issues. I&amp;rsquo;m also using it for this blog..
+But even if I have a quite large hard drive (512GB), from time to time I like to remove all the containers and from time to time, also the images. So:
+1 docker rm $(docker ps -aq) &amp;amp;&amp;amp; docker rmi $(docker images -q)   It&amp;rsquo;s remind me the make mrproper I had in my old Makefile to remove all generated files from my C projects.</description>
+    </item>
+    
+    <item>
+      <title>Git - the good, the bad and the ugly</title>
+      <link>https://blog.alecharp.fr/2014/12/30/Git-the-good-the-bad-and-the-ugly/</link>
+      <pubDate>Tue, 30 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2014/12/30/Git-the-good-the-bad-and-the-ugly/</guid>
+      <description>I&amp;rsquo;m using Git for everthing. Two years ago, I even moved my blog from Wordpress to Jekyll, only to be able to use Git. I&amp;rsquo;m a huge fan of Git. It&amp;rsquo;s lightweight, powerful, customizable. It&amp;rsquo;s awesome. But some rules must be setup.
+The good Git is very popular for open-source projects. Even many projects from the Apache Foundation moved to Git and Github a few months back. My opinion is that the lightweight of the branch / commit over Subversion makes Git a very interesting tool for projects that have many developpers that cannot get a meeting room for 2 hours to see what the f**k is going on with the merge conflict.</description>
+    </item>
+    
+    <item>
+      <title>Comment Yosemite m&#39;a tué</title>
+      <link>https://blog.alecharp.fr/2014/10/17/How-Yosemite-Killed-me/</link>
+      <pubDate>Fri, 17 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2014/10/17/How-Yosemite-Killed-me/</guid>
+      <description>Sur un élan de motivations, j&amp;rsquo;ai mis à jour ma version d&amp;rsquo;OSX aujourd&amp;rsquo;hui.. L&amp;rsquo;erreur bête!
+Mise à jour Évidemment, j&amp;rsquo;ai commencé par voir une nouvelle version de OSX: Yosemite. Je regarde 2-3 liens pour voir les améliorations. Je n&amp;rsquo;en trouve pas tellement. J&amp;rsquo;aurai dû m&amp;rsquo;arrêter là, mais non.
+Je décide quand même de faire la montée de version. Pas très compliqué: AppStore &amp;gt;&amp;gt; Yosemite &amp;gt;&amp;gt; Télécharger. Chanceux je suis, je le fais sur une fibre optique, du coup, 20min et c&amp;rsquo;est réglé.</description>
+    </item>
+    
+    <item>
+      <title>Git fixup quand on connait pas</title>
+      <link>https://blog.alecharp.fr/2014/09/04/git-fixup/</link>
+      <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2014/09/04/git-fixup/</guid>
+      <description>Ça va être court : je vais parler de fixup automatique dans Git.
+Pourquoi faire du fixup J&amp;rsquo;ai pour habitude de beaucoup faire de fixup sur les rebase interactifs, quand je me rends compte que j&amp;rsquo;ai un état non complet sur l&amp;rsquo;un de mes commits, ce qui arrive souvent. Si c&amp;rsquo;est le dernier commit, un git commit --amend suffit. Si un ou plusieurs commit(s) se sont intercalés entre deux, alors il faudra faire un rebase interactif pour transformer l&amp;rsquo;historique.</description>
+    </item>
+    
+    <item>
+      <title>Les tests d&#39;intégrations de jenkins-client</title>
+      <link>https://blog.alecharp.fr/2014/08/13/jenkins-client-integration-tests/</link>
+      <pubDate>Wed, 13 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2014/08/13/jenkins-client-integration-tests/</guid>
+      <description>Pour une idée de projet de supervision de Jenkins, j&amp;rsquo;ai cherché s&amp;rsquo;il existait une librairie permettant de communiquer simplement avec une instance de Jenkins (via son API Rest). J&amp;rsquo;ai trouvé jenkins-client sur le Github de RisingOak.
+J&amp;rsquo;ai pris l&amp;rsquo;habitude, lorsque je trouve une librairie comme celle-ci, de regarder le code et le packager. Ceci me permet de voir si je peux ajouter du comportement à la librarie simplement. Pour jenkins-client, rien de bien compliqué :</description>
+    </item>
+    
+    <item>
+      <title>Renouvellement graphique</title>
+      <link>https://blog.alecharp.fr/2014/08/06/renouvellement-graphique/</link>
+      <pubDate>Wed, 06 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2014/08/06/renouvellement-graphique/</guid>
+      <description>Car beaucoup m&amp;rsquo;ont dit que la police (ancienne) de mon blog était illisible, j&amp;rsquo;ai procédé à quelques changements&amp;hellip;
+Le nouveau blog est basé sur quelques couleurs issues de Paletton. Normalement, ces couleurs devraient avoir un contraste assez grand pour que tout le monde puisse les voir facilement.
+J&amp;rsquo;en ai profité pour enlever la page CV pour ne laisser que mon CV en PDF. Je suis part ailleurs en cours de traduction de celui-ci.</description>
+    </item>
+    
+    <item>
+      <title>Quand les tests te sauvent les fesses</title>
+      <link>https://blog.alecharp.fr/2014/06/09/quand-les-test-unitaires-te-sauvent/</link>
+      <pubDate>Mon, 09 Jun 2014 08:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2014/06/09/quand-les-test-unitaires-te-sauvent/</guid>
+      <description>Depuis quelques temps, je me force à faire toute une panoplie de tests pour tous les développements que je fais. Qu&amp;rsquo;ils soient unitaires ou d&amp;rsquo;intégrations.
+C&amp;rsquo;est une bonne pratique que je recommande depuis quelques temps déjà, il était donc grand temps que je le fasse&amp;hellip;
+ Faites ce que je dis, pas ce que je fais.
+ Contexte Depuis quelques semaines, quand j&amp;rsquo;ai du temps, je me consacre au développement encore secret mais bientôt relâché dans la nature de l&amp;rsquo;open-source.</description>
+    </item>
+    
+    <item>
+      <title>ngParis chez Criteo</title>
+      <link>https://blog.alecharp.fr/2013/12/18/ngParis-December-Criteo/</link>
+      <pubDate>Wed, 18 Dec 2013 19:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/12/18/ngParis-December-Criteo/</guid>
+      <description>Retour sur ce 6ème évènement ngParis
+ Disclaimer: J&amp;rsquo;essaye de retranscrire ce que j&amp;rsquo;ai compris, entendu de la soirée ainsi que mon ressenti. Les avis, points de vue me sont propre et pourraient ne pas refléter l&amp;rsquo;intégralité du message que les personnes présentes ont souhaité faire passer.
+ Nous revoilà sur une soirée ngParis. Une fois de plus, la soirée est remplie (170 Angularians et 103 sur liste d&amp;rsquo;attente) bien avant la soirée.</description>
+    </item>
+    
+    <item>
+      <title>ngParis chez Google</title>
+      <link>https://blog.alecharp.fr/2013/10/21/ngParis-at-Google/</link>
+      <pubDate>Mon, 21 Oct 2013 18:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/10/21/ngParis-at-Google/</guid>
+      <description>Retour sur cette soirée AngularJS
+ Disclamer: J&amp;rsquo;essaye de retranscrire ce que j&amp;rsquo;ai compris, entendu de la soirée ainsi que mon ressenti. Les avis, points de vue me sont propre et pourrait ne pas refléter l&amp;rsquo;intégralité du message que les personnes présentes ont souhaité faire passer.
+ Hier soir, chez Google France, était donné le rendez-vous pour le dernier meet-up AngularJS en date. Le programme annoncé était lourd, avec de bons speakers :</description>
+    </item>
+    
+    <item>
+      <title>Maven, The evil</title>
+      <link>https://blog.alecharp.fr/2013/07/05/Maven-the-evil/</link>
+      <pubDate>Fri, 05 Jul 2013 18:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/07/05/Maven-the-evil/</guid>
+      <description>Maven ou le cauchemar des nomades à faible mémoire
+Maven, c&amp;rsquo;est bien :
+ ça va chercher les dépendances, on ne sait pas où mais on veut surtout par savoir, ça les mets dans le classpath qui va bien lors du run (compile, test, runtime),  Mais maven, c&amp;rsquo;est le mal !
+Les dépendances Lorsque l&amp;rsquo;on souhaite utiliser une librairie, on l&amp;rsquo;ajoute dans le pom.xml de notre projet et Maven s&amp;rsquo;occupe d&amp;rsquo;aller la trouver, de la télécharger et de nous la mettre à disposition.</description>
+    </item>
+    
+    <item>
+      <title>My tribute to oh-my-zsh Theme</title>
+      <link>https://blog.alecharp.fr/2013/06/25/my-tribute-to-oh-my-zsh-theme/</link>
+      <pubDate>Tue, 25 Jun 2013 20:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/06/25/my-tribute-to-oh-my-zsh-theme/</guid>
+      <description>parce qu&amp;rsquo;un prompt qui convient vaux mieux que 1000 mots
+Rappel Ne réinventons pas la roue, même pour les descriptions :
+ZSH  Zsh is a shell designed for interactive use, although it is also a powerful scripting language.
+ oh-my-zsh  oh-my-zsh is an open source, community-driven framework for managing your ZSH configuration. It comes bundled with a ton of helpful functions, helpers, plugins, themes, and few things that make you shout…</description>
+    </item>
+    
+    <item>
+      <title>Son environnement de développement...</title>
+      <link>https://blog.alecharp.fr/2013/06/13/son-environnement-de-developpement/</link>
+      <pubDate>Thu, 13 Jun 2013 18:36:14 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/06/13/son-environnement-de-developpement/</guid>
+      <description>&amp;hellip;ce n&amp;rsquo;est pas que les outils pour coder et le matos informatique !
+Rappel Nous ne reviendrons pas sur l&amp;rsquo;article de Mr Olivier Croisier concernant l&amp;rsquo;importance d&amp;rsquo;avoir une bonne station de travail.
+Pour ceux qui ne l&amp;rsquo;auraient pas lu (non on ne vous jette pas la pierre), allez d&amp;rsquo;abord le lire. Ça se passe ici : Équipez vos développeurs
+Les détails Dans cet article, on parle de RAM, écran, puissance et tout et tout mais pas que.</description>
+    </item>
+    
+    <item>
+      <title>Never ever use finalize in Java</title>
+      <link>https://blog.alecharp.fr/2013/05/30/never-ever-use-finalize-in-java/</link>
+      <pubDate>Thu, 30 May 2013 15:15:12 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/05/30/never-ever-use-finalize-in-java/</guid>
+      <description>À moins de s&amp;rsquo;avoir parfaitement ce que vous faite et comment ce que vous faites sera utilisé dans le futur&amp;hellip;
+Parce que lorsque l&amp;rsquo;on fait du support, en général on ne touche pas trop à du code bien fait / écrit ni fonctionnel (un produit qui fonctionne n&amp;rsquo;a pas besoin de support), je vois par moment des choses qui peuvent piquer les yeux.
+Dernier en date : utilisation de la méthode finalize de Java.</description>
+    </item>
+    
+    <item>
+      <title>Writing code crap and refactoring painlessly</title>
+      <link>https://blog.alecharp.fr/2013/04/28/writing-code-crap-and-refactoring-painlessly/</link>
+      <pubDate>Sun, 28 Apr 2013 20:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/04/28/writing-code-crap-and-refactoring-painlessly/</guid>
+      <description>Quand on écrit du code, il y a deux choses de mon point de vue qui peuvent nous conduire à l&amp;rsquo;auto-censure :
+ ne pas savoir écrire du code, penser qu&amp;rsquo;on ne sait pas écrire du code propre.  Dans un cas comme dans l&amp;rsquo;autre, le résultat, si c&amp;rsquo;est le cas, est qu&amp;rsquo;il vaut mieux s&amp;rsquo;abstenir, sinon ça donne ça codecrap.com. Sauf que si on écrit jamais on ne saura jamais écrire, dixit le veille adage &amp;ldquo;c&amp;rsquo;est en forgeant qu&amp;rsquo;on devient forgeron.</description>
+    </item>
+    
+    <item>
+      <title>SVN-Git -- les auteurs</title>
+      <link>https://blog.alecharp.fr/2013/04/25/svn-git-les-auteurs/</link>
+      <pubDate>Thu, 25 Apr 2013 09:17:47 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/04/25/svn-git-les-auteurs/</guid>
+      <description>Juste pour mon souvenir : Git c&amp;rsquo;est mieux que Subversion. Rapide, discret, efficace. Bref je ne veux plus faire de Subversion.
+Malheureusement, la vie c&amp;rsquo;est dur et du Subversion il y en a partout. Si si je vous jure ! La solution ? git-svn.
+1 git svn clone https://svn-repo-url   Pas aussi simple : il vous faut les auteurs (au moins).
+1 svn log --quiet https://svn-repo-url | awk &amp;#39;/^r/ {print $3}&amp;#39; | sort -u   * merci à stackoverflow et Mike DeSimone</description>
+    </item>
+    
+    <item>
+      <title>Pourquoi tout le monde devrait utiliser un SCM</title>
+      <link>https://blog.alecharp.fr/2013/03/15/pourquoi-tout-le-monde-devrait-utiliser-un-scm/</link>
+      <pubDate>Fri, 15 Mar 2013 16:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/03/15/pourquoi-tout-le-monde-devrait-utiliser-un-scm/</guid>
+      <description>Un petit pamphlet pour l&amp;rsquo;utilisation de SCM en toute circonstance
+Il s&amp;rsquo;agit là d&amp;rsquo;un point de vue que je défends depuis quelques temps mais il est temps que je m&amp;rsquo;exprime ouvertement sur le sujet (ça va m&amp;rsquo;éviter des heures et des heures de Psy).
+Donc Pourquoi tout le monde veut devenir un cat devrait utiliser un SCM? car […] [il] retombe toujours sur ses pattes !
+Définition: un SCM c&amp;rsquo;est quoi ?</description>
+    </item>
+    
+    <item>
+      <title>AngularJS, directive et les miettes de pains</title>
+      <link>https://blog.alecharp.fr/2012/09/17/angularjs-directive-miettes-de-pain/</link>
+      <pubDate>Mon, 17 Sep 2012 14:38:39 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/09/17/angularjs-directive-miettes-de-pain/</guid>
+      <description>Ma première directive avec angularJS
+Dans un blog précédent, j&amp;rsquo;ai fait une petite critique à AngularJS. Ici je vais montrer comment j&amp;rsquo;ai créé un breadcrumb avec AngularJS en étendant un petit peu son comportement et sa configuration. Sans trop me prendre la tête.
+But Mon application (pour le moment) est en mode &amp;ldquo;one-page application&amp;rdquo; : un html index.html, hormis les templates. Cependant, je veux pouvoir revenir simplement sur la page &amp;ldquo;précédente&amp;rdquo;, de la logique de mes pages.</description>
+    </item>
+    
+    <item>
+      <title>Apache Archiva Commiter</title>
+      <link>https://blog.alecharp.fr/2012/09/16/apache-archiva-commiter/</link>
+      <pubDate>Sun, 16 Sep 2012 18:56:14 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/09/16/apache-archiva-commiter/</guid>
+      <description>Après quelques patches sur la nouvelle interface web de Archiva ainsi que sur le site web de l&amp;rsquo;outil, les commiters du projet m&amp;rsquo;ont accepté parmi eux.
+Un grand merci à eux! Liste non exhaustive des commiters du projet (non triée) :
+ Olivier Lamy Jean-Baptiste Onofré Éric Barboni Maria Odea B. Ching Brett Porter Carlos Sanchez Edwin Punzalan Nicolas De Loof Dennis Lundberg Martin Cooper Marecor M. Baclay Jevica Arianne B.</description>
+    </item>
+    
+    <item>
+      <title>OSX Mountain Lion, SVN et unicode</title>
+      <link>https://blog.alecharp.fr/2012/09/05/osx-mountain-lion-svn-unicode/</link>
+      <pubDate>Wed, 05 Sep 2012 00:30:59 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/09/05/osx-mountain-lion-svn-unicode/</guid>
+      <description>Utiliser Subversion sur un Mac avec support des chemins unicodes
+Dans l&amp;rsquo;univers impitoyable de Mac OS, je demande le support de l&amp;rsquo;unicode sur Subversion.
+Bien que le langage majoritairement utilisé dans le monde de l&amp;rsquo;informatique soit l&amp;rsquo;Anglais, il y a quelques irréductibles (gaullois?) qui ne souhaitent pas utiliser la langue de Shakespeare dans certains cas. Ce n&amp;rsquo;est pas trop un soucis quand il s&amp;rsquo;agit de textes anciens ou de codes sources, mais le problème est plus grand quand cela s&amp;rsquo;applique également aux noms des fichiers.</description>
+    </item>
+    
+    <item>
+      <title>AngularJS doesn&#39;t like numbers</title>
+      <link>https://blog.alecharp.fr/2012/08/20/angularjs-doesnt-like-numbers/</link>
+      <pubDate>Mon, 20 Aug 2012 23:10:43 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/08/20/angularjs-doesnt-like-numbers/</guid>
+      <description>Petite expérience sur angularJS
+Il y a peu, un collègue (Olivier Croisier) m&amp;rsquo;a montré le framework JS de Google AngularJS.
+Pour un projet personnel en RESTFull / JS j&amp;rsquo;utilisais jusque là KnockoutJS pour faire le date-binding mais je me suis dit : &amp;ldquo;Pourquoi pas après tout !&amp;rdquo;.
+J&amp;rsquo;ai donc commencé à refaire toute mon UI (pas beaucoup d&amp;rsquo;écran donc ça va quand-même) avec AngularJS. Les premiers écrans sont simples, ça va vite.</description>
+    </item>
+    
+    <item>
+      <title>java.lang.String limits</title>
+      <link>https://blog.alecharp.fr/2012/06/27/java.lang.string-limits/</link>
+      <pubDate>Wed, 27 Jun 2012 12:05:45 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/06/27/java.lang.string-limits/</guid>
+      <description>Facepalm with String limits S&amp;rsquo;il y a bien une chose que l&amp;rsquo;on peut très vite oublier avec Java, c&amp;rsquo;est la gestion de la mémoire. Et quand on fait des traitements lourds et longs, ça nous revient très rapidement en plein visage !
+La limite que je pensais bien ne jamais rencontrer était bien celle-ci : la taille maximale d&amp;rsquo;une String
+Reproduire le problème Comment on fait pour l&amp;rsquo;atteindre ? Dans mon cas, on met dans une String l&amp;rsquo;intégralité des informations de chaque artefact d&amp;rsquo;un repository Maven.</description>
+    </item>
+    
+    <item>
+      <title>(Re)Publication de post</title>
+      <link>https://blog.alecharp.fr/2012/06/26/republication-de-post/</link>
+      <pubDate>Tue, 26 Jun 2012 23:56:43 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/06/26/republication-de-post/</guid>
+      <description>Je viens de (re)publier le post le plus recherché sur le net. Il n&amp;rsquo;a pas complètement disparu, c&amp;rsquo;est juste qu&amp;rsquo;il me faut le sortir de ma base wordpress et le mettre en forme pour Jekyll.
+Chose importante à noter, j&amp;rsquo;essaye de contribuer du mieux que je peux à un autre outil de type Maven-Repository-Manager : Archiva. Premier outil créé pour remplir ce rôle, la prochaine version (1.4) se voit affectée une nouvelle UI, un peu plus dans l&amp;rsquo;air du temps, développée par le très bon Olivier Lamy (!</description>
+    </item>
+    
+    <item>
+      <title>Maven project starter</title>
+      <link>https://blog.alecharp.fr/2012/05/30/maven-project-starter/</link>
+      <pubDate>Wed, 30 May 2012 16:44:47 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/05/30/maven-project-starter/</guid>
+      <description>Parfois commencer un project c&amp;rsquo;est long et embêtant car il faut commencer par créer la structure du project selon maven. Comment peut-on le faire rapidement?
+Aujourd&amp;rsquo;hui, on utilise beaucoup maven dans le développement, surtout web, mais commencer la phase de dev d&amp;rsquo;un projet peut être un peu long.
+Il faut toujours passer par la phase de création des dossiers conventionnés par maven et ce n&amp;rsquo;est pas toujours simple. Alors astuce :</description>
+    </item>
+    
+    <item>
+      <title>Génération automatique avec jekill, git / github et apache</title>
+      <link>https://blog.alecharp.fr/2012/05/17/Generation-automatique/</link>
+      <pubDate>Thu, 17 May 2012 18:05:12 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/05/17/Generation-automatique/</guid>
+      <description>Passer de wordpress à Jekyll, ça peut faire peur pour la mise en ligne de nouveaux posts. Heureusement, certains outils et une légère configuration permettent de passer outre ce soucis.
+Alors ce n&amp;rsquo;est pas parce que j&amp;rsquo;ai choisi de passer sur Jekyll que j&amp;rsquo;ai envie de tout refaire à la main. Par exemple, je n&amp;rsquo;ai pas envie de devoir regénérer le site web à chaque fois que j&amp;rsquo;écris un nouvel article.</description>
+    </item>
+    
+    <item>
+      <title>It&#39;s QWERTY time</title>
+      <link>https://blog.alecharp.fr/2012/05/14/It-s-qwerty-time/</link>
+      <pubDate>Mon, 14 May 2012 19:57:29 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/05/14/It-s-qwerty-time/</guid>
+      <description>For a while, people haven&amp;rsquo;t stopped telling me that for coding, nothing is better than a Qwerty keyboard.
+As I am not the stupid guy who never tries out and still tells everyone: &amp;ldquo;nothing is better than azerty!!&amp;rdquo;, I&amp;rsquo;m trying it. To be specific, as an French guy, I&amp;rsquo;m trying a US internationalized keyboard.
+For the moment I&amp;rsquo;m a bit slower, can&amp;rsquo;t stop looking at my fingers. But it seems pretty cool for coding.</description>
+    </item>
+    
+    <item>
+      <title>Les outils du dev</title>
+      <link>https://blog.alecharp.fr/2012/05/11/Les-outils-du-dev/</link>
+      <pubDate>Fri, 11 May 2012 10:55:48 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/05/11/Les-outils-du-dev/</guid>
+      <description>Au cours d&amp;rsquo;un développement, on se retrouve toujours avec un même problème : comment je fais pour être plus productif ? A cette question, il y a beaucoup de réponses possibles.
+Maven Maven est un outil de build/gestion de dépendance très utilisé dans le développement surtout web/JEE. Il est bien intégré aux différents IDEs disponibles mais on se retrouve souvent à faire des lignes de commandes pour compiler, tester, packager notre application.</description>
+    </item>
+    
+    <item>
+      <title>The rules are</title>
+      <link>https://blog.alecharp.fr/2012/05/10/The-rules-are/</link>
+      <pubDate>Thu, 10 May 2012 20:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/05/10/The-rules-are/</guid>
+      <description>J&amp;rsquo;ai envie d&amp;rsquo;essayer Jekyll pour gérer mon blog pour quelques raisons, certaines sûrement pas très réfléchies :
+ git pour versionner mes articles Markdown!!! des pages statiques pour faire du cache et pas de base de données (cf &amp;uarr;&amp;uarr;)  Bon après, utilisant Git (et GitHub) pour versionner ce blog, je vous propose ceci : lisez-moi, si vous aimez alors faites un &amp;ldquo;watch&amp;rdquo; de mon compte github @alecharp. Si je dis une bếtise, forkez l&amp;rsquo;article en question, corrigez-le, et faites une pull-request.</description>
+    </item>
+    
+    <item>
+      <title>Sonatype Nexus</title>
+      <link>https://blog.alecharp.fr/2010/06/24/sonatype-nexus/</link>
+      <pubDate>Thu, 24 Jun 2010 14:44:58 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2010/06/24/sonatype-nexus/</guid>
+      <description>Depuis quelques temps, j&amp;rsquo;utilise Nexus de Sonatype pour certains développements perso ou pro. Comme je trouve ce produit très simple, convivial et solide dans le cadre de l&amp;rsquo;intégration continue et plus largement, dans son utilisation avec Maven, j&amp;rsquo;ai décidé d&amp;rsquo;écrire un article pour partager l&amp;rsquo;expérience que j&amp;rsquo;en ai.
+Pour cela, je tenterai de vous expliquer simplement (c&amp;rsquo;est pas toujours facile à faire) l&amp;rsquo;utilité de Nexus. J&amp;rsquo;espère que ce fait sera prouvé par la suite de mon exposé.</description>
+    </item>
+    
+  </channel>
+</rss>

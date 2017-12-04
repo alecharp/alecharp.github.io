@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dev on alecharp&#39;s blog</title>
+    <link>https://blog.alecharp.fr/tags/dev/</link>
+    <description>Recent content in Dev on alecharp&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr_FR</language>
+    <lastBuildDate>Sun, 28 Apr 2013 20:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.alecharp.fr/tags/dev/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Writing code crap and refactoring painlessly</title>
+      <link>https://blog.alecharp.fr/2013/04/28/writing-code-crap-and-refactoring-painlessly/</link>
+      <pubDate>Sun, 28 Apr 2013 20:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/04/28/writing-code-crap-and-refactoring-painlessly/</guid>
+      <description>Quand on écrit du code, il y a deux choses de mon point de vue qui peuvent nous conduire à l&amp;rsquo;auto-censure :
+ ne pas savoir écrire du code, penser qu&amp;rsquo;on ne sait pas écrire du code propre.  Dans un cas comme dans l&amp;rsquo;autre, le résultat, si c&amp;rsquo;est le cas, est qu&amp;rsquo;il vaut mieux s&amp;rsquo;abstenir, sinon ça donne ça codecrap.com. Sauf que si on écrit jamais on ne saura jamais écrire, dixit le veille adage &amp;ldquo;c&amp;rsquo;est en forgeant qu&amp;rsquo;on devient forgeron.</description>
+    </item>
+    
+  </channel>
+</rss>

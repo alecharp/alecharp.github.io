@@ -1,0 +1,248 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: AngularJS, directive et les miettes de pains</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>AngularJS, directive et les miettes de pains</h2>
+  </header>
+  <time pubdate="2012-09-17">
+    <i class="fa fa-calendar"></i> 2012-09-17
+  </time>
+  <section>
+    
+
+<p>Ma première directive avec angularJS</p>
+
+<p>Dans un blog précédent, j&rsquo;ai fait une petite critique à AngularJS. Ici je vais
+montrer comment j&rsquo;ai créé un breadcrumb avec AngularJS en étendant un petit peu
+son comportement et sa configuration. Sans trop me prendre la tête.</p>
+
+<h2 id="but">But</h2>
+
+<p>Mon application (pour le moment) est en mode &ldquo;one-page application&rdquo; : un html
+<code>index.html</code>, hormis les templates. Cependant, je veux pouvoir revenir
+simplement sur la page &ldquo;précédente&rdquo;, de la logique de mes pages.</p>
+
+<p>Donc ce que je veux c&rsquo;est pouvoir dans le formulaire d&rsquo;ajout d&rsquo;évènement
+revenir simplement sur la liste de mes évènements.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">	Home &gt; Liste des évènements &gt; Ajouter un évènement</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Simple et plutôt joli.</p>
+
+<h2 id="choix">Choix</h2>
+
+<p>On peut, à la main dans chaque template, mettre notre breadcrumb. C&rsquo;est
+moche et pas vraiment maintenable.</p>
+
+<p>L&rsquo;autre possibilité est d&rsquo;utiliser la configuration des routes et de faire un
+mapping pour construire. C&rsquo;est moins simple, à première vue, mais plus
+maintenable et extensible.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>Le mieux serait alors de mettre dans la configuration des routes les textes que
+l&rsquo;on veut voir dans notre breadcrumb. Ainsi on a en un clin d&rsquo;oeil l&rsquo;URL de la
+page, son template AINSI que le texte à afficher. Ça serait pas mal ça.</p>
+
+<p>Donc la configuration ça donne :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">tlbApp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;tlbApp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;tlbService&#39;</span><span class="p">]);</span>
+<span class="nx">tlbApp</span><span class="p">.</span><span class="nx">config</span><span class="p">([</span><span class="s1">&#39;$routeProvider&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$routeProvider</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">$routeProvider</span><span class="p">.</span>
+    <span class="nx">when</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">templateUrl</span><span class="o">:</span><span class="s1">&#39;views/welcome-page.html&#39;</span><span class="p">,</span>
+        <span class="nx">breadcrumb</span><span class="o">:</span><span class="s1">&#39;&lt;i class=&#34;icon-home&#34;&gt;&lt;/i&gt;&#39;</span>
+    <span class="p">}).</span>
+    <span class="nx">when</span><span class="p">(</span><span class="s1">&#39;/event&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">templateUrl</span><span class="o">:</span><span class="s1">&#39;views/event-list.html&#39;</span><span class="p">,</span>
+        <span class="nx">controller</span><span class="o">:</span><span class="nx">EventListController</span><span class="p">,</span>
+        <span class="nx">breadcrumb</span><span class="o">:</span><span class="s1">&#39;Liste des évènements&#39;</span>
+    <span class="p">}).</span>
+    <span class="nx">when</span><span class="p">(</span><span class="s1">&#39;/event/new&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">templateUrl</span><span class="o">:</span><span class="s1">&#39;views/event-form.html&#39;</span><span class="p">,</span>
+        <span class="nx">controller</span><span class="o">:</span><span class="nx">EventNewController</span><span class="p">,</span>
+        <span class="nx">breadcrumb</span><span class="o">:</span><span class="s1">&#39;Ajouter un évènement&#39;</span>
+    <span class="p">}).</span>
+    <span class="nx">otherwise</span><span class="p">({</span><span class="nx">redirectTo</span><span class="o">:</span><span class="s1">&#39;/&#39;</span><span class="p">});</span>
+<span class="p">}]);</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Donc j&rsquo;ai dans ma <code>$route</code> correspondant à <code>/</code>, la notion de template, i.e.
+le DOM à utiliser, mais également le texte à afficher dans la page. On voit ici
+que j&rsquo;ai mis du texte mais également des images.</p>
+
+<p>Maintenant, comment on met ça en forme ?</p>
+
+<h2 id="le-template">Le template</h2>
+
+<p>Pas très compliqué, une simple liste pour afficher notre liste successive de
+pages. Ici, grand fan de Twitter Bootstrap oblige, j&rsquo;utilise la classe
+<code>breadcrumb</code> du framework.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span><span class="p"></span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&#39;breadcrumb&#39;</span><span class="p"></span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="p">/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h2 id="création-d-une-directive">Création d&rsquo;une directive</h2>
+
+<p>Avec AngularJS, on peut créer des directives. Dixit la documentation, une
+directive est le <em>seul</em> emplacement dans lequel on peut toucher au DOM d&rsquo;une
+page. Comme c&rsquo;est ce que l&rsquo;on veut faire, c&rsquo;est la bonne place.</p>
+
+<p>On va dire que notre directive correspond à une balise précise, qu&rsquo;on va
+appeler <code>&lt;breadcrumb/&gt;</code>, mais qu&rsquo;il ne peut s&rsquo;agir que d&rsquo;une balise, pas d&rsquo;une
+classe ni d&rsquo;un attribut dans une autre balise. Cependant, dans le rendu de ma
+page, je ne veux plus voir la balise <code>&lt;breadcrumb/&gt;</code>.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span><span class="lnt">21</span><span class="lnt">22</span><span class="lnt">23</span><span class="lnt">24</span><span class="lnt">25</span><span class="lnt">26</span><span class="lnt">27</span><span class="lnt">28</span><span class="lnt">29</span><span class="lnt">30</span><span class="lnt">31</span><span class="lnt">32</span><span class="lnt">33</span><span class="lnt">34</span><span class="lnt">35</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">tlbApp</span><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;breadcrumb&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$location</span><span class="p">,</span> <span class="nx">$route</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">breadcrumbDescriptionObject</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">restrict</span><span class="o">:</span><span class="s1">&#39;E&#39;</span><span class="p">,</span>
+    <span class="nx">priority</span><span class="o">:</span><span class="mi">99</span><span class="p">,</span>
+    <span class="nx">replace</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="nx">transclude</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="nx">templateUrl</span><span class="o">:</span><span class="s1">&#39;views/breadcrumb.html&#39;</span><span class="p">,</span>
+    <span class="nx">link</span><span class="o">:</span><span class="kd">function</span> <span class="p">(</span><span class="nx">_</span><span class="p">,</span> <span class="nx">iElement</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">ul</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">element</span><span class="p">(</span><span class="nx">iElement</span><span class="p">.</span><span class="nx">children</span><span class="p">()[</span><span class="mi">0</span><span class="p">]);</span>
+      <span class="kd">var</span> <span class="nx">paths</span> <span class="o">=</span> <span class="nx">$location</span><span class="p">.</span><span class="nx">path</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">href</span> <span class="o">=</span> <span class="s2">&#34;#&#34;</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+      <span class="nx">angular</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">paths</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">item</span><span class="o">=</span><span class="nx">item</span><span class="p">.</span><span class="nx">trim</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">last</span> <span class="o">=</span> <span class="nx">paths</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="nx">paths</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="o">==</span><span class="s2">&#34;&#34;</span> <span class="o">||</span> <span class="p">(</span><span class="nx">path</span><span class="p">[</span><span class="nx">path</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">!=</span><span class="s1">&#39;/&#39;</span><span class="p">))</span> <span class="p">{</span>
+          <span class="nx">path</span> <span class="o">+=</span> <span class="s1">&#39;/&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nx">path</span> <span class="o">+=</span> <span class="nx">item</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">$route</span><span class="p">.</span><span class="nx">routes</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">path</span><span class="p">))</span> <span class="p">{</span>
+          <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">$route</span><span class="p">.</span><span class="nx">routes</span><span class="p">[</span><span class="nx">path</span><span class="p">].</span><span class="nx">breadcrumb</span> <span class="o">||</span> <span class="nx">item</span><span class="p">;</span>
+          <span class="nx">href</span> <span class="o">+=</span> <span class="nx">item</span> <span class="o">+</span> <span class="s2">&#34;/&#34;</span><span class="p">;</span>
+          <span class="kd">var</span> <span class="nx">lnk</span><span class="p">;</span>
+          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">last</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">lnk</span> <span class="o">=</span> <span class="s2">&#34;&lt;li&gt;&lt;a href=&#39;&#34;</span> <span class="o">+</span> <span class="nx">href</span> <span class="o">+</span> <span class="s2">&#34;&#39;&gt;&#34;</span> <span class="o">+</span> <span class="nx">text</span> <span class="o">+</span> <span class="s2">&#34;&lt;/a&gt; &lt;span class=&#39;divider&#39;&gt;&gt;&lt;/span&gt;&lt;/li&gt;&#34;</span><span class="p">;</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">lnk</span> <span class="o">=</span> <span class="s2">&#34;&lt;li class=&#39;active&#39;&gt;&#34;</span> <span class="o">+</span> <span class="nx">text</span> <span class="o">+</span> <span class="s2">&#34;&lt;/li&gt;&#34;</span><span class="p">;</span>
+          <span class="p">}</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">lnk</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">},</span> <span class="nx">ul</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+  <span class="k">return</span> <span class="nx">breadcrumbDescriptionObject</span><span class="p">;</span>
+<span class="p">});</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Donc avant le <code>function</code>, nous avons la configuration pour notre directive avec :</p>
+
+<ul>
+<li>transclude : permet d&rsquo;avoir un widget isolé du reste de l&rsquo;application.</li>
+<li>replace : supprime la / les balise(s) appelant la directive.</li>
+<li>restrict : le type de déclaration de la directive :
+
+<ul>
+<li>E = nom d&rsquo;élément,</li>
+<li>A = attribut,</li>
+<li>C = classe,</li>
+<li>M = commentaire.</li>
+</ul></li>
+<li>priority : lors de l&rsquo;utilisation de plusieurs directives, permet de les faire
+dans un certain ordre.</li>
+<li>templateUrl : l&rsquo;url vers le fichier contenant le template à utiliser.</li>
+</ul>
+
+<p>Ensuite l&rsquo;algo de construction de mon breadcrumb est <s>un peu</s> très
+glouton : je prends la <code>route</code> de la page actuellement à l&rsquo;écran et je sépare par
+les &lsquo;/&rsquo;. Pour chacun de ces éléments, je concatène avec l&rsquo;élément précédent et
+regarde si ça match une de mes routes avec la fonction</p>
+
+<p><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$route</span><span class="p">.</span><span class="nx">routes</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div></p>
+
+<p>Simple, gourmand, mais fonctionnel.</p>
+
+<h2 id="mais">Mais&hellip;</h2>
+
+<p>Il y a un <strong>gros</strong> mais. Certaines de vos routes peuvent avoir des paramètres :
+un id, un nom, etc. Soucis, la fonction <code>hasOwnProperty</code> ne match pas les
+paramètres. Donc il n&rsquo;est pas possible d&rsquo;utiliser ma solution avec ces urls
+mais j&rsquo;y travaille.</p>
+
+<p>Merci.</p>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

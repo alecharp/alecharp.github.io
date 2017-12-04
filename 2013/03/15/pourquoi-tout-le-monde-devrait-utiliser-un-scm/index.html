@@ -1,0 +1,137 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Pourquoi tout le monde devrait utiliser un SCM</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>Pourquoi tout le monde devrait utiliser un SCM</h2>
+  </header>
+  <time pubdate="2013-03-15">
+    <i class="fa fa-calendar"></i> 2013-03-15
+  </time>
+  <section>
+    
+
+<p>Un petit pamphlet pour l&rsquo;utilisation de SCM en toute circonstance</p>
+
+<p>Il s&rsquo;agit là d&rsquo;un point de vue que je défends depuis quelques temps mais il est temps que je m&rsquo;exprime ouvertement sur le sujet (ça va m&rsquo;éviter des heures et des heures de Psy).</p>
+
+<p>Donc <span class="lead">Pourquoi tout le monde <del>veut devenir un cat</del> devrait utiliser un SCM?</span> <small>car […] [il] retombe toujours sur ses pattes !</small></p>
+
+<h2 id="définition-un-scm-c-est-quoi">Définition: un SCM c&rsquo;est quoi ?</h2>
+
+<p>Donc pour ce qui ne connaissent pas le terme, SCM pour <em>Source and Configuration Manager</em>. Il est question d&rsquo;un outil permettant de gérer du code source. Le point de cet article est de montrer que le <em>source</em> peut en fait être n&rsquo;importe quoi.</p>
+
+<p>Quand on dit &ldquo;<em>gérer</em> du code source&rdquo;, on veut dire être capable de garder des versions de ce code dans le temps et ainsi savoir qui a fait quoi sur quelle ligne du fichier. Cela permet également de travailler à plusieurs sur le même projet de manière plus rapide.</p>
+
+<p>L&rsquo;idée principale est donc d&rsquo;être capable de travailler sur le contenu d&rsquo;un fichier, à plusieurs si nécessaire, sans trop se marcher sur les pieds et de pouvoir revenir à tout moment sur ce que l&rsquo;on a écrit il y a 15 jours.</p>
+
+<h2 id="un-scm-pour-tous">Un SCM pour tous ?</h2>
+
+<p>Bon ok, j&rsquo;y vais un peu fort là&hellip; Disons un SCM pour tout ceux qui font de l&rsquo;informatique et qui travaillent avec des fichiers. Donc tous ceux qui utilisent un logiciel de gestion de stock ou autres, vous n&rsquo;êtes pas concernés (mais j&rsquo;espère que les données sont tout de même versionnées&hellip;).</p>
+
+<p>Lorsque l&rsquo;on ne travaille pas avec un SCM, la plupart des gens vont alors faire des copies de fichiers, soit en ajoutant un numéro d&rsquo;itération (1, 2, 3, etc.) soit avec la date d&rsquo;édition, voir avec une combinaison des deux pour le cas de plusieurs versions dans la même journée, sur le nom du fichier. J&rsquo;ai vu ça <del>trop</del> très souvent. Ça arrive même sur des dossiers complets ! C&rsquo;est une méthode suffisante lorsque l&rsquo;on est étudiant, et encore avec le recul pas vraiment. Mais lorsque l&rsquo;on commence à faire des choses sérieuses ou sérieusement, il faut alors aborder notre façon de travailler différemment.</p>
+
+<h2 id="un-scm-pour-les-fichiers">Un SCM pour les fichiers</h2>
+
+<p>Alors pourquoi utiliser un outil qui ne me permet pas d&rsquo;éditer mon Rapport trimestriel de rentabilité ? Tout simplement parce que ce fichier ne sera JAMAIS en version finale du premier coup. Combien même vous en faites depuis 15 ans, que vous avez la certification de Gestion du Management du Rapport Trimestriel, vous aurez toujours plusieurs versions de votre fichier.</p>
+
+<p>Ceci car Mr Doe, <em>votre supérieur</em>, est venu vous voir pour vous dire de ne pas montrer les 0,02% qui font passer votre rentabilité en dessous des 76,99%, ou que les chiffres ont changé, ou qu&rsquo;un nouveau chapitre doit être intégré. Bref vous n&rsquo;aurez jamais une version initiale équivalente à une version finale. Je parle de rapport, mais pour cet article, il en va de même pour les retouches d&rsquo;images, les intégrations de sites web, la rédaction de articles sur un blog (au hasard).</p>
+
+<p>C&rsquo;est utile surtout si vous ne travaillez de manière linéaire mais avec un ordonnancement par priorité : le contenu avant la mise en page, le corps avant la conclusion, etc. Pourquoi ? Tout simplement parce que vous allez écrire une première version de votre contenu, l&rsquo;envoyer à un relecteur (votre patron, un ami); en attendant son retour, vous attaquez la mise en page ; lorsqu&rsquo;il revient vers vous, avec les 15Milliards de corrections à faire, grâce au SCM, vous pouvez mettre de côté la mise en page, travailler votre contenu et envoyer une seconde version puis reprendre votre mise en page.</p>
+
+<p>Vous trouvez ça superflu ? Entre les relectures, vous ne faites rien ?</p>
+
+<p>Vous envoyez une seconde version de votre contenu avec un morceau non complet de votre présentation et ainsi perdez définitivement l&rsquo;attention de votre relecteur ?</p>
+
+<h2 id="comment-s-y-mettre">Comment s&rsquo;y mettre ?</h2>
+
+<p>Si vous êtes encore en train de me lire et que vous avez compris mon point, je suis déjà content ! Vous êtes sur la bonne voie ! Elle est longue, sinueuse et semée d&rsquo;embûches mais vous en sortirez plus fort ! Et votre travail plus productif.</p>
+
+<p>Donc par où commencer ? Faire un choix. Il vous faut en effet choisir le SCM que vous souhaitez utiliser. Là, pas de miracle, demandez à vos amis ! Pourquoi ? Sans tourner autour du pot, c&rsquo;est à eux que vous ferez appel en cas de problème ! Il est donc préférable qu&rsquo;ils connaissent ou puissent vous orienter.</p>
+
+<p>Une fois le choix fait, documentez-vous, lisez, apprenez. Certains sont plus simple à prendre en main que d&rsquo;autres. D&rsquo;expérience, plus le démarrage est rapide, plus vous aurez de problèmes par la suite ! Il faut donc que votre choix soit réfléchi, que vous puissiez supporter tous les reproches/moqueries que vos amis pourront vous faire.</p>
+
+<p>Quelques critères de démarrage : ne payez pas, ayez la possibilité de faire des essais sur votre poste de travail, qu&rsquo;il ait une interface graphique ou un logiciel pouvant servir d&rsquo;interface graphique, regardez des tendances sur Twitter ou Google pour voir s&rsquo;il est beaucoup utilisé.</p>
+
+<p>Autre chose, ce n&rsquo;est pas parce qu&rsquo;un informaticien vous dit que tel ou tel SCM est simple que c&rsquo;est le cas ! Nous avons une façon de penser proche de ceux qui ont écrit ce SCM, on le comprend donc plus rapidement. De plus, de part notre travail, il est fort possible que l&rsquo;on ait utilisé ce SCM durant de nombreuses heures.</p>
+
+<div class="row"><div class="well well-large offset3 span6 text-center text-warning">Toute ressemblance avec des personnes existantes ou ayant existé est tout à fait fortuite.</div></div>
+
+<h2 id="la-note-de-l-auteur">La note de l&rsquo;auteur</h2>
+
+<p>Personnellement, je vous conseillerais Git. Tout le monde le dit compliqué, long à prendre en main. Je ne suis absolument pas d&rsquo;accord avec ça (cf note du paragraphe précédent) !</p>
+
+<p>Dans son ensemble, oui c&rsquo;est plus long à prendre une main, comprendre comment ça fonctionne, pourquoi il râle de temps en temps. Mais pour démarrer vous n&rsquo;avez besoin que de trois mots : <code>add</code>, <code>commit</code>, <code>push</code>. Il y a quelques semaines, un codeur avec qui j&rsquo;ai fait mes premières armes m&rsquo;a avoué n&rsquo;avoir jamais eu besoin de plus jusqu&rsquo;alors. J&rsquo;étais étonné mais il est vrai que dans un contexte personnel, le reste des actions n&rsquo;est que très rarement mis en pratique. Par contre, une fois que vous avez compris ces trois termes, ne vous arrêtez pas de vous documenter, mais vous pouvez déjà faire des testes et des essais.</p>
+
+<p>D&rsquo;après mes critères de choix il est pas mal du tout :</p>
+
+<ul>
+<li>gratuit,</li>
+<li>pas besoin de serveur pour fonctionner,<br />
+si nécessaire, il y a beaucoup de services pour prendre place de serveur Git :
+
+<ul>
+<li>GitHub,</li>
+<li>Google Code,</li>
+<li>BitBucket.<br />
+pour les plus connus (et gratuits dans une certaine mesure) :</li>
+</ul></li>
+<li>GitG (Linux), GitX (Mac), SourceTree (Mac mais qui arrive sur Windows!!),</li>
+<li>très grosse communauté d&rsquo;utilisateurs sur Twitter, beaucoup de blogs en FR et EN, beaucoup de livres.</li>
+</ul>
+
+<p>Liste non exhaustive de choses à lire / voir sur Git :</p>
+
+<ul>
+<li><a href="http://git-scm.com">Git-SCM</a> : LE livre / site à lire, du débutant au confirmé (les experts étant ceux qui codent Git)</li>
+<li><a href="http://www.ndpsoftware.com/git-cheatsheet.html">Git-cheatsheet</a> : la représentation visuelle des espaces Git</li>
+</ul>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

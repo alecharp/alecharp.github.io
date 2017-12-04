@@ -1,0 +1,116 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Git - the good, the bad and the ugly</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>Git - the good, the bad and the ugly</h2>
+  </header>
+  <time pubdate="2014-12-30">
+    <i class="fa fa-calendar"></i> 2014-12-30
+  </time>
+  <section>
+    
+
+<p>I&rsquo;m using Git for everthing. Two years ago, I even moved my blog from Wordpress to Jekyll, only to be able to use Git. I&rsquo;m  a huge fan of Git. It&rsquo;s lightweight, powerful, customizable. It&rsquo;s awesome. But some rules must be setup.</p>
+
+<h1 id="the-good">The good</h1>
+
+<p>Git is very popular for open-source projects. Even many projects from the Apache Foundation moved to Git and Github a few months back. My opinion is that the lightweight of the branch / commit over Subversion makes Git a very interesting tool for projects that have many developpers that cannot get a meeting room for 2 hours to see what the f**k is going on with the merge conflict.</p>
+
+<h2 id="branch-management">Branch management</h2>
+
+<p>As I said, Git is powerful and customizable. You can design how you want to use the branches, how you want to name them. Yes, the <em>default</em> branch is named <code>master</code> but yes you can remove it in favor to <code>trunk</code> if you prefer. You can use the <code>git-flow</code> approach to manage your development life-cycle with branches based on merging strategy. I kind of love this. <code>master</code> is my production, <code>dev</code> is my next iteration branch, <code>features/XX</code> is the development of the feature XX. If I do have production issues, I fix them in <code>hotfixes/YY</code> for the bug <code>YY</code>. Branches names disappear when the fix / feature is done (aka tested and approved) but are symbolized by a <em>commit of merge</em>.</p>
+
+<h2 id="back-to-the-future">Back to the future</h2>
+
+<p>Git is also nice as you can change your history. Who wouldn&rsquo;t love to rewrite what they&rsquo;ve done? You can easily do very small commits to keep in -git- mind how to achieve to develop this feature. When you finished the feature, then you can rewrite it and remove the <em>fixup</em> commits; reorder commits give your log a logical order. I do love to <code>git log --oneline</code> and read. It can help me to understand why a random feature has been developed this way.</p>
+
+<h1 id="the-bad">The bad</h1>
+
+<blockquote>
+<p>&ldquo;With great power comes great responsibility&rdquo;
+&ndash; <cite>Uncle Ben</cite></p>
+</blockquote>
+
+<p>Even if you can do everything, it doesn&rsquo;t mean you should. I would tell you that my branch management is the one you have to use for a simple reason: it&rsquo;s maybe not good for your process, it could be too complicated for your team-member, even if you can learn how to use Git within 2 days.</p>
+
+<p>The worst case for using Git is to use it because everyone does. I mean, migrating to Git is obvious to me, but because I see the power of Git over other VCS. And the worst way to use Git is to get one from internet &ldquo;because I read it was a good one&rdquo; without confronting it to your current process.</p>
+
+<p>You need to understand that I don&rsquo;t dislike branches in my log: one &ldquo;merged branch XX&rdquo; commit is to me the technical speech &ldquo;I think I&rsquo;m done with XX&rdquo;. The &ldquo;merged branch hotfixes/YY&rdquo; is &ldquo;I might not have delivered this&rdquo;, or &ldquo;I totally forgot that people could use it&rdquo;.</p>
+
+<p>As I said before, I read logs like a book. From the end to the beginning.</p>
+
+<p>So, to come back to the <em>bad</em> of Git, you need to define a structure on how to use it. But, even then, you won&rsquo;t be able to know that this structure is respected. You need to find tools that will help you control those usages. I won&rsquo;t point you to any of those tools, I never used them, I do not fancy those control-oriented tools very much.</p>
+
+<p>To me, they are also part of the bad: don&rsquo;t restrict what your devs do with Git. They may find easier ways to do a release, better naming conventions, or at least some that have a meaning to them. Because, in the end, Git is a tool to make your devs life easier and they know how to do so.</p>
+
+<h1 id="the-ugly">The ugly</h1>
+
+<blockquote>
+<p>&ldquo;The real beauty is inside&rdquo;</p>
+</blockquote>
+
+<h2 id="core-autocrlf">core.autocrlf</h2>
+
+<p>Well, the real ugly too. As Git is now usable from all OS, you can find <code>^M</code> in your changesets. What a useless commit! This is <u>not</u> a Git issue, this is a configuration issue.</p>
+
+<p>With a correctly setup development platform, this is avoided but it seems that even in big open-source projects we are still able to find it. So please read <a href="http://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#Formatting-and-Whitespace">Git configuration - Formatting and whitespace</a></p>
+
+<h2 id="commit-messages">Commit messages</h2>
+
+<p>There is also a kind of problem for me with logs. When using <code>git commit -m &quot;&quot;</code> and even <code>git commit</code> with any <em>out-of-the-box</em> editor, you don&rsquo;t have any length limit. Which is very frustrating for me. Once again, I read the log. Yes I truly do! So having the &ldquo;oneline&rdquo; displaying a 4 lines long message is something I dislike.</p>
+
+<p>You can find a lot of blog posts about &ldquo;better commit messages&rdquo;. Linux Torvalds describe what is a commit message here: <a href="https://github.com/torvalds/subsurface/blob/master/README#L87">github.com/torvalds/subsurface/README</a></p>
+
+<p>I mean, I don&rsquo;t always write a commit message as it is described, but have a short description of the commit and then as many text as you want to describe why you commit that. Describing what you committed is quite useless: I can read that with the diff.. But the <strong>why</strong> of the commit is not in the diff.</p>
+
+<p>If you ever need some help to find what could be the perfect first line for your commit message, please see <a href="http://whatthecommit.com/">whatthecommit.com</a>. :wink:</p>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

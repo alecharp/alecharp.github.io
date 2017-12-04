@@ -1,0 +1,194 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Génération automatique avec jekill, git / github et apache</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>Génération automatique avec jekill, git / github et apache</h2>
+  </header>
+  <time pubdate="2012-05-17">
+    <i class="fa fa-calendar"></i> 2012-05-17
+  </time>
+  <section>
+    
+
+<p>Passer de wordpress à Jekyll, ça peut faire peur pour la mise en ligne de nouveaux posts. Heureusement, certains outils et une légère configuration permettent de passer outre ce soucis.</p>
+
+<p>Alors ce n&rsquo;est pas parce que j&rsquo;ai choisi de passer sur Jekyll que j&rsquo;ai
+envie de tout refaire à la main. Par exemple, je n&rsquo;ai pas envie de devoir
+regénérer le site web à chaque fois que j&rsquo;écris un nouvel article.</p>
+
+<p>Pour faire ça, ce n&rsquo;est pas très compliqué avec le bon combo d&rsquo;outils :
+<strong>git</strong> + <strong>github</strong> + <strong>apache - cgi</strong></p>
+
+<div class="alert alert-info">Je ne vais pas mettre les chemins d'accès
+disque dans l'article car je suis un peu timide...</div>
+
+<h2 id="script-bash-de-génération-avec-jekyll">Script bash de génération avec jekyll</h2>
+
+<p>On commence par mettre en place un script qui permettra de récupérer les
+derniers articles publiés et générer les pages statiques.</p>
+
+<p>Le choix de git et github se fait alors comprendre : simple, efficace, et
+versionner des textes c&rsquo;est après tout ce que git fait de mieux. Donc des
+posts en <em>markdown</em> ça se comprend aussi.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="c">#!/bin/sh</span>
+
+<span class="n">echo</span> <span class="n">-e</span> <span class="s2">&#34;Content-type:text/plain\n\n&#34;</span>
+<span class="c">#Entête http nécessaire pour que le script soit correctement exécuté</span>
+
+<span class="n">git_dir</span><span class="p">=</span><span class="s2">&#34;/path/to/git/clone&#34;</span>
+<span class="n">site_dir</span><span class="p">=</span><span class="s2">&#34;/path/to/virtualhost/location&#34;</span>
+
+<span class="n">cd</span> <span class="p">${</span><span class="n">git_dir</span><span class="p">}</span>
+<span class="n">git</span> <span class="n">fetch</span> <span class="n">origin</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="n">origin</span><span class="p">/</span><span class="n">master</span>
+
+<span class="n">jekyll</span> <span class="p">${</span><span class="n">git_dir</span><span class="p">}</span> <span class="p">${</span><span class="n">site_dir</span><span class="p">}</span> <span class="n">2</span><span class="p">&gt;&amp;</span><span class="n">1</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Ici on part du principe que le clone est déjà effectué mais on pourrait
+très bien rajouter quelques lignes pour le faire s&rsquo;il n&rsquo;existe pas:</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="p">...</span>
+<span class="k">if</span> <span class="p">[</span> <span class="p">!</span> <span class="n">-d</span> <span class="p">${</span><span class="n">git_dir</span><span class="p">}/.</span><span class="n">git</span> <span class="p">];</span> <span class="n">then</span>
+  <span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nv">@github</span><span class="p">.</span><span class="n">com</span><span class="err">:</span><span class="n">user</span><span class="p">/</span><span class="n">repository</span> <span class="p">${</span><span class="n">git_dir</span><span class="p">}</span>
+<span class="n">fi</span>
+<span class="p">...</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Une fois l&rsquo;exécution du script autorisée (<code>chmod a+x /path/to/script</code>),
+essayez de l&rsquo;exécuter vous-même.</p>
+
+<h2 id="exécuter-le-script-via-une-url">Exécuter le script via une URL</h2>
+
+<p>Pour ça, j&rsquo;ai besoin du module cgi de Apache. Parce que j&rsquo;héberge d&rsquo;autres
+sites internet utilisant wordpress, j&rsquo;utilise un serveur httpd Apache. Je
+vais l&rsquo;utiliser pour ne pas multiplier les outils pour faire la même chose.</p>
+
+<p>Donc dans la configuration de votre Apache (ou virtualhost), il suffit
+de mettre en place la directive <code>ScriptAlias</code> vers le dossier contenant
+le script que l&rsquo;on a écrit juste avant.</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-apache" data-lang="apache"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-apache" data-lang="apache"><span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
+  <span class="nb">ServerName</span> name.extension
+  <span class="nb">DocumentRoot</span> <span class="sx">/path/to/site/folder</span>
+  <span class="nb">ScriptAlias</span> <span class="sx">/name-that-you-choose/</span> <span class="sx">/path/to/scripts/folder</span>
+<span class="nt">&lt;/VirtualHost</span><span class="s"></span><span class="nt">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Après avoir redémarré le service Apache (<code>/etc/init.d/apache2 restart</code>),
+vous pouvez essayer l&rsquo;URL <em><a href="http://name.extension/name-that-you-choose/script-name">http://name.extension/name-that-you-choose/script-name</a></em>
+qui doit exécuter le script.</p>
+
+<div class="alert alert-warn">J'ai un peu lutté sur cette partie pour la
+simple raison que l'utilisateur qui exécute le script dans le process du
+serveur web n'avait ni python ni pygmentize dans son path. De ce fait,
+la génération de rendait pas des pages correctes.</div>
+
+<h2 id="configuration-de-github-com">Configuration de Github.com</h2>
+
+<p>On configure maintenant github pour qu&rsquo;à la réception d&rsquo;un push, il sollicite
+une URL, l&rsquo;URL du script configuré ci-dessus.</p>
+
+<p>Dans la partie administration de votre repository, vous pouvez configurer
+des hooks dans la partie <strong>Service Hooks</strong> (<em><a href="https://github.com/user/repository/admin/hooks">https://github.com/user/repository/admin/hooks</a></em>).
+Le hook que l&rsquo;on souhaite mettre en place est le premier : <em>Webhook URLs</em>
+qui enverra une requête POST http sur l&rsquo;URL en question. Mettez l&rsquo;URL d&rsquo;
+accès à votre script (<em><a href="http://name.extension/name-that-you-choose/script-name">http://name.extension/name-that-you-choose/script-name</a></em>),
+sauvegardez et vous pouvez ensuite l&rsquo;essayer.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Avec cette configuration, je me contente de mettre en place sur la branche
+master les articles que je souhaite publier. Ceci ne m&rsquo;empêche pas de
+travailler sur plusieurs branches (une par article par exemple) mais me
+permet de m&rsquo;assurer que la publication d&rsquo;article n&rsquo;est faite que sur la
+branche master. Il suffit de merger ou rebaser les articles dans master
+puis de pusher master sur github pour que le site soit généré à nouveau
+grâce au script.</p>
+
+<p>Il y a plein de moyens pour publier votre site généré avec Jekyll. Je n&rsquo;ai
+peut-être pas choisi la plus simple mais celle qui me convient le mieux.
+Une autre solution envisageable selon moi est celle de tâches dans un
+<code>Rakefile</code> : l&rsquo;une pour la génération du site en local, l&rsquo;autre pour faire
+un rsync du site local (<code>_site</code>) vers le <em>DocumentRoot</em> de votre serveur
+Apache (via ssh ou file). Mais là encore, il faudrait effectuer des tâches
+sur ma machine pour la génération. Avec ma solution, on pourrait imaginer
+écrire un article sur un mobile, ou sur un ordinateur d&rsquo;un ami (pas les
+clés ssh pour pusher sur github) et n&rsquo;avoir qu&rsquo;à uploader à la main sur
+la branche master le fichier de l&rsquo;article via l&rsquo;interface web de github.
+Alors la publication se ferait toute seule.</p>
+
+<h2 id="nota-bene">Nota Bene</h2>
+
+<p>À force d&rsquo;écrire des articles (non je ne les ai pas tous publiés), j&rsquo;ai
+créé une task dans un <code>Rakefile</code> pour créer la structure du fichier d&rsquo;un
+article automatique. Ainsi, je commence plus vite un article. C&rsquo;est pas
+pour ça que je les écris mieux, plus vite ou avec moins de fautes me
+direz-vous.</p>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

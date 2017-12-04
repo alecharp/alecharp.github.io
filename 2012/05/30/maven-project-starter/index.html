@@ -1,0 +1,89 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Maven project starter</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>Maven project starter</h2>
+  </header>
+  <time pubdate="2012-05-30">
+    <i class="fa fa-calendar"></i> 2012-05-30
+  </time>
+  <section>
+    <p>Parfois commencer un project c&rsquo;est long et embêtant car il faut commencer par créer la structure du project selon maven. Comment peut-on le faire rapidement?</p>
+
+<p>Aujourd&rsquo;hui, on utilise beaucoup maven dans le développement, surtout
+web, mais commencer la phase de dev d&rsquo;un projet peut être un peu long.</p>
+
+<p>Il faut toujours passer par la phase de création des dossiers
+conventionnés par maven et ce n&rsquo;est pas toujours simple. Alors astuce :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="k">function</span> <span class="n">create-maven-struct</span><span class="p">(){</span>
+  <span class="n">local</span> <span class="n">base</span><span class="p">=</span><span class="nv">$1</span>
+  <span class="p">[</span> <span class="s2">&#34;$base&#34;</span> <span class="p">==</span> <span class="s2">&#34;&#34;</span> <span class="p">]</span> <span class="p">&amp;&amp;</span> <span class="n">base</span><span class="p">=</span><span class="s2">&#34;.&#34;</span>
+  <span class="n">mkdir</span> <span class="n">-p</span> <span class="nv">$base</span><span class="p">/</span><span class="n">src</span><span class="p">/{</span><span class="n">main</span><span class="p">,</span><span class="n">test</span><span class="p">}/{</span><span class="n">java</span><span class="p">,</span><span class="n">resources</span><span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Ajoutez cette fonction dans votre <code>~/.bashrc</code> ou équivalent et vous
+serez en mesure de créer la structure d&rsquo;un projet maven très simplement
+grâce à la fonction <code>create-maven-struct</code>.</p>
+
+<p>A noter que sans argument, la structure sera créée dans le dossier
+courant, et avec argument la structure sera créée à partir de
+l&rsquo;argument (également créé s&rsquo;il n&rsquo;existe pas).</p>
+
+<p>Enjoy :)</p>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

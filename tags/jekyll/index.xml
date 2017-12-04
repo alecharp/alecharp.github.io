@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jekyll on alecharp&#39;s blog</title>
+    <link>https://blog.alecharp.fr/tags/jekyll/</link>
+    <description>Recent content in Jekyll on alecharp&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr_FR</language>
+    <lastBuildDate>Wed, 06 Aug 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.alecharp.fr/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Renouvellement graphique</title>
+      <link>https://blog.alecharp.fr/2014/08/06/renouvellement-graphique/</link>
+      <pubDate>Wed, 06 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2014/08/06/renouvellement-graphique/</guid>
+      <description>Car beaucoup m&amp;rsquo;ont dit que la police (ancienne) de mon blog était illisible, j&amp;rsquo;ai procédé à quelques changements&amp;hellip;
+Le nouveau blog est basé sur quelques couleurs issues de Paletton. Normalement, ces couleurs devraient avoir un contraste assez grand pour que tout le monde puisse les voir facilement.
+J&amp;rsquo;en ai profité pour enlever la page CV pour ne laisser que mon CV en PDF. Je suis part ailleurs en cours de traduction de celui-ci.</description>
+    </item>
+    
+    <item>
+      <title>(Re)Publication de post</title>
+      <link>https://blog.alecharp.fr/2012/06/26/republication-de-post/</link>
+      <pubDate>Tue, 26 Jun 2012 23:56:43 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/06/26/republication-de-post/</guid>
+      <description>Je viens de (re)publier le post le plus recherché sur le net. Il n&amp;rsquo;a pas complètement disparu, c&amp;rsquo;est juste qu&amp;rsquo;il me faut le sortir de ma base wordpress et le mettre en forme pour Jekyll.
+Chose importante à noter, j&amp;rsquo;essaye de contribuer du mieux que je peux à un autre outil de type Maven-Repository-Manager : Archiva. Premier outil créé pour remplir ce rôle, la prochaine version (1.4) se voit affectée une nouvelle UI, un peu plus dans l&amp;rsquo;air du temps, développée par le très bon Olivier Lamy (!</description>
+    </item>
+    
+  </channel>
+</rss>

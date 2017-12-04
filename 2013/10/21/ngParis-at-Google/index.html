@@ -1,0 +1,281 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: ngParis chez Google</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>ngParis chez Google</h2>
+  </header>
+  <time pubdate="2013-10-21">
+    <i class="fa fa-calendar"></i> 2013-10-21
+  </time>
+  <section>
+    
+
+<p>Retour sur cette soirée AngularJS</p>
+
+<blockquote>
+<p>Disclamer: J&rsquo;essaye de retranscrire ce que j&rsquo;ai compris, entendu de la soirée ainsi que mon ressenti. Les avis, points de vue me sont propre et pourrait ne pas refléter l&rsquo;intégralité du message que les personnes présentes ont souhaité faire passer.</p>
+</blockquote>
+
+<p>Hier soir, chez Google France, était donné le rendez-vous pour le dernier <a href="[http://www.meetup.com/AngularJS-Paris/events/136250782/](http://www.meetup.com/AngularJS-Paris/events/136250782/)">meet-up AngularJS</a> en date. Le programme annoncé était lourd, avec de bons speakers :</p>
+
+<ul>
+<li>JQuery et AngularJS par Pawel Kozlowski (<a href="https://twitter.com/pkozlowski_os">@pkozlowski_os</a>)</li>
+<li>Les services par Thierry Chatel (<a href="https://twitter.com/ThierryChatel">@ThierryChatel</a>)</li>
+<li>Les scopes isolés par Thierry Chatel (<a href="https://twitter.com/ThierryChatel">@ThierryChatel</a>)</li>
+</ul>
+
+<p>Pour un programme pareil, il ne fallait pas moins que Google pour accueillir tout le monde. Vraiment tout le monde car pour un évènement d&rsquo;une soirée, 250 places c&rsquo;est plutôt pas mal. Mais avec ce programme, les places sont vites parties.</p>
+
+<h2 id="organisation">Organisation</h2>
+
+<p>Début de l&rsquo;évènement à 19h (annoncé), les participants commencent à se regrouper à partir de 18h30 devant la grille, ouverture à 18h45. Alexis Moussine-Pouchkine (<a href="https://twitter.com/alexismp">@alexismp</a>) fait l&rsquo;entrée, Thierry Lau (<a href="https://twitter.com/laut3rry">@laut3rry</a>) et Sébastien Letélié (<a href="https://twitter.com/sebmade/">@sebmade</a>) font la distribution des t-shirts et badges. Tout le monde est assis avec t-shirt, badge et sticker à 19h15. Un mot : efficace!</p>
+
+<p>Les locaux sont magnifiques, 2 vidéo-projections sont prévues pour la salle, les micros sont ouverts : il est temps de faire les premières annonces, la présentation (si besoin est) du premier speaker de la soirée.</p>
+
+<h2 id="jquery-et-angularjs-philosophie">JQuery et AngularJS philosophie</h2>
+
+<h3 id="présentation-de-pawel-kozlowski">Présentation de Pawel Kozlowski</h3>
+
+<p>Pawel se définit comme un &ldquo;open-source enthousiast&rdquo;. On le retrouve sur <a href="https://twitter.com/pkozlowski_os">twitter</a>, sur <a href="https://github.com/pkozlowski-opensource">github</a> ainsi que sur son <a href="http://pkozlowskios.wordpress.com/">blog</a>. Il est également l&rsquo;auteur du livre <a href="http://www.packtpub.com/angularjs-web-application-development/book?utm_source=author-links&amp;utm_medium=author-links&amp;utm_campaign=author-links">Mastering Web Application Development with AngularJS</a>.</p>
+
+<h3 id="talk">Talk</h3>
+
+<p>Pawel commence par un :</p>
+
+<blockquote>
+<p>&ldquo;It is not how JQuery is bad, on the contrary, but how to do without it.&rdquo;</p>
+</blockquote>
+
+<p>On comprend donc que l&rsquo;on ne va pas voir de &ldquo;magie&rdquo; JQuery. Tant mieux.</p>
+
+<p>Le conseil suivant s&rsquo;adresse particulièrement au débutant AngularJS :</p>
+
+<blockquote>
+<p>&ldquo;Do not use AngularJS with JQuery in your application.&rdquo;</p>
+</blockquote>
+
+<p>Si on regarde la documentation, on voit que AngularJS utilisera JQuery si celui-ci est disponible, sinon il utilisera une implémentation interne, une sorte de JQLite. Le conseil de Pawel n&rsquo;est pas contraire à la doc, mais il préconise seulement de ne pas avoir la possibilité de ce service de JQuery dans le code et donc d&rsquo;adopter la philosophie AngularJS dès le début.</p>
+
+<p>Car le problème se pose bien là. Le développement avec JQuery et AngularJS est vraiment différent et les mélanger n&rsquo;est pas forcément une bonne option.</p>
+
+<h4 id="impératif-vs-déclaratif">Impératif vs Déclaratif</h4>
+
+<p>Le développement avec JQuery est impératif, contrairement à AngularJS qui est déclaratif.</p>
+
+<p>Avec JQuery, vous développez en pas à pas, vous avez le contrôle sur ce qui se passe sur le DOM.</p>
+
+<p>Avec AngularJS, vous décrivez ce que vous voulez et laissez le soin à AngularJS de produire le résultat attendu.</p>
+
+<h4 id="size-doesn-t-matter-they-say">Size doesn&rsquo;t matter they say</h4>
+
+<p>Bon sous un titre accrocheur, je vais simplement revenir sur les exemples que Pawel nous a donné pour nous prouver que mélanger JQuery et AngularJS n&rsquo;est pas une bonne option.</p>
+
+<p>Le premier exemple de Pawel, c&rsquo;est un composant &ldquo;twitter-like&rdquo; :</p>
+
+<ul>
+<li>une textbox,</li>
+<li>un bouton &ldquo;tweet&rdquo;,</li>
+<li>un bouton clear,</li>
+<li>un indicateur du nombre de caractères restants,</li>
+<li>la liste des &ldquo;tweets&rdquo;.</li>
+</ul>
+
+<p>Tous les éléments sont pilotés par l&rsquo;état de la textbox.</p>
+
+<p>Nous avons donc deux façons de réaliser cet exemple : JQuery ou AngularJS.</p>
+
+<p>Avec JQuery, une méthode centrale, en mode listener, va modifier la classe et l&rsquo;état des boutons. Le code est long et touche au DOM à base de <code>$(&quot;#id&quot;).text()</code>, etc.</p>
+
+<p>Avec AngularJS, les boutons se modifient eux-même (directives) avec les valeurs du modèle. On ne touche pas au DOM dans le modèle, on ne touche pas au modèle directement dans le HTML. On divise pour régner. Ce à quoi il nous dit :</p>
+
+<blockquote>
+<p>&ldquo;If you do DOM manipulation in controllers, unicorns are dying!&rdquo;</p>
+</blockquote>
+
+<p>C&rsquo;est surtout qu&rsquo;agir de la sorte, c&rsquo;est passer à côté d&rsquo;AngularJS.</p>
+
+<p>Autre exemple, bootstrap-paginator. Le plugin utilise JQuery et manipule le DOM dans le code : +600 lignes de code. Même comportement en AngularJS pure (par Pawel) : &lt;50 lignes. En plus, on externalise en DOM (template) ce qui simplifie la modification future si souhaitée.</p>
+
+<h4 id="enrober-du-code-jquery-dans-une-directive">Enrober du code JQuery dans une directive</h4>
+
+<p>Dans un soucis de ne pas ré-inventer la roue, nous pourrions donc vouloir mettre le code de certains plugins JQuery (datepicker par exemple) dans une directive AngularJS.</p>
+
+<p>Là encore, ce n&rsquo;est pas une bonne idée. Le cas de &ldquo;typehead&rdquo; est flagrant : les valeurs possibles sont récupérées via un service ou autre mais doivent être accessibles au plugin. Il faudrait donc à la fin de la compilation de la page activer le plugin. Ce qui n&rsquo;a pas de sens pour AngularJS car la page <em>peut</em> changer tout le temps, car le modèle peut rapporter de nouvelles valeurs.</p>
+
+<h4 id="jquery-a-encore-sa-place">JQuery a encore sa place</h4>
+
+<p>Toutefois, JQuery est loin d&rsquo;être inutile. Il est nécessaire pour tester l&rsquo;emplacement du DOM, pour positionner des éléments, entre autres.</p>
+
+<h4 id="conclusion">Conclusion</h4>
+
+<p>La syntaxe est simple, vous pouvez toujours tout réécrire, réutiliser le code JQuery ou les plugins AngularJS.</p>
+
+<p>AngularJS est une nouvelle approche du développement front et pour bien comprendre le développement et la philosophie d&rsquo;e &lsquo;AngularJS, il est préférable de ne pas avoir JQuery dans son application pour commencer. Toutefois, JQuery est très utile pour maitriser son DOM.</p>
+
+<h3 id="fin-du-talk">Fin du talk</h3>
+
+<p>Le premier talk est terminé, il est bien accueilli. Quelques questions sont posées sur la séparation du DOM / model, pourquoi ne pas avoir utilisé JQuery comme fondation (de la part d&rsquo;un commiter EmberJS).</p>
+
+<p>Bref, un bon point sur de bonnes pratiques, un point de vue assez tranché avec tout de même une vision réaliste sur le développement actuel. Bravo et Merci à Pawel pour sa prestation.</p>
+
+<p>Une petite photo pour immortaliser l&rsquo;assemblée (avec les tshirts offerts) :</p>
+
+<p><center><blockquote class="twitter-tweet"><p>Angularjs meetup full room <a href="http://t.co/bxk7pyfLEN">pic.twitter.com/bxk7pyfLEN</a></p>&mdash; Sébastien Letélié (@sebmade) <a href="https://twitter.com/sebmade/statuses/392360777686204416">October 21, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></center></p>
+
+<h2 id="les-services-dans-angularjs">Les services dans AngularJS</h2>
+
+<h3 id="présentation-de-thierry-chatel">Présentation de Thierry Chatel</h3>
+
+<p>Thierry est un consultant indépendant et formateur. Depuis quelques mois, il ne fait presque que de la formation AngularJS. Après un tour de France des conf avec Sébastien Letélié, il vient nous parler à Paris. Il est derrière le site <a href="http://www.frangular.fr">FrAngular</a>.</p>
+
+<h3 id="talk-1">Talk</h3>
+
+<p>On annonce directement la couleur :</p>
+
+<blockquote>
+<p>&ldquo;90% du code de l&rsquo;application [front] doit se trouver dans des services&rdquo;.</p>
+</blockquote>
+
+<p>En gros, le service est une étiquette vers un singleton. Nous aurons donc toujours la même instance d&rsquo;un objet ou une copie de la valeur primitive contenu dans le service (différence dûe au fonctionnement de JavaScript).</p>
+
+<p>Thierry nous parle de 5 règles à appliquer avec AngularJS :</p>
+
+<ol>
+<li>de code métier, point tu ne mettras dans ton controller &rarr; service</li>
+<li>dans le doute, un service tu feras</li>
+<li>si un service tu ne peux pas utiliser, un service il te faudra écrire</li>
+<li>si tu crois qu&rsquo;un service tu ne peux pas utilser, un service tu utiliseras</li>
+<li>dans les autres cas, un service tu feras</li>
+</ol>
+
+<p>Il nous a montré que c&rsquo;est un principe déjà très utilisé dans AngularJS même : $http / $httpBackend, $route / $location. Bref sans s&rsquo;en rendre compte, nous le voyons déjà et malgré tout je m&rsquo;apperçois que je ne l&rsquo;applique pas. En 10min de discours, il me faut repenser à beaucoup de lignes de code que j&rsquo;ai écrites, dans mon DOM ou mon controller : conditions d&rsquo;affichage, conditions d&rsquo;activations, etc.</p>
+
+<p>Je n&rsquo;ai malheureusement pas pris beaucoup de notes car la fatigue et la faim arrivaient. Cependant, c&rsquo;était vraiment très intéressant, j&rsquo;ai donc écouté. En prenant des notes, j&rsquo;aurai perdu le fil et donc pas pu saisir le sens de la présentation : faire du Service votre allié.</p>
+
+<h2 id="les-scopes-isolés">Les scopes isolés</h2>
+
+<p>Du même speaker, nous voyons maintenant l&rsquo;utilisation de scope isolé, ce que ça apporte, quand et comment l&rsquo;utiliser.</p>
+
+<blockquote>
+<p>Disclamer: toujours très peu de notes, toutes mes excuses.</p>
+</blockquote>
+
+<p>On commence par un rappel sur le scope : les scopes (classiques) héritent du scope attaché au DOM parent dans le HTML :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&#34;App&#34;</span><span class="p"></span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&#34;FirstCtrl&#34;</span><span class="p"></span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">ng-init</span><span class="o">=</span><span class="s">&#34;test=true&#34;</span><span class="p"></span><span class="p">&gt;&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">ng-view</span><span class="p"></span><span class="p">&gt;&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&#34;FooterCtrl&#34;</span><span class="p"></span><span class="p">&gt;&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>donne</p>
+
+<ul>
+<li>scope application
+
+<ul>
+<li>scope FirstCtrl
+
+<ul>
+<li>scope</li>
+</ul></li>
+<li>scope view</li>
+<li>scope FooterCtrl</li>
+</ul></li>
+</ul>
+
+<p>Si une propriété n&rsquo;est pas disponible dans le scope courant, on va la chercher dans le scope parent et ainsi de suite.</p>
+
+<p>L&rsquo;isolation de scope est un principe pour l&rsquo;écriture de Directive. Cela va permettre de bien séparer les données entre votre application et votre directive.</p>
+
+<p>Cependant, toute les directives ne doivent pas avoir de scope isolé : si le template contient un autre template, alors le scope de la première directive ne doit surtout pas être isolé.</p>
+
+<h2 id="conclusion-1">Conclusion</h2>
+
+<p>Je sais que j&rsquo;ai été plus que rapide sur les 2 dernières présentations. Cela ne reflète en rien la qualité de celles-ci. J&rsquo;ai dû faire un choix : suivre, comprendre et apprendre, ou prendre des notes.</p>
+
+<p>Toutefois, la bonne nouvelle c&rsquo;est que la conférence a été filmée et sera prochainement mise en ligne (merci les services techniques de Google !). Les slides seront sûrement publiées dans peu de temps.</p>
+
+<p>Pour ma part, j&rsquo;ai pris un grand plaisir à assister à cette conférence. Une très belle organisation, des locaux magnifiques, non pas un mais 3 buffets à disposition pour se restaurer. Les speakers très intéressants, du code, des retours d&rsquo;expériences et des bonnes pratiques. Pour moi, une combinaison parfaite.</p>
+
+<h3 id="remerciement">Remerciement</h3>
+
+<p>Un petit ré-édition pour faire le tour des gens qui se sont investis dans cet évènement. Un grand bravo à eux et merci :</p>
+
+<ul>
+<li><a href="https://twitter.com/laut3rry">Thierry Lau : @laut3rry</a></li>
+<li><a href="https://twitter.com/sebmade/">Sébastien Letélié : @sebmade</a></li>
+<li><a href="https://twitter.com/alexismp">Alexis Moussine-Pouchkine : @alexismp</a></li>
+<li><a href="https://twitter.com/ebg">Jérôme d&rsquo;@ebg</a>, <a href="https://twitter.com/revolunet">frère de Julien de @revolunet</a>, pour avoir filmé la soirée et rendre disponible prochainement les vidéos</li>
+<li><a href="https://twitter.com/pkozlowski_os">Pawel Kozlowski : @pkozlowski_os</a></li>
+<li><a href="https://twitter.com/ThierryChatel">Thierry Chatel : @ThierryChatel</a></li>
+</ul>
+
+<h3 id="vidéo-et-slides">Vidéo et slides</h3>
+
+<p>Chose promise, chose due : <a href="http://88.190.11.98/Mediasite6/Play/449acaf8520d4bb39f53e7aa5a5bde0a1d">la vidéo et les slides</a> des présentations.</p>
+
+<p>Un grand bravo aux organisateurs et à bientôt !</p>
+
+<h2 id="annonce-de-fin">Annonce de fin</h2>
+
+<p>Sébastien Letélié nous rappelle qu&rsquo;il organise un hackathon dédié à la santé les 28-29-30 mars prochain à Strasbourg. Les défis provenant des médecins arriveront bientôt. Il peut s&rsquo;agir d&rsquo;une bonne occasion de mettre en oeuvre AngularJS dans le cadre d&rsquo;un projet. Plus d&rsquo;informations sur le site <a href="http://digitalhealthcamp.eu/">http://digitalhealthcamp.eu/</a>.</p>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

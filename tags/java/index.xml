@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on alecharp&#39;s blog</title>
+    <link>https://blog.alecharp.fr/tags/java/</link>
+    <description>Recent content in Java on alecharp&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr_FR</language>
+    <lastBuildDate>Wed, 27 Jun 2012 12:05:45 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.alecharp.fr/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>java.lang.String limits</title>
+      <link>https://blog.alecharp.fr/2012/06/27/java.lang.string-limits/</link>
+      <pubDate>Wed, 27 Jun 2012 12:05:45 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/06/27/java.lang.string-limits/</guid>
+      <description>Facepalm with String limits S&amp;rsquo;il y a bien une chose que l&amp;rsquo;on peut très vite oublier avec Java, c&amp;rsquo;est la gestion de la mémoire. Et quand on fait des traitements lourds et longs, ça nous revient très rapidement en plein visage !
+La limite que je pensais bien ne jamais rencontrer était bien celle-ci : la taille maximale d&amp;rsquo;une String
+Reproduire le problème Comment on fait pour l&amp;rsquo;atteindre ? Dans mon cas, on met dans une String l&amp;rsquo;intégralité des informations de chaque artefact d&amp;rsquo;un repository Maven.</description>
+    </item>
+    
+  </channel>
+</rss>

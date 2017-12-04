@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker en Youtube Dl on alecharp&#39;s blog</title>
+    <link>https://blog.alecharp.fr/tags/docker-en-youtube-dl/</link>
+    <description>Recent content in Docker en Youtube Dl on alecharp&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr_FR</language>
+    <lastBuildDate>Fri, 06 Feb 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.alecharp.fr/tags/docker-en-youtube-dl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Get videos from Youtube with Docker</title>
+      <link>https://blog.alecharp.fr/2015/02/06/Get-videos-from-youtube-with-docker/</link>
+      <pubDate>Fri, 06 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2015/02/06/Get-videos-from-youtube-with-docker/</guid>
+      <description>Last week I created my first docker image to be able to get videos from youtube without having to install anything on my computer.
+Youtube-dl For a year or two, I used youtube-dl to download any videos from the video platform in order to have a offline version of any videos I&amp;rsquo;d like to watch. This is very useful to watch them in public transport or when you have a bad internet connection.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,118 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Maven, The evil</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>Maven, The evil</h2>
+  </header>
+  <time pubdate="2013-07-05">
+    <i class="fa fa-calendar"></i> 2013-07-05
+  </time>
+  <section>
+    
+
+<p>Maven ou le cauchemar des nomades à faible mémoire</p>
+
+<p>Maven, c&rsquo;est bien :</p>
+
+<ul>
+<li>ça va chercher les dépendances, on ne sait pas où mais on veut surtout par savoir,</li>
+<li>ça les mets dans le classpath qui va bien lors du run (compile, test, runtime),</li>
+</ul>
+
+<p>Mais maven, c&rsquo;est le mal !</p>
+
+<h2 id="les-dépendances">Les dépendances</h2>
+
+<p>Lorsque l&rsquo;on souhaite utiliser une librairie, on l&rsquo;ajoute dans le <code>pom.xml</code> de notre projet et Maven s&rsquo;occupe d&rsquo;aller la trouver, de la télécharger et de nous la mettre à disposition.</p>
+
+<blockquote>
+<p>Pour rappel, maven télécharge la dépendance dans le dossier $M3_HOME/repository ou <code>local.repository</code> défini dans votre <code>$M3_HOME/conf/settings.xml</code>.</p>
+</blockquote>
+
+<p>Simple. Efficace. À toute épreuve.</p>
+
+<p>Pas vraiment.</p>
+
+<h2 id="l-espace-disque">L&rsquo;espace disque</h2>
+
+<p>Une fois de temps en temps, vous pouvez être amené à vouloir supprimer votre repository local, ceci afin de grappiller quelques Mo (ou Go dans mon cas). Oui oui quelques Giga-octet.</p>
+
+<p>Donc vous n&rsquo;avez plus aucune dépendance. Pas un soucis, à votre prochaine commande <code>mvn compile</code>, Maven se charge de recharger toutes vos dépendances.</p>
+
+<h2 id="les-dépendances-le-retour">Les dépendances, le retour</h2>
+
+<p>Toutes ? <strong>NON</strong> ! Uniquement celle du projet courant !</p>
+
+<p>On peut se dire</p>
+
+<blockquote>
+<p>Oui, c&rsquo;est normal, comment veut-tu qu&rsquo;il connaisse toutes les dépendances dont tu as besoin?</p>
+</blockquote>
+
+<p>ou</p>
+
+<blockquote>
+<p>Bah, tu crois quoi ? Le cerveau, il est sensé être entre le clavier et la chaise, pas ailleurs !!</p>
+</blockquote>
+
+<p>Oui oui tout ça c&rsquo;est bien vrai. Mais parfois j&rsquo;oublie&hellip;</p>
+
+<h2 id="conséquence">Conséquence</h2>
+
+<p>J&rsquo;ai un repository complet pour les projets sur lesquels je travaille en journée ou que j&rsquo;ai ouvert récemment.</p>
+
+<p>Pour les autres, dont celui que je me gardais pour mes 2h30 de train, et bien non. J&rsquo;ai aucune dépendance nécessaire&hellip;</p>
+
+<p>Donc au lieu de coder bien sagement dans le train, j&rsquo;écris ces quelques lignes&hellip;</p>
+
+<p>Bien à vous.</p>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

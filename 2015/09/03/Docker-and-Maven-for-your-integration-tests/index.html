@@ -1,0 +1,195 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Docker and Maven for your integration tests</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>Docker and Maven for your integration tests</h2>
+  </header>
+  <time pubdate="2015-09-03">
+    <i class="fa fa-calendar"></i> 2015-09-03
+  </time>
+  <section>
+    
+
+<p>In the last weeks, I&rsquo;ve been working on a side project to share pictures easily, outside of <em>Face de bouc</em>, as my mom used to say. But this is not the point. As a bad developer, I started quickly and so dirty: no tests of any kind. Then a friend came and offered some changes. Tests were needed.</p>
+
+<h2 id="do-your-tests-damn-it">Do your tests, damn it!</h2>
+
+<p>So first, I did some tests. The PR was about database insert in batch rather than in a <code>Stream</code>. So, I did my <em>unit-tests</em> (I&rsquo;ll talk about that later), using HSQLDB in memory. I didn&rsquo;t choose <code>H2</code>, which I know, because I didn&rsquo;t find the <code>Dialect</code> in the database connector I&rsquo;m using in the project: Dalesbred.</p>
+
+<blockquote>
+<p>I could have used <code>H2</code> directly as, even if there is no dialect for it in Dalesbred, it doesn&rsquo;t really matter. I learned that after.</p>
+</blockquote>
+
+<h2 id="if-you-test-do-it-correctly">If you test, do it correctly!</h2>
+
+<p>So, another mistake: those are no <strong>unit tests</strong> but <strong>integration tests</strong>! I&rsquo;m validating the integration of my <code>EventRepository</code> to a database.</p>
+
+<p>How to change that? Easy: don&rsquo;t use <code>maven-surefire-plugin</code> but <code>maven-failsafe-plugin</code>. The first one is automatically linked to your Maven lifecycle while the last one needs to be configured. I don&rsquo;t know why, I asked a Maven Contributor, this could be part of another post.</p>
+
+<p>The configuration is quite easy:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>maven-failsafe-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.18.1<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;executions&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;id&gt;</span>integration-tests<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;goals&gt;</span>
+        <span class="nt">&lt;goal&gt;</span>integration-test<span class="nt">&lt;/goal&gt;</span>
+      <span class="nt">&lt;/goals&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+      <span class="nt">&lt;execution&gt;</span>
+        <span class="nt">&lt;id&gt;</span>verify<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;goals&gt;</span>
+          <span class="nt">&lt;goal&gt;</span>verify<span class="nt">&lt;/goal&gt;</span>
+        <span class="nt">&lt;/goals&gt;</span>
+      <span class="nt">&lt;/execution&gt;</span>
+  <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>One last thing: change the <code>EventRepositoryTest</code> to <code>EventRepositoryIT</code>. <code>*IT</code> is the default pattern used by the <code>maven-failsafe-plugin</code> to find integration tests and execute them.</p>
+
+<h2 id="and-docker-in-this-mess">And docker in this mess?</h2>
+
+<p>At this point, I was still using HSQLDB, but I changed something in my database schema: I wanted to change the foreign key of <code>event_picture</code> to <code>pictures.id</code> table to delete the link between <code>events</code> and <code>pictures</code> automatically. So I had:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">event_picture</span>
+    <span class="k">DROP</span> <span class="k">CONSTRAINT</span> <span class="n">event_picture_id_picture_fkey</span><span class="p">,</span>
+    <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">event_picture_id_picture_fkey</span>
+      <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">id_picture</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">pictures</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">ON</span> <span class="k">DELETE</span> <span class="k">CASCADE</span><span class="p">;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>But I didn&rsquo;t find a way to make HSQLDB understand the constraint name. Maybe I didn&rsquo;t look well enough. But, at this moment I realized that I was testing some database that might not be compatible. However, it is not possible to have a in-memory PostgreSQL.</p>
+
+<p>Docker is here to save me/us!</p>
+
+<h2 id="use-docker-to-have-the-correct-database">Use Docker to have the correct database</h2>
+
+<p>From day-1, I decided that I would use Docker for this project. It is not deployed as a <code>war</code> on Tomcat, but as a executable <code>jar</code> inside a image. So using a Docker image for my integration tests was not a difficult decision to make. Choosing the Maven plugin was much more difficult!</p>
+
+<p>I finally found <code>org.jolokia:docker-maven-plugin</code>. At that moment, I had a very limited usage of this plugin. But, I didn&rsquo;t want to build my image using the Maven plugin, I wanted to be able to run a random image. By random, I mean one that would start the database I was using for my project.</p>
+
+<blockquote>
+<p>I believe that Maven is in charge to build my project, but not to deliver it. It can put it in a Maven Repository Manager but not further. The parallel example is: Maven for Continuous Integration lifecycle, for the Continuous Delivery lifecycle it&rsquo;s something else.</p>
+</blockquote>
+
+<p>Based on that, I saw I was able to configure the plugin to start a container, using a specific image, provide some configuration to this image. So my configuration looks like:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span><span class="lnt">21</span><span class="lnt">22</span><span class="lnt">23</span><span class="lnt">24</span><span class="lnt">25</span><span class="lnt">26</span><span class="lnt">27</span><span class="lnt">28</span><span class="lnt">29</span><span class="lnt">30</span><span class="lnt">31</span><span class="lnt">32</span><span class="lnt">33</span><span class="lnt">34</span><span class="lnt">35</span><span class="lnt">36</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;plugin&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.jolokia<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>docker-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.13.3<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;images&gt;</span>
+      <span class="nt">&lt;image&gt;</span>
+        <span class="nt">&lt;name&gt;</span>postgres:9.4<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;run&gt;</span>
+          <span class="nt">&lt;ports&gt;</span>
+            <span class="nt">&lt;port&gt;</span>5432:5432<span class="nt">&lt;/port&gt;</span>
+          <span class="nt">&lt;/ports&gt;</span>
+          <span class="nt">&lt;wait&gt;</span>
+            <span class="nt">&lt;time&gt;</span>2000<span class="nt">&lt;/time&gt;</span>
+          <span class="nt">&lt;/wait&gt;</span>
+        <span class="nt">&lt;/run&gt;</span>
+      <span class="nt">&lt;/image&gt;</span>
+    <span class="nt">&lt;/images&gt;</span>
+  <span class="nt">&lt;/configuration&gt;</span>
+  <span class="nt">&lt;executions&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;id&gt;</span>pre-integration-test<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;phase&gt;</span>pre-integration-test<span class="nt">&lt;/phase&gt;</span>
+      <span class="nt">&lt;goals&gt;</span>
+        <span class="nt">&lt;goal&gt;</span>start<span class="nt">&lt;/goal&gt;</span>
+      <span class="nt">&lt;/goals&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;execution&gt;</span>
+      <span class="nt">&lt;id&gt;</span>post-integration-test<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;phase&gt;</span>post-integration-test<span class="nt">&lt;/phase&gt;</span>
+      <span class="nt">&lt;goals&gt;</span>
+        <span class="nt">&lt;goal&gt;</span>stop<span class="nt">&lt;/goal&gt;</span>
+      <span class="nt">&lt;/goals&gt;</span>
+    <span class="nt">&lt;/execution&gt;</span>
+  <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>So, easy description: in the <code>&lt;executions/&gt;</code>, I start the container before the integration tests and stop it after. In the <code>&lt;configuration/&gt;</code>, I declare which image I want to use, what is the port for the mapping I&rsquo;m doing. In the <code>&lt;wait/&gt;</code>, I could even declare a <code>&lt;url/&gt;</code> to watch, and until the plugin sees it&rsquo;s available, it blocks the build process. As I don&rsquo;t know any PostgreSQL URL to ping to see if the database is up and running, I used a random time to block the build, 2 seconds seemed to be enough here.</p>
+
+<p>In the plugin description site, they show you that you can wait until your application is up and running before starting all your integration tests. That could be very good on my project if I want to do some full stack integration tests. I&rsquo;m not there yet.</p>
+
+<h2 id="and-then">And then?</h2>
+
+<p>This could be used to test my <code>EventRepository</code> against any database (available as a Docker image) if I wanted to be able to use another database. I don&rsquo;t see the need for me, but I know many projects that use H2 as an embedded database, but offer you the choose to change it to any MySQL, PostgreSQL or Oracle database.</p>
+
+<p>I also discovered that in my integration tests I was expecting some <code>SQLIntegrityConstraintViolationException</code> exception when saving to identical objects. But PostgreSQL driver seems to return a more generic exception: <code>PSQLException</code>. So why do we bother to have a <code>java.sql</code> package in the JDK/JRE?</p>
+
+<p>Thanks for reading, see you on next post.</p>
+
+<h2 id="links">Links</h2>
+
+<ul>
+<li>Dalesbred: <a href="http://dalesbred.org/">http://dalesbred.org/</a></li>
+<li>docker-maven-plugin: <a href="https://github.com/rhuss/docker-maven-plugin">https://github.com/rhuss/docker-maven-plugin</a></li>
+<li>my side project: <a href="https://github.com/alecharp/PicShare">https://github.com/alecharp/PicShare</a></li>
+</ul>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

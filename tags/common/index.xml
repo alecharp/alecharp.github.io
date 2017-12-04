@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Common on alecharp&#39;s blog</title>
+    <link>https://blog.alecharp.fr/tags/common/</link>
+    <description>Recent content in Common on alecharp&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr_FR</language>
+    <lastBuildDate>Thu, 13 Jun 2013 18:36:14 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.alecharp.fr/tags/common/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Son environnement de développement...</title>
+      <link>https://blog.alecharp.fr/2013/06/13/son-environnement-de-developpement/</link>
+      <pubDate>Thu, 13 Jun 2013 18:36:14 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2013/06/13/son-environnement-de-developpement/</guid>
+      <description>&amp;hellip;ce n&amp;rsquo;est pas que les outils pour coder et le matos informatique !
+Rappel Nous ne reviendrons pas sur l&amp;rsquo;article de Mr Olivier Croisier concernant l&amp;rsquo;importance d&amp;rsquo;avoir une bonne station de travail.
+Pour ceux qui ne l&amp;rsquo;auraient pas lu (non on ne vous jette pas la pierre), allez d&amp;rsquo;abord le lire. Ça se passe ici : Équipez vos développeurs
+Les détails Dans cet article, on parle de RAM, écran, puissance et tout et tout mais pas que.</description>
+    </item>
+    
+    <item>
+      <title>It&#39;s QWERTY time</title>
+      <link>https://blog.alecharp.fr/2012/05/14/It-s-qwerty-time/</link>
+      <pubDate>Mon, 14 May 2012 19:57:29 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/05/14/It-s-qwerty-time/</guid>
+      <description>For a while, people haven&amp;rsquo;t stopped telling me that for coding, nothing is better than a Qwerty keyboard.
+As I am not the stupid guy who never tries out and still tells everyone: &amp;ldquo;nothing is better than azerty!!&amp;rdquo;, I&amp;rsquo;m trying it. To be specific, as an French guy, I&amp;rsquo;m trying a US internationalized keyboard.
+For the moment I&amp;rsquo;m a bit slower, can&amp;rsquo;t stop looking at my fingers. But it seems pretty cool for coding.</description>
+    </item>
+    
+    <item>
+      <title>The rules are</title>
+      <link>https://blog.alecharp.fr/2012/05/10/The-rules-are/</link>
+      <pubDate>Thu, 10 May 2012 20:00:00 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/05/10/The-rules-are/</guid>
+      <description>J&amp;rsquo;ai envie d&amp;rsquo;essayer Jekyll pour gérer mon blog pour quelques raisons, certaines sûrement pas très réfléchies :
+ git pour versionner mes articles Markdown!!! des pages statiques pour faire du cache et pas de base de données (cf &amp;uarr;&amp;uarr;)  Bon après, utilisant Git (et GitHub) pour versionner ce blog, je vous propose ceci : lisez-moi, si vous aimez alors faites un &amp;ldquo;watch&amp;rdquo; de mon compte github @alecharp. Si je dis une bếtise, forkez l&amp;rsquo;article en question, corrigez-le, et faites une pull-request.</description>
+    </item>
+    
+  </channel>
+</rss>

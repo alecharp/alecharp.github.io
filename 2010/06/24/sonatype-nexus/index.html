@@ -1,0 +1,431 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Sonatype Nexus</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>Sonatype Nexus</h2>
+  </header>
+  <time pubdate="2010-06-24">
+    <i class="fa fa-calendar"></i> 2010-06-24
+  </time>
+  <section>
+    
+
+<p>Depuis quelques temps, j&rsquo;utilise <em>Nexus</em> de Sonatype pour certains
+ développements perso ou pro. Comme je trouve ce produit très simple,
+ convivial et solide dans le cadre de l&rsquo;intégration continue et plus
+ largement, dans son utilisation avec Maven, j&rsquo;ai décidé d&rsquo;écrire un
+ article pour partager l&rsquo;expérience que j&rsquo;en ai.</p>
+
+<p>Pour cela, je tenterai de vous expliquer simplement (c&rsquo;est pas toujours
+facile à faire) l&rsquo;utilité de <em>Nexus</em>. J&rsquo;espère que ce fait sera
+prouvé par la suite de mon exposé. Je parlerai ainsi de l&rsquo;installation
+puis de la configuration de ce serveur pour une utilisation classique,
+en vous expliquant les personnalisations possibles du serveur. Pour
+finir, je montrerai le fonctionnement du serveur à l&rsquo;usage.</p>
+
+<h2 id="avant-propos">Avant propos</h2>
+
+<p><em>Nexus</em> est un <strong><em>M</em></strong><em>aven
+<strong>R</strong>epository <strong>M</strong>anager</em>. Il permet de
+gérer les artefacts qui sont disposés grâce à Maven (ou maven-ant-tasks
+pour Ant).</p>
+
+<blockquote>
+<p>Rappel: un artefact est un composant fonctionnel dans un format de
+distribution (jar, war, zip, ear, etc.).</p>
+</blockquote>
+
+<p>Au cours de cet article, je ne vais pas essayer de vous faire de la
+propagande pour le produit, mais établir un portrait le plus vrai
+possible de <em>Nexus</em>. Ce produit est disponible en version
+gratuite comme payante, et pour rassurer certains d&rsquo;entre vous, la
+version payante utilise le noyau dur du fonctionnement du serveur mais
+ajoute des fonctionnalités qui peuvent vous intéresser.</p>
+
+<p>Un certain nombre de questions ne sont pas abordées soit parce que je
+n&rsquo;ai pas de réponse soit parce que je n&rsquo;ai pas les questions :). Alors
+posez-les et nous verrons bien ce que nous pourrons faire..</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Tout d&rsquo;abord, commençons par parler de l&rsquo;installation.</p>
+
+<p>Comme la plupart des produits &ldquo;serveur&rdquo; de nos jours, il est disponible
+en deux versions : une bundle et une application web. La version que
+vous choisissez ne modifie pas le comportement de l&rsquo;application. Je ne
+pourrais pas dire quelle version est la mieux des deux.</p>
+
+<blockquote>
+<p>Si vous désirez utiliser <em>Nexus</em> gratuitement pour faire des
+essais mais que c&rsquo;est la version payante qui vous intéresse, sachez
+(1) qu&rsquo;une licence temporaire de 30j vous permet d&rsquo;utiliser la version
+payante et ainsi essayer les atouts de la version payante avant de
+l&rsquo;acheter, (2) que la version payante n&rsquo;est disponible en version
+bundle, alors essayez cette version.</p>
+</blockquote>
+
+<h2 id="application-web">Application web</h2>
+
+<p>Pour l&rsquo;installation de la version appli web, il est nécessaire de
+disposer d&rsquo;un serveur d&rsquo;application du style <em>Tomcat</em>. Une
+fois votre serveur d&rsquo;application installé, le déploiement se fait
+très facilement.</p>
+
+<p>Toutefois, je ne saurais trop vous conseiller de changer l&rsquo;emplacement
+par défaut qui est utilisé pour créer les dossiers des repositories de
+notre Nexus. Pour cela, vous devez modifier la constante
+<em>nexus-work</em> qui est utilisée comme variable pour trouver les
+repositories. Vous avez deux possibilités:</p>
+
+<ul>
+<li>dans un fichier: <code>path/to/applet/server/webapp/nexus/WEB-INF/plexus.properties</code></li>
+<li>une variable d&rsquo;environnement: <code>PLEXUSNEXUSWORK</code></li>
+</ul>
+
+<p>Une fois mise à jour, redémarrez votre application et normalement tout
+est ok.</p>
+
+<p>Personnellement j&rsquo;ai installé la version application web car je n&rsquo;ai pas
+ l&rsquo;intention de passer en version payante. Cette version a, à mon sens,
+ un intérêt certain pour les entreprises. De plus, j&rsquo;avais déjà un
+ <em>Tomcat</em> qui tournait avec Hudson et j&rsquo;avais configuré
+ <em>Apache</em> pour rediriger un <em>virtualhost</em> vers l&rsquo;instance
+ de <em>Tomcat</em>.</p>
+
+<h2 id="bundle">Bundle</h2>
+
+<p>L&rsquo;installation de la version <em>bundle</em> ne nécessite pas de serveur
+d&rsquo;application. Cela permet justement de pouvoir fonctionner sans autres
+outils.</p>
+
+<p>Lorsque vous dés-archivez cette version de Nexus, vous obtenez deux
+dossiers:</p>
+
+<ul>
+<li>nexus-<em>${version}</em>: contient la configuration du serveur,</li>
+<li>sonatype-nexus: contient la configuration des repositories et leurs
+stockages.</li>
+</ul>
+
+<p>L&rsquo;exécutable d&rsquo;installation du serveur se trouve dans le dossier
+<em>&ldquo;nexus-</em><version><em>/bin/jsw/</em><platform-type><em>/&rdquo;</em>. La configuration du
+serveur se fait par l&rsquo;intermédiaire des fichiers qui se trouvent dans le
+dossier <em>&ldquo;nexus-</em><version><em>/conf&rdquo;</em>. Le fichier <em>plexus.properties</em>
+permet de mettre à jour le port d&rsquo;écoute, l&rsquo;adresse IP d&rsquo;écoute ainsi
+que les chemins d&rsquo;accès aux différents dossiers de nexus (dont
+l&rsquo;emplacement des repositories: <em>nexus-work</em>).</p>
+
+<p>Dans cette version, le moteur de rendu utilisé est <em>jetty</em>. Comme
+certains peuvent avoir envie de mettre leurs nexus sur SSL/TLS, il y a
+un exemple d&rsquo;une configuration possible (avec redirection du port non
+sécurisé vers le port sécurisé&hellip;) dans le dossier
+<em>${nexus-home}/nexus-</em><version><em>/conf/examples/</em>. Ces configurations se
+font dans le fichier <em>jetty.conf</em>.</p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>Quelle que soit la version que vous ayez choisie, la configuration de nexus
+(pas du service) est la même et est assez simple.</p>
+
+<p>La configuration n&rsquo;est possible qu&rsquo;avec l&rsquo;utilisateur <em>admin</em>. Par
+défaut son mot de passe est <em>admin123</em>.</p>
+
+<h2 id="la-configuration-générale">La configuration générale</h2>
+
+<p>Si votre service est placé derrière un proxy, il est nécessaire de
+renseigner cette information sur la configuration de <em>Nexus</em>. Pas de
+panique, la seule raison pour laquelle <em>Nexus</em> irait sur internet, serait
+que vous lui demandiez un artefact qu&rsquo;il ne possède pas mais qui se
+trouve sur un autre repository manager (le central par exemple). Il
+ne sera jamais amené à faire du facebook.</p>
+
+<p>D&rsquo;autre part, il semble judicieux de changer les mots de passe des
+différents utilisateurs de <em>Nexus</em>. Le changement de mot de passe de
+<em>anonymous</em> se fait par la configuration du serveur et non pas avec la
+configuration des autres utilisateurs (logique).</p>
+
+<h2 id="les-repositories">Les repositories</h2>
+
+<p>Lors du premier lancement du service, un certain nombre de repositories
+ont été créés. Ils sont présents par défaut, mais rien ne vous empêche
+de les enlever. Il faut noter qu&rsquo;il s&rsquo;agit des liens vers des
+repositories externes et qu&rsquo;ils vous permettent de trouver les artefacts
+que vous ne possédez pas vous-même (<em>maven-compile-plugin</em>,
+<em>checkstyle</em>, <em>jdom</em>, etc.). Si vous regardez la configuration, il
+existe 4 types de repositories:</p>
+
+<ul>
+<li><em>hosted</em>: repository que vous gérez.</li>
+<li><em>proxy</em>: repository dont vous n&rsquo;êtes qu&rsquo;un relais.</li>
+<li><em>virtual</em>: repository pour &ldquo;transformer&rdquo; un repository Maven1 en
+Maven2.</li>
+<li><em>group</em>: permet de regrouper un certain nombre de repositories sous
+un même URL.</li>
+</ul>
+
+<p>La première chose à faire est de vous créer des repositories pour
+<strong>vos</strong> artefacts, donc des repositories &ldquo;<em>hosted</em>&rdquo;. Deux en fait.
+Pourquoi deux? Un pour les &ldquo;<em>releases</em>&rdquo; et un pour les &ldquo;<em>snapshots</em>&rdquo;.</p>
+
+<ul>
+<li><strong>Release</strong></li>
+</ul>
+
+<p>Dans le contexte de Maven mais également de l&rsquo;intégration/développement
+Continue, une release est une version du projet qui est fixe. On peut
+le voir comme l&rsquo;arrivée que l&rsquo;on s&rsquo;est fixée au début du développement:
+ensemble de features, rapports, etc. Une fois ce point atteint, il n&rsquo;est
+pas possible de l&rsquo;améliorer. On dit que le projet est livrable.</p>
+
+<p>Si nous rajoutons des features dans une version après avoir effectué
+toutes celles prévues pour cette version, alors c&rsquo;est que nous changeons
+de version.</p>
+
+<p>Il faut comprendre, dans le contexte de <em>Nexus</em>, qu&rsquo;une version
+&ldquo;<em>release</em>&rdquo; ne change plus, elle est définitive dans une version donnée.
+Il est impossible de la redéployer.</p>
+
+<ul>
+<li><strong>Snapshot</strong></li>
+</ul>
+
+<p>Une version &ldquo;<em>snapshot</em>&rdquo; est une version qui est en cours de
+développement, nous n&rsquo;avons pas encore terminé toutes les features de
+cette version.</p>
+
+<p>De ce fait, il est possible d&rsquo;avoir une multitude de déploiements pour
+une même version de l&rsquo;artefact.</p>
+
+<p>Dans <em>Nexus</em>, vous pouvez appliquer une politique générale sur le
+repository. Elle permet de spécifier le type de contenu et connaitre
+l&rsquo;utilité de regarder des mises à jour dans ce repository. Cette
+politique peut être surchargée par les politiques de déploiement. Ces
+politiques permettent d&rsquo;autoriser ou non le redéploiement.</p>
+
+<blockquote>
+<p>Il est possible de mettre en place un repository de type <em>release</em> avec
+une politique autorisant le redéploiement. On perd alors la différence
+entre <em>release</em> et <em>snapshot</em> ce qui peut à mon avis être source de
+confusion.</p>
+</blockquote>
+
+<p>Maintenant vos deux repositories créés, il vous faut vérifier la
+répartition de ceux-ci dans les groupes. Par défaut, deux
+repositories de type <em>group</em> sont créés par <em>Nexus</em>. Il faut que
+dans le groupe que vous souhaitez utiliser (le public) soient présent les
+<em>deux</em> repositories que vous avez créés.</p>
+
+<p>Il est possible de se passer de groupe, mais l&rsquo;écriture du fichier
+<em>settings.xml</em> pour Maven est alors bien plus long.</p>
+
+<blockquote>
+<p>Depuis la version 1.7.0, il est possible de mettre des groups dans
+d&rsquo;autres groups. Je ne sais pas comment sont gérés les <em>possibles</em>
+problèmes de cycles, mais cela peut permettre de faire de l&rsquo;héritage
+de repositories dans le cas où certains groupes de développeurs n&rsquo;ont
+pas besoin de tous les repositories de leurs voisins.</p>
+</blockquote>
+
+<h2 id="fonctionnement">Fonctionnement</h2>
+
+<h3 id="la-recherche-d-artefacts">La recherche d&rsquo;artefacts</h3>
+
+<h3 id="settings-xml"><em>settings.xml</em></h3>
+
+<p>Il est maintenant nécessaire de créer un <em>settings.xml</em> pour que les
+développeurs puissent utiliser le service que vous venez de mettre en
+place. Ce fichier permet en effet de spécifier à Maven où il doit
+chercher les artefacts dont le développeur a besoin. Il doit être
+placé dans le dossier <code>${HOME}/.m2</code> ou dans le dossier <code>${MVN_HOME}/conf</code>.
+Voici la structure d&rsquo;un tel fichier:</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;settings</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/SETTINGS/1.0.0&#34;</span>
+<span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+<span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/SETTINGS/1.0.0
+</span><span class="s">http://maven.apache.org/xsd/settings-1.0.0.xsd&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;localRepository/&gt;</span>
+    <span class="nt">&lt;interactiveMode/&gt;</span>
+    <span class="nt">&lt;usePluginRegistry/&gt;</span>
+    <span class="nt">&lt;offline/&gt;</span>
+    <span class="nt">&lt;pluginGroups/&gt;</span>
+    <span class="nt">&lt;servers/&gt;</span>
+    <span class="nt">&lt;mirrors/&gt;</span>
+    <span class="nt">&lt;proxies/&gt;</span>
+    <span class="nt">&lt;profiles/&gt;</span>
+    <span class="nt">&lt;activeProfiles/&gt;</span>
+<span class="nt">&lt;/settings&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>L&rsquo;important ici est l&rsquo;élément profiles. Nous allons rajouter un
+<em>profile</em> pour pouvoir faire le lien avec le <em>Nexus</em>. Voici ce que ça
+donne :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span><span class="lnt">18</span><span class="lnt">19</span><span class="lnt">20</span><span class="lnt">21</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;profiles&gt;</span>
+    <span class="nt">&lt;profile&gt;</span>
+        <span class="nt">&lt;id&gt;</span>default<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;repositories&gt;</span>
+            <span class="nt">&lt;repository&gt;</span>
+                <span class="nt">&lt;id&gt;</span>public<span class="nt">&lt;/id&gt;</span>
+                <span class="nt">&lt;name&gt;</span>Public Repositories<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;url&gt;</span>http://url_to_server:port/nexus/content/groups/public/<span class="nt">&lt;/url&gt;</span>
+            <span class="nt">&lt;/repository&gt;</span>
+        <span class="nt">&lt;/repositories&gt;</span>
+        <span class="nt">&lt;pluginRepositories&gt;</span>
+            <span class="nt">&lt;pluginRepository&gt;</span>
+                <span class="nt">&lt;id&gt;</span>public<span class="nt">&lt;/id&gt;</span>
+                <span class="nt">&lt;url&gt;</span>http://url_to_server:port/nexus/content/groups/public/<span class="nt">&lt;/url&gt;</span>
+            <span class="nt">&lt;/pluginRepository&gt;</span>
+        <span class="nt">&lt;/pluginRepositories&gt;</span>
+    <span class="nt">&lt;/profile&gt;</span>
+<span class="nt">&lt;/profiles&gt;</span>
+<span class="nt">&lt;activeProfiles&gt;</span>
+    <span class="nt">&lt;activeProfile&gt;</span>default<span class="nt">&lt;/activeProfile&gt;</span>
+<span class="nt">&lt;/activeProfiles&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>L&rsquo;URL du repository que nous rajoutons est celui du groupe <em>public</em> où
+sont référencés les deux repositories que nous gérons (les <em>hosted</em>). Si
+vous n&rsquo;avez pas souhaité mettre en place de groupe (mauvais choix mais
+bon&hellip;), vous devez rajouter toutes les URLs des repositories de votre
+serveur <em>Nexus</em> afin de pouvoir l&rsquo;attaquer pour trouver les dépendances
+dont vous avez besoin.</p>
+
+<blockquote>
+<p>Si vous voulez plus d&rsquo;informations, allez faire un tour sur le site
+de <a href="http://maven.apache.org/settings.html">Apache Maven</a>.</p>
+</blockquote>
+
+<p>Maintenant vous pouvez utiliser Maven sur votre poste de développement.</p>
+
+<h2 id="le-déploiement-d-artefacts">Le déploiement d&rsquo;artefacts</h2>
+
+<p>J&rsquo;ai dit que vous pouvez l&rsquo;utiliser, pas forcément que ça marcherait.
+En fait, l&rsquo;intérêt d&rsquo;un tel processus (si ce n&rsquo;est pas encore clair),
+est de permettre à votre voisin d&rsquo;utiliser la librairie que vous
+développez au fur et à mesure de votre avancement.</p>
+
+<p>Le truc c&rsquo;est que pour le moment, vous n&rsquo;avez permis à votre poste de
+développement que de récupérer les librairies qui se trouvent sur
+<em>Nexus</em>, mais vous ne pouvez pas encore mettre votre travail sur le
+repository (<em>release</em> ou <em>snapshot</em>). Pour cela, il vous faut mettre des
+identifiants, car le déploiement est restreint à certains utilisateurs.
+Donc dans le fichier <em>settings.xml</em>, il faut rajouter:</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span><span class="lnt">9</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;settings&gt;</span>
+    <span class="nt">&lt;servers&gt;</span>
+        <span class="nt">&lt;server&gt;</span>
+            <span class="nt">&lt;id&gt;</span>nexus<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;username&gt;</span>deployment<span class="nt">&lt;/username&gt;</span>
+            <span class="nt">&lt;password&gt;</span>deployment123<span class="nt">&lt;/password&gt;</span>
+        <span class="nt">&lt;/server&gt;</span>
+    <span class="nt">&lt;/servers&gt;</span>
+<span class="nt">&lt;/settings&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>J&rsquo;aurai cependant à vous suggérer une chose : ne permettre le déploiement
+d&rsquo;artefact que depuis votre système d&rsquo;intégration continue. De ce fait,
+vous pouvez être sûr du comportement qui a abouti à la mise sur étagère
+d&rsquo;une nouvelle version de l&rsquo;artefact : tests, couverture de code,
+rapport, etc.</p>
+
+<p>Cependant, il ne faut pas que la création d&rsquo;une version <em>release</em> soit
+faite par le biais de l&rsquo;intégration continue. Il s&rsquo;agit d&rsquo;une étape
+importante dans la vie d&rsquo;un projet, et elle n&rsquo;est effectuée qu&rsquo;une fois
+de temps en temps&hellip;</p>
+
+<p>Donc maintenant que votre environnement est prêt, vous pouvez effectuer
+la commande maven suivante pour déployer votre livrable:</p>
+
+<ul>
+<li><em>mvn deploy</em></li>
+</ul>
+
+<blockquote>
+<p><em>Je vais sûrement faire un article sur le sujet de Maven un de ces
+jours, je reviendrai sur l&rsquo;utilisation de Maven à ce moment là.</em></p>
+</blockquote>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Comme nous avons pu le voir, l&rsquo;installation et la configuration (de
+base) de <em>Nexus</em> n&rsquo;est pas une tâche très complexe.</p>
+
+<p><em>Nexus</em> fait parti d&rsquo;une famille de produits qui est très utile en
+Intégration Continue mais pas forcément essentielle, puisque ce principe
+de fonctionnement ne s&rsquo;applique pas seulement au projet Maven ni
+uniquement au projet java&hellip;</p>
+
+<h2 id="références">Références</h2>
+
+<ul>
+<li><a href="http://blog.aheritier.net/from-apache-archiva-to-sonatype-nexus/">Le post d&rsquo;Arnaud Héritier sur son blog</a>
+concernant la comparaison entre Archiva et Nexus et le passage du premier au second.</li>
+<li><a href="http://nexus.sonatype.org/">Le site de Sonatype Nexus</a></li>
+<li><a href="http://www.sonatype.com/books/nexus-book/reference/">La documentation de Nexus</a></li>
+<li>la FAQ <a href="https://docs.sonatype.com/pages/viewpage.action?pageId=15075782">officielle</a></li>
+</ul>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

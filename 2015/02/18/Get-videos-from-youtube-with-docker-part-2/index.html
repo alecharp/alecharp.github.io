@@ -1,0 +1,90 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Get videos from Youtube with Docker - part 2</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>Get videos from Youtube with Docker - part 2</h2>
+  </header>
+  <time pubdate="2015-02-18">
+    <i class="fa fa-calendar"></i> 2015-02-18
+  </time>
+  <section>
+    <p>In my previous post <a href="{% post_url 2015/2015-02-06-Get-videos-from-youtube-with-docker %}">here</a>, I&rsquo;ve shown how I get fetch videos from Youtube from my command line without installing anything else than Docker. But the command to type is way too complicated</p>
+
+<p>So I made a <code>shell</code> script to easily use my docker container.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
+</span><span class="cp"></span><span class="c1">## Author: Adrien Lecharpentier &lt;adrien.lecharpentier@gmail.com&gt;
+</span><span class="c1"></span>
+<span class="nv">status</span><span class="o">=</span><span class="k">$(</span>boot2docker status<span class="k">)</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">status</span><span class="si">}</span><span class="s2">&#34;</span> !<span class="o">=</span> <span class="s2">&#34;running&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  boot2docker start
+<span class="k">fi</span>
+docker run -ti -v <span class="s2">&#34;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&#34;</span>:/downloads alecharp/get-videos:latest <span class="nv">$@</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>This way, I can easily download any youtube (or other) videos without having to remember every argument to give to the docker command. I only have to say:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sh get-videos.sh <span class="nv">$URL</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>and it downloads the video in the current folder.</p>
+
+<p>You can find the script here : <a href="https://gist.github.com/alecharp/768cd7bf7f7c4d87609f">https://gist.github.com/alecharp/768cd7bf7f7c4d87609f</a></p>
+
+<p>Thanks for reading.</p>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,194 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: ngParis chez Criteo</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>ngParis chez Criteo</h2>
+  </header>
+  <time pubdate="2013-12-18">
+    <i class="fa fa-calendar"></i> 2013-12-18
+  </time>
+  <section>
+    
+
+<p>Retour sur ce 6ème évènement ngParis</p>
+
+<blockquote>
+<p>Disclaimer: J&rsquo;essaye de retranscrire ce que j&rsquo;ai compris, entendu de la soirée ainsi que mon ressenti. Les avis, points de vue me sont propre et pourraient ne pas refléter l&rsquo;intégralité du message que les personnes présentes ont souhaité faire passer.</p>
+</blockquote>
+
+<p>Nous revoilà sur une soirée ngParis. Une fois de plus, la soirée est remplie (170 Angularians et 103 sur liste d&rsquo;attente) bien avant la soirée. Cependant, nous n&rsquo;étions pas une 50aine dans la salle. Dommage, Criteo avait prévu pas mal de pizzas / boissons pour la pause. Personnenllement, n&rsquo;ayant pas pu me rendre à la <a href="http://www.meetup.com/AngularJS-Paris/events/147070122">soirée #5 chez Deezer</a>, je me suis inscrit pour cette #6 le soir même de la #5.</p>
+
+<p>Pour cette fin d&rsquo;année, nous sommes chez Criteo et 2 talks sont prévus au programme :</p>
+
+<ul>
+<li>Présentation et retour d&rsquo;expérience sur W20 par <strong>Adrien Lauer</strong> (<a href="https://twitter.com/adrienlauer">@adrienlauer</a>)</li>
+<li>Les <code>promises</code>, par <strong>Chakib Benziane</strong> (<a href="https://twitter.com/sp4ke">@sp4ke</a>)</li>
+</ul>
+
+<h2 id="organisation">Organisation</h2>
+
+<p>Ce soir, nous sommes chez Criteo. On commence donc par une petite présentation de la société de publicité ciblée sur le web. Fabrice Destagnol, directeur créatif, nous souhaite la bienvenue, signale la présence de certains autres Criteo-siens dans la salle et de la volonté de recrutement de la société.</p>
+
+<p>La salle est sympa, mode amphi-théâtre, mais les speakers ont eu pas mal de soucis à cause d&rsquo;un connecteur VGA manquant.</p>
+
+<h2 id="w20">W20</h2>
+
+<h3 id="adrien-lauer">Adrien Lauer</h3>
+
+<p>Adrien travaille pour PSA dans un équipe tranverse. Ils proposent (ou plus) aux équipes de développement des outils, framework et les bonnes pratiques qui vont avec. C&rsquo;est dans ce cadre qu&rsquo;ils ont regardé AngularJS il y a un peu plus d&rsquo;un an. Afin de garantir la bonne utilisation ainsi que la compréhension de l&rsquo;outil, ils ont construit un framework front autour de AngularJS et RequireJS.</p>
+
+<p>Vous pouvez les trouver sur Twitter (<a href="https://twitter.com/adrienlauer">@adrienlauer</a>) et Github (<a href="https://github.com/adrienlauer">adrienlauer</a>).</p>
+
+<h3 id="le-framework">Le framework</h3>
+
+<p>Derrière cette formule chimique se cache en réalité un framework front construit autour d&rsquo;AngularJS et RequireJS pour PSA. Ce framework a été conçu pour permettre la création rapide de nouveaux projets ainsi que de garder une structuration bien définie des projets.</p>
+
+<p>Une bonne chose à savoir : il y avait un framework, vieux de 7ans chez PSA, fait pour cacher le JS et le front en général aux développeurs internes. Ce framework est devenu trop vieillissant et peu propice aux nouvelles fonctionnalités. Donc, pour bien partir, petit tour des framework front il y a un peu plus d&rsquo;un an. Angular a retenu l&rsquo;attention pour la simplicité sûrement.</p>
+
+<h3 id="vocabulaire">Vocabulaire</h3>
+
+<p>Le framework apporte une nouvelle appellation : les fragments pour des morceaux de codes réutilisables. Un peu à la mode des modules / artefacts Maven. La comparaison m&rsquo;est douloureuse mais étant donné qu&rsquo;ils utilisent Maven / Archiva pour partager ces fragments entres applications, je ne peux pas faire autrement.</p>
+
+<h3 id="utilisation">Utilisation</h3>
+
+<p>Pour l&rsquo;utilisation, cela semble assez simple : un fichier json pour appeler les fragments à utiliser avec une configuration particulière :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span><span class="lnt">16</span><span class="lnt">17</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;../../../w20/w20-core/w20-core.w20.json&#34;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;modules&#34;</span> <span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&#34;application&#34;</span><span class="p">:{</span>
+                <span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="s2">&#34;w20-hello-sample&#34;</span><span class="p">,</span>
+                <span class="nt">&#34;home&#34;</span><span class="p">:</span><span class="s2">&#34;/hello&#34;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&#34;&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;routes&#34;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&#34;/hello&#34;</span><span class="p">:{</span>
+                <span class="nt">&#34;template&#34;</span><span class="p">:</span><span class="s2">&#34;&lt;h1&gt;Hello World !&lt;/h1&gt;&#34;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>On définit ici une application &ldquo;w20-hello-sample&rdquo;, avec pour page d&rsquo;accueil &ldquo;/hello&rdquo;. Ceci donnera l&rsquo;équivalent de la configuration de <code>$routeProvider</code> avec un <code>when</code> et <code>otherwise</code>. On voit donc que la configuration est beaucoup plus abrégée.</p>
+
+<p>Pour que cela fonctionne on appelle dans notre html le framwork W20 :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span>
+        <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span>
+        <span class="na">data-main</span><span class="o">=</span><span class="s">&#34;../../../w20/w20-core/w20&#34;</span>
+        <span class="na">src</span><span class="o">=</span><span class="s">&#34;../../../w20/w20-core/libext/requirejs/require.js&#34;</span><span class="p"></span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>On voit passer les logs du framework qui reconstitue la configuration globale pour l&rsquo;application en appliquant la spécialisation de notre application. La séquence complète est documentée sur le <a href="http://adrienlauer.github.io/w20-ngparis/slides/#/14">slide 14</a></p>
+
+<p>On a dans ce premier exemple un template intégré, qu&rsquo;il est possible de sortir à la mode AngularJS.</p>
+
+<p>Sur le <a href="https://github.com/adrienlauer/w20-ngparis/tree/master/samples">repository de code</a>, pour trouver l&rsquo;exemple &lsquo;basic&rsquo; qui utilise le module <code>culture</code> aka i18n, ainsi qu&rsquo;il module imbriqué avec toutes sa définition. On voit ici la puissance du framework, tout le potentiel de réutilisabilité des modules. On peut noter qu&rsquo;il n&rsquo;y a pas de chemin relatif dans la configuration grâce à la <a href="https://github.com/adrienlauer/w20-ngparis/blob/master/samples/basic/basic/basic.w20.json#L9">notation <code>{basic}</code></a> qui permet la réutilisabilité du module.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Je pense que ce framework est un vrai plus dans un environnement entreprise qui a la nécessité de créer plusieurs applications par an. Le soucis de la réutilisabilité des fragments, l&rsquo;utilisation de &ldquo;l&rsquo;injection&rdquo; des dépendances, etc. Dans le futur, on pourra même peut-être l&rsquo;utiliser au-delà de l&rsquo;entreprise, avec bower pour autre pour récupérer les modules déjà écrits et présents sur des repository de fragments.</p>
+
+<p>La présentation était bien, efficace et démonstrative de la puissance potentielle de ce nouveau framework. Cependant, aucune source du core, aucune documentation et des exemples non utilisables&hellip; C&rsquo;est frustrant. Loin d&rsquo;être la volonté d&rsquo;Adrien ou des autres membres de PSA présent, il s&rsquo;agit plus d&rsquo;un soucis de rouage administratif relatif au grand groupe. J&rsquo;espère qu&rsquo;ils pourront montrer le travail qu&rsquo;ils ont fait, et permettre à d&rsquo;autres d&rsquo;utiliser et d&rsquo;améliorer W20.</p>
+
+<h3 id="sources">Sources</h3>
+
+<p>Vous pouvez trouver la <a href="http://adrienlauer.github.io/w20-ngparis/slides/#/">présentation sur Github</a> ainsi que certains <a href="https://github.com/adrienlauer/w20-ngparis/tree/master/samples">codes d&rsquo;exemples</a>. Par contre, les exemples permettent de voir la configuration mais ne pourront fonctionner car il n&rsquo;y a pas le coeur du framework.</p>
+
+<h2 id="les-promises">Les <code>promises</code></h2>
+
+<h3 id="chakib-benziane">Chakib Benziane</h3>
+
+<p>Chakib est freelance front. Vous pouvez le trouver sur Twitter (<a href="https://twitter.com/sp4ke">@sp4ke</a>) et Github (<a href="https://github.com/sp4ke">sp4ke</a>)</p>
+
+<h3 id="les-promises-1">Les <code>promises</code></h3>
+
+<p>Chakib revient sur différents paradigmes de programmation synchrone / asynchrone, pour comprendre l&rsquo;intérêt des <code>promise</code>. Pour moi il est très important pour toutes les opérations longues : récupération de longs listing, génération de statistiques, etc. Les <code>promises</code> sont d&rsquo;ailleurs utilisées pour les <code>service</code>, <code>$http</code> et autres.</p>
+
+<p>On peut donc continuer ne mettre notre appel bloquant dans une fonction, on rattachera cette fonction à une <code>promise</code> avec <code>$q.defer()</code>. Le tour est presque joué.</p>
+
+<p>Pour bien comprendre, Chakib nous propose le use-case suivant : une application mobile avec gestion de la bande passante / déconnexion. On peut faire ça avec un <code>timeout</code> mais on se trouve à mettre valeur fixe et donc un soucis lorsque le délai dépend du réseau. Deuxième solution, mettre une timeout exponentiel. Dans ce cas, on n&rsquo;attend que rarement les 10 &lsquo;retry&rsquo; max.</p>
+
+<p>Je pense qu&rsquo;il faut faire attention à plein d&rsquo;autres choses. Les <code>promises</code> ne sont pas les éléments que je maîtrise vraiment et j&rsquo;attendais donc beaucoup de cette présentation. Malheureusement, fatigue / fin de soirée / pizza / bières / problèmes techniques ont ralenti le talk et ma capacité à tout apprécier.</p>
+
+<h3 id="conclusion-1">Conclusion</h3>
+
+<blockquote>
+<p>Les promises mériteraient un meetup à part.</p>
+</blockquote>
+
+<p>Je ne peux pas être plus en accord avec Chakib sur ce point. Il est possible de faire tellement de choses pour l&rsquo;application et l&rsquo;utilisateur en maîtrisant cette fonctionnalité. Je regrette qu&rsquo;à cause des soucis techniques, la présentation n&rsquo;ait pas pu se dérouler parfaitement. Il faudrait donc peut-être revenir pour les <code>interceptors</code> et encore plus de cas pratiques sur les <code>promises</code>.</p>
+
+<h3 id="sources-1">Sources</h3>
+
+<p>Vous pouvez trouver la <a href="http://sp4ke.com/angular-promises/slides/template.html#1">présentation sur Github</a> ainsi que le <a href="https://github.com/sp4ke/angular-promises">code utilisé pour la démo</a>.</p>
+
+<h2 id="conclusion-2">Conclusion</h2>
+
+<p>Merci aux speakers pour leurs travaux, les démonstrations et leur proximité. Encore une belle soirée, un peu ternie par les soucis techniques mais en tant que grand habitué des &ldquo;effets démo&rdquo; je leur tire mon chapeau !</p>
+
+<p>À la prochaine !</p>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+

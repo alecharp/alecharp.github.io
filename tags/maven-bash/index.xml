@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maven Bash on alecharp&#39;s blog</title>
+    <link>https://blog.alecharp.fr/tags/maven-bash/</link>
+    <description>Recent content in Maven Bash on alecharp&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr_FR</language>
+    <lastBuildDate>Wed, 30 May 2012 16:44:47 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.alecharp.fr/tags/maven-bash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Maven project starter</title>
+      <link>https://blog.alecharp.fr/2012/05/30/maven-project-starter/</link>
+      <pubDate>Wed, 30 May 2012 16:44:47 +0000</pubDate>
+      
+      <guid>https://blog.alecharp.fr/2012/05/30/maven-project-starter/</guid>
+      <description>Parfois commencer un project c&amp;rsquo;est long et embêtant car il faut commencer par créer la structure du project selon maven. Comment peut-on le faire rapidement?
+Aujourd&amp;rsquo;hui, on utilise beaucoup maven dans le développement, surtout web, mais commencer la phase de dev d&amp;rsquo;un projet peut être un peu long.
+Il faut toujours passer par la phase de création des dossiers conventionnés par maven et ce n&amp;rsquo;est pas toujours simple. Alors astuce :</description>
+    </item>
+    
+  </channel>
+</rss>

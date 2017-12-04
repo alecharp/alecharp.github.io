@@ -1,0 +1,305 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Les outils du dev</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,700" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <ul>
+    <li>
+      <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+    </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+  </ul>
+</navbar>
+
+
+<div id="content">
+  
+
+<article>
+  <header>
+    <h2>Les outils du dev</h2>
+  </header>
+  <time pubdate="2012-05-11">
+    <i class="fa fa-calendar"></i> 2012-05-11
+  </time>
+  <section>
+    
+
+<p>Au cours d&rsquo;un développement, on se retrouve toujours avec un même problème : comment
+je fais pour être plus productif ? A cette question, il y a beaucoup de réponses
+possibles.</p>
+
+<hr />
+
+<h2 id="maven">Maven</h2>
+
+<p>Maven est un outil de build/gestion de dépendance très utilisé dans le développement
+surtout web/JEE. Il est bien intégré aux différents IDEs disponibles mais on se
+retrouve souvent à faire des lignes de commandes pour compiler, tester, packager
+notre application. Alors certes on fait rapidement des &ldquo;&uarr; + <code>enter</code>&rdquo; pour
+refaire la même commande 2 fois de suite (ou &ldquo;!! + <code>enter</code> pour les plus &lsquo;fous&rsquo;).
+Cependant, les nouvelles commandes peuvent venir rapidement.</p>
+
+<p>Mettre un <code>-Dmaven.test.skip=true</code> est si vite arrivé ou même un <code>-pl
+*module-name* -am</code>. Mais comment être sûr du nom du module, ou que l&rsquo;on n&rsquo;a pas
+mis le &ldquo;skip&rdquo; avant le &ldquo;test&rdquo; ? Et quand bien même on l&rsquo;écrit correctement, c&rsquo;est long&hellip;</p>
+
+<p>LA solution: <a href="https://github.com/juven/maven-bash-completion">ici</a></p>
+
+<p>Comment l&rsquo;utiliser ? Disposer d&rsquo;un terminal BASH, et dans votre <code>~/.bashrc</code>
+ou <code>~/.profile</code> vous mettez :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="p">[</span> <span class="o">-f</span> <span class="p">~/.</span><span class="n">bash_completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">]</span> <span class="p">&amp;&amp;</span> <span class="n">source</span> <span class="p">~/.</span><span class="n">bash_completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">||</span> <span class="n">echo</span> <span class="s2">&#34;Couldn&#39;t load mvn completion&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Évidemment, vous pouvez vouloir mettre à jour ce fichier. Personnellement j&rsquo;utilise
+un fichier <code>~/.bash_funct</code> pour mettre toutes mes fonctions dont celle-ci :</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="k">function</span> <span class="n">update_mvn_bash</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">[</span> <span class="o">-f</span> <span class="p">~/.</span><span class="n">bash_completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">];</span> <span class="n">then</span>
+    <span class="n">cp</span> <span class="p">~/.</span><span class="n">bash_completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">~/.</span><span class="n">bash_completion</span><span class="p">-`</span><span class="n">date</span> <span class="p">+</span><span class="s2">&#34;%Y%m%d%k%M%S&#34;</span><span class="p">`.</span><span class="n">bash</span>
+  <span class="n">fi</span>
+  <span class="n">curl</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">juven</span><span class="p">/</span><span class="n">maven-bash-completion</span><span class="p">/</span><span class="n">blob</span><span class="p">/</span><span class="n">master</span><span class="p">/</span><span class="n">bash_completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">&gt;</span> <span class="p">~/.</span><span class="n">bash_completion</span><span class="p">.</span><span class="n">bash</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>N&rsquo;oublions pas de modifier le <code>~/.bashrc</code> ou <code>~/.profile</code> avec:</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="p">[</span> <span class="o">-f</span> <span class="p">~/.</span><span class="n">bash_funct</span> <span class="p">]</span> <span class="p">&amp;&amp;</span> <span class="n">source</span> <span class="p">~/.</span><span class="n">bash_funct</span> <span class="p">||</span> <span class="n">echo</span> <span class="s2">&#34;Couldn&#39;t load bash functions&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Maintenant la commande <code>update_mvn_bash</code> mettra à jour votre fichier de
+complétion Maven. Vous pourrez toujours revenir à une version précédente car les
+anciennes versions du fichiers sont stockées avec le timestamp de la mise à jour.</p>
+
+<hr />
+
+<h2 id="git">GIT</h2>
+
+<p>Si vous avez la chance de travailler avec GIT, ou que vous allez vous y mettre,
+un certain nombre de choses peuvent vous simplifier la vie. Pour commencer, je ne
+saurai trop vous conseiller de ne pas utiliser Windows avec GIT. Mais bon&hellip;</p>
+
+<h3 id="une-bonne-ligne-de-commande">Une bonne ligne de commande</h3>
+
+<p>Pour utiliser toute la puissance de GIT, il vous faut une ligne de commande. C&rsquo;est
+un plus. Afin de travailler plus vite avec votre ligne de commande, que vous y
+soyez habitué ou non, je vous conseille d&rsquo;aller faire un tour <a href="http://gitfr.net/blog/2010/11/06/ameliorer-sa-productivite-avec-un-beau-shell/">ici</a>.</p>
+
+<p>Ce qu&rsquo;il faut retenir de ce très bon article, à mon sens, c&rsquo;est qu&rsquo;il faut toujours
+avoir la possibilité de savoir dans quel état se trouver les sources sur lesquelles
+on travaille. Ainsi il <em>faudrait</em> avoir dans le shell :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1</span></pre></td>
+<td class="lntd">
+<pre class="chroma">?qui? ?où? ?état-git? $</pre></td></tr></table>
+</div>
+</div>
+<p>Personnellement j&rsquo;ai configuré <strong>git completion</strong> qui me donne ceci :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[0] [login] [time] [/path/to/current/folder/shortened (branch-git *%)]</pre></td></tr></table>
+</div>
+</div>
+<p>Le gros avantage étant bien sûr de savoir si on a des éléments non commités, sur
+quelle branch on travaille.</p>
+
+<p>Pour arriver à ça, plusieurs étapes :</p>
+
+<ul>
+<li><p>télécharger git-completion.bash
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">curl</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">raw</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">git</span><span class="p">/</span><span class="n">git</span><span class="p">/</span><span class="n">master</span><span class="p">/</span><span class="n">contrib</span><span class="p">/</span><span class="n">completion</span><span class="p">/</span><span class="n">git-completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">&gt;</span> <span class="p">~/.</span><span class="n">git-completion</span><span class="p">.</span><span class="n">bash</span></code></pre></td></tr></table>
+</div>
+</div></p></li>
+
+<li><p>modifier le <code>~/.bashrc</code> ou <code>~/.profile</code> pour utiliser le fichier
+<code>~/.git-completion.bash</code>:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="p">[</span> <span class="o">-f</span> <span class="p">~/.</span><span class="n">git-completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">]</span> <span class="p">&amp;&amp;</span> <span class="n">source</span> <span class="p">~/.</span><span class="n">git-completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">||</span> <span class="n">echo</span> <span class="s2">&#34;Couldn&#39;t load git completion&#34;</span></code></pre></td></tr></table>
+</div>
+</div></p></li>
+
+<li><p>modifier votre prompt bash pour y mettre les informations de git:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span><span class="lnt">2</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">PROMPT_COMMAND</span><span class="p">=</span><span class="n">prompt</span>
+<span class="n">PS1</span><span class="p">=</span><span class="s1">&#39;[${RETC}] [\033[01;34m\u\033[00m] [\033[01;33m\t\033[00m] [\[\033[1;35m\]$newPWD$(__git_ps1 &#34; \[\033[1;34m\](%s)&#34;)\[\033[0m\]]\n\$ &#39;</span></code></pre></td></tr></table>
+</div>
+</div></p></li>
+</ul>
+
+<p><code>PROMPT_COMMAND</code> peut contenir une commande qui sera exécuté avant chaque affichage
+du prompt (attention de ne rien faire de gourmand ici). Moi je fais appel à la
+fonction <code>prompt</code> qui me permet d&rsquo;avoir la variable <code>$RETC</code> pour connaître le code
+de sortie de la dernièer commande ainsi d&rsquo;avoir les 30 derniers caractères du
+chemin d&rsquo;accès au dossier courant (cf <a href="#annexe-1">Annexe 1</a>)</p>
+
+<div class="alert alert-info">
+Ce qui est très important dans mon <em>PS1</em> c'est la partie <strong>
+$(__git_ps1 " \[\033[1;34m\](%s)")</strong> qui permet d'afficher (en blue)
+l'état de git.
+</div>
+
+<p>Après vous pouvez mettre en place quelques variables d&rsquo;environnement pour améliorer
+le rendu de git-completion :
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">GIT_PS1_SHOWDIRTYSTATE</span><span class="p">=</span><span class="n">1</span>
+<span class="n">GIT_PS1_SHOWUNTRACKEDFILES</span><span class="p">=</span><span class="n">1</span>
+<span class="n">GIT_PS1_SHOWSTASHSTATE</span><span class="p">=</span><span class="n">1</span>
+<span class="n">GIT_PS1_SHOWUPSTREAM</span><span class="p">=</span><span class="s2">&#34;git verbose&#34;</span></code></pre></td></tr></table>
+</div>
+</div></p>
+
+<ul>
+<li>ligne 1: montre qu&rsquo;il y a des changement locaux sur la branche</li>
+<li>ligne 2: montre qu&rsquo;il y a des éléments locaux non versionnés</li>
+<li>ligne 3: montre qu&rsquo;il y a des stashs</li>
+<li>ligne 4: montre la différence par rapport à la branche distante. Ici <code>git</code> pour
+ne pas suivre si on utilise aussi <em>git-svn</em>. Et <code>verbose</code> pour avoir un compteur
+de modification non pusher par rapport à la branche distante.</li>
+</ul>
+
+<h3 id="quelques-aliases">Quelques aliases</h3>
+
+<p>Si vous venez de <em>svn</em>, vous devez savoir que <code>svn ci</code> et <code>svn commit</code> est exactement
+la même commande. Pour <em>git</em>, ça ne fonctionne pas comme ça. Il vous faut définir les
+aliases que vous souhaitez utiliser. Pas très compliqué :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1</span></pre></td>
+<td class="lntd">
+<pre class="chroma">git config --global alias.alias_name value</pre></td></tr></table>
+</div>
+</div>
+<p>ou en éditant le fichier <code>~/.gitconfig</code>, ou <code>.git/config</code> de votre repository local
+GIT, dans la section (à créer si nécessaire) <code>[alias]</code>.</p>
+
+<p>Personnellement, je vous recommande ces quelques aliases :</p>
+
+<ol>
+<li><code>ci</code> pour <code>commit</code></li>
+<li><code>co</code> pour <code>checkout</code></li>
+<li><code>cb</code> pour <code>checkout -b</code> &rarr; changement de branche de travail et création
+de celle-ci si elle n&rsquo;existe pas</li>
+<li><code>st</code> pour <code>status</code> &rarr; affichage de l&rsquo;état de la branche</li>
+<li><code>s</code> pour <code>status -s</code> &rarr; affichage de l&rsquo;étage des fichiers de la branche
+sur une ligne</li>
+<li><code>br</code> pour <code>branch</code> &rarr; création d&rsquo;une branche</li>
+<li><code>ignored</code> pour <code>!git ls-files --others -i --exclude-standard --directory</code>
+&rarr; afficher les dossiers qui sont ignorés (dans le .gitignore)</li>
+<li><code>aliases</code> pour <code>!git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'</code>
+&rarr; afficher la liste des aliases configurés</li>
+<li><code>df</code> pour <code>diff --word-diff</code></li>
+<li><code>ds</code> pour <code>diff --stat</code> &rarr; montre la différence en terme d&rsquo;ajout/suppression
+pour le/les fichier(s)</li>
+</ol>
+
+<p>Ces raccourcis sont ceux que j&rsquo;utilise tous les jours, tout le temps. Le mieux
+bien sûr c&rsquo;est de les faire vous-même, ainsi vous saurez ce que vous avez mis et
+ça vous évitera la vielle blague que l&rsquo;on fait quand on fait que on découvre la
+commande <code>alias</code> sous Linux:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1</span></pre></td>
+<td class="lntd">
+<pre class="chroma">alias ls=&#39;rm -rf&#39;</pre></td></tr></table>
+</div>
+</div>
+<p>Mais sinon, allez (courez) sur GitHub et faite une recherche sur <em>gitconfig</em>, vous
+devriez trouver un certain nombre d&rsquo;exemples.</p>
+
+<hr />
+
+<h2 id="annexes">Annexes</h2>
+
+<h2 id="annexe-1-truncate-pwd-a-id-annexe-1-a">Annexe 1 : truncate pwd <a id="annexe-1"></a></h2>
+
+<p>Merci à Sébastien Douche pour ça!
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="k">function</span> <span class="n">truncate_pwd</span> <span class="p">{</span>
+  <span class="n">newPWD</span><span class="p">=</span><span class="s2">&#34;${PWD/#$HOME/~}&#34;</span>
+  <span class="n">local</span> <span class="n">pwdmaxlen</span><span class="p">=</span><span class="n">30</span>
+  <span class="k">if</span> <span class="p">[</span> <span class="p">${</span><span class="c">#newPWD} -gt $pwdmaxlen ]</span>
+  <span class="n">then</span>
+     <span class="n">newPWD</span><span class="p">=</span><span class="s2">&#34;...${newPWD: -$pwdmaxlen}&#34;</span>
+  <span class="n">fi</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div></p>
+
+<hr />
+
+<h2 id="links">Links</h2>
+
+<ul>
+<li>Maven: <a href="http://maven.apache.org">http://maven.apache.org</a></li>
+<li>#gitfr.net: <a href="http://gitfr.net/blog">http://gitfr.net/blog</a></li>
+</ul>
+
+  </section>
+</article>
+
+
+</div>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012
+  </footer>
+
+</body>
+</html>
+
