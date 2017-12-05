@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mac Brew Install Svn on alecharp&#39;s blog</title>
-    <link>https://blog.alecharp.fr/tags/mac-brew-install-svn/</link>
+    <link>//blog.alecharp.fr/tags/mac-brew-install-svn/</link>
     <description>Recent content in Mac Brew Install Svn on alecharp&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr_FR</language>
     <lastBuildDate>Wed, 05 Sep 2012 00:30:59 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.alecharp.fr/tags/mac-brew-install-svn/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//blog.alecharp.fr/tags/mac-brew-install-svn/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>OSX Mountain Lion, SVN et unicode</title>
-      <link>https://blog.alecharp.fr/2012/09/05/osx-mountain-lion-svn-unicode/</link>
+      <link>//blog.alecharp.fr/2012/09/05/osx-mountain-lion-svn-unicode/</link>
       <pubDate>Wed, 05 Sep 2012 00:30:59 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/2012/09/05/osx-mountain-lion-svn-unicode/</guid>
+      <guid>//blog.alecharp.fr/2012/09/05/osx-mountain-lion-svn-unicode/</guid>
       <description>Utiliser Subversion sur un Mac avec support des chemins unicodes
 Dans l&amp;rsquo;univers impitoyable de Mac OS, je demande le support de l&amp;rsquo;unicode sur Subversion.
 Bien que le langage majoritairement utilisé dans le monde de l&amp;rsquo;informatique soit l&amp;rsquo;Anglais, il y a quelques irréductibles (gaullois?) qui ne souhaitent pas utiliser la langue de Shakespeare dans certains cas. Ce n&amp;rsquo;est pas trop un soucis quand il s&amp;rsquo;agit de textes anciens ou de codes sources, mais le problème est plus grand quand cela s&amp;rsquo;applique également aux noms des fichiers.</description>

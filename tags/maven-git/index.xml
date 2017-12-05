@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Maven Git on alecharp&#39;s blog</title>
-    <link>https://blog.alecharp.fr/tags/maven-git/</link>
+    <link>//blog.alecharp.fr/tags/maven-git/</link>
     <description>Recent content in Maven Git on alecharp&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr_FR</language>
     <lastBuildDate>Fri, 11 May 2012 10:55:48 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.alecharp.fr/tags/maven-git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//blog.alecharp.fr/tags/maven-git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Les outils du dev</title>
-      <link>https://blog.alecharp.fr/2012/05/11/Les-outils-du-dev/</link>
+      <link>//blog.alecharp.fr/2012/05/11/Les-outils-du-dev/</link>
       <pubDate>Fri, 11 May 2012 10:55:48 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/2012/05/11/Les-outils-du-dev/</guid>
+      <guid>//blog.alecharp.fr/2012/05/11/Les-outils-du-dev/</guid>
       <description>Au cours d&amp;rsquo;un développement, on se retrouve toujours avec un même problème : comment je fais pour être plus productif ? A cette question, il y a beaucoup de réponses possibles.
 Maven Maven est un outil de build/gestion de dépendance très utilisé dans le développement surtout web/JEE. Il est bien intégré aux différents IDEs disponibles mais on se retrouve souvent à faire des lignes de commandes pour compiler, tester, packager notre application.</description>
     </item>

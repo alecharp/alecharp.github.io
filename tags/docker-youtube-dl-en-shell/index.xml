@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker Youtube Dl en Shell on alecharp&#39;s blog</title>
-    <link>https://blog.alecharp.fr/tags/docker-youtube-dl-en-shell/</link>
+    <link>//blog.alecharp.fr/tags/docker-youtube-dl-en-shell/</link>
     <description>Recent content in Docker Youtube Dl en Shell on alecharp&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr_FR</language>
     <lastBuildDate>Wed, 18 Feb 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.alecharp.fr/tags/docker-youtube-dl-en-shell/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//blog.alecharp.fr/tags/docker-youtube-dl-en-shell/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Get videos from Youtube with Docker - part 2</title>
-      <link>https://blog.alecharp.fr/2015/02/18/Get-videos-from-youtube-with-docker-part-2/</link>
+      <link>//blog.alecharp.fr/2015/02/18/Get-videos-from-youtube-with-docker-part-2/</link>
       <pubDate>Wed, 18 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/2015/02/18/Get-videos-from-youtube-with-docker-part-2/</guid>
+      <guid>//blog.alecharp.fr/2015/02/18/Get-videos-from-youtube-with-docker-part-2/</guid>
       <description>In my previous post here, I&amp;rsquo;ve shown how I get fetch videos from Youtube from my command line without installing anything else than Docker. But the command to type is way too complicated
 So I made a shell script to easily use my docker container.
 12345678 #!/bin/sh ## Author: Adrien Lecharpentier &amp;lt;adrien.lecharpentier@gmail.com&amp;gt;  status=$(boot2docker status) if [ &amp;#34;${status}&amp;#34; != &amp;#34;running&amp;#34; ]; then boot2docker start fi docker run -ti -v &amp;#34;$(pwd)&amp;#34;:/downloads alecharp/get-videos:latest $@   This way, I can easily download any youtube (or other) videos without having to remember every argument to give to the docker command.</description>

@@ -2,246 +2,246 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on alecharp&#39;s blog</title>
-    <link>https://blog.alecharp.fr/tags/</link>
+    <link>//blog.alecharp.fr/tags/</link>
     <description>Recent content in Tags on alecharp&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr_FR</language>
     <lastBuildDate>Wed, 18 Dec 2013 19:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.alecharp.fr/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//blog.alecharp.fr/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Angularjs Conference</title>
-      <link>https://blog.alecharp.fr/tags/angularjs-conference/</link>
+      <link>//blog.alecharp.fr/tags/angularjs-conference/</link>
       <pubDate>Wed, 18 Dec 2013 19:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/angularjs-conference/</guid>
+      <guid>//blog.alecharp.fr/tags/angularjs-conference/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Common</title>
-      <link>https://blog.alecharp.fr/tags/common/</link>
+      <link>//blog.alecharp.fr/tags/common/</link>
       <pubDate>Thu, 13 Jun 2013 18:36:14 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/common/</guid>
+      <guid>//blog.alecharp.fr/tags/common/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dev</title>
-      <link>https://blog.alecharp.fr/tags/dev/</link>
+      <link>//blog.alecharp.fr/tags/dev/</link>
       <pubDate>Sun, 28 Apr 2013 20:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/dev/</guid>
+      <guid>//blog.alecharp.fr/tags/dev/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dev Angularjs Directive</title>
-      <link>https://blog.alecharp.fr/tags/dev-angularjs-directive/</link>
+      <link>//blog.alecharp.fr/tags/dev-angularjs-directive/</link>
       <pubDate>Mon, 17 Sep 2012 14:38:39 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/dev-angularjs-directive/</guid>
+      <guid>//blog.alecharp.fr/tags/dev-angularjs-directive/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dev Apache Fondation Archiva</title>
-      <link>https://blog.alecharp.fr/tags/dev-apache-fondation-archiva/</link>
+      <link>//blog.alecharp.fr/tags/dev-apache-fondation-archiva/</link>
       <pubDate>Sun, 16 Sep 2012 18:56:14 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/dev-apache-fondation-archiva/</guid>
+      <guid>//blog.alecharp.fr/tags/dev-apache-fondation-archiva/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dev Integration Test</title>
-      <link>https://blog.alecharp.fr/tags/dev-integration-test/</link>
+      <link>//blog.alecharp.fr/tags/dev-integration-test/</link>
       <pubDate>Mon, 09 Jun 2014 08:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/dev-integration-test/</guid>
+      <guid>//blog.alecharp.fr/tags/dev-integration-test/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dev Java</title>
-      <link>https://blog.alecharp.fr/tags/dev-java/</link>
+      <link>//blog.alecharp.fr/tags/dev-java/</link>
       <pubDate>Thu, 30 May 2013 15:15:12 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/dev-java/</guid>
+      <guid>//blog.alecharp.fr/tags/dev-java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dev Js Angularjs</title>
-      <link>https://blog.alecharp.fr/tags/dev-js-angularjs/</link>
+      <link>//blog.alecharp.fr/tags/dev-js-angularjs/</link>
       <pubDate>Mon, 20 Aug 2012 23:10:43 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/dev-js-angularjs/</guid>
+      <guid>//blog.alecharp.fr/tags/dev-js-angularjs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker En</title>
-      <link>https://blog.alecharp.fr/tags/docker-en/</link>
+      <link>//blog.alecharp.fr/tags/docker-en/</link>
       <pubDate>Thu, 22 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/docker-en/</guid>
+      <guid>//blog.alecharp.fr/tags/docker-en/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker Maven Integration Tests</title>
-      <link>https://blog.alecharp.fr/tags/docker-maven-integration-tests/</link>
+      <link>//blog.alecharp.fr/tags/docker-maven-integration-tests/</link>
       <pubDate>Thu, 03 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/docker-maven-integration-tests/</guid>
+      <guid>//blog.alecharp.fr/tags/docker-maven-integration-tests/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker Youtube Dl en Shell</title>
-      <link>https://blog.alecharp.fr/tags/docker-youtube-dl-en-shell/</link>
+      <link>//blog.alecharp.fr/tags/docker-youtube-dl-en-shell/</link>
       <pubDate>Wed, 18 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/docker-youtube-dl-en-shell/</guid>
+      <guid>//blog.alecharp.fr/tags/docker-youtube-dl-en-shell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker en Youtube Dl</title>
-      <link>https://blog.alecharp.fr/tags/docker-en-youtube-dl/</link>
+      <link>//blog.alecharp.fr/tags/docker-en-youtube-dl/</link>
       <pubDate>Fri, 06 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/docker-en-youtube-dl/</guid>
+      <guid>//blog.alecharp.fr/tags/docker-en-youtube-dl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Git</title>
-      <link>https://blog.alecharp.fr/tags/git/</link>
+      <link>//blog.alecharp.fr/tags/git/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/git/</guid>
+      <guid>//blog.alecharp.fr/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Git Open Source En</title>
-      <link>https://blog.alecharp.fr/tags/git-open-source-en/</link>
+      <link>//blog.alecharp.fr/tags/git-open-source-en/</link>
       <pubDate>Tue, 30 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/git-open-source-en/</guid>
+      <guid>//blog.alecharp.fr/tags/git-open-source-en/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Git Svn</title>
-      <link>https://blog.alecharp.fr/tags/git-svn/</link>
+      <link>//blog.alecharp.fr/tags/git-svn/</link>
       <pubDate>Thu, 25 Apr 2013 09:17:47 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/git-svn/</guid>
+      <guid>//blog.alecharp.fr/tags/git-svn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Java</title>
-      <link>https://blog.alecharp.fr/tags/java/</link>
+      <link>//blog.alecharp.fr/tags/java/</link>
       <pubDate>Wed, 27 Jun 2012 12:05:45 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/java/</guid>
+      <guid>//blog.alecharp.fr/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jekyll</title>
-      <link>https://blog.alecharp.fr/tags/jekyll/</link>
+      <link>//blog.alecharp.fr/tags/jekyll/</link>
       <pubDate>Wed, 06 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/jekyll/</guid>
+      <guid>//blog.alecharp.fr/tags/jekyll/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jekyll Git</title>
-      <link>https://blog.alecharp.fr/tags/jekyll-git/</link>
+      <link>//blog.alecharp.fr/tags/jekyll-git/</link>
       <pubDate>Thu, 17 May 2012 18:05:12 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/jekyll-git/</guid>
+      <guid>//blog.alecharp.fr/tags/jekyll-git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mac Brew Install Svn</title>
-      <link>https://blog.alecharp.fr/tags/mac-brew-install-svn/</link>
+      <link>//blog.alecharp.fr/tags/mac-brew-install-svn/</link>
       <pubDate>Wed, 05 Sep 2012 00:30:59 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/mac-brew-install-svn/</guid>
+      <guid>//blog.alecharp.fr/tags/mac-brew-install-svn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Maven Bash</title>
-      <link>https://blog.alecharp.fr/tags/maven-bash/</link>
+      <link>//blog.alecharp.fr/tags/maven-bash/</link>
       <pubDate>Wed, 30 May 2012 16:44:47 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/maven-bash/</guid>
+      <guid>//blog.alecharp.fr/tags/maven-bash/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Maven Git</title>
-      <link>https://blog.alecharp.fr/tags/maven-git/</link>
+      <link>//blog.alecharp.fr/tags/maven-git/</link>
       <pubDate>Fri, 11 May 2012 10:55:48 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/maven-git/</guid>
+      <guid>//blog.alecharp.fr/tags/maven-git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Misc</title>
-      <link>https://blog.alecharp.fr/tags/misc/</link>
+      <link>//blog.alecharp.fr/tags/misc/</link>
       <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/misc/</guid>
+      <guid>//blog.alecharp.fr/tags/misc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nexus Installation</title>
-      <link>https://blog.alecharp.fr/tags/nexus-installation/</link>
+      <link>//blog.alecharp.fr/tags/nexus-installation/</link>
       <pubDate>Thu, 24 Jun 2010 14:44:58 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/nexus-installation/</guid>
+      <guid>//blog.alecharp.fr/tags/nexus-installation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Opensource Jenkins Integration Tests Java</title>
-      <link>https://blog.alecharp.fr/tags/opensource-jenkins-integration-tests-java/</link>
+      <link>//blog.alecharp.fr/tags/opensource-jenkins-integration-tests-java/</link>
       <pubDate>Wed, 13 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/opensource-jenkins-integration-tests-java/</guid>
+      <guid>//blog.alecharp.fr/tags/opensource-jenkins-integration-tests-java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Osx Java</title>
-      <link>https://blog.alecharp.fr/tags/osx-java/</link>
+      <link>//blog.alecharp.fr/tags/osx-java/</link>
       <pubDate>Fri, 17 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/osx-java/</guid>
+      <guid>//blog.alecharp.fr/tags/osx-java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Zsh</title>
-      <link>https://blog.alecharp.fr/tags/zsh/</link>
+      <link>//blog.alecharp.fr/tags/zsh/</link>
       <pubDate>Tue, 25 Jun 2013 20:00:00 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/tags/zsh/</guid>
+      <guid>//blog.alecharp.fr/tags/zsh/</guid>
       <description></description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nexus Installation on alecharp&#39;s blog</title>
-    <link>https://blog.alecharp.fr/tags/nexus-installation/</link>
+    <link>//blog.alecharp.fr/tags/nexus-installation/</link>
     <description>Recent content in Nexus Installation on alecharp&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr_FR</language>
     <lastBuildDate>Thu, 24 Jun 2010 14:44:58 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.alecharp.fr/tags/nexus-installation/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//blog.alecharp.fr/tags/nexus-installation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Sonatype Nexus</title>
-      <link>https://blog.alecharp.fr/2010/06/24/sonatype-nexus/</link>
+      <link>//blog.alecharp.fr/2010/06/24/sonatype-nexus/</link>
       <pubDate>Thu, 24 Jun 2010 14:44:58 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/2010/06/24/sonatype-nexus/</guid>
+      <guid>//blog.alecharp.fr/2010/06/24/sonatype-nexus/</guid>
       <description>Depuis quelques temps, j&amp;rsquo;utilise Nexus de Sonatype pour certains développements perso ou pro. Comme je trouve ce produit très simple, convivial et solide dans le cadre de l&amp;rsquo;intégration continue et plus largement, dans son utilisation avec Maven, j&amp;rsquo;ai décidé d&amp;rsquo;écrire un article pour partager l&amp;rsquo;expérience que j&amp;rsquo;en ai.
 Pour cela, je tenterai de vous expliquer simplement (c&amp;rsquo;est pas toujours facile à faire) l&amp;rsquo;utilité de Nexus. J&amp;rsquo;espère que ce fait sera prouvé par la suite de mon exposé.</description>
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jekyll Git on alecharp&#39;s blog</title>
-    <link>https://blog.alecharp.fr/tags/jekyll-git/</link>
+    <link>//blog.alecharp.fr/tags/jekyll-git/</link>
     <description>Recent content in Jekyll Git on alecharp&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr_FR</language>
     <lastBuildDate>Thu, 17 May 2012 18:05:12 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.alecharp.fr/tags/jekyll-git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//blog.alecharp.fr/tags/jekyll-git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Génération automatique avec jekill, git / github et apache</title>
-      <link>https://blog.alecharp.fr/2012/05/17/Generation-automatique/</link>
+      <link>//blog.alecharp.fr/2012/05/17/Generation-automatique/</link>
       <pubDate>Thu, 17 May 2012 18:05:12 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/2012/05/17/Generation-automatique/</guid>
+      <guid>//blog.alecharp.fr/2012/05/17/Generation-automatique/</guid>
       <description>Passer de wordpress à Jekyll, ça peut faire peur pour la mise en ligne de nouveaux posts. Heureusement, certains outils et une légère configuration permettent de passer outre ce soucis.
 Alors ce n&amp;rsquo;est pas parce que j&amp;rsquo;ai choisi de passer sur Jekyll que j&amp;rsquo;ai envie de tout refaire à la main. Par exemple, je n&amp;rsquo;ai pas envie de devoir regénérer le site web à chaque fois que j&amp;rsquo;écris un nouvel article.</description>
     </item>

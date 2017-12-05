@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dev Apache Fondation Archiva on alecharp&#39;s blog</title>
-    <link>https://blog.alecharp.fr/tags/dev-apache-fondation-archiva/</link>
+    <link>//blog.alecharp.fr/tags/dev-apache-fondation-archiva/</link>
     <description>Recent content in Dev Apache Fondation Archiva on alecharp&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr_FR</language>
     <lastBuildDate>Sun, 16 Sep 2012 18:56:14 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.alecharp.fr/tags/dev-apache-fondation-archiva/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//blog.alecharp.fr/tags/dev-apache-fondation-archiva/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Apache Archiva Commiter</title>
-      <link>https://blog.alecharp.fr/2012/09/16/apache-archiva-commiter/</link>
+      <link>//blog.alecharp.fr/2012/09/16/apache-archiva-commiter/</link>
       <pubDate>Sun, 16 Sep 2012 18:56:14 +0000</pubDate>
       
-      <guid>https://blog.alecharp.fr/2012/09/16/apache-archiva-commiter/</guid>
+      <guid>//blog.alecharp.fr/2012/09/16/apache-archiva-commiter/</guid>
       <description>Après quelques patches sur la nouvelle interface web de Archiva ainsi que sur le site web de l&amp;rsquo;outil, les commiters du projet m&amp;rsquo;ont accepté parmi eux.
 Un grand merci à eux! Liste non exhaustive des commiters du projet (non triée) :
  Olivier Lamy Jean-Baptiste Onofré Éric Barboni Maria Odea B. Ching Brett Porter Carlos Sanchez Edwin Punzalan Nicolas De Loof Dennis Lundberg Martin Cooper Marecor M. Baclay Jevica Arianne B.</description>
