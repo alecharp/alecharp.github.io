@@ -14,8 +14,8 @@ navbar {
   align-items: center;
 
   font-size: 1.5em;
-  padding: 0.4em;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 0.5em;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 navbar ul {
@@ -35,8 +35,9 @@ footer {
   justify-content: space-around;
   align-items: center;
 
-  padding: 0.4em;
+  padding: 0.5em;
   color: #999;
+  background-color: #fefefe;
 }
 
 div#content {
@@ -46,21 +47,31 @@ div#content {
   flex-wrap: wrap;
   align-items: flex-start;
 
-  height: calc(100vh - 5.2em);
+  height: calc(100vh - 5.5em);
   overflow: scroll;
 }
 
 div#content article {
   width: 70%;
+  font-size: 1.2em;
   margin-top: 1em;
+}
+
+div#content article time i {
+  font-size: 0.70em !important;
 }
 
 div#content article section {
   margin-bottom: 2em;
 }
 
-div#content article section, div#content article p.summary {
+div#content article section,
+div#content article p.summary {
   margin-top: 1em;
+}
+
+div#content article header {
+  text-align: center;
 }
 
 div#content article section h2,
@@ -70,8 +81,30 @@ div#content article section h5 {
   margin-top: 1em;
 }
 
+div#content article h2::before,
+div#content article h3::before,
+div#content article h4::before,
+div#content article h5::before {
+  content: "# ";
+  font-size: 0.8em;
+  color: #444;
+}
+
+div#content article section p,
+div#content article section ul {
+  margin-top: 0.5em;
+}
+
+div#content article section ul {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+div#content article section iframe,
 div#content article section img {
   max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div#content article section div.highlight {
@@ -90,4 +123,22 @@ div#content article section div.highlight div.chroma {
 
 a {
   color: inherit;
+  transition: color 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0030a4;
+}
+
+div#content article section a {
+  color: #0030a4;
+  text-decoration: none;
+  border-bottom: 1px dashed #0030a4;
+}
+
+div#content article section a:hover {
+  color: #0030a4;
+  text-decoration: none;
+  border-bottom: none;
 }
