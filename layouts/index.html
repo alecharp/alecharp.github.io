@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ range .Data.Pages.ByDate.Reverse }}
   <article>
-    <h2><a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h2>
+    <h1><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
     <time pubdate="{{ .PublishDate.Format "2006-01-02"}}">
       <i class="fa fa-calendar"></i> {{ .PublishDate.Format "2006-01-02" }}
     </time>
