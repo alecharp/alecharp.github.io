@@ -48,21 +48,33 @@ div#content {
   align-items: flex-start;
 
   height: calc(100vh - 5.5em);
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 div#content article {
   width: 70%;
   font-size: 1.2em;
-  margin-top: 1em;
+
+  padding-top: 1em;
+
+  display: flex;
+  flex-direction: column;
+}
+
+div#content article:last-child {
+  padding-bottom: 2em;
+}
+
+div#content article header {
+  align-self: center;
+
+  padding-bottom: 1em;
+  border-bottom: 1px dashed #ddd;
+  width: 90%;
 }
 
 div#content article time i {
   font-size: 0.70em !important;
-}
-
-div#content article section {
-  margin-bottom: 2em;
 }
 
 div#content article section,
@@ -100,7 +112,6 @@ div#content article section ul {
   margin-right: 2em;
 }
 
-div#content article section iframe,
 div#content article section img {
   max-width: 100%;
   margin-left: auto;
