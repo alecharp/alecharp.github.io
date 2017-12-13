@@ -13,3 +13,6 @@ pygmentsOptions = "linenos=table"
 twitter = "alecharp"
 github = "alecharp"
 speakerdeck = "alecharp"
+
+[permalinks]
+  post = "/:year/:month/:day/:title"

@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ range .Data.Pages.ByDate.Reverse }}
+  {{ range (where .Data.Pages "Section" "post").ByDate.Reverse }}
   <article>
     <h1><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
     <time pubdate="{{ .PublishDate.Format "2006-01-02"}}">
