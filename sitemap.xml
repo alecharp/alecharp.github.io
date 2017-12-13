@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>//blog.alecharp.fr/2017/12/13/Kubernetes--Home/</loc>
+    <lastmod>2017-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>//blog.alecharp.fr/2015/09/04/Ultra-laptop-and-cds-dvds/</loc>
     <lastmod>2015-09-04T00:00:00+00:00</lastmod>
   </url>
@@ -319,7 +324,7 @@
   
   <url>
     <loc>//blog.alecharp.fr/post/</loc>
-    <lastmod>2015-09-04T00:00:00+00:00</lastmod>
+    <lastmod>2017-12-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -337,7 +342,7 @@
   
   <url>
     <loc>//blog.alecharp.fr/</loc>
-    <lastmod>2015-09-04T00:00:00+00:00</lastmod>
+    <lastmod>2017-12-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -6,10 +6,20 @@
     <description>Recent content on alecharp&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr_FR</language>
-    <lastBuildDate>Fri, 04 Sep 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="//blog.alecharp.fr/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetes @ Home</title>
+      <link>//blog.alecharp.fr/2017/12/13/Kubernetes--Home/</link>
+      <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>//blog.alecharp.fr/2017/12/13/Kubernetes--Home/</guid>
+      <description>For many years now, I have a Jenkins running at home, for my personal projects. The problem is that, it&amp;rsquo;s running on my laptop. So, I basically have a setup where Jenkins tells me &amp;ldquo;it works on [your] computer&amp;rdquo;. This is far from ideal.
+Following home&amp;rsquo;s lab There are 2 articles I read recently which gave me the motivation to have a proper setup at home. Few days ago, the excellent Jessie Frazelle wrote a post about labs at home.</description>
+    </item>
     
     <item>
       <title>Ultra laptop and CDs/DVDs</title>

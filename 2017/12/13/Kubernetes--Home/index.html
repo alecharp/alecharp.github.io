@@ -1,0 +1,105 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>alecharp&#39;s blog: Kubernetes @ Home</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,600" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
+  <link rel="stylesheet" media="screen" href="/css/syntax.css" />
+  <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css" />
+</head>
+
+<body>
+
+<navbar>
+  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <nav>
+    <ul>
+      <li>
+        <a href="//twitter.com/alecharp" title="alecharp's Twitter"><i class="fa fa-twitter"></i></a>
+      </li>
+      <li>
+        <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
+      </li>
+      <li>
+        <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+      </li>
+      <li>
+        <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
+      </li>
+    </ul>
+  </nav>
+</navbar>
+
+
+<main>
+  
+
+<article>
+  <header>
+    <h1>Kubernetes @ Home</h1>
+    <time pubdate="2017-12-13">
+      <i class="fa fa-calendar"></i> 2017-12-13
+    </time>
+  </header>
+  <section>
+    
+
+<p>For many years now, I have a Jenkins running at home, for my personal projects.
+The problem is that, it&rsquo;s running on my laptop.
+So, I basically have a setup where Jenkins tells me &ldquo;it works on [your] computer&rdquo;.
+This is far from ideal.</p>
+
+<h2 id="following-home-s-lab">Following home&rsquo;s lab</h2>
+
+<p>There are 2 articles I read recently which gave me the motivation to have a proper setup at home.
+Few days ago, the excellent Jessie Frazelle wrote a post about labs at home.
+If you have read it, pause here and go read it: <a href="https://blog.jessfraz.com/post/home-lab-is-the-dopest-lab/">Home Lab is the Dopest Lab</a>.
+Few weeks ago, Carolyn Van Slyck wrote a suite of articles on how she used NUCs to create her DVDs digitalization pipeline. Same thing, go read her articles, they are excellent: <a href="http://carolynvanslyck.com/blog/2017/10/my-little-cluster/">My Little Cluster Story</a>.</p>
+
+<h2 id="what-s-the-connection">What&rsquo;s the connection?</h2>
+
+<p>Well, my Jenkins is my lab.
+I use it to build side project, to experiment.
+But I don&rsquo;t have it running all the time.
+For example, at the time I write this line, I haven&rsquo;t started it for 4weeks..</p>
+
+<p>So I want to setup it correctly.
+I could simply buy a NUC and install Jenkins on it.
+That would be it.</p>
+
+<p>But I&rsquo;d like to leverage the NUC to run my side projects as well.
+So Kubernetes.</p>
+
+<h2 id="why-kubernetes">Why Kubernetes?</h2>
+
+<p>First, everyone&rsquo;s speaking about it.
+Second, I might need to understand it, use it for my job.
+Third, why not?</p>
+
+<p>So, before buying anything, I&rsquo;ll setup a minikube instance on my laptop (again).
+Make sure I can really use and understand K8S (as the cool kids say).
+Then I&rsquo;ll setup properly a NUC with my Jenkins.
+I&rsquo;ll see after that if I need more of them.</p>
+
+<p>So yes, at first it&rsquo;ll be a one node k8s cluster..</p>
+
+<p>I&rsquo;ll try to &ldquo;document&rdquo; my experiment here.
+It won&rsquo;t be glorious (like if anyone read this..) but it might worth the time, so I make sure I do understand what I&rsquo;m doing.</p>
+
+  </section>
+</article>
+
+
+</main>
+
+  <footer>
+    &copy; Adrien Lecharpentier 2012 - 2017
+  </footer>
+
+</body>
+</html>
+
