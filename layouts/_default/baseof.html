@@ -1,8 +1,9 @@
 {{ partial "header.html" . }}
+{{ partial "navbar.html" . }}
 
-<div id="content">
+<main>
   {{ block "main" . }}
   {{ end }}
-</div>
+</main>
 
 {{ partial "footer.html" . }}

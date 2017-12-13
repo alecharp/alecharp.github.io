@@ -40,7 +40,7 @@ footer {
   background-color: #fefefe;
 }
 
-div#content {
+main {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -51,7 +51,7 @@ div#content {
   overflow-y: scroll;
 }
 
-div#content article {
+main article {
   width: 70%;
   font-size: 1.2em;
 
@@ -61,11 +61,11 @@ div#content article {
   flex-direction: column;
 }
 
-div#content article:last-child {
+main article:last-child {
   padding-bottom: 2em;
 }
 
-div#content article header {
+main article header {
   align-self: center;
 
   padding-bottom: 1em;
@@ -73,61 +73,61 @@ div#content article header {
   width: 90%;
 }
 
-div#content article time i {
+main article time i {
   font-size: 0.70em !important;
 }
 
-div#content article section,
-div#content article p.summary {
+main article section,
+main article p.summary {
   margin-top: 1em;
 }
 
-div#content article header {
+main article header {
   text-align: center;
 }
 
-div#content article section h2,
-div#content article section h3,
-div#content article section h4,
-div#content article section h5 {
+main article section h2,
+main article section h3,
+main article section h4,
+main article section h5 {
   margin-top: 1em;
 }
 
-div#content article h2::before,
-div#content article h3::before,
-div#content article h4::before,
-div#content article h5::before {
+main article h2::before,
+main article h3::before,
+main article h4::before,
+main article h5::before {
   content: "# ";
   font-size: 0.8em;
   color: #444;
 }
 
-div#content article section p,
-div#content article section ul {
+main article section p,
+main article section ul {
   margin-top: 0.5em;
 }
 
-div#content article section ul {
+main article section ul {
   margin-left: 2em;
   margin-right: 2em;
 }
 
-div#content article section img {
+main article section img {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
-div#content article section div.highlight {
+main article section div.highlight {
   margin: 1em 0;
 }
 
-div#content article section div.highlight div.chroma {
+main article section div.highlight div.chroma {
   padding: 1em;
 }
 
 @media all and (max-width: 800px) {
-  div#content article {
+  main article {
     width: 90%;
   }
 }
@@ -142,13 +142,13 @@ a:hover {
   color: #0030a4;
 }
 
-div#content article section a {
+main article section a {
   color: #0030a4;
   text-decoration: none;
   border-bottom: 1px dashed #0030a4;
 }
 
-div#content article section a:hover {
+main article section a:hover {
   color: #0030a4;
   text-decoration: none;
   border-bottom: none;
