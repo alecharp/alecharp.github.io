@@ -11,7 +11,7 @@ run: build codestyle
 	@docker run --rm -ti \
 	  -v $(CURDIR):/usr/src/blog \
 		-p $(PORT):$(PORT) \
-		${DOCKER_IMAGE} hugo server -D --disableFastRender --port=$(PORT) --bind=0.0.0.0
+		${DOCKER_IMAGE} hugo server -FD --disableFastRender --port=$(PORT) --bind=0.0.0.0
 
 codestyle: build
 	@docker run --rm -ti \
