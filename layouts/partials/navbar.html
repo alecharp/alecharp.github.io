@@ -1,17 +1,19 @@
 <navbar>
   <div><a href="/" title="{{ $.Site.Title }}">{{ $.Site.Title }}</a></div>
-  <ul>
-    <li>
-      <a href="//twitter.com/{{ $.Site.Params.Twitter }}" title="{{ $.Site.Params.Twitter }}'s Twitter"><i class="fa fa-twitter"></i></a>
-    </li>
-    <li>
-      <a href="//github.com/{{ $.Site.Params.Github }}" title="{{ $.Site.Params.Github }}'s Github"><i class="fa fa-github"></i></a>
-    </li>
-    <li>
-      <a href="/index.xml" title="{{ $.Site.Title }}'s RSS"><i class="fa fa-rss"></i></a>
-    </li>
+  <nav>
+    <ul>
+      <li>
+        <a href="//twitter.com/{{ $.Site.Params.Twitter }}" title="{{ $.Site.Params.Twitter }}'s Twitter"><i class="fa fa-twitter"></i></a>
+      </li>
+      <li>
+        <a href="//github.com/{{ $.Site.Params.Github }}" title="{{ $.Site.Params.Github }}'s Github"><i class="fa fa-github"></i></a>
+      </li>
+      <li>
+        <a href="/index.xml" title="{{ $.Site.Title }}'s RSS"><i class="fa fa-rss"></i></a>
+      </li>
       <li>
         <a href="//speakerdeck.com/{{ $.Site.Params.SpeakerDeck }}" title="{{ $.Site.Params.SpeakerDeck }}'s SpeakerDeck"><i class="fa fa-slideshare"></i></a>
       </li>
-  </ul>
+    </ul>
+  </nav>
 </navbar>

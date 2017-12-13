@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: 'Fira Sans Extra Condensed';
+}
+
+@import './colors.less';
+
+@import './header.less';
+@import './footer.less';
+
+@import './post.less';
+
+a {
+  color: @text-color;
+  transition: color 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+a:hover {
+  color: @dark-blue;
+}
