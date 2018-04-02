@@ -20,32 +20,33 @@ To do so, I am signing this object:
       "username": "alecharp"
     },
     "merkle_root": {
-      "ctime": 1522316979,
-      "hash": "c24c07fc46eed46bc832c00395e30d1279c62862632e01d1a57fd7dc0642492b47c2ecbca0190ba4ee38727c1909a3994c4ec9d8ebfa95332dca3b0d8064d00a",
-      "hash_meta": "534594be226ccba30fc0acedb9ddeb711c37a7576e45927da3ef4d23d0ce9338",
-      "seqno": 2305464
+      "ctime": 1522668668,
+      "hash": "6ddef29c2673f00c2a385223fa98a5044d3344dc210451dfac6c84d6fa2f3ddb10ec0070b9b3e54770924450fd03e4e333ea433c646796dcaad48b2861e777e3",
+      "hash_meta": "feca862425decd9bf85f7cb44aac6b329a386b1453c41717a3d39fb44b589372",
+      "seqno": 2322037
     },
     "service": {
+      "entropy": "qgkq6FOHFCe87bd/qF2z4sM7",
       "hostname": "alecharp.fr",
       "protocol": "https:"
     },
     "type": "web_service_binding",
-    "version": 1
+    "version": 2
   },
   "client": {
     "name": "keybase.io go client",
-    "version": "1.0.45"
+    "version": "1.0.47"
   },
-  "ctime": 1522316982,
+  "ctime": 1522668689,
   "expire_in": 504576000,
-  "prev": "cbb631ed287616ffafe67d227193e341bc3bba4e37a30ac71d5d146606aeab2a",
-  "seqno": 53,
+  "prev": "473ca2182cbe07a912fde99a87b18fec4e6236a4331ce624bb585ba1cb8a6300",
+  "seqno": 55,
   "tag": "signature"
 }
 
 which yields the signature:
 
-hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgd9lrSIQUi+fagCIkLryey1SGoy3giIKesOiMfttcXY8Kp3BheWxvYWTFA0R7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwYzJjYjhhZjBmYjdhNGVlNzkzNDNhNjEwZDc5NzVkMTZkMzU5OWE3ZTQ0NzlkYTMyMWQ1ZWU5MDA1YmVhZTNkMDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNzdkOTZiNDg4NDE0OGJlN2RhODAyMjI0MmViYzllY2I1NDg2YTMyZGUwODg4MjllYjBlODhjN2VkYjVjNWQ4ZjBhIiwidWlkIjoiZGVlNDQzNjYzMDU3MDQ1MTQ0Mzg1ZDY3OTkyOTgwMTkiLCJ1c2VybmFtZSI6ImFsZWNoYXJwIn0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTIyMzE2OTc5LCJoYXNoIjoiYzI0YzA3ZmM0NmVlZDQ2YmM4MzJjMDAzOTVlMzBkMTI3OWM2Mjg2MjYzMmUwMWQxYTU3ZmQ3ZGMwNjQyNDkyYjQ3YzJlY2JjYTAxOTBiYTRlZTM4NzI3YzE5MDlhMzk5NGM0ZWM5ZDhlYmZhOTUzMzJkY2EzYjBkODA2NGQwMGEiLCJoYXNoX21ldGEiOiI1MzQ1OTRiZTIyNmNjYmEzMGZjMGFjZWRiOWRkZWI3MTFjMzdhNzU3NmU0NTkyN2RhM2VmNGQyM2QwY2U5MzM4Iiwic2Vxbm8iOjIzMDU0NjR9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoiYWxlY2hhcnAuZnIiLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC40NSJ9LCJjdGltZSI6MTUyMjMxNjk4MiwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiJjYmI2MzFlZDI4NzYxNmZmYWZlNjdkMjI3MTkzZTM0MWJjM2JiYTRlMzdhMzBhYzcxZDVkMTQ2NjA2YWVhYjJhIiwic2Vxbm8iOjUzLCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQPwEEOsc6T5pTuVLQag+5VXrAG+QzybNSm/+uM64V0MOb7N6DflfFcKJ8oF8BAPmJcew7PpA+Ebq63aTLCDGUAWoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCDQv2ZVkLCdOD3K139iwefh3wTU6JcPPLpZKwaegkR1saN0YWfNAgKndmVyc2lvbgE=
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgd9lrSIQUi+fagCIkLryey1SGoy3giIKesOiMfttcXY8Kp3BheWxvYWTESpcCN8QgRzyiGCy+B6kS/emah7GP7E5iNqQzHOYku1hbocuKYwDEIIXy9+ZOSNSHJ/ZsM/G7TcERijazFOJ+qmABqXnK44KAAgHCo3NpZ8RA/3buAQ2uTNtK+ozxcxS/gNvNpgzELTqf+8QwN0XvSjCQmKsYwCetA0Iz0qHSP1XIA1RxeLLnrCm8bAtDYzygDahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIO4dOEoAzJRQpQSHkWKNu9znGUys62MuR3fXnSdX7nLoo3RhZ80CAqd2ZXJzaW9uAQ==
 
 And finally, I am proving ownership of this host by posting or
 appending to this document.
