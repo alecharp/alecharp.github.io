@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>alecharp&#39;s blog: AngularJS doesn&#39;t like numbers</title>
+  <title>alecharp.fr: AngularJS doesn&#39;t like numbers</title>
 
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,600" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
@@ -13,9 +13,11 @@
 </head>
 
 <body>
+  <div id="container">
 
 <navbar>
-  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <div class="spacer"></div>
+  <div><a href="/" title="alecharp.fr">alecharp.fr</a></div>
   <nav>
     <ul>
       <li>
@@ -25,7 +27,7 @@
         <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
       </li>
       <li>
-        <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+        <a href="/index.xml" title="alecharp.fr's RSS"><i class="fa fa-rss"></i></a>
       </li>
       <li>
         <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
@@ -88,7 +90,14 @@ DELETE sur ma resource. Avec <a href="http://www.angularjs.org/">AngularJS</a> √
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span></code></pre></td>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">EventListController</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$location</span><span class="p">,</span> <span class="nx">CodingEvent</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$scope</span><span class="p">.</span><span class="nx">codingEvents</span> <span class="o">=</span> <span class="nx">CodingEvent</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
@@ -96,7 +105,8 @@ DELETE sur ma resource. Avec <a href="http://www.angularjs.org/">AngularJS</a> √
     <span class="nx">$scope</span><span class="p">.</span><span class="nx">removeEvent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">codingEvent</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">CodingEvent</span><span class="p">.</span><span class="k">delete</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="o">:</span><span class="nx">codingEvent</span><span class="p">.</span><span class="nx">id</span><span class="p">});</span>
     <span class="p">};</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 
@@ -104,7 +114,14 @@ DELETE sur ma resource. Avec <a href="http://www.angularjs.org/">AngularJS</a> √
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span></code></pre></td>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">EventListController</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$location</span><span class="p">,</span> <span class="nx">CodingEvent</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$scope</span><span class="p">.</span><span class="nx">codingEvents</span> <span class="o">=</span> <span class="nx">CodingEvent</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
@@ -112,7 +129,8 @@ DELETE sur ma resource. Avec <a href="http://www.angularjs.org/">AngularJS</a> √
     <span class="nx">$scope</span><span class="p">.</span><span class="nx">removeEvent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">codingEvent</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">codingEvent</span><span class="p">.</span><span class="nx">$delete</span><span class="p">({</span><span class="s1">&#39;id&#39;</span><span class="o">:</span><span class="nx">codingEvent</span><span class="p">.</span><span class="nx">id</span><span class="p">});</span>
     <span class="p">};</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
 
@@ -120,7 +138,8 @@ DELETE sur ma resource. Avec <a href="http://www.angularjs.org/">AngularJS</a> √
 une magnifique</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1</span></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
 <td class="lntd">
 <pre class="chroma">DELETE http://localhost:8081/rest/event 405 (Method Not Allowed)</pre></td></tr></table>
 </div>
@@ -150,9 +169,10 @@ j&rsquo;ai la belle exception :</p>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="lnt">1</span></code></pre></td>
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="n">Class</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Long</span> <span class="n">can</span> <span class="n">not</span> <span class="n">be</span> <span class="n">instantiated</span> <span class="n">using</span> <span class="n">a</span> <span class="n">constructor</span> <span class="n">with</span> <span class="n">a</span> <span class="n">single</span> <span class="n">String</span> <span class="n">argument</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-Java" data-lang="Java"><span class="n">Class</span> <span class="nf">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">Long</span> <span class="n">can</span> <span class="nf">not</span> <span class="n">be</span> <span class="nf">instantiated</span> <span class="n">using</span> <span class="nf">a</span> <span class="n">constructor</span> <span class="nf">with</span> <span class="n">a</span> <span class="nf">single</span> <span class="n">String</span> <span class="nf">argument</span></code></pre></td></tr></table>
 </div>
 </div>
 
@@ -184,9 +204,10 @@ simplement car je r√©cup√®re l&rsquo;id de l&rsquo;√©v√®nement dans l&rsquo;url 
 </main>
 
   <footer>
-    &copy; Adrien Lecharpentier 2012 - 2017
+    &copy; 2012 - 2019
   </footer>
 
+  </div>
 </body>
 </html>
 

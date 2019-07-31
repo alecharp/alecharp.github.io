@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>alecharp&#39;s blog: Quand les tests te sauvent les fesses</title>
+  <title>alecharp.fr: Quand les tests te sauvent les fesses</title>
 
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,600" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
@@ -13,9 +13,11 @@
 </head>
 
 <body>
+  <div id="container">
 
 <navbar>
-  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <div class="spacer"></div>
+  <div><a href="/" title="alecharp.fr">alecharp.fr</a></div>
   <nav>
     <ul>
       <li>
@@ -25,7 +27,7 @@
         <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
       </li>
       <li>
-        <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+        <a href="/index.xml" title="alecharp.fr's RSS"><i class="fa fa-rss"></i></a>
       </li>
       <li>
         <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
@@ -64,7 +66,11 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span></code></pre></td>
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;servers&gt;</span>
   <span class="nt">&lt;server</span> <span class="na">name=</span><span class="s">&#34;toto&#34;</span><span class="nt">&gt;</span>
@@ -89,22 +95,36 @@
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span></code></pre></td>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ServerListToXML</span> <span class="o">{</span>
-    <span class="nd">@Import</span> <span class="kd">private</span> <span class="n">ServerService</span> <span class="n">serverService</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="n">XStream</span> <span class="n">xStream</span><span class="o">;</span>
-    <span class="kd">public</span> <span class="nf">ServerListToXML</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">xStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XStream</span><span class="o">();</span>
-        <span class="n">xStream</span><span class="o">.</span><span class="na">registerConverter</span><span class="o">(</span><span class="k">new</span> <span class="n">ServerConverter</span><span class="o">());</span>
-        <span class="n">xStream</span><span class="o">.</span><span class="na">alias</span><span class="o">(</span><span class="s">&#34;server&#34;</span><span class="o">,</span> <span class="n">Server</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-        <span class="n">xStream</span><span class="o">.</span><span class="na">alias</span><span class="o">(</span><span class="s">&#34;servers&#34;</span><span class="o">,</span> <span class="n">List</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="n">OutputStream</span> <span class="n">output</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">List</span> <span class="n">serverListing</span> <span class="o">=</span> <span class="n">serverService</span><span class="o">.</span><span class="na">getAll</span><span class="o">();</span>
-        <span class="n">xStream</span><span class="o">.</span><span class="na">toXML</span><span class="o">(</span><span class="n">serverListing</span><span class="o">,</span> <span class="n">output</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">class</span> <span class="n">ServerListToXML</span> <span class="p">{</span>
+    <span class="nd">@Import</span> <span class="kd">private</span> <span class="nf">ServerService</span> <span class="n">serverService</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="nf">final</span> <span class="n">XStream</span> <span class="nf">xStream</span><span class="p">;</span>
+    <span class="kd">public</span> <span class="nf">ServerListToXML</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">xStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XStream</span><span class="p">();</span>
+        <span class="n">xStream</span><span class="p">.</span><span class="na">registerConverter</span><span class="p">(</span><span class="k">new</span> <span class="n">ServerConverter</span><span class="p">());</span>
+        <span class="n">xStream</span><span class="p">.</span><span class="na">alias</span><span class="p">(</span><span class="s">&#34;server&#34;</span><span class="p">,</span> <span class="n">Server</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+        <span class="n">xStream</span><span class="p">.</span><span class="na">alias</span><span class="p">(</span><span class="s">&#34;servers&#34;</span><span class="p">,</span> <span class="n">List</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">public</span> <span class="nf">void</span> <span class="n">save</span><span class="p">(</span><span class="n">OutputStream</span> <span class="nf">output</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">List</span> <span class="nf">serverListing</span> <span class="o">=</span> <span class="n">serverService</span><span class="p">.</span><span class="na">getAll</span><span class="p">();</span>
+        <span class="n">xStream</span><span class="p">.</span><span class="na">toXML</span><span class="p">(</span><span class="n">serverListing</span><span class="p">,</span> <span class="n">output</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
 
@@ -118,27 +138,42 @@
 
 <p>Je rajoute donc dans mon constructeur :</p>
 
-<p><div class="highlight"><div class="chroma">
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span></code></pre></td>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">...</span>
-    <span class="kd">public</span> <span class="nf">ServerListToXML</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">xStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XStream</span><span class="o">();</span>
-        <span class="n">xStream</span><span class="o">.</span><span class="na">registerConverter</span><span class="o">(</span><span class="k">new</span> <span class="n">ServerConverter</span><span class="o">());</span>
-        <span class="n">xStream</span><span class="o">.</span><span class="na">alias</span><span class="o">(</span><span class="s">&#34;server&#34;</span><span class="o">,</span> <span class="n">Server</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-        <span class="n">xStream</span><span class="o">.</span><span class="na">alias</span><span class="o">(</span><span class="s">&#34;servers&#34;</span><span class="o">,</span> <span class="n">ServerListing</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="p">...</span>
+    <span class="kd">public</span> <span class="nf">ServerListToXML</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">xStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">XStream</span><span class="p">();</span>
+        <span class="n">xStream</span><span class="p">.</span><span class="na">registerConverter</span><span class="p">(</span><span class="k">new</span> <span class="n">ServerConverter</span><span class="p">());</span>
+        <span class="n">xStream</span><span class="p">.</span><span class="na">alias</span><span class="p">(</span><span class="s">&#34;server&#34;</span><span class="p">,</span> <span class="n">Server</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+        <span class="n">xStream</span><span class="p">.</span><span class="na">alias</span><span class="p">(</span><span class="s">&#34;servers&#34;</span><span class="p">,</span> <span class="n">ServerListing</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
 
-        <span class="n">xStream</span><span class="o">.</span><span class="na">addImplicitCollection</span><span class="o">(</span><span class="n">ServerListing</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="s">&#34;list&#34;</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="o">...</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">load</span><span class="o">(</span><span class="n">InputStream</span> <span class="n">input</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">ServerListing</span> <span class="n">listing</span> <span class="o">=</span> <span class="o">(</span><span class="n">ServerListing</span><span class="o">)</span> <span class="n">xStream</span><span class="o">.</span><span class="na">fromXML</span><span class="o">(</span><span class="n">input</span><span class="o">);</span>
-        <span class="n">listing</span><span class="o">.</span><span class="na">getList</span><span class="o">().</span><span class="na">stream</span><span class="o">().</span><span class="na">forEach</span><span class="o">(</span><span class="nl">serverService:</span><span class="o">:</span><span class="n">addServer</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></td></tr></table>
+        <span class="n">xStream</span><span class="p">.</span><span class="na">addImplicitCollection</span><span class="p">(</span><span class="n">ServerListing</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="s">&#34;list&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="p">...</span>
+    <span class="kd">public</span> <span class="nf">void</span> <span class="n">load</span><span class="p">(</span><span class="n">InputStream</span> <span class="nf">input</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">ServerListing</span> <span class="nf">listing</span> <span class="o">=</span> <span class="p">(</span><span class="n">ServerListing</span><span class="p">)</span> <span class="n">xStream</span><span class="p">.</span><span class="na">fromXML</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+        <span class="n">listing</span><span class="p">.</span><span class="na">getList</span><span class="p">().</span><span class="na">stream</span><span class="p">().</span><span class="na">forEach</span><span class="p">(</span><span class="n">serverService</span><span class="o">::</span><span class="n">addServer</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
-</div></p>
+</div>
 
 <p>Du coup, là, tout fonctionne parfaitement. Théoriquement. Donc on met en place des tests unitaires. Ça fonctionne, pour 1 serveur. Mais pas pour 2.</p>
 
@@ -155,9 +190,10 @@
 </main>
 
   <footer>
-    &copy; Adrien Lecharpentier 2012 - 2017
+    &copy; 2012 - 2019
   </footer>
 
+  </div>
 </body>
 </html>
 

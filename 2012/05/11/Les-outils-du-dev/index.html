@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>alecharp&#39;s blog: Les outils du dev</title>
+  <title>alecharp.fr: Les outils du dev</title>
 
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,600" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
@@ -13,9 +13,11 @@
 </head>
 
 <body>
+  <div id="container">
 
 <navbar>
-  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <div class="spacer"></div>
+  <div><a href="/" title="alecharp.fr">alecharp.fr</a></div>
   <nav>
     <ul>
       <li>
@@ -25,7 +27,7 @@
         <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
       </li>
       <li>
-        <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+        <a href="/index.xml" title="alecharp.fr's RSS"><i class="fa fa-rss"></i></a>
       </li>
       <li>
         <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
@@ -74,7 +76,8 @@ ou <code>~/.profile</code> vous mettez :</p>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span></code></pre></td>
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="p">[</span> <span class="o">-f</span> <span class="p">~/.</span><span class="n">bash_completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">]</span> <span class="p">&amp;&amp;</span> <span class="n">source</span> <span class="p">~/.</span><span class="n">bash_completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">||</span> <span class="n">echo</span> <span class="s2">&#34;Couldn&#39;t load mvn completion&#34;</span></code></pre></td></tr></table>
 </div>
@@ -85,7 +88,13 @@ un fichier <code>~/.bash_funct</code> pour mettre toutes mes fonctions dont cell
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span></code></pre></td>
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="k">function</span> <span class="n">update_mvn_bash</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">[</span> <span class="o">-f</span> <span class="p">~/.</span><span class="n">bash_completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">];</span> <span class="n">then</span>
@@ -100,7 +109,8 @@ un fichier <code>~/.bash_funct</code> pour mettre toutes mes fonctions dont cell
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span></code></pre></td>
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="p">[</span> <span class="o">-f</span> <span class="p">~/.</span><span class="n">bash_funct</span> <span class="p">]</span> <span class="p">&amp;&amp;</span> <span class="n">source</span> <span class="p">~/.</span><span class="n">bash_funct</span> <span class="p">||</span> <span class="n">echo</span> <span class="s2">&#34;Couldn&#39;t load bash functions&#34;</span></code></pre></td></tr></table>
 </div>
@@ -129,7 +139,8 @@ avoir la possibilité de savoir dans quel état se trouver les sources sur lesqu
 on travaille. Ainsi il <em>faudrait</em> avoir dans le shell :</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1</span></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
 <td class="lntd">
 <pre class="chroma">?qui? ?où? ?état-git? $</pre></td></tr></table>
 </div>
@@ -137,7 +148,8 @@ on travaille. Ainsi il <em>faudrait</em> avoir dans le shell :</p>
 <p>Personnellement j&rsquo;ai configuré <strong>git completion</strong> qui me donne ceci :</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1</span></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
 <td class="lntd">
 <pre class="chroma">[0] [login] [time] [/path/to/current/folder/shortened (branch-git *%)]</pre></td></tr></table>
 </div>
@@ -151,7 +163,8 @@ quelle branch on travaille.</p>
 <li><p>télécharger git-completion.bash
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span></code></pre></td>
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">curl</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">raw</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">git</span><span class="p">/</span><span class="n">git</span><span class="p">/</span><span class="n">master</span><span class="p">/</span><span class="n">contrib</span><span class="p">/</span><span class="n">completion</span><span class="p">/</span><span class="n">git-completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">&gt;</span> <span class="p">~/.</span><span class="n">git-completion</span><span class="p">.</span><span class="n">bash</span></code></pre></td></tr></table>
 </div>
@@ -161,7 +174,8 @@ quelle branch on travaille.</p>
 <code>~/.git-completion.bash</code>:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span></code></pre></td>
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="p">[</span> <span class="o">-f</span> <span class="p">~/.</span><span class="n">git-completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">]</span> <span class="p">&amp;&amp;</span> <span class="n">source</span> <span class="p">~/.</span><span class="n">git-completion</span><span class="p">.</span><span class="n">bash</span> <span class="p">||</span> <span class="n">echo</span> <span class="s2">&#34;Couldn&#39;t load git completion&#34;</span></code></pre></td></tr></table>
 </div>
@@ -170,7 +184,9 @@ quelle branch on travaille.</p>
 <li><p>modifier votre prompt bash pour y mettre les informations de git:
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span><span class="lnt">2</span></code></pre></td>
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">PROMPT_COMMAND</span><span class="p">=</span><span class="n">prompt</span>
 <span class="n">PS1</span><span class="p">=</span><span class="s1">&#39;[${RETC}] [\033[01;34m\u\033[00m] [\033[01;33m\t\033[00m] [\[\033[1;35m\]$newPWD$(__git_ps1 &#34; \[\033[1;34m\](%s)&#34;)\[\033[0m\]]\n\$ &#39;</span></code></pre></td></tr></table>
@@ -194,7 +210,11 @@ l'état de git.
 le rendu de git-completion :
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span></code></pre></td>
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">GIT_PS1_SHOWDIRTYSTATE</span><span class="p">=</span><span class="n">1</span>
 <span class="n">GIT_PS1_SHOWUNTRACKEDFILES</span><span class="p">=</span><span class="n">1</span>
@@ -219,7 +239,8 @@ la même commande. Pour <em>git</em>, ça ne fonctionne pas comme ça. Il vous f
 aliases que vous souhaitez utiliser. Pas très compliqué :</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1</span></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
 <td class="lntd">
 <pre class="chroma">git config --global alias.alias_name value</pre></td></tr></table>
 </div>
@@ -253,7 +274,8 @@ bien sûr c&rsquo;est de les faire vous-même, ainsi vous saurez ce que vous ave
 commande <code>alias</code> sous Linux:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1</span></pre></td>
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
 <td class="lntd">
 <pre class="chroma">alias ls=&#39;rm -rf&#39;</pre></td></tr></table>
 </div>
@@ -270,7 +292,15 @@ devriez trouver un certain nombre d&rsquo;exemples.</p>
 <p>Merci à Sébastien Douche pour ça!
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span></code></pre></td>
+<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="k">function</span> <span class="n">truncate_pwd</span> <span class="p">{</span>
   <span class="n">newPWD</span><span class="p">=</span><span class="s2">&#34;${PWD/#$HOME/~}&#34;</span>
@@ -299,9 +329,10 @@ devriez trouver un certain nombre d&rsquo;exemples.</p>
 </main>
 
   <footer>
-    &copy; Adrien Lecharpentier 2012 - 2017
+    &copy; 2012 - 2019
   </footer>
 
+  </div>
 </body>
 </html>
 

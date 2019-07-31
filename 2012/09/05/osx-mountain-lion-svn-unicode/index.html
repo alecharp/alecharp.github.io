@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>alecharp&#39;s blog: OSX Mountain Lion, SVN et unicode</title>
+  <title>alecharp.fr: OSX Mountain Lion, SVN et unicode</title>
 
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,600" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
@@ -13,9 +13,11 @@
 </head>
 
 <body>
+  <div id="container">
 
 <navbar>
-  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <div class="spacer"></div>
+  <div><a href="/" title="alecharp.fr">alecharp.fr</a></div>
   <nav>
     <ul>
       <li>
@@ -25,7 +27,7 @@
         <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
       </li>
       <li>
-        <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+        <a href="/index.xml" title="alecharp.fr's RSS"><i class="fa fa-rss"></i></a>
       </li>
       <li>
         <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
@@ -76,7 +78,9 @@ commit -m &quot;Initial import, empty file&quot;</code>.</p>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1</span><span class="lnt">2</span></code></pre></td>
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="p">$</span> <span class="n">svn</span> <span class="n">status</span>
 <span class="p">$</span></code></pre></td></tr></table>
@@ -87,7 +91,10 @@ commit -m &quot;Initial import, empty file&quot;</code>.</p>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span></code></pre></td>
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="p">$</span> <span class="n">svn</span> <span class="n">status</span>
 <span class="p">?</span> <span class="n">démonstration</span><span class="p">.</span><span class="n">otp</span>
@@ -104,7 +111,16 @@ dans le nom du fichier. Donc un petit <code>locale</code> s&rsquo;impose :</p>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span><span class="lnt">6</span><span class="lnt">7</span><span class="lnt">8</span><span class="lnt">9</span></code></pre></td>
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="p">$</span> <span class="n">locale</span>
 <span class="n">LANG</span><span class="p">=</span><span class="s2">&#34;fr_FR.UTF-8&#34;</span>
@@ -125,7 +141,22 @@ pas codés pareil.</p>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span><span class="lnt">15</span></code></pre></td>
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="p">$</span> <span class="n">brew</span> <span class="n">info</span> <span class="n">subversion</span>
 <span class="err">…</span>
@@ -150,7 +181,11 @@ noms de fichiers donc problème résolu.</p>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span></code></pre></td>
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="p">$</span> <span class="n">brew</span> <span class="n">uninstall</span> <span class="n">subversion</span>
 <span class="err">…</span>
@@ -188,9 +223,10 @@ est loin d&rsquo;être finie.</p>
 </main>
 
   <footer>
-    &copy; Adrien Lecharpentier 2012 - 2017
+    &copy; 2012 - 2019
   </footer>
 
+  </div>
 </body>
 </html>
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on alecharp&#39;s blog</title>
+    <title>Posts on alecharp.fr</title>
     <link>//blog.alecharp.fr/post/</link>
-    <description>Recent content in Posts on alecharp&#39;s blog</description>
+    <description>Recent content in Posts on alecharp.fr</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr_FR</language>
     <lastBuildDate>Wed, 13 Dec 2017 00:00:00 +0000</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Kubernetes @ Home</title>
-      <link>//blog.alecharp.fr/2017/12/13/Kubernetes--Home/</link>
+      <link>//blog.alecharp.fr/2017/12/13/Kubernetes-Home/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>//blog.alecharp.fr/2017/12/13/Kubernetes--Home/</guid>
+      <guid>//blog.alecharp.fr/2017/12/13/Kubernetes-Home/</guid>
       <description>For many years now, I have a Jenkins running at home, for my personal projects. The problem is that, it&amp;rsquo;s running on my laptop. So, I basically have a setup where Jenkins tells me &amp;ldquo;it works on [your] computer&amp;rdquo;. This is far from ideal.
 Following home&amp;rsquo;s lab There are 2 articles I read recently which gave me the motivation to have a proper setup at home. Few days ago, the excellent Jessie Frazelle wrote a post about labs at home.</description>
     </item>
@@ -49,7 +49,7 @@ Do your tests, damn it! So first, I did some tests. The PR was about database in
       <guid>//blog.alecharp.fr/2015/02/18/Get-videos-from-youtube-with-docker-part-2/</guid>
       <description>In my previous post here, I&amp;rsquo;ve shown how I get fetch videos from Youtube from my command line without installing anything else than Docker. But the command to type is way too complicated
 So I made a shell script to easily use my docker container.
-12345678 #!/bin/sh ## Author: Adrien Lecharpentier &amp;lt;adrien.lecharpentier@gmail.com&amp;gt;  status=$(boot2docker status) if [ &amp;#34;${status}&amp;#34; != &amp;#34;running&amp;#34; ]; then boot2docker start fi docker run -ti -v &amp;#34;$(pwd)&amp;#34;:/downloads alecharp/get-videos:latest $@   This way, I can easily download any youtube (or other) videos without having to remember every argument to give to the docker command.</description>
+1 2 3 4 5 6 7 8  #!/bin/sh ## Author: Adrien Lecharpentier &amp;lt;adrien.lecharpentier@gmail.com&amp;gt; status=$(boot2docker status) if [ &amp;#34;${status}&amp;#34; != &amp;#34;running&amp;#34; ]; then boot2docker start fi docker run -ti -v &amp;#34;$(pwd)&amp;#34;:/downloads alecharp/get-videos:latest $@   This way, I can easily download any youtube (or other) videos without having to remember every argument to give to the docker command.</description>
     </item>
     
     <item>
@@ -70,7 +70,7 @@ Youtube-dl For a year or two, I used youtube-dl to download any videos from the 
       <guid>//blog.alecharp.fr/2015/01/22/Docker-mr-proper-speaking/</guid>
       <description>Since a couple of weeks, I&amp;rsquo;m using docker for development purpose but also to fix some code issues. I&amp;rsquo;m also using it for this blog..
 But even if I have a quite large hard drive (512GB), from time to time I like to remove all the containers and from time to time, also the images. So:
-1 docker rm $(docker ps -aq) &amp;amp;&amp;amp; docker rmi $(docker images -q)   It&amp;rsquo;s remind me the make mrproper I had in my old Makefile to remove all generated files from my C projects.</description>
+1  docker rm $(docker ps -aq) &amp;amp;&amp;amp; docker rmi $(docker images -q)   It&amp;rsquo;s remind me the make mrproper I had in my old Makefile to remove all generated files from my C projects.</description>
     </item>
     
     <item>
@@ -224,8 +224,8 @@ Dernier en date : utilisation de la méthode finalize de Java.</description>
       <guid>//blog.alecharp.fr/2013/04/25/svn-git-les-auteurs/</guid>
       <description>Juste pour mon souvenir : Git c&amp;rsquo;est mieux que Subversion. Rapide, discret, efficace. Bref je ne veux plus faire de Subversion.
 Malheureusement, la vie c&amp;rsquo;est dur et du Subversion il y en a partout. Si si je vous jure ! La solution ? git-svn.
-1 git svn clone https://svn-repo-url   Pas aussi simple : il vous faut les auteurs (au moins).
-1 svn log --quiet https://svn-repo-url | awk &amp;#39;/^r/ {print $3}&amp;#39; | sort -u   * merci à stackoverflow et Mike DeSimone</description>
+1  git svn clone https://svn-repo-url   Pas aussi simple : il vous faut les auteurs (au moins).
+1  svn log --quiet https://svn-repo-url | awk &amp;#39;/^r/ {print $3}&amp;#39; | sort -u   * merci à stackoverflow et Mike DeSimone</description>
     </item>
     
     <item>

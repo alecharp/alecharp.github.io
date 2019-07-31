@@ -4,7 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>alecharp&#39;s blog: Génération automatique avec jekill, git / github et apache</title>
+  <title>alecharp.fr: Génération automatique avec jekill, git / github et apache</title>
 
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:200,600" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
@@ -13,9 +13,11 @@
 </head>
 
 <body>
+  <div id="container">
 
 <navbar>
-  <div><a href="/" title="alecharp&#39;s blog">alecharp&#39;s blog</a></div>
+  <div class="spacer"></div>
+  <div><a href="/" title="alecharp.fr">alecharp.fr</a></div>
   <nav>
     <ul>
       <li>
@@ -25,7 +27,7 @@
         <a href="//github.com/alecharp" title="alecharp's Github"><i class="fa fa-github"></i></a>
       </li>
       <li>
-        <a href="/index.xml" title="alecharp&#39;s blog's RSS"><i class="fa fa-rss"></i></a>
+        <a href="/index.xml" title="alecharp.fr's RSS"><i class="fa fa-rss"></i></a>
       </li>
       <li>
         <a href="//speakerdeck.com/alecharp" title="alecharp's SpeakerDeck"><i class="fa fa-slideshare"></i></a>
@@ -71,7 +73,21 @@ posts en <em>markdown</em> ça se comprend aussi.</p>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt"> 1</span><span class="lnt"> 2</span><span class="lnt"> 3</span><span class="lnt"> 4</span><span class="lnt"> 5</span><span class="lnt"> 6</span><span class="lnt"> 7</span><span class="lnt"> 8</span><span class="lnt"> 9</span><span class="lnt">10</span><span class="lnt">11</span><span class="lnt">12</span><span class="lnt">13</span><span class="lnt">14</span></code></pre></td>
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="c">#!/bin/sh</span>
 
@@ -95,7 +111,12 @@ très bien rajouter quelques lignes pour le faire s&rsquo;il n&rsquo;existe pas:
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-PowerShell" data-lang="PowerShell"><span class="p">...</span>
 <span class="k">if</span> <span class="p">[</span> <span class="p">!</span> <span class="n">-d</span> <span class="p">${</span><span class="n">git_dir</span><span class="p">}/.</span><span class="n">git</span> <span class="p">];</span> <span class="n">then</span>
@@ -120,13 +141,18 @@ le script que l&rsquo;on a écrit juste avant.</p>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-apache" data-lang="apache"><span class="lnt">1</span><span class="lnt">2</span><span class="lnt">3</span><span class="lnt">4</span><span class="lnt">5</span></code></pre></td>
+<pre class="chroma"><code class="language-apache" data-lang="apache"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-apache" data-lang="apache"><span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
   <span class="nb">ServerName</span> name.extension
   <span class="nb">DocumentRoot</span> <span class="sx">/path/to/site/folder</span>
   <span class="nb">ScriptAlias</span> <span class="sx">/name-that-you-choose/</span> <span class="sx">/path/to/scripts/folder</span>
-<span class="nt">&lt;/VirtualHost</span><span class="s"></span><span class="nt">&gt;</span></code></pre></td></tr></table>
+<span class="nt">&lt;/VirtualHost&gt;</span></code></pre></td></tr></table>
 </div>
 </div>
 
@@ -188,9 +214,10 @@ direz-vous.</p>
 </main>
 
   <footer>
-    &copy; Adrien Lecharpentier 2012 - 2017
+    &copy; 2012 - 2019
   </footer>
 
+  </div>
 </body>
 </html>
 
