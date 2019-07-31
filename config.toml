@@ -2,12 +2,16 @@ baseURL = "//blog.alecharp.fr"
 disablePathToLower = true
 languageCode = "fr_FR"
 author = "Adrien Lecharpentier"
-title = "alecharp's blog"
+title = "alecharp.fr"
 
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsOptions = "linenos=table"
+
+enableEmoji = true
+
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params]
 twitter = "alecharp"

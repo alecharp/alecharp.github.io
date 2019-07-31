@@ -9,7 +9,7 @@ build:
 
 run: build codestyle
 	@docker run --rm -ti \
-	  -v $(CURDIR):/usr/src/blog \
+		-v $(CURDIR):/usr/src/blog \
 		-p $(PORT):$(PORT) \
 		${DOCKER_IMAGE} hugo server -FD --disableFastRender --port=$(PORT) --bind=0.0.0.0
 
@@ -22,7 +22,7 @@ less:
 	@docker run --rm -ti \
 	  -v $(CURDIR):/usr/src/blog \
 		-w /usr/src/blog \
-		node:9-alpine \
+		node:11-alpine \
 			sh -c "npm install -g less less-plugin-clean-css && \
 			lessc --clean-css less/index.less static/css/index.css"
 
